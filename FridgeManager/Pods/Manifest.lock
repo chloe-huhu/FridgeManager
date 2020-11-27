@@ -328,7 +328,9 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - PagingKit (1.15.0)
   - PromisesObjC (1.2.11)
+  - RAMAnimatedTabBarController (5.2.0)
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
@@ -336,6 +338,8 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - PagingKit
+  - RAMAnimatedTabBarController
   - SwiftLint
 
 SPEC REPOS:
@@ -357,7 +361,9 @@ SPEC REPOS:
     - gRPC-Core
     - leveldb-library
     - nanopb
+    - PagingKit
     - PromisesObjC
+    - RAMAnimatedTabBarController
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -378,9 +384,11 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  PagingKit: 4bd58b65d71a82ab98486b6927e870c7fbc6c6eb
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 0694d630551f2b0138385384238383acb9b502b0
+PODFILE CHECKSUM: 5feb7d05e59c7f7a84c0ba346fefa75c56d08fde
 
 COCOAPODS: 1.10.0

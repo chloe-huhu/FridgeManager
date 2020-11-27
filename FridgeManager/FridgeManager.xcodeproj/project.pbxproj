@@ -8,9 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		9CDCC779CADF62A1818499D9 /* Pods_FridgeManager_FridgeManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F313871C88389A371CCC6 /* Pods_FridgeManager_FridgeManagerUITests.framework */; };
+		AE1501612570E4C100315B7F /* PagingFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1501602570E4C100315B7F /* PagingFocusView.swift */; };
+		AE1501AF2570EA8C00315B7F /* FocusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE1501AE2570EA8C00315B7F /* FocusView.xib */; };
+		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
+		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
+		AE7675ED2570C9A50089448E /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7675EB2570C9A50089448E /* MenuCell.swift */; };
+		AE7675EE2570C9A50089448E /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7675EC2570C9A50089448E /* MenuCell.xib */; };
+		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
+		AE829A9B257006AB00A04400 /* FoodListUItableviewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A9A257006AB00A04400 /* FoodListUItableviewcell.swift */; };
+		AE9A470E2570B0240067CFD2 /* PagingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A470D2570B0240067CFD2 /* PagingMenuViewController.swift */; };
+		AE9A47162570B0420067CFD2 /* PagingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A47152570B0420067CFD2 /* PagingContentViewController.swift */; };
 		AED556DC256E48190068A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DB256E48190068A855 /* AppDelegate.swift */; };
 		AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DD256E48190068A855 /* SceneDelegate.swift */; };
-		AED556E0256E48190068A855 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DF256E48190068A855 /* ViewController.swift */; };
+		AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DF256E48190068A855 /* FoodListViewController.swift */; };
 		AED556E3256E48190068A855 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED556E1256E48190068A855 /* Main.storyboard */; };
 		AED556E5256E481B0068A855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED556E4256E481B0068A855 /* Assets.xcassets */; };
 		AED556E8256E481B0068A855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED556E6256E481B0068A855 /* LaunchScreen.storyboard */; };
@@ -41,10 +51,20 @@
 /* Begin PBXFileReference section */
 		97CD39AD8EAF13870C26ABDD /* Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A76F666C7A6E0046B73F9E17 /* Pods-FridgeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE1501602570E4C100315B7F /* PagingFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingFocusView.swift; sourceTree = "<group>"; };
+		AE1501AE2570EA8C00315B7F /* FocusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusView.xib; sourceTree = "<group>"; };
+		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
+		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		AE7675EB2570C9A50089448E /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		AE7675EC2570C9A50089448E /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		AE829A9A257006AB00A04400 /* FoodListUItableviewcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListUItableviewcell.swift; sourceTree = "<group>"; };
+		AE9A470D2570B0240067CFD2 /* PagingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingMenuViewController.swift; sourceTree = "<group>"; };
+		AE9A47152570B0420067CFD2 /* PagingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingContentViewController.swift; sourceTree = "<group>"; };
 		AED556D8256E48190068A855 /* FridgeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED556DB256E48190068A855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED556DD256E48190068A855 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AED556DF256E48190068A855 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AED556DF256E48190068A855 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		AED556E2256E48190068A855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AED556E4256E481B0068A855 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AED556E7256E481B0068A855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,6 +136,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE5F8840256FE44100A97CD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AED556DF256E48190068A855 /* FoodListViewController.swift */,
+				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
+				AE9A470D2570B0240067CFD2 /* PagingMenuViewController.swift */,
+				AE9A47152570B0420067CFD2 /* PagingContentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AE5F8841256FE45900A97CD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE829A9A257006AB00A04400 /* FoodListUItableviewcell.swift */,
+				AE1501AE2570EA8C00315B7F /* FocusView.xib */,
+				AE1501602570E4C100315B7F /* PagingFocusView.swift */,
+				AE7675EB2570C9A50089448E /* MenuCell.swift */,
+				AE7675EC2570C9A50089448E /* MenuCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE5F8842256FE46100A97CD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE5F8846256FE47D00A97CD0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
+				AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		AED556CF256E48190068A855 = {
 			isa = PBXGroup;
 			children = (
@@ -141,10 +200,13 @@
 		AED556DA256E48190068A855 /* FridgeManager */ = {
 			isa = PBXGroup;
 			children = (
+				AED556E1256E48190068A855 /* Main.storyboard */,
+				AE5F8846256FE47D00A97CD0 /* Extension */,
+				AE5F8840256FE44100A97CD0 /* Controller */,
+				AE5F8841256FE45900A97CD0 /* View */,
+				AE5F8842256FE46100A97CD0 /* Model */,
 				AED556DB256E48190068A855 /* AppDelegate.swift */,
 				AED556DD256E48190068A855 /* SceneDelegate.swift */,
-				AED556DF256E48190068A855 /* ViewController.swift */,
-				AED556E1256E48190068A855 /* Main.storyboard */,
 				AED556E4256E481B0068A855 /* Assets.xcassets */,
 				AED556E6256E481B0068A855 /* LaunchScreen.storyboard */,
 				AED556E9256E481B0068A855 /* Info.plist */,
@@ -281,7 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AED556E8256E481B0068A855 /* LaunchScreen.storyboard in Resources */,
+				AE1501AF2570EA8C00315B7F /* FocusView.xib in Resources */,
 				AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */,
+				AE7675EE2570C9A50089448E /* MenuCell.xib in Resources */,
 				AED556E5256E481B0068A855 /* Assets.xcassets in Resources */,
 				AED556E3256E48190068A855 /* Main.storyboard in Resources */,
 			);
@@ -429,9 +493,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AED556E0256E48190068A855 /* ViewController.swift in Sources */,
+				AE9A47162570B0420067CFD2 /* PagingContentViewController.swift in Sources */,
+				AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */,
+				AE1501612570E4C100315B7F /* PagingFocusView.swift in Sources */,
+				AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
+				AE9A470E2570B0240067CFD2 /* PagingMenuViewController.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
+				AE7675ED2570C9A50089448E /* MenuCell.swift in Sources */,
+				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
+				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
+				AE829A9B257006AB00A04400 /* FoodListUItableviewcell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

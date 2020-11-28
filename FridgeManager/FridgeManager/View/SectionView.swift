@@ -16,7 +16,7 @@ class SectionView: UITableViewHeaderFooterView {
     @IBOutlet var foodImage: UIImageView!
     @IBOutlet var foodTitleLabel: UILabel!
     @IBOutlet var foodAmountLabel: UILabel!
-    @IBOutlet var moreData: UIButton!
+    @IBOutlet var moreDataBtn: UIButton!
     
     weak var delegate: SectionViewDelegate?
     var buttonTag: Int!
@@ -25,9 +25,9 @@ class SectionView: UITableViewHeaderFooterView {
     @IBAction func pressExpendBtn(_ sender: UIButton) {
         self.delegate?.sectionView(self, self.buttonTag, self.isExpand)
     }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+//    }
 }

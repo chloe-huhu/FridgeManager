@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A983770812F919D34BAD7D2C5A7EA95C"
-               BuildableName = "FoldingCell.framework"
-               BlueprintName = "FoldingCell"
+               BlueprintIdentifier = "8F7E0B635700AA682AB4E838D48ACFD5"
+               BuildableName = "RHSideButtons.framework"
+               BlueprintName = "RHSideButtons"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

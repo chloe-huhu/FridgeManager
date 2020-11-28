@@ -271,7 +271,6 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
-  - FoldingCell (5.0.2)
   - GoogleAppMeasurement (6.9.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -331,6 +330,7 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.11)
   - RAMAnimatedTabBarController (5.2.0)
+  - RHSideButtons (1.1.0)
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
@@ -338,8 +338,8 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Firestore
   - FirebaseFirestoreSwift
-  - FoldingCell
   - RAMAnimatedTabBarController
+  - RHSideButtons
   - SwiftLint
 
 SPEC REPOS:
@@ -354,7 +354,6 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFirestoreSwift
     - FirebaseInstallations
-    - FoldingCell
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -364,6 +363,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - RAMAnimatedTabBarController
+    - RHSideButtons
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -377,7 +377,6 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 9b2f1b9b9a6f2f0b6fb7484b9e32ab7e39243554
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  FoldingCell: f92eb5fb9842319e7cd08c71533c98408b785099
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
@@ -387,8 +386,9 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  RHSideButtons: 9de185791d8119bd1160f6dcb88e47b9ad93d192
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: eee42ff374f80bfd9db76636b1db21281a407749
+PODFILE CHECKSUM: f40e0a4dd90ea877de07ab5d9df4e7c3b8f74cdd
 
 COCOAPODS: 1.10.0

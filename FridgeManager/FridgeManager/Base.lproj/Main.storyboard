@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,14 +30,25 @@
             <objects>
                 <viewController id="11Y-fg-Zvc" customClass="FoodListViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RvM-vK-2Fh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-9S-ncY">
+                                <rect key="frame" x="0.0" y="50" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="zx9-vr-LdG"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
+                                <rect key="frame" x="0.0" y="61" width="414" height="664"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QdN-hg-mrH">
-                                <rect key="frame" x="0.0" y="98" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-qr-Tf3">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                         <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="全部食材" image="tray.full" catalog="system">
@@ -47,7 +59,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxl-8J-EAy">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="45"/>
+                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="即將過期" image="clock.arrow.circlepath" catalog="system">
@@ -58,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPy-6x-pG3">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="45"/>
+                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="已經過期" image="exclamationmark.arrow.circlepath" catalog="system">
@@ -69,49 +81,44 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="as6-nu-fs7"/>
+                                    <constraint firstAttribute="height" constant="50" id="as6-nu-fs7"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-9S-ncY">
-                                <rect key="frame" x="0.0" y="143" width="414" height="1"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-Q0-iUD">
-                                        <rect key="frame" x="0.0" y="-5" width="120" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="zx9-vr-LdG"/>
-                                </constraints>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-Q0-iUD">
+                                <rect key="frame" x="14" y="8" width="110" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
-                                <rect key="frame" x="0.0" y="147" width="414" height="666"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dOT-2j-cYK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="rcz-9S-ncY" secondAttribute="trailing" id="4WU-Mg-hSd"/>
-                            <constraint firstItem="o8F-l7-rEU" firstAttribute="top" secondItem="rcz-9S-ncY" secondAttribute="bottom" constant="3" id="4xp-l3-7Nh"/>
+                            <constraint firstItem="o8F-l7-rEU" firstAttribute="top" secondItem="rcz-9S-ncY" secondAttribute="bottom" constant="10" id="4xp-l3-7Nh"/>
                             <constraint firstItem="rcz-9S-ncY" firstAttribute="top" secondItem="QdN-hg-mrH" secondAttribute="bottom" id="592-y8-p01"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="bottom" secondItem="o8F-l7-rEU" secondAttribute="bottom" id="DPJ-0F-GeR"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="QdN-hg-mrH" secondAttribute="trailing" id="EZN-hs-zNM"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="o8F-l7-rEU" secondAttribute="trailing" id="OZJ-Di-c8N"/>
-                            <constraint firstItem="QdN-hg-mrH" firstAttribute="top" secondItem="dOT-2j-cYK" secondAttribute="top" constant="10" id="lIo-fj-9Bb"/>
+                            <constraint firstItem="QdN-hg-mrH" firstAttribute="top" secondItem="dOT-2j-cYK" secondAttribute="top" id="lIo-fj-9Bb"/>
                             <constraint firstItem="rcz-9S-ncY" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="mdI-C6-vZx"/>
                             <constraint firstItem="o8F-l7-rEU" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="oaJ-Fr-w7c"/>
                             <constraint firstItem="QdN-hg-mrH" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="uQd-Du-Rw6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="冰箱食材" id="Elk-vc-w7N">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="AZM-iE-k1W">
+                    <navigationItem key="navigationItem" title="冰箱食材" largeTitleDisplayMode="never" id="Elk-vc-w7N">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="AZM-iE-k1W">
+                            <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease.circle" catalog="system" id="HDs-eB-Fjv">
+                        <barButtonItem key="rightBarButtonItem" title="過濾" id="HDs-eB-Fjv">
+                            <imageReference key="image" image="line.horizontal.3.decrease.circle" catalog="system" symbolScale="large"/>
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="30" maxX="30" maxY="0.0"/>
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -139,6 +146,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -161,7 +169,8 @@
         <scene sceneID="IP3-TI-O8R">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dR5-86-0hG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="clipboard-1" selectedImage="clipboard-1" id="hRc-63-nVx" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="bag.fill.badge.plus" catalog="system" id="hRc-63-nVx" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="bag.fill.badge.plus" catalog="system" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
@@ -229,7 +238,8 @@
         <scene sceneID="X9s-75-8Ea">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GnR-h4-wYg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="fridge-1" selectedImage="fridge-1" id="0gz-GX-UJJ" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="thermometer.snowflake" catalog="system" id="0gz-GX-UJJ" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="thermometer.snowflake" catalog="system" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
@@ -241,9 +251,10 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KEK-70-FQX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KEK-70-FQX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                             <color key="textColor" red="0.24705882352941178" green="0.23921568627450979" blue="0.33725490196078434" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
@@ -267,7 +278,8 @@
         <scene sceneID="80u-F6-W7t">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="81u-89-Gpe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="recipes-1" selectedImage="recipes-1" id="mcT-im-OiG" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="books.vertical.fill" catalog="system" id="mcT-im-OiG" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="book.closed.fill" catalog="system" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
@@ -301,7 +313,8 @@
         <scene sceneID="c3J-hb-HyE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4E9-oC-mVO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="gear" selectedImage="gear" id="E1y-L5-AG3" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="gearshape.2.fill" catalog="system" id="E1y-L5-AG3" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="gearshape.2.fill" catalog="system" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
@@ -333,17 +346,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clipboard-1" width="32" height="32"/>
+        <image name="bag.fill.badge.plus" catalog="system" width="128" height="128"/>
+        <image name="book.closed.fill" catalog="system" width="115" height="128"/>
+        <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="exclamationmark.arrow.circlepath" catalog="system" width="128" height="110"/>
-        <image name="fridge-1" width="32" height="32"/>
-        <image name="gear" width="32" height="32"/>
+        <image name="gearshape.2.fill" catalog="system" width="128" height="100"/>
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="recipes-1" width="32" height="32"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="thermometer.snowflake" catalog="system" width="119" height="128"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

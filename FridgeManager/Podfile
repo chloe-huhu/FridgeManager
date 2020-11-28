@@ -16,7 +16,8 @@ target 'FridgeManager' do
     pod 'FirebaseFirestoreSwift'
     pod 'Firebase/Analytics'
     pod 'RAMAnimatedTabBarController'
-    pod 'FoldingCell'
+    pod 'RHSideButtons'
+ 
 
   target 'FridgeManagerTests' do
     inherit! :search_paths

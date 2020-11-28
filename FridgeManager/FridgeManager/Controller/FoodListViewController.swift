@@ -11,12 +11,12 @@ import FirebaseFirestore
 
 class FoodListViewController: UIViewController {
     
-    let sectionDataList: [String] = ["甲類", "乙類", "丙類"]
-        let cellDataList: [[String]] = [["甲-A", "甲-B", "甲-C"],
-                                        ["乙-A", "乙-B", "乙-C", "乙-D", "乙-E"],
+    let sectionDataList: [String] = ["甲級", "乙級", "丙級", "丁級", "戊級", "己級", "庚級", "壬級", "癸級" ]
+        let cellDataList: [[String]] = [["岩柱", "霞柱", "風柱"],
+                                        ["炎柱", "水柱", "戀柱", "蛇柱", "音柱"],
                                         ["丙-A", "丙-B", "丙-C", "丙-D", "丙-E", "丙-F", "丙-G"]]
     
-    var isExpendDataList: [Bool] = [false, false, false]
+    var isExpendDataList: [Bool] = [false, false, false, false, false, false, false, false, false]
     
     let searchButton = UIButton()
     var database: Firestore!
@@ -27,8 +27,8 @@ class FoodListViewController: UIViewController {
     
     @IBOutlet weak var allButton: UIButton!{
         didSet {
-            allButton.setTitleColor(.chloeYellow, for: .normal)
-            allButton.tintColor = UIColor.chloeYellow
+            allButton.setTitleColor(.white, for: .normal)
+            allButton.tintColor = .white
         }
     }
     
@@ -92,26 +92,26 @@ class FoodListViewController: UIViewController {
     func btnPressedColor(type: ShowCategory) {
         switch showCategory {
         case .all:
-            allButton.setTitleColor(.chloeYellow, for: .normal)
+            allButton.setTitleColor(.white, for: .normal)
+            allButton.tintColor = .white
             soonExpiredButton.setTitleColor(.chloeBlue, for: .normal)
             expiredButton.setTitleColor(.chloeBlue, for: .normal)
-            allButton.tintColor = UIColor.chloeYellow
-            soonExpiredButton.tintColor = UIColor.chloeBlue
-            expiredButton.tintColor = UIColor.chloeBlue
+            soonExpiredButton.tintColor = .chloeBlue
+            expiredButton.tintColor = .chloeBlue
         case .soonExpired:
-            soonExpiredButton.setTitleColor(.chloeYellow, for: .normal)
+            soonExpiredButton.setTitleColor(.white, for: .normal)
+            soonExpiredButton.tintColor = .white
             allButton.setTitleColor(.chloeBlue, for: .normal)
             expiredButton.setTitleColor(.chloeBlue, for: .normal)
-            soonExpiredButton.tintColor = UIColor.chloeYellow
-            allButton.tintColor = UIColor.chloeBlue
-            expiredButton.tintColor = UIColor.chloeBlue
+            allButton.tintColor = .chloeBlue
+            expiredButton.tintColor = .chloeBlue
         case .expired:
-            expiredButton.setTitleColor(.chloeYellow, for: .normal)
+            expiredButton.setTitleColor(.white, for: .normal)
+            expiredButton.tintColor = .white
             allButton.setTitleColor(.chloeBlue, for: .normal)
             soonExpiredButton.setTitleColor(.chloeBlue, for: .normal)
-            expiredButton.tintColor = UIColor.chloeYellow
-            allButton.tintColor = UIColor.chloeBlue
-            soonExpiredButton.tintColor = UIColor.chloeBlue
+            allButton.tintColor = .chloeBlue
+            soonExpiredButton.tintColor = .chloeBlue
         }
         
     }
@@ -121,16 +121,16 @@ class FoodListViewController: UIViewController {
         switch showCategory {
         case .all:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = 0
+                self.sliderView.frame.origin.x = 6
             }
     
         case .soonExpired:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = (self.view.frame.width)/3
+                self.sliderView.frame.origin.x = ((self.view.frame.width)/3)+6
             }
         case .expired:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = (self.view.frame.width)/3*2
+                self.sliderView.frame.origin.x = ((self.view.frame.width)/3*2)+6
             }
         }
     }
@@ -178,8 +178,6 @@ extension FoodListViewController: UITableViewDelegate {
         sectionView.buttonTag = section
         sectionView.delegate = self
 
-        sectionView.moreData.setTitle(self.isExpendDataList[section] == true ? "↓" : "↑", for: .normal)
-
         // 名字
         sectionView.foodTitleLabel.text = self.sectionDataList[section]
 
@@ -191,6 +189,7 @@ extension FoodListViewController: UITableViewDelegate {
        }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
+        
     }
 }
 

@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ShowCategoryCategory {
+enum ShowCategory {
     case all, soonExpired, expired
 }

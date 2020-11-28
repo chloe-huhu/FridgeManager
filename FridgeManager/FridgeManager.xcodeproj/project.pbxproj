@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9CDCC779CADF62A1818499D9 /* Pods_FridgeManager_FridgeManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F313871C88389A371CCC6 /* Pods_FridgeManager_FridgeManagerUITests.framework */; };
-		AE41B03A257169D0006C6EFD /* FoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B039257169D0006C6EFD /* FoodListTableViewCell.swift */; };
 		AE41B04525716C59006C6EFD /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* Enum.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
+		AE7D32412572395B00D97E23 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D32402572395B00D97E23 /* SectionView.swift */; };
 		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
+		AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCAE62572401D00CD44F3 /* CellView.swift */; };
+		AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAE72572401D00CD44F3 /* CellView.xib */; };
+		AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAF72572488F00CD44F3 /* SectionView.xib */; };
+		AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCB02257251C700CD44F3 /* CardView.swift */; };
 		AED556DC256E48190068A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DB256E48190068A855 /* AppDelegate.swift */; };
 		AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DD256E48190068A855 /* SceneDelegate.swift */; };
 		AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DF256E48190068A855 /* FoodListViewController.swift */; };
@@ -46,11 +50,15 @@
 /* Begin PBXFileReference section */
 		97CD39AD8EAF13870C26ABDD /* Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A76F666C7A6E0046B73F9E17 /* Pods-FridgeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AE41B039257169D0006C6EFD /* FoodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodListTableViewCell.swift; path = FridgeManager/Controller/FoodListTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AE41B04425716C59006C6EFD /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		AE7D32402572395B00D97E23 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		AE9DCAE62572401D00CD44F3 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellView.swift; path = FridgeManager/CellView.swift; sourceTree = SOURCE_ROOT; };
+		AE9DCAE72572401D00CD44F3 /* CellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellView.xib; path = FridgeManager/CellView.xib; sourceTree = SOURCE_ROOT; };
+		AE9DCAF72572488F00CD44F3 /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
+		AE9DCB02257251C700CD44F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AED556D8256E48190068A855 /* FridgeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED556DB256E48190068A855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED556DD256E48190068A855 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +146,11 @@
 		AE5F8841256FE45900A97CD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE41B039257169D0006C6EFD /* FoodListTableViewCell.swift */,
+				AE9DCAF72572488F00CD44F3 /* SectionView.xib */,
+				AE7D32402572395B00D97E23 /* SectionView.swift */,
+				AE9DCB02257251C700CD44F3 /* CardView.swift */,
+				AE9DCAE62572401D00CD44F3 /* CellView.swift */,
+				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,9 +339,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */,
 				AED556E8256E481B0068A855 /* LaunchScreen.storyboard in Resources */,
 				AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */,
 				AED556E5256E481B0068A855 /* Assets.xcassets in Resources */,
+				AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */,
 				AED556E3256E48190068A855 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,13 +490,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7D32412572395B00D97E23 /* SectionView.swift in Sources */,
 				AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */,
 				AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */,
 				AE41B04525716C59006C6EFD /* Enum.swift in Sources */,
+				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
+				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
-				AE41B03A257169D0006C6EFD /* FoodListTableViewCell.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

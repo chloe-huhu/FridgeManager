@@ -271,6 +271,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
+  - FoldingCell (5.0.2)
   - GoogleAppMeasurement (6.9.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -337,6 +338,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - FoldingCell
   - RAMAnimatedTabBarController
   - SwiftLint
 
@@ -352,6 +354,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFirestoreSwift
     - FirebaseInstallations
+    - FoldingCell
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -374,6 +377,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 9b2f1b9b9a6f2f0b6fb7484b9e32ab7e39243554
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
+  FoldingCell: f92eb5fb9842319e7cd08c71533c98408b785099
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
@@ -385,6 +389,6 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 904ad63f47628907451b6375b4739465d17d9556
+PODFILE CHECKSUM: eee42ff374f80bfd9db76636b1db21281a407749
 
 COCOAPODS: 1.10.0

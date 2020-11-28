@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="603" y="1711"/>
         </scene>
-        <!--冰箱食材列表-->
+        <!--冰箱食材-->
         <scene sceneID="6eV-MN-tij">
             <objects>
                 <viewController id="11Y-fg-Zvc" customClass="FoodListViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,30 +35,33 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QdN-hg-mrH">
                                 <rect key="frame" x="0.0" y="98" width="414" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-qr-Tf3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-qr-Tf3">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="45"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                        <state key="normal" title="全部食材">
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="全部食材" image="tray.full" catalog="system">
                                             <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="allPressed:" destination="11Y-fg-Zvc" eventType="touchUpInside" id="RKS-Ei-OOp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxl-8J-EAy">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxl-8J-EAy">
                                         <rect key="frame" x="138" y="0.0" width="138" height="45"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                        <state key="normal" title="即將過期">
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="即將過期" image="clock.arrow.circlepath" catalog="system">
                                             <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="soonExpiredPressed:" destination="11Y-fg-Zvc" eventType="touchUpInside" id="kql-aR-3jX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPy-6x-pG3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPy-6x-pG3">
                                         <rect key="frame" x="276" y="0.0" width="138" height="45"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                        <state key="normal" title="已經過期">
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="已經過期" image="exclamationmark.arrow.circlepath" catalog="system">
                                             <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -74,7 +77,7 @@
                                 <rect key="frame" x="0.0" y="143" width="414" height="1"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-Q0-iUD">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="3"/>
+                                        <rect key="frame" x="0.0" y="-5" width="120" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -87,16 +90,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
                                 <rect key="frame" x="0.0" y="147" width="414" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" id="DZP-7t-sqT" customClass="FoodListTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZP-7t-sqT" id="zGp-8v-GfC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dOT-2j-cYK"/>
@@ -114,7 +107,7 @@
                             <constraint firstItem="QdN-hg-mrH" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="uQd-Du-Rw6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="冰箱食材列表" id="Elk-vc-w7N">
+                    <navigationItem key="navigationItem" title="冰箱食材" id="Elk-vc-w7N">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="AZM-iE-k1W">
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -341,11 +334,14 @@
     </scenes>
     <resources>
         <image name="clipboard-1" width="32" height="32"/>
+        <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
+        <image name="exclamationmark.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="fridge-1" width="32" height="32"/>
         <image name="gear" width="32" height="32"/>
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="recipes-1" width="32" height="32"/>
+        <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

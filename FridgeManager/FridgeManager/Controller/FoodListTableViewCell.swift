@@ -1,13 +1,13 @@
 //
-//  FoodListUItableviewcell.swift
+//  FoodListTableViewCell.swift
 //  FridgeManager
 //
-//  Created by ChloeHuHu on 2020/11/26.
+//  Created by ChloeHuHu on 2020/11/28.
 //
 
 import UIKit
 
-class FoodListUItableviewcell: UITableViewCell {
+class FoodListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

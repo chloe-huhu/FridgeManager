@@ -8,51 +8,36 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
-import PagingKit
 
 class FoodListViewController: UIViewController {
     
-    var database: Firestore!
+    
     let searchButton = UIButton()
-    var menuViewController: PagingMenuViewController!
-    var contentViewController: PagingContentViewController!
+    var database: Firestore!
+    var showCategory: ShowCategoryCategory = .all
     
-    static var viewController: (UIColor) -> UIViewController = { (color) in
-        let vc = UIViewController()
-        vc.view.backgroundColor = color
-        return vc
+    @IBOutlet weak var searchBarButton: UIBarButtonItem!
+    @IBOutlet weak var fliterBarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var allButton: UIButton!{
+        didSet {
+            allButton.setTitleColor(.chloeYellow, for: .normal)
+        }
     }
+    @IBOutlet weak var soonExpiredButton: UIButton!
+    @IBOutlet weak var expiredButton: UIButton!
+    @IBOutlet weak var sliderView: UIView!
     
-    var dataSource = [
-        (menuTitle: "全部食材", vc: viewController(.red)),
-        (menuTitle: "準備過期", vc: viewController(.blue)),
-        (menuTitle: "已經過期", vc: viewController(.yellow))
-    ]
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerNib()
-        tabBarSetup()
         navigationTitleSetup()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let menuVC = segue.destination as? PagingMenuViewController {
-            menuViewController = menuVC
-            menuViewController.dataSource = self
-            menuViewController.delegate = self
-        } else if let contentVC = segue.destination as? PagingContentViewController {
-            contentViewController = contentVC
-            contentViewController.dataSource = self
-            contentViewController.delegate = self
-            contentViewController.reloadData()
-        }
+        tabBarSetup()
+        configTableView()
     }
     
     func navigationTitleSetup() {
-        navigationItem.title = "食物列表"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.greyishBrown]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "PingFangTC-Semibold", size: 20)!]
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -64,56 +49,68 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.clipsToBounds = true
     }
     
-    func registerNib() {
-        menuViewController.register(nib: UINib(nibName: "MenuCell", bundle: nil), forCellWithReuseIdentifier: "MenuCell")
-        menuViewController.registerFocusView(nib: UINib(nibName: "FocusView", bundle: nil))
-        menuViewController.reloadData()
-    }
-}
-
-extension FoodListViewController: PagingMenuViewControllerDataSource {
-    
-    func numberOfItemsForMenuViewController(viewController: PagingMenuViewController) -> Int {
-        return dataSource.count
+    func configTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-    func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
-        guard let cell = viewController.dequeueReusableCell(
-                withReuseIdentifier: "MenuCell",
-                for: index) as? MenuCell
-        else {
-            return PagingMenuViewCell()
+    @IBAction func allPressed(_ sender: UIButton) {
+        showCategory = .all
+        allButton.setTitleColor(.chloeYellow, for: .normal)
+        soonExpiredButton.setTitleColor(.chloeBlue, for: .normal)
+        expiredButton.setTitleColor(.chloeBlue, for: .normal)
+        categoryButtonPressed(type: .all)
+    }
+    
+    @IBAction func soonExpiredPressed(_ sender: UIButton) {
+        showCategory = .soonExpired
+        soonExpiredButton.setTitleColor(.chloeYellow, for: .normal)
+        allButton.setTitleColor(.chloeBlue, for: .normal)
+        soonExpiredButton.setTitleColor(.chloeYellow, for: .normal)
+        categoryButtonPressed(type: .soonExpired)
+    }
+    
+    @IBAction func expiredPressed(_ sender: UIButton) {
+        showCategory = .expired
+        allButton.setTitleColor(.chloeBlue, for: .normal)
+        soonExpiredButton.setTitleColor(.chloeBlue, for: .normal)
+        expiredButton.setTitleColor(.chloeYellow, for: .normal)
+        categoryButtonPressed(type: .expired)
+    }
+    
+    func categoryButtonPressed(type: ShowCategoryCategory) {
+        
+        switch showCategory {
+        case .all:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.frame.origin.x = 0
+            }
+        case .soonExpired:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.frame.origin.x = (self.view.frame.width)/3
+            }
+        case .expired:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.frame.origin.x = (self.view.frame.width)/3*2
+            }
         }
-        cell.titleLabel.text = dataSource[index].menuTitle
+    }
+    
+}
+extension FoodListViewController: UITableViewDelegate {
+    
+}
+extension FoodListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? FoodListTableViewCell
+        else { return UITableViewCell()v}
         
         return cell
     }
     
-    func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
-        return UIScreen.main.bounds.width / CGFloat(dataSource.count)
-    }
-}
-
-extension FoodListViewController: PagingContentViewControllerDataSource {
-    func numberOfItemsForContentViewController(viewController: PagingContentViewController) -> Int {
-        return dataSource.count
-    }
     
-    func contentViewController(viewController: PagingContentViewController, viewControllerAt index: Int) -> UIViewController {
-        return dataSource[index].vc
-        
-    }
-    
-}
-extension FoodListViewController: PagingMenuViewControllerDelegate {
-    func menuViewController(viewController: PagingMenuViewController, didSelect page: Int, previousPage: Int) {
-        contentViewController.scroll(to: page, animated: true)
-    }
-    
-}
-
-extension FoodListViewController: PagingContentViewControllerDelegate {
-    func contentViewController(viewController: PagingContentViewController, didManualScrollOn index: Int, percent: CGFloat) {
-        menuViewController.scroll(index: index, percent: percent, animated: false)
-    }
 }

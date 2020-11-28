@@ -12,7 +12,7 @@ class PurchaseListViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleSetup()
+//        navigationTitleSetup()
         tabBarSetup()
 //        navigationbarButtonSetup()
     }

@@ -3,13 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Purchase List View Controller-->
+        <!--採購計畫-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PurchaseListViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,13 +18,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="X1O-xN-7cd"/>
+                    <navigationItem key="navigationItem" title="採購計畫" id="X1O-xN-7cd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="1696"/>
+            <point key="canvasLocation" x="603" y="1711"/>
         </scene>
-        <!--Food List View Controller-->
+        <!--冰箱食材列表-->
         <scene sceneID="6eV-MN-tij">
             <objects>
                 <viewController id="11Y-fg-Zvc" customClass="FoodListViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,43 +32,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKF-Qb-Bmk">
-                                <rect key="frame" x="0.0" y="88" width="414" height="45"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QdN-hg-mrH">
+                                <rect key="frame" x="0.0" y="98" width="414" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-qr-Tf3">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="45"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <state key="normal" title="全部食材">
+                                            <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="allPressed:" destination="11Y-fg-Zvc" eventType="touchUpInside" id="RKS-Ei-OOp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxl-8J-EAy">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="45"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <state key="normal" title="即將過期">
+                                            <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="soonExpiredPressed:" destination="11Y-fg-Zvc" eventType="touchUpInside" id="kql-aR-3jX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPy-6x-pG3">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="45"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <state key="normal" title="已經過期">
+                                            <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="expiredPressed:" destination="11Y-fg-Zvc" eventType="touchUpInside" id="zli-Of-FTA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="jTq-ct-bzL"/>
+                                    <constraint firstAttribute="height" constant="45" id="as6-nu-fs7"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="aAq-vw-ux2" kind="embed" id="T5X-b4-tBd"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLb-pF-k9k">
-                                <rect key="frame" x="0.0" y="134" width="414" height="679"/>
-                                <connections>
-                                    <segue destination="pZL-jh-8tG" kind="embed" id="Pgg-HK-weu"/>
-                                </connections>
-                            </containerView>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-9S-ncY">
+                                <rect key="frame" x="0.0" y="143" width="414" height="1"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-Q0-iUD">
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="3"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="zx9-vr-LdG"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
+                                <rect key="frame" x="0.0" y="147" width="414" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" id="DZP-7t-sqT" customClass="FoodListTableViewCell" customModule="FridgeManager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZP-7t-sqT" id="zGp-8v-GfC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dOT-2j-cYK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DLb-pF-k9k" firstAttribute="trailing" secondItem="dOT-2j-cYK" secondAttribute="trailing" id="0Oq-hs-Ggp"/>
-                            <constraint firstItem="OKF-Qb-Bmk" firstAttribute="top" secondItem="dOT-2j-cYK" secondAttribute="top" id="3S3-ek-yA9"/>
-                            <constraint firstItem="DLb-pF-k9k" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="5fl-b1-ecu"/>
-                            <constraint firstItem="OKF-Qb-Bmk" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="8zB-4S-olW"/>
-                            <constraint firstItem="DLb-pF-k9k" firstAttribute="bottom" secondItem="dOT-2j-cYK" secondAttribute="bottom" id="CoY-52-rdT"/>
-                            <constraint firstItem="DLb-pF-k9k" firstAttribute="top" secondItem="OKF-Qb-Bmk" secondAttribute="bottom" constant="1" id="GBL-1C-t4W"/>
-                            <constraint firstItem="OKF-Qb-Bmk" firstAttribute="trailing" secondItem="dOT-2j-cYK" secondAttribute="trailing" id="Oww-kD-eaW"/>
+                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="rcz-9S-ncY" secondAttribute="trailing" id="4WU-Mg-hSd"/>
+                            <constraint firstItem="o8F-l7-rEU" firstAttribute="top" secondItem="rcz-9S-ncY" secondAttribute="bottom" constant="3" id="4xp-l3-7Nh"/>
+                            <constraint firstItem="rcz-9S-ncY" firstAttribute="top" secondItem="QdN-hg-mrH" secondAttribute="bottom" id="592-y8-p01"/>
+                            <constraint firstItem="dOT-2j-cYK" firstAttribute="bottom" secondItem="o8F-l7-rEU" secondAttribute="bottom" id="DPJ-0F-GeR"/>
+                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="QdN-hg-mrH" secondAttribute="trailing" id="EZN-hs-zNM"/>
+                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="o8F-l7-rEU" secondAttribute="trailing" id="OZJ-Di-c8N"/>
+                            <constraint firstItem="QdN-hg-mrH" firstAttribute="top" secondItem="dOT-2j-cYK" secondAttribute="top" constant="10" id="lIo-fj-9Bb"/>
+                            <constraint firstItem="rcz-9S-ncY" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="mdI-C6-vZx"/>
+                            <constraint firstItem="o8F-l7-rEU" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="oaJ-Fr-w7c"/>
+                            <constraint firstItem="QdN-hg-mrH" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="uQd-Du-Rw6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Elk-vc-w7N">
+                    <navigationItem key="navigationItem" title="冰箱食材列表" id="Elk-vc-w7N">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="AZM-iE-k1W">
-                            <color key="tintColor" name="B1"/>
+                            <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease.circle" catalog="system" id="HDs-eB-Fjv">
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="30" maxX="30" maxY="0.0"/>
-                            <color key="tintColor" name="B1"/>
+                            <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="allButton" destination="9bJ-qr-Tf3" id="fGr-Yj-EXi"/>
+                        <outlet property="expiredButton" destination="hPy-6x-pG3" id="WHt-t0-lBu"/>
+                        <outlet property="fliterBarButton" destination="HDs-eB-Fjv" id="20c-tF-e3m"/>
+                        <outlet property="searchBarButton" destination="AZM-iE-k1W" id="ZkA-N9-xcZ"/>
+                        <outlet property="sliderView" destination="CD5-Q0-iUD" id="0mh-PA-Iue"/>
+                        <outlet property="soonExpiredButton" destination="qxl-8J-EAy" id="uN7-qe-xQF"/>
+                        <outlet property="tableView" destination="o8F-l7-rEU" id="E5l-nn-eB0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hX-wP-ZzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,10 +149,7 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" systemColor="systemYellowColor"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" systemColor="systemGreenColor"/>
+                                <color key="value" red="0.99607843137254903" green="0.77647058823529413" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -113,7 +172,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" systemColor="systemGray3Color"/>
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -121,9 +180,15 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PGE-f8-ya0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="PGE-f8-ya0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -133,9 +198,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbU-hL-EXt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="55d-Ns-UGZ" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="860"/>
+            <point key="canvasLocation" x="604" y="860"/>
         </scene>
-        <!--View Controller-->
+        <!--食譜計畫-->
         <scene sceneID="Kho-je-hXL">
             <objects>
                 <viewController id="lIE-Du-8GI" sceneMemberID="viewController">
@@ -145,13 +210,13 @@
                         <viewLayoutGuide key="safeArea" id="zGe-1K-34O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kB2-8L-kgJ"/>
+                    <navigationItem key="navigationItem" title="食譜計畫" id="kB2-8L-kgJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwa-0X-txt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2801" y="1696"/>
+            <point key="canvasLocation" x="1690" y="1711"/>
         </scene>
-        <!--View Controller-->
+        <!--設定-->
         <scene sceneID="kAw-Ro-25R">
             <objects>
                 <viewController id="PbV-wG-u5g" sceneMemberID="viewController">
@@ -161,11 +226,11 @@
                         <viewLayoutGuide key="safeArea" id="stc-KJ-6yA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Hs-Wr-VC1"/>
+                    <navigationItem key="navigationItem" title="設定" id="6Hs-Wr-VC1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxG-Z4-SVo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3728" y="1696"/>
+            <point key="canvasLocation" x="2745" y="1711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X9s-75-8Ea">
@@ -175,7 +240,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" systemColor="systemGray3Color"/>
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -187,7 +252,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="B1"/>
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                            <color key="textColor" red="0.24705882352941178" green="0.23921568627450979" blue="0.33725490196078434" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -211,7 +278,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" systemColor="systemGray3Color"/>
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -222,6 +289,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HYg-Gv-j8b">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -231,7 +302,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04X-BH-qDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="LW3-Bl-0CW" userLabel="Bounce Animation" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="2801" y="860"/>
+            <point key="canvasLocation" x="1691" y="860"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c3J-hb-HyE">
@@ -241,7 +312,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" systemColor="systemGray3Color"/>
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -252,6 +323,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xL5-Ne-xMc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -261,48 +336,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srh-Jy-Cf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="1nh-gu-N9V" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="3728" y="860"/>
-        </scene>
-        <!--Paging Menu View Controller-->
-        <scene sceneID="Kdc-Rs-Hxz">
-            <objects>
-                <viewController id="aAq-vw-ux2" customClass="PagingMenuViewController" customModule="PagingKit" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W92-fD-MJv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="710-L3-6W6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="23D-Lu-XOM"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="710-L3-6W6" firstAttribute="top" secondItem="W92-fD-MJv" secondAttribute="top" id="Dcb-5y-UXw"/>
-                            <constraint firstItem="710-L3-6W6" firstAttribute="leading" secondItem="W92-fD-MJv" secondAttribute="leading" id="EDS-xk-otQ"/>
-                            <constraint firstAttribute="trailing" secondItem="710-L3-6W6" secondAttribute="trailing" id="Q0m-Mf-aGw"/>
-                            <constraint firstAttribute="bottom" secondItem="710-L3-6W6" secondAttribute="bottom" id="vkv-9v-5uQ"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xy3-Zu-s0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="619" y="1672"/>
-        </scene>
-        <!--Paging Content View Controller-->
-        <scene sceneID="zHq-ci-aR4">
-            <objects>
-                <viewController id="pZL-jh-8tG" customClass="PagingContentViewController" customModule="PagingKit" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sAL-uv-jxz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="c7U-OB-xub"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JdV-N1-0fx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="619" y="1987"/>
+            <point key="canvasLocation" x="2745" y="860"/>
         </scene>
     </scenes>
     <resources>
@@ -312,23 +346,8 @@
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="recipes-1" width="32" height="32"/>
-        <namedColor name="B1">
-            <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

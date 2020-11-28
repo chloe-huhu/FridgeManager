@@ -21,8 +21,8 @@
                             <rect key="frame" x="20" y="0.0" width="327" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香蕉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFw-LP-7Ve">
-                                    <rect key="frame" x="80" y="10" width="32" height="22.5"/>
-                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                    <rect key="frame" x="80" y="10" width="36" height="25.5"/>
+                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                     <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -34,7 +34,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總計數量：5顆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLZ-ZV-z0N">
-                                    <rect key="frame" x="80" y="37.5" width="92.5" height="20"/>
+                                    <rect key="frame" x="80" y="40.5" width="92.5" height="20"/>
                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                     <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日：2020-12-25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svg-lJ-sCC">
-                                    <rect key="frame" x="80" y="62.5" width="137.5" height="20"/>
+                                    <rect key="frame" x="80" y="65.5" width="137.5" height="20"/>
                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                     <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -132,6 +132,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="foodAmountLabel" destination="mLZ-ZV-z0N" id="if6-XF-N1w"/>
+                <outlet property="foodExpireDate" destination="svg-lJ-sCC" id="Ult-Zk-net"/>
                 <outlet property="foodImage" destination="pdm-gK-90m" id="XOg-b1-W1I"/>
                 <outlet property="foodTitleLabel" destination="pFw-LP-7Ve" id="Nhs-N3-TMc"/>
                 <outlet property="moreDataBtn" destination="ewY-4l-TLa" id="2ru-pJ-bxz"/>

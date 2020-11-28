@@ -9,31 +9,76 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellView" rowHeight="44" id="KGk-i7-Jjw" customClass="CellView" customModule="FridgeManager" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="274" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellView" rowHeight="114" id="KGk-i7-Jjw" customClass="CellView" customModule="FridgeManager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="471" height="114"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="274" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="471" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-NI-V8h">
-                        <rect key="frame" x="16" y="16" width="42" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-qk-jX5" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
+                        <rect key="frame" x="16" y="3" width="439" height="108"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costco 牛排" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-NI-V8h">
+                                <rect key="frame" x="16" y="8" width="90.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量：200 公克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIl-to-2yR">
+                                <rect key="frame" x="122.5" y="16" width="115" height="22.5"/>
+                                <color key="tintColor" red="0.99607843137254903" green="0.95294117647058818" blue="0.83921568627450982" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日：2020-12-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-5j-vde">
+                                <rect key="frame" x="122.5" y="46.5" width="157" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.83921568627450982" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xx6-5j-vde" firstAttribute="top" secondItem="PIl-to-2yR" secondAttribute="bottom" constant="8" id="4I2-W4-U6w"/>
+                            <constraint firstItem="5xe-NI-V8h" firstAttribute="top" secondItem="5UG-qk-jX5" secondAttribute="top" constant="8" id="FZT-fn-fdm"/>
+                            <constraint firstItem="PIl-to-2yR" firstAttribute="top" secondItem="5UG-qk-jX5" secondAttribute="top" constant="16" id="IbG-bc-8On"/>
+                            <constraint firstItem="PIl-to-2yR" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="16" id="PFX-Mv-5Bn"/>
+                            <constraint firstItem="5xe-NI-V8h" firstAttribute="leading" secondItem="5UG-qk-jX5" secondAttribute="leading" constant="16" id="TRL-nV-2ek"/>
+                            <constraint firstItem="Xx6-5j-vde" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="16" id="mFH-ZI-U8S"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5xe-NI-V8h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7zU-2x-V5w"/>
-                    <constraint firstAttribute="bottom" secondItem="5xe-NI-V8h" secondAttribute="bottom" constant="16" id="L26-NJ-rj8"/>
-                    <constraint firstItem="5xe-NI-V8h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="xdE-CX-1NV"/>
+                    <constraint firstItem="5UG-qk-jX5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cy4-PR-iFY"/>
+                    <constraint firstItem="5UG-qk-jX5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="h1j-Z4-exb"/>
+                    <constraint firstAttribute="bottom" secondItem="5UG-qk-jX5" secondAttribute="bottom" constant="3" id="njL-vn-tCk"/>
+                    <constraint firstAttribute="trailing" secondItem="5UG-qk-jX5" secondAttribute="trailing" constant="16" id="xuB-L5-Vyj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="titleLabel" destination="5xe-NI-V8h" id="VIp-F1-eFl"/>
             </connections>
-            <point key="canvasLocation" x="320.28985507246381" y="74.330357142857139"/>
+            <point key="canvasLocation" x="406.52173913043481" y="52.901785714285715"/>
         </tableViewCell>
     </objects>
 </document>

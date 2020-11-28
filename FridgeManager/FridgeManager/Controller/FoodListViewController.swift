@@ -6,20 +6,26 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
+//import Firebase
+//import FirebaseFirestore
 
 class FoodListViewController: UIViewController {
     
     let sectionDataList: [String] = ["甲級", "乙級", "丙級", "丁級", "戊級", "己級", "庚級", "壬級", "癸級" ]
-        let cellDataList: [[String]] = [["岩柱", "霞柱", "風柱"],
+    
+    let sectionImage: [String] = ["cabbage", "avocado", "boiled", "bread-2", "bread-1", "bread", "bread", "bread", "bread", "bread", "bread",]
+    let sectionDataAmount: [String] = ["總計有8位", "總計有7位", "總計有6位", "總計有5位", "總計有8位", "總計有8位", "總計有8位", "總計有8位", "總計有8位" ]
+    
+    let sectionDataDate:[String] = ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24" ]
+    
+    let cellDataList: [[String]] = [["岩柱", "霞柱", "風柱"],
                                         ["炎柱", "水柱", "戀柱", "蛇柱", "音柱"],
                                         ["丙-A", "丙-B", "丙-C", "丙-D", "丙-E", "丙-F", "丙-G"]]
     
     var isExpendDataList: [Bool] = [false, false, false, false, false, false, false, false, false]
     
     let searchButton = UIButton()
-    var database: Firestore!
+//    var database: Firestore!
     var showCategory: ShowCategory = .all
     
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
@@ -140,11 +146,11 @@ class FoodListViewController: UIViewController {
 extension FoodListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.isExpendDataList.count
+        return sectionDataList.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.isExpendDataList[section] {
+        if isExpendDataList[section] {
             return self.cellDataList[section].count
         } else {
             return 0
@@ -173,13 +179,16 @@ extension FoodListViewController: UITableViewDelegate {
 
         guard let sectionView: SectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionView") as? SectionView
         else { return UIView() }
-
+        
         sectionView.isExpand = self.isExpendDataList[section]
         sectionView.buttonTag = section
         sectionView.delegate = self
 
-        // 名字
+        // section content
+        sectionView.foodImage.image = UIImage(named: self.sectionImage[section])
         sectionView.foodTitleLabel.text = self.sectionDataList[section]
+        sectionView.foodAmountLabel.text = self.sectionDataAmount[section]
+        sectionView.foodExpireDate.text = self.sectionDataDate[section]
 
         return sectionView
     }

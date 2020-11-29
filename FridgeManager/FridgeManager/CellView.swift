@@ -9,7 +9,10 @@ import UIKit
 
 class CellView: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cardView: CardView!
+    @IBOutlet weak var rowTitleLabel: UILabel!
+    @IBOutlet weak var rowAmountLabel: UILabel!
+    @IBOutlet weak var rowDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

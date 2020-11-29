@@ -16,7 +16,7 @@ target 'FridgeManager' do
     pod 'FirebaseFirestoreSwift'
     pod 'Firebase/Analytics'
     pod 'RAMAnimatedTabBarController'
-    pod 'RHSideButtons'
+    
  
 
   target 'FridgeManagerTests' do

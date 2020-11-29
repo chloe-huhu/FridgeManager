@@ -9,37 +9,26 @@ import UIKit
 
 class PurchaseListViewController: UIViewController {
     let searchButton = UIButton()
-  
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectioView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationTitleSetup()
+        navigationTitleSetup()
         tabBarSetup()
-//        navigationbarButtonSetup()
+        configTableView()
+        configColletionView()
+        //        navigationbarButtonSetup()
     }
-  
+    
     func navigationTitleSetup() {
-        navigationItem.title = "採購清單"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.greyishBrown]
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
-    }
-  
-    func navigationbarButtonSetup() {
-        searchButton.translatesAutoresizingMaskIntoConstraints = false
-        let btnImage = UIImage(named: "magnifying-glass")
-        searchButton.setImage(btnImage, for: .normal)
-//        searchButton.frame = CGRect(x: 340, y: 100, width: 30, height: 30)
-        view.addSubview(searchButton)
-        guard let titleView = navigationController?.navigationBar.topItem?.titleView else { return }
-        NSLayoutConstraint.activate([
-            searchButton.widthAnchor.constraint(equalToConstant: 30),
-            searchButton.heightAnchor.constraint(equalToConstant: 30),
-            searchButton.centerYAnchor.constraint(equalTo: titleView.centerYAnchor)
-//            searchButton.topAnchor.constraint(equalTo: navigationController?.centerYAnchor, constant: 200)
-        ])
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.view.backgroundColor = .chloeYellow
     }
     
     func tabBarSetup() {
@@ -47,4 +36,56 @@ class PurchaseListViewController: UIViewController {
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
     }
+    
+    func configColletionView() {
+        collectioView.dataSource = self
+        collectioView.delegate = self
+    }
+    
+    func configTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+}
+extension PurchaseListViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 31
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        return cell
+    }
+    
+}
+extension PurchaseListViewController: UICollectionViewDelegate {
+    
+}
+extension PurchaseListViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PurchaseTableViewCell
+        else { return UITableViewCell() }
+        
+        return cell
+    }
+    
+}
+extension PurchaseListViewController: UITableViewDelegate {
+    
 }

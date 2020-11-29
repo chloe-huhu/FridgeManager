@@ -107,9 +107,6 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
                             <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                             <real key="value" value="0.5"/>
                         </userDefinedRuntimeAttribute>
@@ -131,6 +128,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cardView" destination="PQm-zZ-ySK" id="98R-Nc-Gus"/>
                 <outlet property="foodAmountLabel" destination="mLZ-ZV-z0N" id="if6-XF-N1w"/>
                 <outlet property="foodExpireDate" destination="svg-lJ-sCC" id="Ult-Zk-net"/>
                 <outlet property="foodImage" destination="pdm-gK-90m" id="XOg-b1-W1I"/>

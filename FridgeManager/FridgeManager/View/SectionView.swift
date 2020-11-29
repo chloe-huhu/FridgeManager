@@ -13,6 +13,7 @@ protocol SectionViewDelegate: class {
 
 class SectionView: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var cardView: CardView!
     @IBOutlet var foodImage: UIImageView!
     @IBOutlet var foodTitleLabel: UILabel!
     @IBOutlet var foodAmountLabel: UILabel!

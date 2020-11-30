@@ -8,18 +8,34 @@
 import UIKit
 
 class PurchaseListViewController: UIViewController {
+   
+    let sectionDataList: [String] = ["未採購", "採購中"]
+    
+    let cellDataTitle: [[String]] = [["香蕉", "Costco 牛排", "雞蛋"],
+                                    ["海底撈火鍋料", "高麗菜", "洋蔥圈", "厚片吐司"]]
+    
+    let cellDataAmount: [[String]] = [["6 根", "1 盒", "1 盒"],
+                                    ["2 包", "半 顆", "1 包", "6 片"]]
+    
+    let cellDataWho: [[String]] = [["?", "?", "?"],
+                                    ["Chloe", "Jeff", "Soda", "Chloe"]]
+    
+    var isExpendDataList: [Bool] = [true, true]
+    
     let searchButton = UIButton()
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectioView: UICollectionView!
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
         configTableView()
-        configColletionView()
-        //        navigationbarButtonSetup()
+        configNib()
+//        configColletionView()
+        datePicker.backgroundColor = .chloeYellow
     }
     
     func navigationTitleSetup() {
@@ -27,7 +43,7 @@ class PurchaseListViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.view.backgroundColor = .chloeYellow
     }
     
@@ -37,55 +53,80 @@ class PurchaseListViewController: UIViewController {
         self.tabBarController?.tabBar.clipsToBounds = true
     }
     
-    func configColletionView() {
-        collectioView.dataSource = self
-        collectioView.delegate = self
-    }
-    
     func configTableView() {
         tableView.dataSource = self
         tableView.delegate = self
     }
-}
-extension PurchaseListViewController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 31
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func configNib() {
+        let sectionViewNib: UINib = UINib(nibName: "PurchaseSectionView", bundle: nil)
+        self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "PurchaseSectionView")
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
-        return cell
+        let cellNib: UINib = UINib(nibName: "PurchaseTableViewCell", bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "CellView")
+    }
+}
+extension PurchaseListViewController: UITableViewDelegate {
+   
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
-}
-extension PurchaseListViewController: UICollectionViewDelegate {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard let sectionView: PurchaseSectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PurchaseSectionView") as? PurchaseSectionView else { return UIView() }
+        
+        sectionView.isExpand = self.isExpendDataList[section]
+        sectionView.buttonTag = section
+        sectionView.delegate = self
+        
+        sectionView.pendingLabel.text = self.sectionDataList[section]
+        
+        return sectionView
+    }
 }
+
 extension PurchaseListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return self.isExpendDataList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+       
+        if self.isExpendDataList[section] {
+            return self.cellDataTitle[section].count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PurchaseTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? PurchaseTableViewCell
         else { return UITableViewCell() }
         
+        cell.titleLabel.text = self.cellDataTitle[indexPath.section][indexPath.row]
+//        cell.amountLabel.text = self.cellDataAmount[indexPath.section][indexPath.row]
+//        cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
+       
         return cell
     }
     
 }
-extension PurchaseListViewController: UITableViewDelegate {
+
+extension PurchaseListViewController: PurchaseSectionViewDelegate {
+    func sectionView(_ sectionView: PurchaseSectionView, _ didPressTag: Int, _ isExpand: Bool) {
+        self.isExpendDataList[didPressTag] = !isExpand
+        self.tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
+    }
     
 }

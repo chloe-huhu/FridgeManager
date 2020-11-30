@@ -7,7 +7,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,190 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ss4-EG-DLp" userLabel="Month View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020年11月" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b2-kp-QFK">
-                                        <rect key="frame" x="132" y="8.5" width="150" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="85k-cX-fsb"/>
-                                            <constraint firstAttribute="width" constant="150" id="VGH-M4-wlt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
-                                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV2-mf-HuM">
-                                        <rect key="frame" x="16" y="7.5" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="fuL-l9-0r6"/>
-                                            <constraint firstAttribute="height" constant="30" id="ynK-Gf-jj0"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="chevron.left.circle.fill" catalog="system">
-                                            <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svc-3a-fEv">
-                                        <rect key="frame" x="368" y="7.5" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="8N3-sm-O4g"/>
-                                            <constraint firstAttribute="width" constant="30" id="m9C-J7-miW"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="chevron.right.circle.fill" catalog="system">
-                                            <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="SV2-mf-HuM" firstAttribute="leading" secondItem="ss4-EG-DLp" secondAttribute="leading" constant="16" id="2aT-BD-Zxm"/>
-                                    <constraint firstAttribute="height" constant="45" id="6lT-EF-C5l"/>
-                                    <constraint firstItem="Svc-3a-fEv" firstAttribute="centerY" secondItem="ss4-EG-DLp" secondAttribute="centerY" id="D2J-L1-Hjo"/>
-                                    <constraint firstItem="8b2-kp-QFK" firstAttribute="centerX" secondItem="ss4-EG-DLp" secondAttribute="centerX" id="cNN-J4-sru"/>
-                                    <constraint firstItem="SV2-mf-HuM" firstAttribute="centerY" secondItem="ss4-EG-DLp" secondAttribute="centerY" id="jiU-cd-v01"/>
-                                    <constraint firstAttribute="trailing" secondItem="Svc-3a-fEv" secondAttribute="trailing" constant="16" id="kdg-QW-yZa"/>
-                                    <constraint firstItem="8b2-kp-QFK" firstAttribute="centerY" secondItem="ss4-EG-DLp" secondAttribute="centerY" id="x0X-OW-MhJ"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-dZ-Cev">
-                                <rect key="frame" x="0.0" y="45" width="414" height="35"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-pw-GMH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vr4-gC-kMe">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週一" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggJ-Je-Ffp">
-                                                <rect key="frame" x="60" y="0.0" width="54.5" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週二" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHS-8C-7md">
-                                                <rect key="frame" x="119.5" y="0.0" width="55" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週三" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9U-yX-zwy">
-                                                <rect key="frame" x="179.5" y="0.0" width="55" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週四" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEm-op-4sB">
-                                                <rect key="frame" x="239.5" y="0.0" width="55" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週五" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNs-6Y-jEV">
-                                                <rect key="frame" x="299.5" y="0.0" width="54.5" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="週六" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGN-BK-Ta8">
-                                                <rect key="frame" x="359" y="0.0" width="55" height="35"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="Mi3-pw-GMH" firstAttribute="top" secondItem="LSc-dZ-Cev" secondAttribute="top" id="GYA-ux-kEL"/>
-                                    <constraint firstAttribute="height" constant="35" id="Shs-fq-dlB"/>
-                                    <constraint firstItem="Mi3-pw-GMH" firstAttribute="leading" secondItem="LSc-dZ-Cev" secondAttribute="leading" id="ekl-Sy-UNP"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mi3-pw-GMH" secondAttribute="trailing" id="hSI-G9-fUo"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mi3-pw-GMH" secondAttribute="bottom" id="syt-MX-oMq"/>
-                                </constraints>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AVo-0q-gV2" userLabel="Calendar View">
-                                <rect key="frame" x="0.0" y="80" width="414" height="195"/>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="195" id="0QX-m3-VzS"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Acp-aY-qzh">
-                                    <size key="itemSize" width="44" height="52"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="m4L-OF-CcR">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="toL-Ha-IPC">
-                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8il-UD-13A">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="vz6-YS-72Q"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="8il-UD-13A" secondAttribute="trailing" id="JA4-a6-EUa"/>
-                                                <constraint firstItem="8il-UD-13A" firstAttribute="leading" secondItem="toL-Ha-IPC" secondAttribute="leading" id="cYm-ft-aID"/>
-                                                <constraint firstItem="8il-UD-13A" firstAttribute="centerY" secondItem="toL-Ha-IPC" secondAttribute="centerY" id="ycG-Le-Adq"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="44" height="44"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-dZ-QOl">
-                                <rect key="frame" x="0.0" y="275" width="414" height="450"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Y75-NO-3cV" customClass="PurchaseTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y75-NO-3cV" id="7kV-x2-eIR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upk-DI-q5O">
+                                <rect key="frame" x="74" y="48" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="FaX-Z4-UB1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7xa-9R-VVb"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="zh_TW"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ss4-EG-DLp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1cI-JF-a0m"/>
-                            <constraint firstItem="ss4-EG-DLp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7hB-to-Tvy"/>
-                            <constraint firstItem="LSc-dZ-Cev" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bnh-Yo-LCd"/>
-                            <constraint firstAttribute="trailing" secondItem="ss4-EG-DLp" secondAttribute="trailing" id="EPp-lA-Riz"/>
-                            <constraint firstItem="AVo-0q-gV2" firstAttribute="top" secondItem="LSc-dZ-Cev" secondAttribute="bottom" id="EdX-Yf-KVg"/>
-                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="K0b-ub-GFD"/>
-                            <constraint firstAttribute="trailing" secondItem="NEd-dZ-QOl" secondAttribute="trailing" id="PAb-kl-r5J"/>
-                            <constraint firstItem="LSc-dZ-Cev" firstAttribute="top" secondItem="ss4-EG-DLp" secondAttribute="bottom" id="ShZ-rh-N6P"/>
-                            <constraint firstAttribute="trailing" secondItem="AVo-0q-gV2" secondAttribute="trailing" id="ldK-DE-qLj"/>
-                            <constraint firstAttribute="bottom" secondItem="NEd-dZ-QOl" secondAttribute="bottom" constant="83" id="rWq-kj-gxx"/>
-                            <constraint firstItem="AVo-0q-gV2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rdE-By-p49"/>
-                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="AVo-0q-gV2" secondAttribute="bottom" id="vXJ-6v-fjM"/>
-                            <constraint firstAttribute="trailing" secondItem="LSc-dZ-Cev" secondAttribute="trailing" id="z4Z-HP-5rj"/>
+                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="FaX-Z4-UB1" secondAttribute="bottom" id="78L-5U-2kq"/>
+                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K0b-ub-GFD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NEd-dZ-QOl" secondAttribute="trailing" id="PAb-kl-r5J"/>
+                            <constraint firstItem="FaX-Z4-UB1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R42-cp-uDb"/>
+                            <constraint firstItem="FaX-Z4-UB1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mCE-n0-ZIJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NEd-dZ-QOl" secondAttribute="bottom" id="rWq-kj-gxx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FaX-Z4-UB1" secondAttribute="trailing" id="uV8-y6-aot"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="採購計畫" id="X1O-xN-7cd"/>
                     <connections>
-                        <outlet property="collectioView" destination="AVo-0q-gV2" id="IcR-K7-6CT"/>
+                        <outlet property="datePicker" destination="FaX-Z4-UB1" id="yEh-Yr-B1a"/>
                         <outlet property="tableView" destination="NEd-dZ-QOl" id="kW6-20-PeH"/>
                     </connections>
                 </viewController>
@@ -354,9 +205,10 @@
         <scene sceneID="IP3-TI-O8R">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dR5-86-0hG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="clipboard 64px" id="hRc-63-nVx" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="" id="hRc-63-nVx" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <imageReference key="image" image="clipboard 64px" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
+                        <imageReference key="selectedImage" image="clipboard 64px" symbolScale="large"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -540,8 +392,6 @@
     </scenes>
     <resources>
         <image name="Fridge" width="25" height="25"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clipboard 64px" width="21.333333969116211" height="21.333333969116211"/>
         <image name="clipboard 64px" width="21.333333969116211" height="21.333333969116211"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>

@@ -1,23 +1,27 @@
 //
-//  PurchaseListTableViewCell.swift
+//  PurchaseTableViewCell.swift
 //  FridgeManager
 //
-//  Created by ChloeHuHu on 2020/11/29.
+//  Created by ChloeHuHu on 2020/11/30.
 //
 
 import UIKit
 
 class PurchaseTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var amountLabel: UILabel!
+    
+    @IBOutlet weak var whoLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-
+    
 }

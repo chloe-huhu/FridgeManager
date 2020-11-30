@@ -47,21 +47,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkv-tV-kRn">
-                                <rect key="frame" x="259" y="738" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="kqc-SU-24h"/>
-                                    <constraint firstAttribute="height" constant="40" id="wdA-AO-vxy"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="plus" catalog="system"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="FaX-Z4-UB1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,11 +75,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FaX-Z4-UB1" secondAttribute="trailing" id="uV8-y6-aot"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="採購計畫" id="X1O-xN-7cd">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle" catalog="system" id="8EB-3i-cdO">
-                            <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="採購計畫" id="X1O-xN-7cd"/>
                     <connections>
                         <outlet property="datePicker" destination="FaX-Z4-UB1" id="yEh-Yr-B1a"/>
                         <outlet property="tableView" destination="NEd-dZ-QOl" id="kW6-20-PeH"/>
@@ -104,6 +85,22 @@
             </objects>
             <point key="canvasLocation" x="549" y="1696"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="FdU-ym-Sjx">
+            <objects>
+                <viewController id="Ikq-Ci-VAF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pDm-pj-DZd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ct8-Yv-200"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J5q-y5-au1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1p3-HJ-8BN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1719" y="2509"/>
+        </scene>
         <!--冰箱食材-->
         <scene sceneID="6eV-MN-tij">
             <objects>
@@ -112,8 +109,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" id="peL-LC-FrO">
+                                <rect key="frame" x="0.0" y="382" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
-                                <rect key="frame" x="0.0" y="61" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="107" width="414" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-9S-ncY">
@@ -175,19 +177,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <searchBar contentMode="redraw" text="" placeholder="請搜尋食材類別" translatesAutoresizingMaskIntoConstraints="NO" id="Hda-vH-vEb">
+                                <rect key="frame" x="0.0" y="51" width="414" height="56"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" smartInsertDeleteType="no"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dOT-2j-cYK"/>
                         <color key="backgroundColor" name="B5"/>
                         <constraints>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="rcz-9S-ncY" secondAttribute="trailing" id="4WU-Mg-hSd"/>
-                            <constraint firstItem="o8F-l7-rEU" firstAttribute="top" secondItem="rcz-9S-ncY" secondAttribute="bottom" constant="10" id="4xp-l3-7Nh"/>
                             <constraint firstItem="rcz-9S-ncY" firstAttribute="top" secondItem="QdN-hg-mrH" secondAttribute="bottom" id="592-y8-p01"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="bottom" secondItem="o8F-l7-rEU" secondAttribute="bottom" id="DPJ-0F-GeR"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="QdN-hg-mrH" secondAttribute="trailing" id="EZN-hs-zNM"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="o8F-l7-rEU" secondAttribute="trailing" id="OZJ-Di-c8N"/>
+                            <constraint firstItem="Hda-vH-vEb" firstAttribute="trailing" secondItem="dOT-2j-cYK" secondAttribute="trailing" id="PaV-bv-aVt"/>
+                            <constraint firstItem="Hda-vH-vEb" firstAttribute="top" secondItem="rcz-9S-ncY" secondAttribute="bottom" id="TgK-PL-FWT"/>
+                            <constraint firstItem="Hda-vH-vEb" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="cPN-mS-IbE"/>
                             <constraint firstItem="QdN-hg-mrH" firstAttribute="top" secondItem="dOT-2j-cYK" secondAttribute="top" id="lIo-fj-9Bb"/>
                             <constraint firstItem="rcz-9S-ncY" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="mdI-C6-vZx"/>
                             <constraint firstItem="o8F-l7-rEU" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="oaJ-Fr-w7c"/>
+                            <constraint firstItem="o8F-l7-rEU" firstAttribute="top" secondItem="Hda-vH-vEb" secondAttribute="bottom" id="rE9-0P-QYB"/>
                             <constraint firstItem="QdN-hg-mrH" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="uQd-Du-Rw6"/>
                         </constraints>
                     </view>
@@ -195,6 +205,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="AZM-iE-k1W">
                             <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Ikq-Ci-VAF" kind="show" id="w3w-Ax-y7r"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="過濾" id="HDs-eB-Fjv">
                             <imageReference key="image" image="line.horizontal.3.decrease.circle" catalog="system" symbolScale="large"/>
@@ -215,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hX-wP-ZzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407.24637681159425" y="1695.5357142857142"/>
+            <point key="canvasLocation" x="-804.34782608695662" y="1695.5357142857142"/>
         </scene>
         <!--Add Content View Controller-->
         <scene sceneID="yah-ge-Vd1">
@@ -414,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yq-yj-Jyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407.24637681159425" y="2410.7142857142858"/>
+            <point key="canvasLocation" x="-971" y="2509"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="m4W-lk-tEM">
@@ -660,7 +673,6 @@
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="recipes" width="21.333333969116211" height="21.333333969116211"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <namedColor name="B5">

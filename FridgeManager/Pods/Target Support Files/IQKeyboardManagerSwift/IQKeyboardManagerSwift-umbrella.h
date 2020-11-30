@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ExpandingMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char ExpandingMenuVersionString[];
+FOUNDATION_EXPORT double IQKeyboardManagerSwiftVersionNumber;
+FOUNDATION_EXPORT const unsigned char IQKeyboardManagerSwiftVersionString[];
 

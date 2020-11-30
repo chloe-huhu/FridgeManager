@@ -179,20 +179,20 @@ class FoodListViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
 
-        let imageItem1 = UIImage(named: "photo")
-        let item1 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
+        let imageItem1 = UIImage(named: "type")
+        let item1 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
                                       image: imageItem1!,
                                       highlightedImage: imageItem1,
                                       backgroundImage: imageItem1,
-                                      backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "addContent", sender: self)
+                                      backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "SegueAddContent", sender: self)
         }
 
-        let imageItem2 = UIImage(named: "type")
-        let item2 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
+        let imageItem2 = UIImage(named: "photo")
+        let item2 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
                                       image: imageItem2!,
                                       highlightedImage: imageItem2,
                                       backgroundImage: imageItem2,
-                                      backgroundHighlightedImage: imageItem2) { () -> Void in showAlert("Music")
+                                      backgroundHighlightedImage: imageItem2) { () -> Void in showAlert("掃描發票")
         }
         
         menuButton.addMenuItems([item1, item2])

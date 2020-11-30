@@ -32,6 +32,10 @@
 		AED556F3256E481B0068A855 /* FridgeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556F2256E481B0068A855 /* FridgeManagerTests.swift */; };
 		AED556FE256E481B0068A855 /* FridgeManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556FD256E481B0068A855 /* FridgeManagerUITests.swift */; };
 		AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED5573B256E55F10068A855 /* GoogleService-Info.plist */; };
+		AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */; };
+		AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */; };
+		AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* MenuViewController.swift */; };
+		AEDA421A2575479200AF4CC1 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */; };
 		E76DB4D0845F3C2387111F7A /* Pods_FridgeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0FC776BE4D4B203359631 /* Pods_FridgeManager.framework */; };
 		FDA81B5A9794ECFD31EF8D98 /* Pods_FridgeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EF771E787B9C23ED60EC7 /* Pods_FridgeManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +90,10 @@
 		AED556FD256E481B0068A855 /* FridgeManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeManagerUITests.swift; sourceTree = "<group>"; };
 		AED556FF256E481B0068A855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED5573B256E55F10068A855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = FridgeManager/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodDetailViewController.swift; path = FridgeManager/FoodDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEDA4211257546F900AF4CC1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = FridgeManager/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuDetailViewController.swift; path = FridgeManager/MenuDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C5C6B4E9A96B2993D5C0EE34 /* Pods-FridgeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager/Pods-FridgeManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +159,10 @@
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
 				AE7169622574DE1700659F2C /* AddContentViewController.swift */,
+				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
+				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
+				AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,6 +178,7 @@
 				AE716948257499C500659F2C /* PurchaseSectionView.xib */,
 				AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */,
 				AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */,
+				AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -513,6 +525,7 @@
 				AE7D32412572395B00D97E23 /* SectionView.swift in Sources */,
 				AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */,
 				AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */,
+				AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */,
 				AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */,
 				AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */,
 				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
@@ -520,10 +533,13 @@
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
 				AE7169632574DE1700659F2C /* AddContentViewController.swift in Sources */,
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
+				AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */,
+				AEDA421A2575479200AF4CC1 /* MenuDetailViewController.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
+				AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

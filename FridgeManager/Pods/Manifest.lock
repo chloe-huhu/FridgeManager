@@ -218,6 +218,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - ExpandingMenu (0.4.0)
   - FBSDKCoreKit (8.2.0):
     - FBSDKCoreKit/Basics (= 8.2.0)
     - FBSDKCoreKit/Core (= 8.2.0)
@@ -334,6 +335,7 @@ PODS:
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
+  - ExpandingMenu (~> 0.4)
   - FBSDKCoreKit
   - Firebase/Analytics
   - Firebase/Firestore
@@ -346,6 +348,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - ExpandingMenu
     - FBSDKCoreKit
     - Firebase
     - FirebaseAnalytics
@@ -369,6 +372,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
@@ -389,6 +393,6 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 20184b9cbd07d38c86e8ed577e02e55225e3425a
+PODFILE CHECKSUM: 762f187970ff63ce387010268bc42dac31fae719
 
 COCOAPODS: 1.10.0

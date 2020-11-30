@@ -44,7 +44,7 @@ class PurchaseListViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
 //        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.view.backgroundColor = .chloeYellow
+//        navigationController?.view.backgroundColor = .chloeYellow
     }
     
     func tabBarSetup() {
@@ -69,11 +69,11 @@ class PurchaseListViewController: UIViewController {
 extension PurchaseListViewController: UITableViewDelegate {
    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 40
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -115,8 +115,8 @@ extension PurchaseListViewController: UITableViewDataSource {
         else { return UITableViewCell() }
         
         cell.titleLabel.text = self.cellDataTitle[indexPath.section][indexPath.row]
-//        cell.amountLabel.text = self.cellDataAmount[indexPath.section][indexPath.row]
-//        cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
+        cell.amountLabel.text = self.cellDataAmount[indexPath.section][indexPath.row]
+        cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
        
         return cell
     }

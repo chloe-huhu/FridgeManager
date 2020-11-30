@@ -42,7 +42,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewY-4l-TLa">
                                     <rect key="frame" x="291" y="62" width="20" height="22"/>
                                     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                    <state key="normal" image="ellipsis.circle.fill" catalog="system"/>
+                                    <state key="normal" image="ellipsis.circle" catalog="system"/>
                                     <connections>
                                         <action selector="pressExpendBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="09T-m0-n6n"/>
                                     </connections>
@@ -55,7 +55,7 @@
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmL-ec-fO8">
                                     <rect key="frame" x="290" y="24" width="21" height="22"/>
-                                    <color key="tintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <state key="normal" image="bag.fill.badge.plus" catalog="system"/>
                                 </button>
                             </subviews>
@@ -141,7 +141,7 @@
     <resources>
         <image name="apple-1" width="512" height="512"/>
         <image name="bag.fill.badge.plus" catalog="system" width="128" height="128"/>
-        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import ExpandingMenu
 //import Firebase
 //import FirebaseFirestore
+import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
@@ -49,6 +49,8 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var expiredButton: UIButton!
     @IBOutlet weak var sliderView: UIView!
     
+    @IBOutlet weak var addContentButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -60,12 +62,15 @@ class FoodListViewController: UIViewController {
         expandingMenuButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     func navigationTitleSetup() {
         
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.barTintColor = .chloeYellow
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.view.backgroundColor = .chloeYellow
     }
@@ -174,23 +179,23 @@ class FoodListViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
 
-        let imageItem1 = #imageLiteral(resourceName: "chooser-moment-icon-camera")
+        let imageItem1 = UIImage(named: "photo")
         let item1 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
-                                      image: imageItem1,
+                                      image: imageItem1!,
                                       highlightedImage: imageItem1,
                                       backgroundImage: imageItem1,
-                                      backgroundHighlightedImage: imageItem1) { () -> Void in showAlert("請對準發票條碼")
+                                      backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "addContent", sender: self)
+        }
+
+        let imageItem2 = UIImage(named: "type")
+        let item2 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
+                                      image: imageItem2!,
+                                      highlightedImage: imageItem2,
+                                      backgroundImage: imageItem2,
+                                      backgroundHighlightedImage: imageItem2) { () -> Void in showAlert("Music")
         }
         
-//        let imageItem2 = UIImage(named: "qrcode.viewfinder")
-//        let item2 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
-//                                      image: imageItem2,
-//                                      highlightedImage: imageItem2,
-//                                      backgroundImage: imageItem2,
-//                                      backgroundHighlightedImage: imageItem2) { () -> Void in showAlert("Music")
-//        }
-        
-        menuButton.addMenuItems([item1])
+        menuButton.addMenuItems([item1, item2])
         
         menuButton.willPresentMenuItems = { (menu) -> Void in
             print("MenuItems will present.")

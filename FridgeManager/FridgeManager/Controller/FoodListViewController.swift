@@ -12,17 +12,20 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    let sectionDataList: [String] = ["甲級", "乙級", "丙級", "丁級", "戊級", "己級", "庚級", "壬級", "癸級" ]
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let sectionDataList: [String] = ["肉類", "雞蛋類", "青菜類", "水果類", "其他", "醃製物類", "庚級", "壬級", "癸級" ]
     
     let sectionImage: [String] = ["cabbage", "avocado", "boiled", "bread-2", "bread-1", "bread", "bread", "bread", "bread", "bread", "bread",]
-    let sectionDataAmount: [String] = ["總計有3位", "總計有5位", "總計有6位", "總計有5位", "總計有8位", "總計有8位", "總計有8位", "總計有8位", "總計有8位" ]
+    
+    let sectionDataAmount: [String] = ["總計有3筆", "總計有4筆", "總計有6筆", "總計有7筆", "總計有7筆", "總計有7筆", "總計有8位", "總計有8位", "總計有8位" ]
     
     let sectionDataDate:[String] = ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24" ]
     
-    let rowDataList: [[String]] = [["岩柱", "霞柱", "風柱"],
-                                    ["炎柱", "水柱", "戀柱", "蛇柱", "音柱"]]
+    let rowDataList: [[String]] = [["Costco牛排", "全聯火鍋片", "豬絞肉"],
+                                    ["土雞蛋", "鵪鶉蛋", "溫泉蛋", "有雞蛋", "皮蛋"]]
     
-    let rowDataAmount: [[String]] = [["數量：200 公克", "數量：200 公克", "數量：200 公克"],
+    let rowDataAmount: [[String]] = [["數量：1000 公克", "數量：200 公克", "數量：200 公克"],
                                       ["數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克"]]
     
     let rowDataDate: [[String]] = [["2020-09-24", "2020-09-24", "2020-09-24"],
@@ -33,6 +36,8 @@ class FoodListViewController: UIViewController {
     let searchButton = UIButton()
 //    var database: Firestore!
     var showCategory: ShowCategory = .all
+    
+    let takingPicture = UIImagePickerController()
     
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
     @IBOutlet weak var fliterBarButton: UIBarButtonItem!
@@ -60,12 +65,14 @@ class FoodListViewController: UIViewController {
         configTableView()
         configNib()
         expandingMenuButton()
+        searchBarSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+  
     func navigationTitleSetup() {
         
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -73,6 +80,12 @@ class FoodListViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.view.backgroundColor = .chloeYellow
+    }
+    
+    func searchBarSetup() {
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = .white
+        }
     }
     
     func tabBarSetup() {
@@ -166,8 +179,8 @@ class FoodListViewController: UIViewController {
         let xAxis = self.view.bounds.width
         let yAxis = self.view.bounds.height
         let origin = CGPoint.zero
-        let image = #imageLiteral(resourceName: "chooser-button-tab")
-        let rotated = #imageLiteral(resourceName: "chooser-button-input-highlighted")
+        let image = #imageLiteral(resourceName: "add")
+        let rotated = #imageLiteral(resourceName: "add")
         let menuButton = ExpandingMenuButton(frame: CGRect(origin: origin, size: btnSize), image: image, rotatedImage: rotated)
         
         menuButton.center = CGPoint(x: xAxis-50, y: yAxis-200)
@@ -193,6 +206,14 @@ class FoodListViewController: UIViewController {
                                       highlightedImage: imageItem2,
                                       backgroundImage: imageItem2,
                                       backgroundHighlightedImage: imageItem2) { () -> Void in showAlert("掃描發票")
+
+            self.takingPicture.sourceType = .camera
+            
+            self.takingPicture.allowsEditing = false
+            
+            self.takingPicture.delegate = self
+            
+            self.present(self.takingPicture, animated: true, completion: nil)
         }
         
         menuButton.addMenuItems([item1, item2])
@@ -206,8 +227,21 @@ class FoodListViewController: UIViewController {
         }
         
     }
-    
+
 }
+
+extension FoodListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            
+        }
+        
+        takingPicture.dismiss(animated: true, completion: nil)
+    }
+}
+
 extension FoodListViewController: UITableViewDelegate {
    
     // header高度

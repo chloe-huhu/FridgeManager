@@ -12,6 +12,7 @@ protocol PurchaseSectionViewDelegate: class {
 }
 
 class PurchaseSectionView: UITableViewHeaderFooterView {
+    
     @IBOutlet weak var pendingLabel: UILabel!
     
     @IBOutlet weak var moreButton: UIButton!
@@ -24,4 +25,14 @@ class PurchaseSectionView: UITableViewHeaderFooterView {
         self.delegate?.sectionView(self, self.buttonTag, self.isExpand)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupBackground()
+    }
+    
+    private func setupBackground() {
+        let background = UIView()
+        background.backgroundColor = .white
+        self.backgroundView = background
+    }
 }

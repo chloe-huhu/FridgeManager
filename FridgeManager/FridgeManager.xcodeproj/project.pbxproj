@@ -11,12 +11,12 @@
 		AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* EnumExtension.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
+		AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */; };
 		AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7169432574995B00659F2C /* PurchaseSectionView.swift */; };
 		AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE716948257499C500659F2C /* PurchaseSectionView.xib */; };
 		AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */; };
 		AE71695325749CF400659F2C /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */; };
 		AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695D2574D47C00659F2C /* UILabelExtension.swift */; };
-		AE7169632574DE1700659F2C /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7169622574DE1700659F2C /* AddContentViewController.swift */; };
 		AE7D32412572395B00D97E23 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D32402572395B00D97E23 /* SectionView.swift */; };
 		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
 		AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCAE62572401D00CD44F3 /* CellView.swift */; };
@@ -63,12 +63,12 @@
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTableViewController.swift; sourceTree = "<group>"; };
 		AE7169432574995B00659F2C /* PurchaseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSectionView.swift; path = FridgeManager/Controller/PurchaseSectionView.swift; sourceTree = SOURCE_ROOT; };
 		AE716948257499C500659F2C /* PurchaseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionView.xib; sourceTree = "<group>"; };
 		AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
 		AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
 		AE71695D2574D47C00659F2C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
-		AE7169622574DE1700659F2C /* AddContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
 		AE7D32402572395B00D97E23 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		AE9DCAE62572401D00CD44F3 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellView.swift; path = FridgeManager/CellView.swift; sourceTree = SOURCE_ROOT; };
@@ -158,11 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
-				AE7169622574DE1700659F2C /* AddContentViewController.swift */,
 				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
 				AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */,
+				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,9 +531,9 @@
 				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
-				AE7169632574DE1700659F2C /* AddContentViewController.swift in Sources */,
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
 				AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */,
+				AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */,
 				AEDA421A2575479200AF4CC1 /* MenuDetailViewController.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
@@ -719,7 +719,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 959X4KSG47;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -740,7 +740,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 959X4KSG47;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

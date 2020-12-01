@@ -24,9 +24,12 @@ class PurchaseListViewController: UIViewController {
     
     let searchButton = UIButton()
     
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var taskDateTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +37,7 @@ class PurchaseListViewController: UIViewController {
         tabBarSetup()
         configTableView()
         configNib()
-//        configColletionView()
-        datePicker.backgroundColor = .chloeYellow
+        
     }
     
     func navigationTitleSetup() {

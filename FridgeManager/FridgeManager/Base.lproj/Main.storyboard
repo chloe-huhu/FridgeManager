@@ -361,7 +361,7 @@
                                                                         <constraint firstAttribute="height" constant="35" id="cYM-e3-4EN"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyf-mZ-25H">
                                                                     <rect key="frame" x="335" y="0.0" width="35" height="35"/>
@@ -484,9 +484,6 @@
                                                             <color key="backgroundColor" name="B6"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <action selector="purchseDateDidSelected:" destination="yTY-l9-zTe" eventType="editingDidEnd" id="vl4-hd-ESr"/>
-                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -520,9 +517,6 @@
                                                             <color key="backgroundColor" name="B6"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <action selector="expiredDateDidSelected:" destination="yTY-l9-zTe" eventType="editingDidEnd" id="pO3-Gr-8oC"/>
-                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -547,7 +541,7 @@
                         <barButtonItem key="rightBarButtonItem" image="arrow.down.doc" catalog="system" id="fsY-na-hYJ">
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="checkBtnTapped:" destination="yTY-l9-zTe" id="F3V-dx-ORi"/>
+                                <action selector="saveBtnTapped:" destination="yTY-l9-zTe" id="F3V-dx-ORi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -555,7 +549,6 @@
                         <outlet property="amountTextField" destination="6Pw-n3-50k" id="xzo-ff-o0S"/>
                         <outlet property="categoryPickerView" destination="BCx-F1-gX3" id="XwF-B3-FPM"/>
                         <outlet property="categoryTextField" destination="Ucs-o7-2nu" id="faw-2L-hLb"/>
-                        <outlet property="checkButtonItem" destination="fsY-na-hYJ" id="u6z-8W-y0M"/>
                         <outlet property="expiredDatePicker" destination="fqE-YV-etr" id="XSP-kb-X31"/>
                         <outlet property="expiredTextField" destination="MS4-6E-Cpl" id="nTa-Qw-l1j"/>
                         <outlet property="foodImageView" destination="lIv-7q-CPb" id="pSF-XQ-P1H"/>
@@ -563,6 +556,7 @@
                         <outlet property="photoImageView" destination="lIv-7q-CPb" id="x67-k2-GdY"/>
                         <outlet property="purchaseDatePicker" destination="Vl6-ld-Agr" id="nlM-KH-4nk"/>
                         <outlet property="purchaseTextField" destination="4gY-gQ-RjJ" id="Pdp-Bb-y2V"/>
+                        <outlet property="saveBtnItem" destination="fsY-na-hYJ" id="u6z-8W-y0M"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7w-ab-J3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

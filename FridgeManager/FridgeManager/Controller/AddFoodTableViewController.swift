@@ -8,7 +8,7 @@
 import UIKit
 
 class AddFoodTableViewController: UITableViewController {
-
+    
     let dataCategory = ["肉類", "蛋類", "水果類"]
     
     @IBOutlet weak var foodImageView: UIImageView!
@@ -56,11 +56,19 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet var purchaseDatePicker: UIDatePicker!
+    @IBOutlet var purchaseDatePicker: UIDatePicker! {
+        didSet {
+            purchaseDatePicker.addTarget(self, action: #selector(purchaseDateSelected), for: .valueChanged)
+        }
+    }
     
-    @IBOutlet var expiredDatePicker: UIDatePicker!
+    @IBOutlet var expiredDatePicker: UIDatePicker! {
+        didSet {
+            expiredDatePicker.addTarget(self, action: #selector(expiredDateSelected), for: .valueChanged)
+        }
+    }
     
-    @IBOutlet weak var checkButtonItem: UIBarButtonItem!
+    @IBOutlet weak var saveBtnItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,44 +77,75 @@ class AddFoodTableViewController: UITableViewController {
         expiredTextField.inputView = expiredDatePicker
     }
     
-  
+    
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBAction func categoryDidSeclected(_ sender: UIButton) {
-//        categoryTextField.text = dataCategory[0]
-//        categoryTextField.text = ""
+        //        categoryTextField.text = dataCategory[0]
+        //        categoryTextField.text = ""
     }
     
-    @IBAction func purchseDateDidSelected(_ sender: Any) {
+    @objc private func purchaseDateSelected() {
         
-    }
-    
-    
-    @IBAction func expiredDateDidSelected(_ sender: Any) {
+        let formatter = DateFormatter()
         
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        purchaseTextField.text = formatter.string(from: purchaseDatePicker.date)
     }
     
-    @IBAction func checkBtnTapped(_ sender: UIButton) {
+    @objc private func expiredDateSelected() {
         
+        let formatter = DateFormatter()
+       
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        expiredTextField.text = formatter.string(from: expiredDatePicker.date)
     }
-
+    
+    @IBAction func saveBtnTapped(_ sender: AnyObject) {
+        
+        if foodTitleTextField.text == "" || amountTextField.text == "" ||
+            categoryTextField.text == "" || purchaseTextField.text == "" ||
+            expiredTextField.text == "" {
+            
+            let alterControloler = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)
+            let alerAction = UIAlertAction(title: "好", style: .default, handler: nil)
+            
+            alterControloler.addAction(alerAction)
+            
+            present(alterControloler, animated: true, completion: nil)
+            
+            return
+        }
+        
+        print("name:\(foodTitleTextField.text ?? "")")
+        print("name:\(amountTextField.text ?? "")")
+        print("name:\(categoryTextField.text ?? "")")
+        print("name:\(purchaseTextField.text ?? "")")
+        print("name:\(expiredTextField.text ?? "")")
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     //選到第 0 row 開啟相機
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-
-            let photoSourceRequestController = UIAlertController(title: "123", message: "Choose your photo source", preferredStyle: .actionSheet)
-
+            
+            let photoSourceRequestController = UIAlertController(title: "請選擇", message: "拍照或是圖片", preferredStyle: .actionSheet)
+            
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let imagePicker = UIImagePickerController()
                     imagePicker.allowsEditing = false
                     imagePicker.sourceType = .camera
                     imagePicker.delegate = self
-
+                    
                     self.present(imagePicker, animated: true, completion: nil)
                 }
             })
-
+            
             let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                     let imagePicker = UIImagePickerController()
@@ -118,30 +157,31 @@ class AddFoodTableViewController: UITableViewController {
             })
             
             photoSourceRequestController.addAction(cameraAction)
-
+            
             photoSourceRequestController.addAction(photoLibraryAction)
             
             present(photoSourceRequestController, animated: true, completion: nil)
         }
     }
     
+   
 }
 
 //從照片庫選擇照片後，從參數選擇被選取的照片
 extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-   
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-       
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                photoImageView.image = selectedImage
-                photoImageView.contentMode = .scaleAspectFill
-                photoImageView.clipsToBounds = true
-            }
         
-    //約束條件
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photoImageView.image = selectedImage
+            photoImageView.contentMode = .scaleAspectFill
+            photoImageView.clipsToBounds = true
+        }
+        
+        //約束條件
         let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
         leadingConstraint.isActive = true
-
+        
         let trailingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
         trailingConstraint.isActive = true
         
@@ -151,7 +191,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
         let bottomConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
         bottomConstraint.isActive = true
         
-            dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -184,5 +224,3 @@ extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSour
         categoryTextField.text = dataCategory[row]
     }
 }
-
-

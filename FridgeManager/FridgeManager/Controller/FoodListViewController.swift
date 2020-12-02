@@ -43,13 +43,6 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var fliterBarButton: UIBarButtonItem!
     
     @IBOutlet weak var allButton: UIButton!
-//    {
-//        didSet {
-//            allButton.setTitleColor(.chloeBlue, for: .normal)
-//            allButton.tintColor = .chloeBlue
-//        }
-//    }
-    
     @IBOutlet weak var soonExpiredButton: UIButton!
     @IBOutlet weak var expiredButton: UIButton!
     @IBOutlet weak var sliderView: UIView!
@@ -66,6 +59,7 @@ class FoodListViewController: UIViewController {
         configNib()
         expandingMenuButton()
         searchBarSetup()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,21 +99,17 @@ class FoodListViewController: UIViewController {
     @IBAction func allPressed(_ sender: UIButton) {
         showCategory = .all
         btnPressedAnimation(type: .all)
-//        btnPressedColor(type: .all)
-        
     }
     
     @IBAction func soonExpiredPressed(_ sender: UIButton) {
         showCategory = .soonExpired
         btnPressedAnimation(type: .soonExpired)
-//        btnPressedColor(type: .soonExpired)
         
     }
     
     @IBAction func expiredPressed(_ sender: UIButton) {
         showCategory = .expired
         btnPressedAnimation(type: .expired)
-//        btnPressedColor(type: .expired)
         
     }
     

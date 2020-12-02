@@ -20,15 +20,20 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         configTableView()
+        
+
+        
     
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        let destVC = segue.destination as? MenuDetailViewController
 //    }
+    
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = .chloeYellow
+
     }
     
     func configTableView() {

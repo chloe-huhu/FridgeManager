@@ -10,10 +10,11 @@ import UIKit
 class AddFoodTableViewController: UITableViewController {
     
     let dataCategory = ["肉類", "蛋類", "水果類"]
+    let dataUnit = ["公克", "公斤", "包", "串", "根"]
     
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
-            changePicLabel.layer.cornerRadius = 20
+            changePicLabel.layer.cornerRadius = 25
             changePicLabel.layer.masksToBounds = true
         }
     }
@@ -35,24 +36,45 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
+    @IBOutlet weak var unitTextField: RoundedTextField! {
+        didSet {
+            unitTextField.tag = 3
+            unitTextField.delegate = self
+            unitTextField.inputView = unitPickerView
+            
+        }
+    }
+    
     @IBOutlet weak var categoryTextField: RoundedTextField! {
         didSet {
-            categoryTextField.tag = 3
+            categoryTextField.tag = 4
             categoryTextField.delegate = self
+            categoryTextField.inputView = categoryPickerView
         }
     }
     
     @IBOutlet weak var purchaseTextField: RoundedTextField! {
         didSet {
-            purchaseTextField.tag = 4
+            purchaseTextField.tag = 5
             purchaseTextField.delegate = self
+            purchaseTextField.inputView = purchaseDatePicker
         }
     }
     
     @IBOutlet weak var expiredTextField: RoundedTextField! {
         didSet {
-            expiredTextField.tag = 5
+            expiredTextField.tag = 6
             expiredTextField.delegate = self
+            expiredTextField.inputView = expiredDatePicker
+        }
+    }
+    
+   
+    @IBOutlet var unitPickerView: UIPickerView! {
+        didSet {
+            unitPickerView.delegate = self
+            unitPickerView.dataSource = self
+           
         }
     }
     
@@ -65,12 +87,14 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet var purchaseDatePicker: UIDatePicker! {
         didSet {
+            
             purchaseDatePicker.addTarget(self, action: #selector(purchaseDateSelected), for: .valueChanged)
         }
     }
     
     @IBOutlet var expiredDatePicker: UIDatePicker! {
         didSet {
+            
             expiredDatePicker.addTarget(self, action: #selector(expiredDateSelected), for: .valueChanged)
         }
     }
@@ -79,17 +103,14 @@ class AddFoodTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryTextField.inputView = categoryPickerView
-        purchaseTextField.inputView = purchaseDatePicker
-        expiredTextField.inputView = expiredDatePicker
     }
     
     
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBAction func categoryDidSeclected(_ sender: UIButton) {
-        //        categoryTextField.text = dataCategory[0]
-        //        categoryTextField.text = ""
+        categoryTextField.text = ""
+        categoryTextField.text = dataCategory[0]
     }
     
     @objc private func purchaseDateSelected() {
@@ -112,7 +133,7 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBAction func saveBtnTapped(_ sender: AnyObject) {
         
-        if foodTitleTextField.text == "" || amountTextField.text == "" ||
+        if foodTitleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" ||
             categoryTextField.text == "" || purchaseTextField.text == "" ||
             expiredTextField.text == "" {
             
@@ -128,6 +149,7 @@ class AddFoodTableViewController: UITableViewController {
         
         print("name:\(foodTitleTextField.text ?? "")")
         print("name:\(amountTextField.text ?? "")")
+        print("name:\(unitTextField.text ?? "")")
         print("name:\(categoryTextField.text ?? "")")
         print("name:\(purchaseTextField.text ?? "")")
         print("name:\(expiredTextField.text ?? "")")
@@ -220,14 +242,19 @@ extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataCategory.count
+        
+        return pickerView == unitPickerView ? dataUnit.count : dataCategory.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataCategory[row]
+        return pickerView == unitPickerView ? dataUnit[row] : dataCategory[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryTextField.text = dataCategory[row]
+        if pickerView == unitPickerView {
+            unitTextField.text = dataUnit[row]
+        } else {
+            categoryTextField.text = dataCategory[row]
+        }
     }
 }

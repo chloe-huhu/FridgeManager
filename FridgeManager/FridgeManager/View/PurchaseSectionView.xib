@@ -30,7 +30,7 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avocado" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-Cg-ivW">
-                            <rect key="frame" x="16" y="5" width="34" height="34"/>
+                            <rect key="frame" x="16" y="10" width="34" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="R0j-iO-PPI"/>
                                 <constraint firstAttribute="width" constant="34" id="zSv-Hr-iER"/>
@@ -50,7 +50,7 @@
                     <constraints>
                         <constraint firstItem="hwi-ci-Vvx" firstAttribute="centerY" secondItem="YMH-zz-TzB" secondAttribute="centerY" id="PdB-qc-hH4"/>
                         <constraint firstItem="Jew-Cg-ivW" firstAttribute="leading" secondItem="YMH-zz-TzB" secondAttribute="leading" constant="16" id="RzF-5N-P2Q"/>
-                        <constraint firstItem="Jew-Cg-ivW" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="5" id="ToB-ZM-LhG"/>
+                        <constraint firstItem="Jew-Cg-ivW" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="10" id="ToB-ZM-LhG"/>
                         <constraint firstAttribute="trailing" secondItem="hwi-ci-Vvx" secondAttribute="trailing" constant="16" id="XxA-9s-Vl7"/>
                         <constraint firstItem="Y5Z-PF-QJC" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="8" id="hFw-pk-uQN"/>
                         <constraint firstItem="Y5Z-PF-QJC" firstAttribute="leading" secondItem="Jew-Cg-ivW" secondAttribute="trailing" constant="16" id="vGB-J8-xWR"/>

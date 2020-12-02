@@ -18,6 +18,7 @@
 		AE71695325749CF400659F2C /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */; };
 		AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695D2574D47C00659F2C /* UILabelExtension.swift */; };
 		AE7D32412572395B00D97E23 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D32402572395B00D97E23 /* SectionView.swift */; };
+		AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */; };
 		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
 		AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCAE62572401D00CD44F3 /* CellView.swift */; };
 		AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAE72572401D00CD44F3 /* CellView.xib */; };
@@ -36,6 +37,7 @@
 		AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */; };
 		AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */; };
 		AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* MenuViewController.swift */; };
+		AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */; };
 		E76DB4D0845F3C2387111F7A /* Pods_FridgeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0FC776BE4D4B203359631 /* Pods_FridgeManager.framework */; };
 		FDA81B5A9794ECFD31EF8D98 /* Pods_FridgeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EF771E787B9C23ED60EC7 /* Pods_FridgeManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,7 @@
 		AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
 		AE71695D2574D47C00659F2C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		AE7D32402572395B00D97E23 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		AE9DCAE62572401D00CD44F3 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellView.swift; path = FridgeManager/CellView.swift; sourceTree = SOURCE_ROOT; };
 		AE9DCAE72572401D00CD44F3 /* CellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellView.xib; path = FridgeManager/CellView.xib; sourceTree = SOURCE_ROOT; };
@@ -94,6 +97,7 @@
 		AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = FridgeManager/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodDetailViewController.swift; path = FridgeManager/FoodDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEDA4211257546F900AF4CC1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = FridgeManager/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C5C6B4E9A96B2993D5C0EE34 /* Pods-FridgeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager/Pods-FridgeManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,9 +162,11 @@
 			isa = PBXGroup;
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
-				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
+				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
+				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
+				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
 			);
 			path = Controller;
@@ -528,6 +534,7 @@
 				AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */,
 				AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */,
 				AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */,
+				AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */,
 				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
@@ -538,6 +545,7 @@
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
+				AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */,
 				AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */,
 				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,
 			);

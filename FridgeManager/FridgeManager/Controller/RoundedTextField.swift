@@ -26,7 +26,7 @@ class RoundedTextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = 8.0
         self.layer.masksToBounds = true
     }
     

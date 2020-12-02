@@ -73,6 +73,10 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
     func navigationTitleSetup() {
         
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -217,11 +221,11 @@ class FoodListViewController: UIViewController {
         
         menuButton.addMenuItems([item1, item2])
         
-        menuButton.willPresentMenuItems = { (menu) -> Void in
+        menuButton.willPresentMenuItems = { (_) -> Void in
             print("MenuItems will present.")
         }
         
-        menuButton.didDismissMenuItems = { (menu) -> Void in
+        menuButton.didDismissMenuItems = { (_) -> Void in
             print("MenuItems dismissed.")
         }
         
@@ -229,14 +233,15 @@ class FoodListViewController: UIViewController {
 
 }
 
+//老唐寫的掃描發票
 extension FoodListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[.originalImage] as? UIImage {
-            
+
         }
-        
+
         takingPicture.dismiss(animated: true, completion: nil)
     }
 }
@@ -257,7 +262,9 @@ extension FoodListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+    }
     // section content
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
@@ -302,6 +309,10 @@ extension FoodListViewController: UITableViewDataSource {
         cell.rowDateLabel.text = self.rowDataDate[indexPath.section][indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //409頁
     }
     
 }

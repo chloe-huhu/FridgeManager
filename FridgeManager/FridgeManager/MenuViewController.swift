@@ -23,9 +23,9 @@ class MenuViewController: UIViewController {
     
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC = segue.destination as? MenuDetailViewController
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destVC = segue.destination as? MenuDetailViewController
+//    }
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = .chloeYellow
@@ -44,9 +44,14 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowDataList.count
     }

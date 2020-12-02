@@ -9,7 +9,8 @@ import UIKit
 
 class PurchaseListViewController: UIViewController {
    
-    let sectionImage: [String] = ["folder.badge.questionmark", "folder.badge.person.crop"]
+    let sectionImage: [String] = ["pencil.circle.fill", "pencil.circle.fill"]
+    
     let sectionDataList: [String] = ["未採購", "採購中"]
     
     let cellDataTitle: [[String]] = [["香蕉", "Costco 牛排", "雞蛋"],
@@ -72,7 +73,7 @@ class PurchaseListViewController: UIViewController {
 extension PurchaseListViewController: UITableViewDelegate {
    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 70
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -91,7 +92,7 @@ extension PurchaseListViewController: UITableViewDelegate {
         sectionView.buttonTag = section
         sectionView.delegate = self
         
-        sectionView.imageView.image = UIImage(named: self.sectionImage[section])
+        sectionView.imageView.image = UIImage(systemName: self.sectionImage[section])
         
         sectionView.pendingLabel.text = self.sectionDataList[section]
         

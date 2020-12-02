@@ -11,6 +11,13 @@ class AddFoodTableViewController: UITableViewController {
     
     let dataCategory = ["肉類", "蛋類", "水果類"]
     
+    @IBOutlet weak var changePicLabel: UILabel! {
+        didSet {
+            changePicLabel.layer.cornerRadius = 20
+            changePicLabel.layer.masksToBounds = true
+        }
+    }
+    
     @IBOutlet weak var foodImageView: UIImageView!
     
     @IBOutlet weak var foodTitleTextField: RoundedTextField! {

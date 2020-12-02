@@ -36,7 +36,6 @@
 		AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */; };
 		AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */; };
 		AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* MenuViewController.swift */; };
-		AEDA421A2575479200AF4CC1 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */; };
 		E76DB4D0845F3C2387111F7A /* Pods_FridgeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0FC776BE4D4B203359631 /* Pods_FridgeManager.framework */; };
 		FDA81B5A9794ECFD31EF8D98 /* Pods_FridgeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EF771E787B9C23ED60EC7 /* Pods_FridgeManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -95,7 +94,6 @@
 		AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = FridgeManager/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodDetailViewController.swift; path = FridgeManager/FoodDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEDA4211257546F900AF4CC1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = FridgeManager/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
-		AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuDetailViewController.swift; path = FridgeManager/MenuDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C5C6B4E9A96B2993D5C0EE34 /* Pods-FridgeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager/Pods-FridgeManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
-				AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -537,7 +534,6 @@
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
 				AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */,
 				AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */,
-				AEDA421A2575479200AF4CC1 /* MenuDetailViewController.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,

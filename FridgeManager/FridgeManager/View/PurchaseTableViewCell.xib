@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,41 +17,70 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香蕉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-fB-VZd">
-                        <rect key="frame" x="16" y="8" width="32" height="22.5"/>
-                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
-                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量：6 根" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W23-3A-YyL">
-                        <rect key="frame" x="16" y="30.5" width="79" height="22.5"/>
-                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-HO-nbK" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
-                        <rect key="frame" x="224" y="26" width="80" height="20"/>
-                        <color key="backgroundColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-Sz-XDF" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
+                        <rect key="frame" x="16" y="5" width="288" height="62"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香蕉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-fB-VZd">
+                                <rect key="frame" x="16" y="5" width="32" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-HO-nbK" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
+                                <rect key="frame" x="203" y="21" width="80" height="20"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="NjB-qQ-4KJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量：6 根" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W23-3A-YyL">
+                                <rect key="frame" x="16" y="32.5" width="79" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="NjB-qQ-4KJ"/>
+                            <constraint firstItem="W23-3A-YyL" firstAttribute="leading" secondItem="Jpf-Sz-XDF" secondAttribute="leading" constant="16" id="0yO-LK-f3L"/>
+                            <constraint firstItem="SXf-fB-VZd" firstAttribute="top" secondItem="Jpf-Sz-XDF" secondAttribute="top" constant="5" id="Bn3-fO-Hgm"/>
+                            <constraint firstItem="W23-3A-YyL" firstAttribute="top" secondItem="SXf-fB-VZd" secondAttribute="bottom" constant="5" id="i3Y-dG-RIB"/>
+                            <constraint firstItem="4Fc-HO-nbK" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="jZA-by-JGE"/>
+                            <constraint firstItem="SXf-fB-VZd" firstAttribute="leading" secondItem="Jpf-Sz-XDF" secondAttribute="leading" constant="16" id="oga-Nf-Gzs"/>
+                            <constraint firstAttribute="trailing" secondItem="4Fc-HO-nbK" secondAttribute="trailing" constant="5" id="sFg-tp-2gN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="13"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </label>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="W23-3A-YyL" firstAttribute="top" secondItem="SXf-fB-VZd" secondAttribute="bottom" id="HlW-wd-4qD"/>
-                    <constraint firstItem="SXf-fB-VZd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MYA-FF-8gi"/>
-                    <constraint firstItem="4Fc-HO-nbK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VEL-ix-zaA"/>
-                    <constraint firstItem="SXf-fB-VZd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZjX-bo-XVm"/>
-                    <constraint firstAttribute="trailing" secondItem="4Fc-HO-nbK" secondAttribute="trailing" constant="16" id="aW7-wD-99t"/>
-                    <constraint firstItem="W23-3A-YyL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="dUQ-N7-nFh"/>
+                    <constraint firstItem="Jpf-Sz-XDF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="OuI-Ch-1hd"/>
+                    <constraint firstAttribute="bottom" secondItem="Jpf-Sz-XDF" secondAttribute="bottom" constant="5" id="g8S-WO-Cew"/>
+                    <constraint firstItem="Jpf-Sz-XDF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mbg-Lf-4nv"/>
+                    <constraint firstAttribute="trailing" secondItem="Jpf-Sz-XDF" secondAttribute="trailing" constant="16" id="ufo-23-9qS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -62,4 +92,9 @@
             <point key="canvasLocation" x="-171.01449275362319" y="83.705357142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

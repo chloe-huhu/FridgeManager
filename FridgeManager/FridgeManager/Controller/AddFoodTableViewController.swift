@@ -12,11 +12,42 @@ class AddFoodTableViewController: UITableViewController {
     let dataCategory = ["肉類", "蛋類", "水果類"]
     
     @IBOutlet weak var foodImageView: UIImageView!
-    @IBOutlet weak var foodTitleLabel: UITextField!
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var purchaseTextField: UITextField!
-    @IBOutlet weak var expiredTextField: UITextField!
+    
+    @IBOutlet weak var foodTitleTextField: RoundedTextField! {
+        didSet {
+            foodTitleTextField.tag = 1
+            foodTitleTextField.becomeFirstResponder()
+            foodTitleTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var amountTextField: RoundedTextField! {
+        didSet {
+            amountTextField.tag = 2
+            amountTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var categoryTextField: RoundedTextField! {
+        didSet {
+            categoryTextField.tag = 3
+            categoryTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var purchaseTextField: RoundedTextField! {
+        didSet {
+            purchaseTextField.tag = 4
+            purchaseTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var expiredTextField: RoundedTextField! {
+        didSet {
+            expiredTextField.tag = 5
+            expiredTextField.delegate = self
+        }
+    }
     
     @IBOutlet var categoryPickerView: UIPickerView! {
         didSet {
@@ -29,18 +60,110 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet var expiredDatePicker: UIDatePicker!
     
+    @IBOutlet weak var checkButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryTextField.inputView = categoryPickerView
+        purchaseTextField.inputView = purchaseDatePicker
+        expiredTextField.inputView = expiredDatePicker
+    }
+    
+  
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    @IBAction func categoryDidSeclected(_ sender: UIButton) {
+//        categoryTextField.text = dataCategory[0]
+//        categoryTextField.text = ""
+    }
+    
+    @IBAction func purchseDateDidSelected(_ sender: Any) {
         
-//        categoryTextField.inputView = categoryPickerView
-//        purchaseTextField.inputView = purchaseDatePicker
-//        expiredTextField.inputView = expiredDatePicker
     }
     
-    @IBAction func categoryDidSelected(_ sender: Any) {
-        categoryTextField.text = dataCategory[0]
+    
+    @IBAction func expiredDateDidSelected(_ sender: Any) {
+        
     }
     
+    @IBAction func checkBtnTapped(_ sender: UIButton) {
+        
+    }
+
+    //選到第 0 row 開啟相機
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+
+            let photoSourceRequestController = UIAlertController(title: "123", message: "Choose your photo source", preferredStyle: .actionSheet)
+
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .camera
+                    imagePicker.delegate = self
+
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+
+            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (_) in
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .photoLibrary
+                    imagePicker.delegate = self
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            
+            photoSourceRequestController.addAction(cameraAction)
+
+            photoSourceRequestController.addAction(photoLibraryAction)
+            
+            present(photoSourceRequestController, animated: true, completion: nil)
+        }
+    }
+    
+}
+
+//從照片庫選擇照片後，從參數選擇被選取的照片
+extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+       
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                photoImageView.image = selectedImage
+                photoImageView.contentMode = .scaleAspectFill
+                photoImageView.clipsToBounds = true
+            }
+        
+    //約束條件
+        let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+        leadingConstraint.isActive = true
+
+        let trailingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+        trailingConstraint.isActive = true
+        
+        let topConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)
+        topConstraint.isActive = true
+        
+        let bottomConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+        bottomConstraint.isActive = true
+        
+            dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddFoodTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = view.viewWithTag(textField.tag + 1 ) {
+            textField.resignFirstResponder()
+            nextTextField.becomeFirstResponder()
+        }
+        return true
+    }
 }
 
 extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -61,3 +184,5 @@ extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSour
         categoryTextField.text = dataCategory[row]
     }
 }
+
+

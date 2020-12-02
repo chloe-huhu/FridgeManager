@@ -77,7 +77,6 @@ class FoodListViewController: UIViewController {
         
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.view.backgroundColor = .chloeYellow
     }
@@ -205,7 +204,7 @@ class FoodListViewController: UIViewController {
                                       image: imageItem2!,
                                       highlightedImage: imageItem2,
                                       backgroundImage: imageItem2,
-                                      backgroundHighlightedImage: imageItem2) { () -> Void in showAlert("掃描發票")
+                                      backgroundHighlightedImage: imageItem2) {
 
             self.takingPicture.sourceType = .camera
             

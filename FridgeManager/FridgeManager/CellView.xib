@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-qk-jX5" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                        <rect key="frame" x="16" y="3" width="439" height="108"/>
+                        <rect key="frame" x="16" y="3" width="435" height="108"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costco 牛排" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-NI-V8h">
                                 <rect key="frame" x="16" y="8" width="100" height="22.5"/>
@@ -76,7 +76,7 @@
                     <constraint firstItem="5UG-qk-jX5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cy4-PR-iFY"/>
                     <constraint firstItem="5UG-qk-jX5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="h1j-Z4-exb"/>
                     <constraint firstAttribute="bottom" secondItem="5UG-qk-jX5" secondAttribute="bottom" constant="3" id="njL-vn-tCk"/>
-                    <constraint firstAttribute="trailing" secondItem="5UG-qk-jX5" secondAttribute="trailing" constant="16" id="xuB-L5-Vyj"/>
+                    <constraint firstAttribute="trailing" secondItem="5UG-qk-jX5" secondAttribute="trailing" constant="20" id="xuB-L5-Vyj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

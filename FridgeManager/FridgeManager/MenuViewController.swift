@@ -20,19 +20,14 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         configTableView()
-        
-        // Do any additional setup after loading the view.
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as? MenuDetailViewController
     }
     func navigationTitleSetup() {
-        
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.view.backgroundColor = .chloeYellow
     }
     

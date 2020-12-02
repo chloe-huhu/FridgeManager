@@ -23,6 +23,7 @@
 		AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAE72572401D00CD44F3 /* CellView.xib */; };
 		AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAF72572488F00CD44F3 /* SectionView.xib */; };
 		AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCB02257251C700CD44F3 /* CardView.swift */; };
+		AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */; };
 		AED556DC256E48190068A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DB256E48190068A855 /* AppDelegate.swift */; };
 		AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DD256E48190068A855 /* SceneDelegate.swift */; };
 		AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DF256E48190068A855 /* FoodListViewController.swift */; };
@@ -75,6 +76,7 @@
 		AE9DCAE72572401D00CD44F3 /* CellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellView.xib; path = FridgeManager/CellView.xib; sourceTree = SOURCE_ROOT; };
 		AE9DCAF72572488F00CD44F3 /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		AE9DCB02257251C700CD44F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedTextField.swift; path = FridgeManager/Controller/RoundedTextField.swift; sourceTree = SOURCE_ROOT; };
 		AED556D8256E48190068A855 /* FridgeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED556DB256E48190068A855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED556DD256E48190068A855 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,11 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
+				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
 				AEDA42192575479200AF4CC1 /* MenuDetailViewController.swift */,
-				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +195,7 @@
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
 				AE9DCB02257251C700CD44F3 /* CardView.swift */,
 				AE71695D2574D47C00659F2C /* UILabelExtension.swift */,
 				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
@@ -540,6 +543,7 @@
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
 				AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */,
+				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

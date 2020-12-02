@@ -14,35 +14,77 @@
             <rect key="frame" x="0.0" y="0.0" width="609" height="66"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未認領" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-PF-QJC">
-                    <rect key="frame" x="16" y="20.5" width="54" height="25.5"/>
-                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                    <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwi-ci-Vvx">
-                    <rect key="frame" x="563" y="18" width="30" height="30"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-zz-TzB" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
+                    <rect key="frame" x="5" y="5" width="599" height="66"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwi-ci-Vvx">
+                            <rect key="frame" x="553" y="18" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="1aW-2Y-WWs"/>
+                                <constraint firstAttribute="height" constant="30" id="9St-6K-Iiw"/>
+                            </constraints>
+                            <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="ellipsis.circle" catalog="system"/>
+                            <connections>
+                                <action selector="pressExpendBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="333-QP-g17"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avocado" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-Cg-ivW">
+                            <rect key="frame" x="16" y="8" width="34" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="nTu-8E-HJP"/>
+                                <constraint firstAttribute="width" constant="34" id="wG9-iv-7yT"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未認領" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-PF-QJC">
+                            <rect key="frame" x="58" y="8" width="54" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="2Th-yo-6UX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="1aW-2Y-WWs"/>
-                        <constraint firstAttribute="height" constant="30" id="9St-6K-Iiw"/>
+                        <constraint firstItem="Y5Z-PF-QJC" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="8" id="Fdi-Jz-uDC"/>
+                        <constraint firstItem="Y5Z-PF-QJC" firstAttribute="leading" secondItem="Jew-Cg-ivW" secondAttribute="trailing" constant="8" id="Naz-LR-QTL"/>
+                        <constraint firstItem="Jew-Cg-ivW" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="8" id="OVS-xX-WLV"/>
+                        <constraint firstItem="Jew-Cg-ivW" firstAttribute="leading" secondItem="YMH-zz-TzB" secondAttribute="leading" constant="16" id="hob-3z-czV"/>
+                        <constraint firstItem="hwi-ci-Vvx" firstAttribute="centerY" secondItem="YMH-zz-TzB" secondAttribute="centerY" id="qAM-dF-Ku7"/>
+                        <constraint firstAttribute="trailing" secondItem="hwi-ci-Vvx" secondAttribute="trailing" constant="16" id="qWI-Gq-12H"/>
                     </constraints>
-                    <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="ellipsis.circle" catalog="system"/>
-                    <connections>
-                        <action selector="pressExpendBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="333-QP-g17"/>
-                    </connections>
-                </button>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Y5Z-PF-QJC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="1q6-xd-PaS"/>
-                <constraint firstItem="hwi-ci-Vvx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4A3-4O-jS6"/>
-                <constraint firstItem="Y5Z-PF-QJC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MLq-rJ-WJG"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hwi-ci-Vvx" secondAttribute="trailing" constant="16" id="nRb-2n-uwu"/>
+                <constraint firstAttribute="trailing" secondItem="YMH-zz-TzB" secondAttribute="trailing" constant="5" id="8xa-Z7-h5i"/>
+                <constraint firstItem="YMH-zz-TzB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Hdz-FQ-4Cf"/>
+                <constraint firstItem="YMH-zz-TzB" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="5" id="hSs-EQ-frT"/>
+                <constraint firstItem="YMH-zz-TzB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="jj6-M5-JDy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imageView" destination="Jew-Cg-ivW" id="R5v-q9-qeh"/>
                 <outlet property="moreButton" destination="hwi-ci-Vvx" id="hgB-Zn-6Jn"/>
                 <outlet property="pendingLabel" destination="Y5Z-PF-QJC" id="kTn-1c-5N5"/>
             </connections>
@@ -50,6 +92,7 @@
         </view>
     </objects>
     <resources>
+        <image name="avocado" width="512" height="512"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

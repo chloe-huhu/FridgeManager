@@ -13,6 +13,8 @@ protocol PurchaseSectionViewDelegate: class {
 
 class PurchaseSectionView: UITableViewHeaderFooterView {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var pendingLabel: UILabel!
     
     @IBOutlet weak var moreButton: UIButton!

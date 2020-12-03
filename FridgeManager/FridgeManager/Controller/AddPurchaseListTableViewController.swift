@@ -9,11 +9,67 @@ import UIKit
 
 class AddPurchaseListTableViewController: UITableViewController {
 
+    let dataUnit = ["公克", "公斤", "包", "串", "根"]
+    
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
             changePicLabel.layer.cornerRadius = 25
             changePicLabel.layer.masksToBounds = true
         }
+    }
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var itemNameTextField: RoundedTextField! {
+        didSet {
+            itemNameTextField.tag = 1
+            itemNameTextField.becomeFirstResponder()
+            itemNameTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var amountTextField: RoundedTextField! {
+        didSet {
+            amountTextField.tag = 2
+            amountTextField.delegate = self
+        }
+    }
+    @IBOutlet weak var unitTextField: RoundedTextField! {
+        didSet {
+            unitTextField.tag = 3
+            unitTextField.delegate = self
+            unitTextField.inputView = unitPickerView
+        }
+    }
+    @IBOutlet weak var brandTextField: RoundedTextField! {
+        didSet {
+            brandTextField.tag = 4
+            brandTextField.delegate = self
+        }
+    }
+    @IBOutlet weak var placeTextField: RoundedTextField! {
+        didSet {
+            placeTextField.tag = 5
+            placeTextField.delegate = self
+        }
+    }
+   
+    @IBOutlet weak var noteTextView: UITextView! {
+        didSet {
+            noteTextView.tag = 6
+            noteTextView.layer.cornerRadius = 5.0
+            noteTextView.layer.masksToBounds = true
+        }
+    }
+    
+    @IBOutlet var unitPickerView: UIPickerView! {
+        didSet {
+            unitPickerView.delegate = self
+            unitPickerView.dataSource = self
+        }
+    }
+    
+    @IBAction func saveBtnTapped(_ sender: Any) {
     }
     
     override func viewDidLoad() {
@@ -25,17 +81,17 @@ class AddPurchaseListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return 6
     }
 
     /*
@@ -93,4 +149,32 @@ class AddPurchaseListTableViewController: UITableViewController {
     }
     */
 
+}
+//設定return 跳到下一個文字框
+extension AddPurchaseListTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = view.viewWithTag(textField.tag + 1) {
+            textField.resignFirstResponder()
+            nextTextField.becomeFirstResponder()
+        }
+        return true
+    }
+}
+
+extension AddPurchaseListTableViewController: UIPickerViewDelegate,UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataUnit.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return dataUnit[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        unitTextField.text = dataUnit[row]
+    }
 }

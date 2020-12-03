@@ -162,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
-				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
+				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,

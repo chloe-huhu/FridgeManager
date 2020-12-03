@@ -16,11 +16,11 @@ class FoodListViewController: UIViewController {
     
     let sectionDataList: [String] = ["肉類", "雞蛋類", "青菜類", "水果類", "其他", "醃製物類", "庚級", "壬級", "癸級" ]
     
-    let sectionImage: [String] = ["cabbage", "avocado", "boiled", "bread-2", "bread-1", "bread", "bread", "bread", "bread", "bread", "bread",]
+    let sectionImage: [String] = ["cabbage", "avocado", "boiled", "bread-2", "bread-1", "bread", "bread", "bread", "bread", "bread", "bread"]
     
     let sectionDataAmount: [String] = ["總計有3筆", "總計有4筆", "總計有6筆", "總計有7筆", "總計有7筆", "總計有7筆", "總計有8位", "總計有8位", "總計有8位" ]
     
-    let sectionDataDate:[String] = ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24" ]
+    let sectionDataDate: [String] = ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24" ]
     
     let rowDataList: [[String]] = [["Costco牛排", "全聯火鍋片", "豬絞肉"],
                                     ["土雞蛋", "鵪鶉蛋", "溫泉蛋", "有雞蛋", "皮蛋"]]

@@ -11,6 +11,16 @@ class AddFoodTableViewController: UITableViewController {
     
     let dataCategory = ["肉類", "蛋類", "水果類"]
     let dataUnit = ["公克", "公斤", "包", "串", "根"]
+    var seletedCategoryIndex = 0
+    
+    private struct Food {
+        var title: String
+        var amount: Int
+        var unit: String
+        var category: String
+        var purchaseDate: String
+        var expiredDate: String
+    }
     
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
@@ -108,9 +118,8 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
-    @IBAction func categoryDidSeclected(_ sender: UIButton) {
-        categoryTextField.text = ""
-        categoryTextField.text = dataCategory[0]
+    @IBAction func categoryDidSeclected(_ sender: UITextField) {
+        categoryTextField.text = dataCategory[seletedCategoryIndex]
     }
     
     @objc private func purchaseDateSelected() {
@@ -129,6 +138,7 @@ class AddFoodTableViewController: UITableViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         
         expiredTextField.text = formatter.string(from: expiredDatePicker.date)
+        
     }
     
     @IBAction func saveBtnTapped(_ sender: AnyObject) {
@@ -136,35 +146,47 @@ class AddFoodTableViewController: UITableViewController {
         if foodTitleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" ||
             categoryTextField.text == "" || purchaseTextField.text == "" ||
             expiredTextField.text == "" {
+
+            let alterController = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
+
+            alterController.addAction(alertAction)
+
+            present(alterController, animated: true, completion: nil)
+
+        } else {
             
-            let alterControloler = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)
-            let alerAction = UIAlertAction(title: "好", style: .default, handler: nil)
+            print("name:\(foodTitleTextField.text ?? "")")
+            print("name:\(amountTextField.text ?? "")")
+            print("name:\(unitTextField.text ?? "")")
+            print("name:\(categoryTextField.text ?? "")")
+            print("name:\(purchaseTextField.text ?? "")")
+            print("name:\(expiredTextField.text ?? "")")
             
-            alterControloler.addAction(alerAction)
-            
-            present(alterControloler, animated: true, completion: nil)
-            
-            return
+            //翻回去前一頁
+            navigationController?.popViewController(animated: true)
         }
-        
-        print("name:\(foodTitleTextField.text ?? "")")
-        print("name:\(amountTextField.text ?? "")")
-        print("name:\(unitTextField.text ?? "")")
-        print("name:\(categoryTextField.text ?? "")")
-        print("name:\(purchaseTextField.text ?? "")")
-        print("name:\(expiredTextField.text ?? "")")
-        
-        dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return 7
+    }
     
     //選到第 0 row 開啟相機
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             
-            let photoSourceRequestController = UIAlertController(title: "請選擇", message: "拍照或是圖片", preferredStyle: .actionSheet)
+            let photoSourceRequestController = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
             
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+            let cameraAction = UIAlertAction(title: "拍照", style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let imagePicker = UIImagePickerController()
                     imagePicker.allowsEditing = false
@@ -175,7 +197,7 @@ class AddFoodTableViewController: UITableViewController {
                 }
             })
             
-            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (_) in
+            let photoLibraryAction = UIAlertAction(title: "照片庫", style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                     let imagePicker = UIImagePickerController()
                     imagePicker.allowsEditing = false
@@ -185,9 +207,14 @@ class AddFoodTableViewController: UITableViewController {
                 }
             })
             
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            
             photoSourceRequestController.addAction(cameraAction)
             
             photoSourceRequestController.addAction(photoLibraryAction)
+            
+            photoSourceRequestController.addAction(cancelAction)
             
             present(photoSourceRequestController, animated: true, completion: nil)
         }
@@ -233,6 +260,10 @@ extension AddFoodTableViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        <#code#>
+//    }
 }
 
 extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -255,6 +286,7 @@ extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSour
             unitTextField.text = dataUnit[row]
         } else {
             categoryTextField.text = dataCategory[row]
+            seletedCategoryIndex = row
         }
     }
 }

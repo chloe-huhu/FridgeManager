@@ -24,13 +24,12 @@
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osq-h1-dGz">
                                 <rect key="frame" x="354" y="665" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GnL-VT-HRq"/>
                                     <constraint firstAttribute="width" constant="40" id="oSm-fE-Pjr"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="plus" catalog="system"/>
+                                <state key="normal" image="add"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
@@ -445,7 +444,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
-                                                                <action selector="categoryDidSeclected:" destination="yTY-l9-zTe" eventType="editingDidEnd" id="2lE-SU-Dcr"/>
+                                                                <action selector="categoryDidSeclected:" destination="yTY-l9-zTe" eventType="editingDidBegin" id="IMt-hh-De6"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -548,6 +547,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="amountTextField" destination="7dP-lV-QML" id="SZP-24-BNE"/>
                         <outlet property="categoryPickerView" destination="BCx-F1-gX3" id="XwF-B3-FPM"/>
                         <outlet property="categoryTextField" destination="Ucs-o7-2nu" id="faw-2L-hLb"/>
                         <outlet property="changePicLabel" destination="ntS-5a-0DV" id="e9y-uW-8xK"/>
@@ -1244,6 +1244,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="add" width="21.333333969116211" height="21.333333969116211"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
@@ -1254,7 +1255,6 @@
         <image name="list-text" width="21.333333969116211" height="21.333333969116211"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <namedColor name="B5">
             <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

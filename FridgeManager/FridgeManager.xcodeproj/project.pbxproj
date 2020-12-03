@@ -19,12 +19,14 @@
 		AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695D2574D47C00659F2C /* UILabelExtension.swift */; };
 		AE7D32412572395B00D97E23 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D32402572395B00D97E23 /* SectionView.swift */; };
 		AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */; };
+		AE8139CA2578D9CD00070681 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8139C92578D9CD00070681 /* FirebaseManager.swift */; };
 		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
 		AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCAE62572401D00CD44F3 /* CellView.swift */; };
 		AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAE72572401D00CD44F3 /* CellView.xib */; };
 		AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAF72572488F00CD44F3 /* SectionView.xib */; };
 		AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCB02257251C700CD44F3 /* CardView.swift */; };
 		AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */; };
+		AECC1FE92578EE1E004D6168 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC1FE82578EE1E004D6168 /* ModelData.swift */; };
 		AED556DC256E48190068A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DB256E48190068A855 /* AppDelegate.swift */; };
 		AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DD256E48190068A855 /* SceneDelegate.swift */; };
 		AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DF256E48190068A855 /* FoodListViewController.swift */; };
@@ -73,12 +75,14 @@
 		AE71695D2574D47C00659F2C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		AE7D32402572395B00D97E23 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
+		AE8139C92578D9CD00070681 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		AE9DCAE62572401D00CD44F3 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellView.swift; path = FridgeManager/CellView.swift; sourceTree = SOURCE_ROOT; };
 		AE9DCAE72572401D00CD44F3 /* CellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellView.xib; path = FridgeManager/CellView.xib; sourceTree = SOURCE_ROOT; };
 		AE9DCAF72572488F00CD44F3 /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		AE9DCB02257251C700CD44F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedTextField.swift; path = FridgeManager/Controller/RoundedTextField.swift; sourceTree = SOURCE_ROOT; };
+		AECC1FE82578EE1E004D6168 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		AED556D8256E48190068A855 /* FridgeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED556DB256E48190068A855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED556DD256E48190068A855 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,13 +192,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		AE5F8842256FE46100A97CD0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +203,15 @@
 				AE41B04425716C59006C6EFD /* EnumExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		AE8139CF2578D9E900070681 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE8139C92578D9CD00070681 /* FirebaseManager.swift */,
+				AECC1FE82578EE1E004D6168 /* ModelData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AED556CF256E48190068A855 = {
@@ -237,7 +243,7 @@
 				AE5F8846256FE47D00A97CD0 /* Extension */,
 				AE5F8840256FE44100A97CD0 /* Controller */,
 				AE5F8841256FE45900A97CD0 /* View */,
-				AE5F8842256FE46100A97CD0 /* Model */,
+				AE8139CF2578D9E900070681 /* Model */,
 				AED556DB256E48190068A855 /* AppDelegate.swift */,
 				AED556DD256E48190068A855 /* SceneDelegate.swift */,
 				AED556E4256E481B0068A855 /* Assets.xcassets */,
@@ -535,8 +541,10 @@
 				AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */,
 				AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */,
 				AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */,
+				AECC1FE92578EE1E004D6168 /* ModelData.swift in Sources */,
 				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
+				AE8139CA2578D9CD00070681 /* FirebaseManager.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
 				AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */,

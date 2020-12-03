@@ -6,8 +6,8 @@
 //
 
 import UIKit
-//import Firebase
-//import FirebaseFirestore
+import Firebase
+import FirebaseFirestore
 import ExpandingMenu
 
 class FoodListViewController: UIViewController {
@@ -60,6 +60,36 @@ class FoodListViewController: UIViewController {
         expandingMenuButton()
         searchBarSetup()
         
+//        let data: [String: [[String: Any]]] = [
+//            "foods": [
+//                ["id": "0",
+//                  "image": "test",
+//                  "title": "牛肉",
+//                  "count": 2,
+//                  "unit": "塊",
+//                  "category": "肉類",
+//                  "purchase_date": Timestamp(),
+//                  "expired_date": Timestamp()
+//                ]
+//            ]
+//        ]
+        
+        let data: [String: Any] = [
+            "id": "0",
+            "image": "test",
+            "title": "牛肉",
+            "count": 2,
+            "unit": "塊",
+            "category": "肉類",
+            "purchase_date": Timestamp(),
+            "expired_date": Timestamp()
+        ]
+    
+        Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G")
+        
+        FirebaseManager.shared.listen(ref: Firestore.firestore().collection("fridges")) {
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

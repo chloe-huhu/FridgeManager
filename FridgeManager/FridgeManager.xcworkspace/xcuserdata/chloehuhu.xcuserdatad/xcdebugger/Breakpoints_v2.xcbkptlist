@@ -3,4 +3,54 @@
    uuid = "E2F58DE1-6C77-40B1-800A-E7ECDB819302"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A7B32EB-57A1-401D-995B-E9151FA8F749"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/Model/FirebaseManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "listen(ref:handler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0A7B32EB-57A1-401D-995B-E9151FA8F749 - 5da91b044a094eec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FridgeManager.FirebaseManager.listen(ref: __C.FIRCollectionReference, handler: () -&gt; ()) -&gt; ()"
+                  moduleName = "FridgeManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chloehuhu/Documents/Chloe/FridgeManager/FridgeManager/FridgeManager/FridgeManager/Model/FirebaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  uuid = "0A7B32EB-57A1-401D-995B-E9151FA8F749 - 219b6ebe7f7308a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FridgeManager.FirebaseManager.listen(ref: __C.FIRCollectionReference, handler: () -&gt; ()) -&gt; ()"
+                  moduleName = "FridgeManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chloehuhu/Documents/Chloe/FridgeManager/FridgeManager/FridgeManager/FridgeManager/Model/FirebaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

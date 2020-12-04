@@ -24,4 +24,14 @@ class CellView: UITableViewCell {
 
     }
     
+    func setup(data: Foods) {
+        
+        rowTitleLabel.text = data.name
+        rowAmountLabel.text = String(data.amount)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = ""
+        rowDateLabel.text = dateFormatter.string(from: data.expiredDate)
+    }
+    
 }

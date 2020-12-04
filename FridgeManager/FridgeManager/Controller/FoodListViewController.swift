@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 import ExpandingMenu
 
 class FoodListViewController: UIViewController {
@@ -20,7 +21,9 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    let sectionDataList: [String] = ["肉類", "雞蛋類", "青菜類", "水果類", "其他", "醃製物類", "庚級", "壬級", "癸級" ]
+    var foods: [Foods] = []
+    
+    let sectionDataList: [String] = ["肉類", "雞蛋類", "青菜類", "水果類", "魚類", "五穀根筋類", "飲料類", "其他" ]
     
     let sectionImage: [String] = ["cabbage", "avocado", "boiled", "bread-2", "bread-1", "bread", "bread", "bread", "bread", "bread", "bread"]
     
@@ -29,13 +32,13 @@ class FoodListViewController: UIViewController {
     let sectionDataDate: [String] = ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24" ]
     
     let rowDataList: [[String]] = [["Costco牛排", "全聯火鍋片", "豬絞肉"],
-                                    ["土雞蛋", "鵪鶉蛋", "溫泉蛋", "有雞蛋", "皮蛋"]]
+                                   ["土雞蛋", "鵪鶉蛋", "溫泉蛋", "有雞蛋", "皮蛋"]]
     
     let rowDataAmount: [[String]] = [["數量：1000 公克", "數量：200 公克", "數量：200 公克"],
-                                      ["數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克"]]
+                                     ["數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克"]]
     
     let rowDataDate: [[String]] = [["2020-09-24", "2020-09-24", "2020-09-24"],
-                                    ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24"]]
+                                   ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24"]]
     
     var isExpendDataList: [Bool] = [false, false, false, false, false, false, false, false, false]
     
@@ -63,37 +66,69 @@ class FoodListViewController: UIViewController {
             
             let sectionViewNib: UINib = UINib(nibName: "SectionView", bundle: nil)
             self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "SectionView")
-                   
+            
             let cellViewNib: UINib = UINib(nibName: "CellView", bundle: nil)
             self.tableView.register(cellViewNib, forCellReuseIdentifier: "CellView")
         }
     }
     
     var database: Firestore!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
         expandingMenuButton()
         firebseListen()
-        
+        firebaseGet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     
     func firebseListen() {
+        
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
-
+        
         FirebaseManager.shared.listen(ref: ref) {
-
+            
+            
+        }
+    }
+    
+    func firebaseGet() {
+        
+        let ref = Firestore.firestore().collectionGroup("foods")
+        
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("現有的資料 \(document.documentID) => \(document.data())")
+                    do {
+                        
+                        let data = try document.data(as: Foods.self)
+                        
+                        self.foods.append(data!)
+                        
+                    } catch {
+                        
+                        print("error to decode",error)
+                    }
+                    
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
     
@@ -135,7 +170,7 @@ class FoodListViewController: UIViewController {
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
                 self.sliderView.frame.origin.x = 6
             }
-    
+            
         case .soonExpired:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
                 self.sliderView.frame.origin.x = ((self.view.frame.width)/3)+6
@@ -146,27 +181,42 @@ class FoodListViewController: UIViewController {
             }
         }
     }
+    
+    func getCategoryTitle(_ title: String) -> [Foods] {
+        
+        var foodList: [Foods] = []
+        
+        for food in foods {
+            
+            if food.category == title {
+                
+                foodList.append(food)
+            }
+        }
+        
+        return foodList
+    }
 }
 
 //老唐寫的掃描發票
 extension FoodListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[.originalImage] as? UIImage {
-
+            
         }
-
+        
         takingPicture.dismiss(animated: true, completion: nil)
     }
 }
 
 extension FoodListViewController: UITableViewDelegate {
-   
+    
     // header高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-           return 100
-       }
+        return 100
+    }
     
     // footer高度
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -182,22 +232,25 @@ extension FoodListViewController: UITableViewDelegate {
     }
     // section content
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
+        
         guard let sectionView: SectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionView") as? SectionView
         else { return UIView() }
         
-        sectionView.isExpand = self.isExpendDataList[section]
-        sectionView.buttonTag = section
-        sectionView.delegate = self
-
-        sectionView.foodImage.image = UIImage(named: self.sectionImage[section])
-        sectionView.foodTitleLabel.text = self.sectionDataList[section]
-        sectionView.foodAmountLabel.text = self.sectionDataAmount[section]
-        sectionView.foodExpireDate.text = self.sectionDataDate[section]
+//        sectionView.isExpand = self.isExpendDataList[section]
+//        sectionView.buttonTag = section
+//        sectionView.delegate = self
+//
+////        sectionView.foodImage.image = UIImage(named: self.sectionImage[section])
+//        sectionView.foodTitleLabel.text = foods[section].name
+//        sectionView.foodAmountLabel.text = "\(foods[section].amount)"
+//
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        sectionView.foodExpireDate.text = formatter.string(from: foods[section].expiredDate)
 
         return sectionView
     }
-    
+
 }
 
 extension FoodListViewController: UITableViewDataSource {
@@ -207,21 +260,17 @@ extension FoodListViewController: UITableViewDataSource {
     }
     // row 數量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isExpendDataList[section] {
-            return self.rowDataList[section].count
-        } else {
-            return 0
-        }
         
+        return getCategoryTitle(sectionDataList[section]).count
     }
     // row content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: CellView = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? CellView
         else { return UITableViewCell() }
         
-        cell.rowTitleLabel.text = self.rowDataList[indexPath.section][indexPath.row]
-        cell.rowAmountLabel.text = self.rowDataAmount [indexPath.section][indexPath.row]
-        cell.rowDateLabel.text = self.rowDataDate[indexPath.section][indexPath.row]
+        let foods = getCategoryTitle(sectionDataList[indexPath.section])
+        
+        cell.setup(data: foods[indexPath.row])
         
         return cell
     }
@@ -262,7 +311,7 @@ extension FoodListViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-
+        
         let imageItem1 = UIImage(named: "type")
         let item1 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
                                       image: imageItem1!,
@@ -270,14 +319,14 @@ extension FoodListViewController {
                                       backgroundImage: imageItem1,
                                       backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "SegueAddContent", sender: self)
         }
-
+        
         let imageItem2 = UIImage(named: "photo")
         let item2 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
                                       image: imageItem2!,
                                       highlightedImage: imageItem2,
                                       backgroundImage: imageItem2,
                                       backgroundHighlightedImage: imageItem2) {
-
+            
             self.takingPicture.sourceType = .camera
             
             self.takingPicture.allowsEditing = false

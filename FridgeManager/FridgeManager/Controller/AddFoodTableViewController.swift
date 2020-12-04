@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class AddFoodTableViewController: UITableViewController {
     
-    let dataCategory = ["肉類", "蛋類", "水果類"]
+    let dataCategory = ["肉類", "雞蛋類", "青菜類", "水果類", "魚類", "五穀根筋類", "飲料類", "其他"]
     let dataUnit = ["公克", "公斤", "包", "串", "根"]
     var seletedCategoryIndex = 0
     

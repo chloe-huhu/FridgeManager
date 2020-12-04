@@ -12,7 +12,13 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+                textfield.backgroundColor = .white
+            }
+        }
+    }
     
     let sectionDataList: [String] = ["肉類", "雞蛋類", "青菜類", "水果類", "其他", "醃製物類", "庚級", "壬級", "癸級" ]
     
@@ -34,12 +40,13 @@ class FoodListViewController: UIViewController {
     var isExpendDataList: [Bool] = [false, false, false, false, false, false, false, false, false]
     
     let searchButton = UIButton()
-//    var database: Firestore!
+    
     var showCategory: ShowCategory = .all
     
     let takingPicture = UIImagePickerController()
     
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var fliterBarButton: UIBarButtonItem!
     
     @IBOutlet weak var allButton: UIButton!
@@ -49,47 +56,28 @@ class FoodListViewController: UIViewController {
     
     @IBOutlet weak var addContentButton: UIButton!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            
+            let sectionViewNib: UINib = UINib(nibName: "SectionView", bundle: nil)
+            self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "SectionView")
+                   
+            let cellViewNib: UINib = UINib(nibName: "CellView", bundle: nil)
+            self.tableView.register(cellViewNib, forCellReuseIdentifier: "CellView")
+        }
+    }
     
+    var database: Firestore!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-        configTableView()
-        configNib()
         expandingMenuButton()
-        searchBarSetup()
+        firebseListen()
         
-//        let data: [String: [[String: Any]]] = [
-//            "foods": [
-//                ["id": "0",
-//                  "image": "test",
-//                  "title": "牛肉",
-//                  "count": 2,
-//                  "unit": "塊",
-//                  "category": "肉類",
-//                  "purchase_date": Timestamp(),
-//                  "expired_date": Timestamp()
-//                ]
-//            ]
-//        ]
-        
-        let data: [String: Any] = [
-            "id": "0",
-            "image": "test",
-            "title": "牛肉",
-            "count": 2,
-            "unit": "塊",
-            "category": "肉類",
-            "purchase_date": Timestamp(),
-            "expired_date": Timestamp()
-        ]
-    
-        Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G")
-        
-        FirebaseManager.shared.listen(ref: Firestore.firestore().collection("fridges")) {
-            
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +89,14 @@ class FoodListViewController: UIViewController {
         
     }
     
+    func firebseListen() {
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+
+        FirebaseManager.shared.listen(ref: ref) {
+
+        }
+    }
+    
     func navigationTitleSetup() {
         
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -109,21 +105,10 @@ class FoodListViewController: UIViewController {
         navigationController?.view.backgroundColor = .chloeYellow
     }
     
-    func searchBarSetup() {
-        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = .white
-        }
-    }
-    
     func tabBarSetup() {
         self.tabBarController!.tabBar.layer.borderWidth = 0.50
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
-    }
-    
-    func configTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     @IBAction func allPressed(_ sender: UIButton) {
@@ -140,33 +125,6 @@ class FoodListViewController: UIViewController {
     @IBAction func expiredPressed(_ sender: UIButton) {
         showCategory = .expired
         btnPressedAnimation(type: .expired)
-        
-    }
-    
-    func btnPressedColor(type: ShowCategory) {
-        switch showCategory {
-        case .all:
-            allButton.setTitleColor(.white, for: .normal)
-            allButton.tintColor = .white
-            soonExpiredButton.setTitleColor(.chloeBlue, for: .normal)
-            expiredButton.setTitleColor(.chloeBlue, for: .normal)
-            soonExpiredButton.tintColor = .chloeBlue
-            expiredButton.tintColor = .chloeBlue
-        case .soonExpired:
-            soonExpiredButton.setTitleColor(.white, for: .normal)
-            soonExpiredButton.tintColor = .white
-            allButton.setTitleColor(.chloeBlue, for: .normal)
-            expiredButton.setTitleColor(.chloeBlue, for: .normal)
-            allButton.tintColor = .chloeBlue
-            expiredButton.tintColor = .chloeBlue
-        case .expired:
-            expiredButton.setTitleColor(.white, for: .normal)
-            expiredButton.tintColor = .white
-            allButton.setTitleColor(.chloeBlue, for: .normal)
-            soonExpiredButton.setTitleColor(.chloeBlue, for: .normal)
-            allButton.tintColor = .chloeBlue
-            soonExpiredButton.tintColor = .chloeBlue
-        }
         
     }
     
@@ -188,69 +146,6 @@ class FoodListViewController: UIViewController {
             }
         }
     }
-    
-    func configNib() {
-        let sectionViewNib: UINib = UINib(nibName: "SectionView", bundle: nil)
-        self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "SectionView")
-               
-        let cellViewNib: UINib = UINib(nibName: "CellView", bundle: nil)
-        self.tableView.register(cellViewNib, forCellReuseIdentifier: "CellView")
-    }
-    
-    func expandingMenuButton() {
-        let btnSize: CGSize = CGSize(width: 100.0, height: 100.0)
-        let xAxis = self.view.bounds.width
-        let yAxis = self.view.bounds.height
-        let origin = CGPoint.zero
-        let image = #imageLiteral(resourceName: "add")
-        let rotated = #imageLiteral(resourceName: "add")
-        let menuButton = ExpandingMenuButton(frame: CGRect(origin: origin, size: btnSize), image: image, rotatedImage: rotated)
-        
-        menuButton.center = CGPoint(x: xAxis-50, y: yAxis-200)
-        self.view.addSubview(menuButton)
-        
-        func showAlert(_ title: String) {
-            let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-
-        let imageItem1 = UIImage(named: "type")
-        let item1 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
-                                      image: imageItem1!,
-                                      highlightedImage: imageItem1,
-                                      backgroundImage: imageItem1,
-                                      backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "SegueAddContent", sender: self)
-        }
-
-        let imageItem2 = UIImage(named: "photo")
-        let item2 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
-                                      image: imageItem2!,
-                                      highlightedImage: imageItem2,
-                                      backgroundImage: imageItem2,
-                                      backgroundHighlightedImage: imageItem2) {
-
-            self.takingPicture.sourceType = .camera
-            
-            self.takingPicture.allowsEditing = false
-            
-            self.takingPicture.delegate = self
-            
-            self.present(self.takingPicture, animated: true, completion: nil)
-        }
-        
-        menuButton.addMenuItems([item1, item2])
-        
-        menuButton.willPresentMenuItems = { (_) -> Void in
-            print("MenuItems will present.")
-        }
-        
-        menuButton.didDismissMenuItems = { (_) -> Void in
-            print("MenuItems dismissed.")
-        }
-        
-    }
-
 }
 
 //老唐寫的掃描發票
@@ -342,6 +237,66 @@ extension FoodListViewController: SectionViewDelegate {
     func sectionView(_ sectionView: SectionView, _ didPressTag: Int, _ isExpand: Bool) {
         self.isExpendDataList[didPressTag] = !isExpand
         self.tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
+    }
+    
+}
+
+// MARK : - 第三方套件
+
+extension FoodListViewController {
+    
+    func expandingMenuButton() {
+        let btnSize: CGSize = CGSize(width: 100.0, height: 100.0)
+        let xAxis = self.view.bounds.width
+        let yAxis = self.view.bounds.height
+        let origin = CGPoint.zero
+        let image = #imageLiteral(resourceName: "add")
+        let rotated = #imageLiteral(resourceName: "add")
+        let menuButton = ExpandingMenuButton(frame: CGRect(origin: origin, size: btnSize), image: image, rotatedImage: rotated)
+        
+        menuButton.center = CGPoint(x: xAxis-50, y: yAxis-200)
+        self.view.addSubview(menuButton)
+        
+        func showAlert(_ title: String) {
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        let imageItem1 = UIImage(named: "type")
+        let item1 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
+                                      image: imageItem1!,
+                                      highlightedImage: imageItem1,
+                                      backgroundImage: imageItem1,
+                                      backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "SegueAddContent", sender: self)
+        }
+
+        let imageItem2 = UIImage(named: "photo")
+        let item2 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
+                                      image: imageItem2!,
+                                      highlightedImage: imageItem2,
+                                      backgroundImage: imageItem2,
+                                      backgroundHighlightedImage: imageItem2) {
+
+            self.takingPicture.sourceType = .camera
+            
+            self.takingPicture.allowsEditing = false
+            
+            self.takingPicture.delegate = self
+            
+            self.present(self.takingPicture, animated: true, completion: nil)
+        }
+        
+        menuButton.addMenuItems([item1, item2])
+        
+        menuButton.willPresentMenuItems = { (_) -> Void in
+            print("MenuItems will present.")
+        }
+        
+        menuButton.didDismissMenuItems = { (_) -> Void in
+            print("MenuItems dismissed.")
+        }
+        
     }
     
 }

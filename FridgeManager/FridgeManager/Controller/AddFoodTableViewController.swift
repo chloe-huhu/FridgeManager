@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class AddFoodTableViewController: UITableViewController {
     
@@ -13,14 +15,15 @@ class AddFoodTableViewController: UITableViewController {
     let dataUnit = ["公克", "公斤", "包", "串", "根"]
     var seletedCategoryIndex = 0
     
-    private struct Food {
-        var title: String
-        var amount: Int
-        var unit: String
-        var category: String
-        var purchaseDate: String
-        var expiredDate: String
-    }
+//
+//    private struct Food {
+//        var title: String
+//        var amount: Int
+//        var unit: String
+//        var category: String
+//        var purchaseDate: String
+//        var expiredDate: String
+//    }
     
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
@@ -31,11 +34,11 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet weak var foodImageView: UIImageView!
     
-    @IBOutlet weak var foodTitleTextField: RoundedTextField! {
+    @IBOutlet weak var titleTextField: RoundedTextField! {
         didSet {
-            foodTitleTextField.tag = 1
-            foodTitleTextField.becomeFirstResponder()
-            foodTitleTextField.delegate = self
+            titleTextField.tag = 1
+            titleTextField.becomeFirstResponder()
+            titleTextField.delegate = self
         }
     }
     
@@ -51,9 +54,10 @@ class AddFoodTableViewController: UITableViewController {
             unitTextField.tag = 3
             unitTextField.delegate = self
             unitTextField.inputView = unitPickerView
-            
         }
     }
+    
+    @IBOutlet weak var amoutAlertTextField: RoundedTextField!
     
     @IBOutlet weak var categoryTextField: RoundedTextField! {
         didSet {
@@ -68,6 +72,12 @@ class AddFoodTableViewController: UITableViewController {
             purchaseTextField.tag = 5
             purchaseTextField.delegate = self
             purchaseTextField.inputView = purchaseDatePicker
+            let timeZone = NSTimeZone.local
+            let formatter = DateFormatter()
+            formatter.timeZone = timeZone
+            formatter.dateFormat = "yyyy-MM-dd"
+            purchaseTextField.text = formatter.string(from: Date())
+            
         }
     }
     
@@ -113,6 +123,7 @@ class AddFoodTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     
@@ -143,7 +154,7 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBAction func saveBtnTapped(_ sender: AnyObject) {
         
-        if foodTitleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" ||
+        if titleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" ||
             categoryTextField.text == "" || purchaseTextField.text == "" ||
             expiredTextField.text == "" {
 
@@ -156,16 +167,73 @@ class AddFoodTableViewController: UITableViewController {
 
         } else {
             
-            print("name:\(foodTitleTextField.text ?? "")")
+            print("name:\(titleTextField.text ?? "")")
             print("name:\(amountTextField.text ?? "")")
             print("name:\(unitTextField.text ?? "")")
+            print("name\(amoutAlertTextField.text ?? "")")
             print("name:\(categoryTextField.text ?? "")")
             print("name:\(purchaseTextField.text ?? "")")
             print("name:\(expiredTextField.text ?? "")")
             
+            guard let name = titleTextField.text,
+                  let amount = amountTextField.text,
+                  let unit = unitTextField.text,
+                  let amountAlert = amoutAlertTextField.text,
+                  let category = categoryTextField.text,
+                  let purchaseDate = purchaseTextField.text,
+                  let expiredDate = expiredTextField.text
+            
+            else { return }
+            
+            let ref =  Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+            
+            let document = ref.document()
+            
+            //設定data 內容
+            let data: [String: Any] = [
+                       "id": document.documentID,
+                       "photo": "test",
+                       "name": name,
+                       "amount": amount,
+                       "unit": unit,
+                       "amountAlert": amountAlert,
+                       "category": category,
+                       "purchaseDate": purchaseDate,
+                       "expiredDate": expiredDate
+                   ]
+           
+            //setData 到firebase
+            document.setData(data)
+            
             //翻回去前一頁
             navigationController?.popViewController(animated: true)
         }
+        //        func firebaseAdd() {
+                    
+            //        guard let title = titleTextField.text,
+            //              let category = categoryTextField.text,
+            //              let content = contentTextView.text
+            //
+            //        else { return }
+                    
+                    //設定路徑
+        //            let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+        //            let document = ref.document()
+                    
+                    //設定data 內容
+        //            let data: [String: Any] = [
+        //                       "id": document.documentID,
+        //                       "image": "test",
+        //                       "title": "牛肉",
+        //                       "count": 2,
+        //                       "unit": "塊",
+        //                       "category": "肉類",
+        //                       "purchase_date": Timestamp(),
+        //                       "expired_date": Timestamp()
+        //                   ]
+                    //setData 到firebase
+        //            document.setData(data)
+        //        }
     }
     
     // MARK: - Table view data source

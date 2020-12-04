@@ -9,11 +9,12 @@ import Foundation
 
 struct Foods: Codable {
     let id: String
-    let image: String
+    let photo: String
     let name: String
     let amount: Int
+    let amountAlert: Int
     let category: String
     let unit: String
     let purchaseDate: Date
-    let expiredDate:Date
+    let expiredDate: Date
 }

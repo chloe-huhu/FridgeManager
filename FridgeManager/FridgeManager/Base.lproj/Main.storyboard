@@ -244,7 +244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="LJg-Nm-iK2">
-                            <rect key="frame" x="0.0" y="801" width="414" height="128"/>
+                            <rect key="frame" x="0.0" y="846" width="414" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
@@ -389,38 +389,55 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="40" id="IKx-iL-4oW">
-                                        <rect key="frame" x="0.0" y="488" width="414" height="40"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="IKx-iL-4oW">
+                                        <rect key="frame" x="0.0" y="488" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IKx-iL-4oW" id="eo6-4S-RJy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="muI-XY-N2U">
-                                                    <rect key="frame" x="22" y="4.5" width="370" height="31"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vAC-h0-t5T">
+                                                    <rect key="frame" x="21" y="12" width="372" height="61"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="數量提醒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-PM-SMi">
-                                                            <rect key="frame" x="0.0" y="3" width="321" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="72" height="16"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqu-sx-mT8">
-                                                            <rect key="frame" x="321" y="0.0" width="51" height="31"/>
-                                                            <color key="onTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </switch>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-2d-dd8">
+                                                            <rect key="frame" x="0.0" y="26" width="347" height="35"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFg-e4-DxE" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
+                                                                    <color key="backgroundColor" name="B6"/>
+                                                                    <color key="tintColor" name="B6"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="35" id="4Oz-L2-zOH"/>
+                                                                        <constraint firstAttribute="width" constant="288" id="fDf-zr-ldZ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                </textField>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqu-sx-mT8">
+                                                                    <rect key="frame" x="298" y="0.0" width="51" height="35"/>
+                                                                    <color key="onTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </switch>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="muI-XY-N2U" secondAttribute="trailing" constant="2" id="TIc-VS-ceF"/>
-                                                <constraint firstItem="muI-XY-N2U" firstAttribute="leading" secondItem="eo6-4S-RJy" secondAttribute="leadingMargin" constant="2" id="sJK-n0-wqx"/>
-                                                <constraint firstItem="muI-XY-N2U" firstAttribute="centerY" secondItem="eo6-4S-RJy" secondAttribute="centerY" id="uxO-2o-EAA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vAC-h0-t5T" secondAttribute="bottom" constant="1" id="04y-wg-BJQ"/>
+                                                <constraint firstItem="vAC-h0-t5T" firstAttribute="top" secondItem="eo6-4S-RJy" secondAttribute="topMargin" constant="1" id="0zv-Dz-Q9j"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vAC-h0-t5T" secondAttribute="trailing" constant="1" id="Cmc-P7-0Lz"/>
+                                                <constraint firstItem="vAC-h0-t5T" firstAttribute="leading" secondItem="eo6-4S-RJy" secondAttribute="leadingMargin" constant="1" id="fZY-3M-Z2O"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="3tb-Wh-471">
-                                        <rect key="frame" x="0.0" y="528" width="414" height="85"/>
+                                        <rect key="frame" x="0.0" y="573" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3tb-Wh-471" id="x9x-At-ZaX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
@@ -459,7 +476,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="MIr-pz-wvL">
-                                        <rect key="frame" x="0.0" y="613" width="414" height="85"/>
+                                        <rect key="frame" x="0.0" y="658" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MIr-pz-wvL" id="JVp-mT-hPA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
@@ -495,7 +512,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="1gG-3r-iQg">
-                                        <rect key="frame" x="0.0" y="698" width="414" height="85"/>
+                                        <rect key="frame" x="0.0" y="743" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1gG-3r-iQg" id="H6U-zK-IYp">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
@@ -548,17 +565,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amountTextField" destination="7dP-lV-QML" id="SZP-24-BNE"/>
+                        <outlet property="amoutAlertTextField" destination="xFg-e4-DxE" id="QYs-UZ-NRm"/>
                         <outlet property="categoryPickerView" destination="BCx-F1-gX3" id="XwF-B3-FPM"/>
                         <outlet property="categoryTextField" destination="Ucs-o7-2nu" id="faw-2L-hLb"/>
                         <outlet property="changePicLabel" destination="ntS-5a-0DV" id="e9y-uW-8xK"/>
                         <outlet property="expiredDatePicker" destination="fqE-YV-etr" id="XSP-kb-X31"/>
                         <outlet property="expiredTextField" destination="MS4-6E-Cpl" id="nTa-Qw-l1j"/>
                         <outlet property="foodImageView" destination="lIv-7q-CPb" id="pSF-XQ-P1H"/>
-                        <outlet property="foodTitleTextField" destination="Zdr-7B-f81" id="hld-bq-BGI"/>
                         <outlet property="photoImageView" destination="lIv-7q-CPb" id="x67-k2-GdY"/>
                         <outlet property="purchaseDatePicker" destination="Vl6-ld-Agr" id="nlM-KH-4nk"/>
                         <outlet property="purchaseTextField" destination="4gY-gQ-RjJ" id="Pdp-Bb-y2V"/>
                         <outlet property="saveBtnItem" destination="fsY-na-hYJ" id="u6z-8W-y0M"/>
+                        <outlet property="titleTextField" destination="Zdr-7B-f81" id="hld-bq-BGI"/>
                         <outlet property="unitPickerView" destination="Hp1-VB-oah" id="1zo-4d-huF"/>
                         <outlet property="unitTextField" destination="qxh-kd-Bfc" id="vV5-ZC-DMB"/>
                     </connections>
@@ -865,9 +883,9 @@
                         <outlet property="brandTextField" destination="lPw-9u-5Re" id="FVf-d0-1R6"/>
                         <outlet property="changePicLabel" destination="UU7-lf-Rh7" id="lfz-kc-SbK"/>
                         <outlet property="imageView" destination="Ip8-GU-o4F" id="MEv-E4-KKG"/>
-                        <outlet property="itemNameTextField" destination="ob2-vt-1MG" id="Va4-b2-d71"/>
                         <outlet property="noteTextView" destination="X29-71-ViA" id="Tcm-Mt-xVu"/>
                         <outlet property="placeTextField" destination="Kie-Fo-IXS" id="XD5-xU-qhZ"/>
+                        <outlet property="titleTextField" destination="ob2-vt-1MG" id="Va4-b2-d71"/>
                         <outlet property="unitPickerView" destination="4p7-NY-7wb" id="KYs-hl-yfE"/>
                         <outlet property="unitTextField" destination="GR2-mP-Usb" id="M8c-C4-amf"/>
                     </connections>

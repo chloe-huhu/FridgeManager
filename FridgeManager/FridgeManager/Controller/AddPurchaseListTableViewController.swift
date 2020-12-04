@@ -20,11 +20,11 @@ class AddPurchaseListTableViewController: UITableViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var itemNameTextField: RoundedTextField! {
+    @IBOutlet weak var titleTextField: RoundedTextField! {
         didSet {
-            itemNameTextField.tag = 1
-            itemNameTextField.becomeFirstResponder()
-            itemNameTextField.delegate = self
+            titleTextField.tag = 1
+            titleTextField.becomeFirstResponder()
+            titleTextField.delegate = self
         }
     }
     
@@ -71,7 +71,7 @@ class AddPurchaseListTableViewController: UITableViewController {
     
 
     @IBAction func saveBtnTapped(_ sender: Any) {
-        if itemNameTextField.text == "" || amountTextField.text == "" ||
+        if titleTextField.text == "" || amountTextField.text == "" ||
             unitTextField.text == "" || brandTextField.text == "" ||
             placeTextField.text == "" {
             
@@ -85,13 +85,17 @@ class AddPurchaseListTableViewController: UITableViewController {
             
             return
         }
-        print("name:\(itemNameTextField.text ?? "")")
+        print("name:\(titleTextField.text ?? "")")
         print("name:\(amountTextField.text ?? "")")
         print("name:\(unitTextField.text ?? "")")
         print("name:\(brandTextField.text ?? "")")
         print("name:\(placeTextField.text ?? "")")
-      
-        dismiss(animated: true, completion: nil)
+        print("name:\(noteTextView.text ?? "")")
+        
+//        guard let name =
+        
+        //翻回去前一頁
+        navigationController?.popViewController(animated: true)
         
     }
     

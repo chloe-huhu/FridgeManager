@@ -225,25 +225,11 @@ PODS:
   - FBSDKCoreKit/Basics (8.2.0)
   - FBSDKCoreKit/Core (8.2.0):
     - FBSDKCoreKit/Basics
-  - Firebase/Analytics (6.34.0):
-    - Firebase/Core
-  - Firebase/Core (6.34.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.9.0)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
   - Firebase/Firestore (6.34.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.19.0)
-  - FirebaseAnalytics (6.9.0):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.7)
-    - GoogleAppMeasurement (= 6.9.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
   - FirebaseCore (6.10.4):
     - FirebaseCoreDiagnostics (~> 1.6)
     - GoogleUtilities/Environment (~> 6.7)
@@ -267,38 +253,12 @@ PODS:
     - nanopb (~> 1.30906.0)
   - FirebaseFirestoreSwift (0.4.0):
     - FirebaseFirestore (>= 1.6.1, ~> 1.6)
-  - FirebaseInstallations (1.7.0):
-    - FirebaseCore (~> 6.10)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
-    - PromisesObjC (~> 1.2)
-  - GoogleAppMeasurement (6.9.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
   - GoogleDataTransport (7.5.1):
     - nanopb (~> 1.30906.0)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
   - GoogleUtilities/Environment (6.7.2):
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.7.2):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.7.2):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.7.2):
-    - GoogleUtilities/Logger
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
     - "gRPC-C++/Interface (= 1.28.2)"
@@ -337,7 +297,6 @@ PODS:
 DEPENDENCIES:
   - ExpandingMenu (~> 0.4)
   - FBSDKCoreKit
-  - Firebase/Analytics
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - IQKeyboardManagerSwift
@@ -351,13 +310,10 @@ SPEC REPOS:
     - ExpandingMenu
     - FBSDKCoreKit
     - Firebase
-    - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
     - FirebaseFirestoreSwift
-    - FirebaseInstallations
-    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -375,13 +331,10 @@ SPEC CHECKSUMS:
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
-  FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
   FirebaseFirestore: 9b2f1b9b9a6f2f0b6fb7484b9e32ab7e39243554
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
-  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
@@ -393,6 +346,6 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 762f187970ff63ce387010268bc42dac31fae719
+PODFILE CHECKSUM: a9eaaaf1c0dbd9a834d2bd51ca55c6b9012604ab
 
 COCOAPODS: 1.10.0

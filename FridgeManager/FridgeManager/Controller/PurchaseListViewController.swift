@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class PurchaseListViewController: UIViewController {
    
@@ -39,16 +41,21 @@ class PurchaseListViewController: UIViewController {
         tabBarSetup()
         configTableView()
         configNib()
-        
+        firebaseListen()
+    
     }
     
-    func navigationTitleSetup() {
+    func firebaseListen() {
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("purchaseItems")
         
+        FirebaseManager.shared.listen(ref: ref) {
+            
+        }
+    }
+    func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.view.backgroundColor = .chloeYellow
     }
     
     func tabBarSetup() {

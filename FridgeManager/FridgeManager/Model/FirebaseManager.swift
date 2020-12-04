@@ -20,7 +20,7 @@ enum Result<T> {
     case success(T)
     case failure(Error)
 }
-enum FirebaseError: String,Error {
+enum FirebaseError: String, Error {
     case decode = "Firebase decode error"
 }
 
@@ -45,19 +45,31 @@ class FirebaseManager {
         }
     }
 
-    func listen(ref: CollectionReference, handler: @escaping () -> Void) {
+    func listen(ref: CollectionReference, handler: @escaping () -> Void ) {
         
-        ref.addSnapshotListener { (data, _) in
-            
-            _ = data?.documents.map {
-                
-                print($0.data())
+        ref.addSnapshotListener { documentSnapshot, error in
+            guard let documents = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
             }
             
-            handler()
+            //監聽新增項目
+            documents.documentChanges.forEach { diff in
+                if diff.type == .added {
+                    print("新增: \(diff.document.data())")
+                }
+                if diff.type == .modified {
+                    print("修改: \(diff.document.data())")
+                }
+                if diff.type == .removed {
+                    print("刪除: \(diff.document.data())")
+                }
+            }
+                handler()
         }
         
     }
+    
 
     func read<T: Codable>(ref: CollectionReference, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
@@ -83,7 +95,7 @@ class FirebaseManager {
 
     func decode<T: Codable>(_ dataType: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
         
-        var datas:[T] = []
+        var datas: [T] = []
         
         for document in documents {
             guard let data = try? document.data(as: dataType) else {

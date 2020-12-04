@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class AddPurchaseListTableViewController: UITableViewController {
     
@@ -75,7 +77,7 @@ class AddPurchaseListTableViewController: UITableViewController {
             unitTextField.text == "" || brandTextField.text == "" ||
             placeTextField.text == "" {
             
-            let alterController = UIAlertController(title: "Oops!", message: "請填好填滿", preferredStyle:  .alert)
+            let alterController = UIAlertController(title: "Oops!", message: "請填好填滿", preferredStyle:   .alert)
             
             let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
             
@@ -92,8 +94,31 @@ class AddPurchaseListTableViewController: UITableViewController {
         print("name:\(placeTextField.text ?? "")")
         print("name:\(noteTextView.text ?? "")")
         
-//        guard let name =
+        guard let name = titleTextField.text,
+              let amount = amountTextField.text,
+              let unit = unitTextField.text,
+              let brand = brandTextField.text,
+              let place = placeTextField.text,
+              let note = noteTextView.text
         
+        else { return }
+        
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("purchaseItems")
+        
+        let document = ref.document()
+        
+        let data: [String: Any] = [
+            "id": document.documentID,
+            "photo": "test",
+            "name": name,
+            "amout": amount,
+            "unit": unit,
+            "brand": brand,
+            "place": place,
+            "note": note
+        ]
+        
+        document.setData(data)
         //翻回去前一頁
         navigationController?.popViewController(animated: true)
         

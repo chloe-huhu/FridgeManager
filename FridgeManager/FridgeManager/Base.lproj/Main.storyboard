@@ -564,8 +564,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="amountAlertTextField" destination="xFg-e4-DxE" id="QYs-UZ-NRm"/>
                         <outlet property="amountTextField" destination="7dP-lV-QML" id="SZP-24-BNE"/>
-                        <outlet property="amoutAlertTextField" destination="xFg-e4-DxE" id="QYs-UZ-NRm"/>
                         <outlet property="categoryPickerView" destination="BCx-F1-gX3" id="XwF-B3-FPM"/>
                         <outlet property="categoryTextField" destination="Ucs-o7-2nu" id="faw-2L-hLb"/>
                         <outlet property="changePicLabel" destination="ntS-5a-0DV" id="e9y-uW-8xK"/>

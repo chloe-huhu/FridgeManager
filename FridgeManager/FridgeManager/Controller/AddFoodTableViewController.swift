@@ -57,7 +57,7 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet weak var amoutAlertTextField: RoundedTextField!
+    @IBOutlet weak var amountAlertTextField: RoundedTextField!
     
     @IBOutlet weak var categoryTextField: RoundedTextField! {
         didSet {
@@ -154,86 +154,48 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBAction func saveBtnTapped(_ sender: AnyObject) {
         
-        if titleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" ||
-            categoryTextField.text == "" || purchaseTextField.text == "" ||
-            expiredTextField.text == "" {
-
+        guard let name = titleTextField.text, name == "",
+              let amount = amountTextField.text, amount == "",
+              let unit = unitTextField.text, unit == "",
+              let category = categoryTextField.text, category == "",
+              let purchaseDate = purchaseTextField.text, purchaseDate == "",
+              let expiredDate = expiredTextField.text, expiredDate == ""
+        else {
             let alterController = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
-
             alterController.addAction(alertAction)
-
             present(alterController, animated: true, completion: nil)
-
-        } else {
-            
-            print("name:\(titleTextField.text ?? "")")
-            print("name:\(amountTextField.text ?? "")")
-            print("name:\(unitTextField.text ?? "")")
-            print("name\(amoutAlertTextField.text ?? "")")
-            print("name:\(categoryTextField.text ?? "")")
-            print("name:\(purchaseTextField.text ?? "")")
-            print("name:\(expiredTextField.text ?? "")")
-            
-            guard let name = titleTextField.text,
-                  let amount = amountTextField.text,
-                  let unit = unitTextField.text,
-                  let amountAlert = amoutAlertTextField.text,
-                  let category = categoryTextField.text,
-                  let purchaseDate = purchaseTextField.text,
-                  let expiredDate = expiredTextField.text
-            
-            else { return }
-            
-            let ref =  Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
-            
-            let document = ref.document()
-            
-            //設定data 內容
-            let data: [String: Any] = [
-                       "id": document.documentID,
-                       "photo": "test",
-                       "name": name,
-                       "amount": amount,
-                       "unit": unit,
-                       "amountAlert": amountAlert,
-                       "category": category,
-                       "purchaseDate": purchaseDate,
-                       "expiredDate": expiredDate
-                   ]
-           
-            //setData 到firebase
-            document.setData(data)
-            
-            //翻回去前一頁
-            navigationController?.popViewController(animated: true)
+            return
         }
-        //        func firebaseAdd() {
-                    
-            //        guard let title = titleTextField.text,
-            //              let category = categoryTextField.text,
-            //              let content = contentTextView.text
-            //
-            //        else { return }
-                    
-                    //設定路徑
-        //            let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
-        //            let document = ref.document()
-                    
-                    //設定data 內容
-        //            let data: [String: Any] = [
-        //                       "id": document.documentID,
-        //                       "image": "test",
-        //                       "title": "牛肉",
-        //                       "count": 2,
-        //                       "unit": "塊",
-        //                       "category": "肉類",
-        //                       "purchase_date": Timestamp(),
-        //                       "expired_date": Timestamp()
-        //                   ]
-                    //setData 到firebase
-        //            document.setData(data)
-        //        }
+        
+        let ref =  Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+        
+        let document = ref.document()
+        
+        let text = amountAlertTextField.text ?? "0"
+        
+        let amountAlert = Int(text) ?? 0
+        
+        
+        //設定data 內容
+        let data: [String: Any] = [
+            "id": document.documentID,
+            "photo": "test",
+            "name": name,
+            "amount": amount,
+            "unit": unit,
+            "amountAlert": amountAlert,
+            "category": category,
+            "purchaseDate": purchaseDate,
+            "expiredDate": expiredDate
+        ]
+        
+        //setData 到firebase
+        document.setData(data)
+        
+        //翻回去前一頁
+        navigationController?.popViewController(animated: true)
+
     }
     
     // MARK: - Table view data source

@@ -11,6 +11,11 @@ import FirebaseFirestore
 
 class PurchaseListViewController: UIViewController {
    
+    var awaitingList: [Lists] = []
+    
+    var acceptLists: [Lists] = []
+    
+    
     let sectionImage: [String] = ["pencil.circle.fill", "pencil.circle.fill"]
     
     let sectionDataList: [String] = ["未採購", "採購中"]
@@ -21,7 +26,7 @@ class PurchaseListViewController: UIViewController {
     let cellDataAmount: [[String]] = [["6 根", "1 盒", "1 盒"],
                                     ["2 包", "半 顆", "1 包", "6 片"]]
     
-    let cellDataWho: [[String]] = [["?", "?", "?"],
+    let cellDataWho: [[String]] = [["等你認領", "等你認領", "等你認領"],
                                     ["Chloe", "Jeff", "Soda", "Chloe"]]
     
     var isExpendDataList: [Bool] = [true, true]
@@ -41,17 +46,92 @@ class PurchaseListViewController: UIViewController {
         tabBarSetup()
         configTableView()
         configNib()
-        firebaseListen()
-    
+        
+        dblistenAwating()
+        dblistenAccept()
+        dbGetAwaiting()
+        dbGetAccept()
     }
     
-    func firebaseListen() {
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("purchaseItems")
+    override func viewWillAppear(_ animated: Bool) {
+       
+    }
+    
+    func dblistenAwating() {
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+        
+        FirebaseManager.shared.listen(ref: ref) {
+        }
+    }
+    
+    func dblistenAccept() {
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
         
         FirebaseManager.shared.listen(ref: ref) {
             
         }
     }
+    
+    func dbGetAwaiting() {
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+        
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("Awaiting現有的資料 \(document.documentID) => \(document.data())")
+                    do {
+                        
+                        let data = try document.data(as: Lists.self)
+                        
+                        self.awaitingList.append(data!)
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                    
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+        
+    }
+    
+    func dbGetAccept() {
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+        
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("Accept現有的資料 \(document.documentID) => \(document.data())")
+                    do {
+                        
+                        let data = try document.data(as: Lists.self)
+                        
+                        self.acceptLists.append(data!)
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                    
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+        
+    }
+    
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -110,16 +190,23 @@ extension PurchaseListViewController: UITableViewDelegate {
 extension PurchaseListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.isExpendDataList.count
+        
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        if self.isExpendDataList[section] {
-            return self.cellDataTitle[section].count
+    
+        if section == 0 {
+            return awaitingList.count
         } else {
-            return 0
+            return acceptLists.count
         }
+//
+//        if self.isExpendDataList[section] {
+//            return self.cellDataTitle[section].count
+//        } else {
+//            return 0
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

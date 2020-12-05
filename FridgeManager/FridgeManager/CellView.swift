@@ -30,7 +30,7 @@ class CellView: UITableViewCell {
         rowAmountLabel.text = String(data.amount)
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = ""
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         rowDateLabel.text = dateFormatter.string(from: data.expiredDate)
     }
     

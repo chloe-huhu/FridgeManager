@@ -37,8 +37,6 @@ class FoodListViewController: UIViewController {
     let rowDataAmount: [[String]] = [["數量：1000 公克", "數量：200 公克", "數量：200 公克"],
                                      ["數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克", "數量：200 公克"]]
     
-    let rowDataDate: [[String]] = [["2020-09-24", "2020-09-24", "2020-09-24"],
-                                   ["2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24", "2020-09-24"]]
     
     var isExpendDataList: [Bool] = [false, false, false, false, false, false, false, false, false]
     
@@ -79,8 +77,8 @@ class FoodListViewController: UIViewController {
         navigationTitleSetup()
         tabBarSetup()
         expandingMenuButton()
-        firebseListen()
-        firebaseGet()
+        dbListen()
+        dbGet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,7 +90,7 @@ class FoodListViewController: UIViewController {
         
     }
     
-    func firebseListen() {
+    func dbListen() {
         
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
         
@@ -102,7 +100,7 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    func firebaseGet() {
+    func dbGet() {
         
         let ref = Firestore.firestore().collectionGroup("foods")
         
@@ -120,7 +118,7 @@ class FoodListViewController: UIViewController {
                         
                     } catch {
                         
-                        print("error to decode",error)
+                        print("error to decode", error)
                     }
                     
                 }
@@ -236,21 +234,17 @@ extension FoodListViewController: UITableViewDelegate {
         guard let sectionView: SectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionView") as? SectionView
         else { return UIView() }
         
-//        sectionView.isExpand = self.isExpendDataList[section]
-//        sectionView.buttonTag = section
-//        sectionView.delegate = self
-//
-////        sectionView.foodImage.image = UIImage(named: self.sectionImage[section])
-//        sectionView.foodTitleLabel.text = foods[section].name
-//        sectionView.foodAmountLabel.text = "\(foods[section].amount)"
-//
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        sectionView.foodExpireDate.text = formatter.string(from: foods[section].expiredDate)
-
+        //        sectionView.isExpand = self.isExpendDataList[section]
+        //        sectionView.buttonTag = section
+        //        sectionView.delegate = self
+        //
+        //        sectionView.foodImage.image = UIImage(named: self.sectionImage[section])
+        //        sectionView.foodTitleLabel.text = foods[section].name
+        //        sectionView.foodAmountLabel.text = "\(foods[section].amount)"
+        
         return sectionView
     }
-
+    
 }
 
 extension FoodListViewController: UITableViewDataSource {
@@ -265,7 +259,9 @@ extension FoodListViewController: UITableViewDataSource {
     }
     // row content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell: CellView = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? CellView
+       
         else { return UITableViewCell() }
         
         let foods = getCategoryTitle(sectionDataList[indexPath.section])
@@ -290,7 +286,7 @@ extension FoodListViewController: SectionViewDelegate {
     
 }
 
-// MARK : - 第三方套件
+//第三方套件
 
 extension FoodListViewController {
     
@@ -317,7 +313,8 @@ extension FoodListViewController {
                                       image: imageItem1!,
                                       highlightedImage: imageItem1,
                                       backgroundImage: imageItem1,
-                                      backgroundHighlightedImage: imageItem1) {                                         self.performSegue(withIdentifier: "SegueAddContent", sender: self)
+                                      backgroundHighlightedImage: imageItem1) {
+            self.performSegue(withIdentifier: "SegueAddContent", sender: self)
         }
         
         let imageItem2 = UIImage(named: "photo")

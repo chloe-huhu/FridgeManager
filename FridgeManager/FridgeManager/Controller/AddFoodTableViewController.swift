@@ -15,16 +15,6 @@ class AddFoodTableViewController: UITableViewController {
     let dataUnit = ["公克", "公斤", "包", "串", "根"]
     var seletedCategoryIndex = 0
     
-//
-//    private struct Food {
-//        var title: String
-//        var amount: Int
-//        var unit: String
-//        var category: String
-//        var purchaseDate: String
-//        var expiredDate: String
-//    }
-    
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
             changePicLabel.layer.cornerRadius = 25
@@ -154,19 +144,30 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBAction func saveBtnTapped(_ sender: AnyObject) {
         
-        guard let name = titleTextField.text, name == "",
-              let amount = amountTextField.text, amount == "",
-              let unit = unitTextField.text, unit == "",
-              let category = categoryTextField.text, category == "",
-              let purchaseDate = purchaseTextField.text, purchaseDate == "",
-              let expiredDate = expiredTextField.text, expiredDate == ""
-        else {
+        if titleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" || categoryTextField.text == "" || purchaseTextField.text == "" || expiredTextField.text == "" {
             let alterController = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
             alterController.addAction(alertAction)
             present(alterController, animated: true, completion: nil)
             return
         }
+        
+        addListToDB()
+        
+        //翻回去前一頁
+        navigationController?.popViewController(animated: true)
+
+    }
+    
+    func addListToDB() {
+        guard let name = titleTextField.text,
+              let amount = amountTextField.text,
+              let unit = unitTextField.text,
+              let category = categoryTextField.text,
+              let purchaseDate = purchaseTextField.text,
+              let expiredDate = expiredTextField.text
+       
+        else { return }
         
         let ref =  Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
         
@@ -182,9 +183,9 @@ class AddFoodTableViewController: UITableViewController {
             "id": document.documentID,
             "photo": "test",
             "name": name,
-            "amount": amount,
+            "amount": Int(amount) ?? 0 ,
             "unit": unit,
-            "amountAlert": amountAlert,
+            "amountAlert": Int(amountAlert),
             "category": category,
             "purchaseDate": purchaseDate,
             "expiredDate": expiredDate
@@ -193,11 +194,7 @@ class AddFoodTableViewController: UITableViewController {
         //setData 到firebase
         document.setData(data)
         
-        //翻回去前一頁
-        navigationController?.popViewController(animated: true)
-
     }
-    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

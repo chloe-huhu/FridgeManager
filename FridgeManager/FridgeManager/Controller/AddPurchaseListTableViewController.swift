@@ -77,7 +77,7 @@ class AddPurchaseListTableViewController: UITableViewController {
             unitTextField.text == "" || brandTextField.text == "" ||
             placeTextField.text == "" {
             
-            let alterController = UIAlertController(title: "Oops!", message: "請填好填滿", preferredStyle:   .alert)
+            let alterController = UIAlertController(title: "Oops!", message: "請填好填滿", preferredStyle: .alert)
             
             let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
             
@@ -87,13 +87,20 @@ class AddPurchaseListTableViewController: UITableViewController {
             
             return
         }
-        print("name:\(titleTextField.text ?? "")")
-        print("name:\(amountTextField.text ?? "")")
-        print("name:\(unitTextField.text ?? "")")
-        print("name:\(brandTextField.text ?? "")")
-        print("name:\(placeTextField.text ?? "")")
-        print("name:\(noteTextView.text ?? "")")
         
+        addListToDB()
+        
+        //翻回去前一頁
+        navigationController?.popViewController(animated: true)
+       
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    func addListToDB() {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
               let unit = unitTextField.text,
@@ -103,7 +110,7 @@ class AddPurchaseListTableViewController: UITableViewController {
         
         else { return }
         
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("purchaseItems")
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
         
         let document = ref.document()
         
@@ -111,7 +118,7 @@ class AddPurchaseListTableViewController: UITableViewController {
             "id": document.documentID,
             "photo": "test",
             "name": name,
-            "amout": amount,
+            "amount": Int(amount) ?? 0,
             "unit": unit,
             "brand": brand,
             "place": place,
@@ -119,15 +126,7 @@ class AddPurchaseListTableViewController: UITableViewController {
         ]
         
         document.setData(data)
-        //翻回去前一頁
-        navigationController?.popViewController(animated: true)
-        
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -18,3 +18,14 @@ struct Foods: Codable {
     let purchaseDate: Date
     let expiredDate: Date
 }
+
+struct Lists: Codable {
+    let id: String
+    let photo: String
+    let name: String
+    let amount: Int
+    let unit: String
+    let brand: String
+    let place: String
+    let note: String
+}

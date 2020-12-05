@@ -17,7 +17,6 @@ class SectionView: UITableViewHeaderFooterView {
     @IBOutlet var foodImage: UIImageView!
     @IBOutlet var foodTitleLabel: UILabel!
     @IBOutlet var foodAmountLabel: UILabel!
-    @IBOutlet weak var foodExpireDate: UILabel!
     @IBOutlet var moreDataBtn: UIButton!
     
     weak var delegate: SectionViewDelegate?

@@ -179,10 +179,10 @@
 		AE5F8841256FE45900A97CD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE7D32402572395B00D97E23 /* SectionView.swift */,
 				AE9DCAF72572488F00CD44F3 /* SectionView.xib */,
-				AE9DCAE62572401D00CD44F3 /* CellView.swift */,
+				AE7D32402572395B00D97E23 /* SectionView.swift */,
 				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
+				AE9DCAE62572401D00CD44F3 /* CellView.swift */,
 				AE7169432574995B00659F2C /* PurchaseSectionView.swift */,
 				AE716948257499C500659F2C /* PurchaseSectionView.xib */,
 				AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */,

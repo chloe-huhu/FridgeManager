@@ -248,6 +248,7 @@ extension FoodListViewController: UITableViewDelegate {
 }
 
 extension FoodListViewController: UITableViewDataSource {
+    
     // section 數量
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionDataList.count

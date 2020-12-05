@@ -29,13 +29,23 @@ class PurchaseListViewController: UIViewController {
     let cellDataWho: [[String]] = [["等你認領", "等你認領", "等你認領"],
                                     ["Chloe", "Jeff", "Soda", "Chloe"]]
     
-    var isExpendDataList: [Bool] = [true, true]
+//    var isExpendDataList: [Bool] = [true, true]
     
     let searchButton = UIButton()
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+            let sectionViewNib: UINib = UINib(nibName: "PurchaseSectionView", bundle: nil)
+            self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "PurchaseSectionView")
+            
+            let cellNib: UINib = UINib(nibName: "PurchaseTableViewCell", bundle: nil)
+            self.tableView.register(cellNib, forCellReuseIdentifier: "CellView")
+        }
+    }
     
     @IBOutlet weak var taskDateTextField: UITextField!
     
@@ -44,9 +54,6 @@ class PurchaseListViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-        configTableView()
-        configNib()
-        
         dblistenAwating()
         dblistenAccept()
         dbGetAwaiting()
@@ -57,10 +64,23 @@ class PurchaseListViewController: UIViewController {
        
     }
     
+    func navigationTitleSetup() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func tabBarSetup() {
+        self.tabBarController!.tabBar.layer.borderWidth = 0.50
+        self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
+        self.tabBarController?.tabBar.clipsToBounds = true
+    }
+    
     func dblistenAwating() {
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
         
         FirebaseManager.shared.listen(ref: ref) {
+            
         }
     }
     
@@ -80,7 +100,7 @@ class PurchaseListViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("Awaiting現有的資料 \(document.documentID) => \(document.data())")
+                    print("待採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
                         
                         let data = try document.data(as: Lists.self)
@@ -110,7 +130,7 @@ class PurchaseListViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("Accept現有的資料 \(document.documentID) => \(document.data())")
+                    print("正在採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
                         
                         let data = try document.data(as: Lists.self)
@@ -132,30 +152,7 @@ class PurchaseListViewController: UIViewController {
         
     }
     
-    func navigationTitleSetup() {
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-    }
     
-    func tabBarSetup() {
-        self.tabBarController!.tabBar.layer.borderWidth = 0.50
-        self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
-        self.tabBarController?.tabBar.clipsToBounds = true
-    }
-    
-    func configTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-    
-    func configNib() {
-        let sectionViewNib: UINib = UINib(nibName: "PurchaseSectionView", bundle: nil)
-        self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "PurchaseSectionView")
-        
-        let cellNib: UINib = UINib(nibName: "PurchaseTableViewCell", bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "CellView")
-    }
 }
 extension PurchaseListViewController: UITableViewDelegate {
    
@@ -175,9 +172,9 @@ extension PurchaseListViewController: UITableViewDelegate {
         
         guard let sectionView: PurchaseSectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PurchaseSectionView") as? PurchaseSectionView else { return UIView() }
         
-        sectionView.isExpand = self.isExpendDataList[section]
-        sectionView.buttonTag = section
-        sectionView.delegate = self
+//        sectionView.isExpand = self.isExpendDataList[section]
+//        sectionView.buttonTag = section
+//        sectionView.delegate = self
         
         sectionView.imageView.image = UIImage(systemName: self.sectionImage[section])
         
@@ -214,19 +211,19 @@ extension PurchaseListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? PurchaseTableViewCell
         else { return UITableViewCell() }
         
-        cell.titleLabel.text = self.cellDataTitle[indexPath.section][indexPath.row]
-        cell.amountLabel.text = self.cellDataAmount[indexPath.section][indexPath.row]
+        cell.titleLabel.text = awaitingList[indexPath.row].name
+        cell.amountLabel.text = "\(awaitingList[indexPath.row].amount)"
         cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
        
         return cell
     }
     
 }
-
-extension PurchaseListViewController: PurchaseSectionViewDelegate {
-    func sectionView(_ sectionView: PurchaseSectionView, _ didPressTag: Int, _ isExpand: Bool) {
-        self.isExpendDataList[didPressTag] = !isExpand
-        self.tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
-    }
-    
-}
+//
+//extension PurchaseListViewController: PurchaseSectionViewDelegate {
+//    func sectionView(_ sectionView: PurchaseSectionView, _ didPressTag: Int, _ isExpand: Bool) {
+//        self.isExpendDataList[didPressTag] = !isExpand
+//        self.tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
+//    }
+//
+//}

@@ -26,6 +26,8 @@
 		AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAE72572401D00CD44F3 /* CellView.xib */; };
 		AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAF72572488F00CD44F3 /* SectionView.xib */; };
 		AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCB02257251C700CD44F3 /* CardView.swift */; };
+		AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */; };
+		AEA01E45257CAA74009AC995 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */; };
 		AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */; };
 		AECC1FE92578EE1E004D6168 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC1FE82578EE1E004D6168 /* ModelData.swift */; };
 		AED556DC256E48190068A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556DB256E48190068A855 /* AppDelegate.swift */; };
@@ -83,6 +85,8 @@
 		AE9DCAE72572401D00CD44F3 /* CellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellView.xib; path = FridgeManager/CellView.xib; sourceTree = SOURCE_ROOT; };
 		AE9DCAF72572488F00CD44F3 /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		AE9DCB02257251C700CD44F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedTextField.swift; path = FridgeManager/Controller/RoundedTextField.swift; sourceTree = SOURCE_ROOT; };
 		AECC1FE82578EE1E004D6168 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		AED556D8256E48190068A855 /* FridgeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +178,7 @@
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
+				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 		AE5F8841256FE45900A97CD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 				AE9DCAF72572488F00CD44F3 /* SectionView.xib */,
 				AE7D32402572395B00D97E23 /* SectionView.swift */,
 				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
@@ -548,6 +554,7 @@
 				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
 				AE8139CA2578D9CD00070681 /* FirebaseManager.swift in Sources */,
+				AEA01E45257CAA74009AC995 /* InfoTableViewCell.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
 				AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */,
@@ -559,6 +566,7 @@
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
 				AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */,
 				AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */,
+				AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */,
 				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

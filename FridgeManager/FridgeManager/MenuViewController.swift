@@ -14,12 +14,16 @@ class MenuViewController: UIViewController {
     
     let rowDataIngredient = ["3項食材不足", "2項食材不足", "食材已備足"]
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleSetup()
-        configTableView()
+//        navigationTitleSetup()
         
 
         
@@ -35,11 +39,7 @@ class MenuViewController: UIViewController {
         navigationController?.view.backgroundColor = .chloeYellow
 
     }
-    
-    func configTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
+
     /*
     // MARK: - Navigation
 

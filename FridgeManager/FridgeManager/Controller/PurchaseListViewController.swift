@@ -47,8 +47,6 @@ class PurchaseListViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var taskDateTextField: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

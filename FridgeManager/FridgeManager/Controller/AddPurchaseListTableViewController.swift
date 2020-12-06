@@ -111,7 +111,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
     
     func textViewDidEndEditing(_ textView: UITextView) {
                 if noteTextView.text.isEmpty {
-                    noteTextView.text = "input content"
+                    noteTextView.text = "輸入你想提醒的備註"
                     noteTextView.textColor = UIColor.lightGray
                 }
     }

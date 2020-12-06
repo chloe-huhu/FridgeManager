@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class AddPurchaseListTableViewController: UITableViewController {
+class AddPurchaseListTableViewController: UITableViewController, UITextViewDelegate {
     
     let dataUnit = ["公克", "公斤", "包", "串", "根"]
     
@@ -61,6 +61,8 @@ class AddPurchaseListTableViewController: UITableViewController {
             noteTextView.tag = 6
             noteTextView.layer.cornerRadius = 5.0
             noteTextView.layer.masksToBounds = true
+            noteTextView.text = "豆腐顏色是黃色的"
+            noteTextView.textColor = UIColor.lightGray
         }
     }
     
@@ -98,8 +100,21 @@ class AddPurchaseListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        noteTextView.delegate = self
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if noteTextView.textColor == UIColor.lightGray {
+            noteTextView.text = nil
+            noteTextView.textColor = UIColor.black
+        }
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+                if noteTextView.text.isEmpty {
+                    noteTextView.text = "input content"
+                    noteTextView.textColor = UIColor.lightGray
+                }
+    }
     func addListToDB() {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,

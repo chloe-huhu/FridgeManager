@@ -839,7 +839,7 @@
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="我記得特價一盒30元，外包裝是棕色，豆腐看起來黃黃的，不是白色" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X29-71-ViA">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X29-71-ViA">
                                                             <rect key="frame" x="0.0" y="30.5" width="370" height="66.5"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1256,22 +1256,235 @@
             </objects>
             <point key="canvasLocation" x="3190" y="860"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="1kw-ap-6Te">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeView" id="8qR-gX-gTu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kEk-4A-Xbo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歡迎來到 Open Fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMO-3d-JBw">
+                                <rect key="frame" x="33.5" y="194" width="347" height="48"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-Ac-nsp">
+                                <rect key="frame" x="33.5" y="247" width="347" height="6"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="6" id="Qo0-Lf-wj5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-mL-gNm" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                <rect key="frame" x="35.5" y="453" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Oea-pW-6YJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="kFX-vJ-QoU"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="蘋果帳號登入" image="applelogo" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageLeftPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                        <real key="value" value="200"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableImageRightAligned" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpv-88-22X" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                <rect key="frame" x="35.5" y="533" width="343" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Dg9-WZ-Q9r"/>
+                                    <constraint firstAttribute="height" constant="50" id="maS-md-pkS"/>
+                                </constraints>
+                                <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="郵箱登入" image="envelope" catalog="system">
+                                    <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageLeftPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableImageRightAligned" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableGradientBackground" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avS-l5-3H5" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                <rect key="frame" x="35.5" y="613" width="343" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="PaI-TU-Y6Q"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qc5-sI-0zb"/>
+                                </constraints>
+                                <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="建立帳號" image="person" catalog="system">
+                                    <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageLeftPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UMg-yD-6eg"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="avS-l5-3H5" firstAttribute="top" secondItem="bpv-88-22X" secondAttribute="bottom" constant="30" id="1Xx-Hb-FAX"/>
+                            <constraint firstItem="ppO-Ac-nsp" firstAttribute="leading" secondItem="cMO-3d-JBw" secondAttribute="leading" id="252-nM-Fcq"/>
+                            <constraint firstItem="bpv-88-22X" firstAttribute="top" secondItem="KcA-mL-gNm" secondAttribute="bottom" constant="30" id="3ay-mt-ETU"/>
+                            <constraint firstItem="KcA-mL-gNm" firstAttribute="top" secondItem="ppO-Ac-nsp" secondAttribute="bottom" constant="200" id="48P-gL-gOW"/>
+                            <constraint firstItem="ppO-Ac-nsp" firstAttribute="top" secondItem="cMO-3d-JBw" secondAttribute="bottom" constant="5" id="5NU-Hs-35n"/>
+                            <constraint firstItem="bpv-88-22X" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="GgN-GP-PjP"/>
+                            <constraint firstItem="KcA-mL-gNm" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="SDv-oJ-zD4"/>
+                            <constraint firstItem="avS-l5-3H5" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="igA-d9-ye5"/>
+                            <constraint firstItem="cMO-3d-JBw" firstAttribute="top" secondItem="UMg-yD-6eg" secondAttribute="top" constant="150" id="q5b-sZ-KAF"/>
+                            <constraint firstItem="cMO-3d-JBw" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="sge-lj-gNc"/>
+                            <constraint firstItem="ppO-Ac-nsp" firstAttribute="trailing" secondItem="cMO-3d-JBw" secondAttribute="trailing" id="tiH-rK-66X"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="z2T-SL-7tg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vy-BM-q2W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4997.1014492753629" y="859.82142857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="auB-O9-EK9">
+            <objects>
+                <viewController id="3qU-o1-gys" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="shj-06-ajk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LSu-5d-CN4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rf8-zk-SLD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIj-ir-iud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6664" y="860"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vXn-hE-cYD">
+            <objects>
+                <viewController id="MO5-FL-jZB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bQr-ue-coR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="k5K-d3-oTk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lKc-fK-a08"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NUG-Hd-PQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6248" y="1576"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YYL-CK-h00">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="paw-Iz-5f6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qk3-1d-KpL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3qU-o1-gys" kind="relationship" relationship="rootViewController" id="5qS-yS-PHI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zir-P1-6VG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5839" y="860"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FZf-BJ-uDV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SdQ-gD-TdU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J69-Mr-vGZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MO5-FL-jZB" kind="relationship" relationship="rootViewController" id="E5L-8o-KVL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3P-Ks-OQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5377" y="1576"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="KcA-mL-gNm">
+            <size key="intrinsicContentSize" width="126" height="22"/>
+        </designable>
+        <designable name="avS-l5-3H5">
+            <size key="intrinsicContentSize" width="93" height="22"/>
+        </designable>
+        <designable name="bpv-88-22X">
+            <size key="intrinsicContentSize" width="96.5" height="22"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Lds-aR-iOo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
         <image name="add" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="cooking" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="exclamationmark.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="fridge-1" width="21.333333969116211" height="21.333333969116211"/>
         <image name="gearshape.2.fill" catalog="system" width="128" height="100"/>
         <image name="list-text" width="21.333333969116211" height="21.333333969116211"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <namedColor name="B5">

@@ -182,6 +182,10 @@ extension PurchaseListViewController: UITableViewDelegate {
         
         return sectionView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+    }
 }
 
 extension PurchaseListViewController: UITableViewDataSource {
@@ -211,12 +215,15 @@ extension PurchaseListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? PurchaseTableViewCell
         else { return UITableViewCell() }
         
+        
+    
         cell.titleLabel.text = awaitingList[indexPath.row].name
         cell.amountLabel.text = "\(awaitingList[indexPath.row].amount)"
         cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
        
         return cell
     }
+    
     
 }
 //

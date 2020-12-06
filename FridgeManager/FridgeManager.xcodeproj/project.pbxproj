@@ -11,6 +11,7 @@
 		AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* EnumExtension.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
+		AE6255FA257BE4CE0022CCB3 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */; };
 		AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */; };
 		AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7169432574995B00659F2C /* PurchaseSectionView.swift */; };
 		AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE716948257499C500659F2C /* PurchaseSectionView.xib */; };
@@ -67,6 +68,7 @@
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FancyButton.swift; path = FridgeManager/FancyButton.swift; sourceTree = SOURCE_ROOT; };
 		AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTableViewController.swift; sourceTree = "<group>"; };
 		AE7169432574995B00659F2C /* PurchaseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSectionView.swift; path = FridgeManager/Controller/PurchaseSectionView.swift; sourceTree = SOURCE_ROOT; };
 		AE716948257499C500659F2C /* PurchaseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionView.xib; sourceTree = "<group>"; };
@@ -167,9 +169,9 @@
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
 				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
+				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
-				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
 			);
@@ -195,6 +197,7 @@
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */,
 				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
 				AE9DCB02257251C700CD44F3 /* CardView.swift */,
 				AE71695D2574D47C00659F2C /* UILabelExtension.swift */,
@@ -552,6 +555,7 @@
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,
+				AE6255FA257BE4CE0022CCB3 /* FancyButton.swift in Sources */,
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
 				AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */,
 				AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */,

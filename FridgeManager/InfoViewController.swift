@@ -88,19 +88,6 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
             personImageView.clipsToBounds = true
         }
         
-//        //約束條件
-//        let leadingConstraint = NSLayoutConstraint(item: personImageView as Any, attribute: .leading, relatedBy: .equal, toItem: personImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
-//        leadingConstraint.isActive = true
-//        
-//        let trailingConstraint = NSLayoutConstraint(item: personImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: personImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
-//        trailingConstraint.isActive = true
-//        
-//        let topConstraint = NSLayoutConstraint(item: personImageView as Any, attribute: .top, relatedBy: .equal, toItem: personImageView.superview, attribute: .top, multiplier: 1, constant: 0)
-//        topConstraint.isActive = true
-//        
-//        let bottomConstraint = NSLayoutConstraint(item: personImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: personImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
-//        bottomConstraint.isActive = true
-        
         dismiss(animated: true, completion: nil)
     }
 }

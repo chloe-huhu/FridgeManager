@@ -15,21 +15,22 @@ class PurchaseListViewController: UIViewController {
     
     var acceptLists: [Lists] = []
     
-    
     let sectionImage: [String] = ["pencil.circle.fill", "pencil.circle.fill"]
     
     let sectionDataList: [String] = ["未採購", "採購中"]
     
-    let cellDataTitle: [[String]] = [["香蕉", "Costco 牛排", "雞蛋"],
-                                    ["海底撈火鍋料", "高麗菜", "洋蔥圈", "厚片吐司"]]
-    
-    let cellDataAmount: [[String]] = [["6 根", "1 盒", "1 盒"],
-                                    ["2 包", "半 顆", "1 包", "6 片"]]
     
     let cellDataWho: [[String]] = [["等你認領", "等你認領", "等你認領"],
                                     ["Chloe", "Jeff", "Soda", "Chloe"]]
     
-//    var isExpendDataList: [Bool] = [true, true]
+       
+    //
+    //    let cellDataTitle: [[String]] = [["香蕉", "Costco 牛排", "雞蛋"],
+    //                                    ["海底撈火鍋料", "高麗菜", "洋蔥圈", "厚片吐司"]]
+    //
+    //    let cellDataAmount: [[String]] = [["6 根", "1 盒", "1 盒"],
+    //                                    ["2 包", "半 顆", "1 包", "6 片"]]
+    //    var isExpendDataList: [Bool] = [true, true]
     
     let searchButton = UIButton()
     
@@ -182,7 +183,7 @@ extension PurchaseListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+        self.performSegue(withIdentifier: "SeguePurchaseDetail", sender: nil)
     }
 }
 
@@ -213,13 +214,23 @@ extension PurchaseListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? PurchaseTableViewCell
         else { return UITableViewCell() }
         
+        if indexPath.section == 0 {
+            
+            cell.titleLabel.text = awaitingList[indexPath.row].name
+            cell.amountLabel.text = "\(awaitingList[indexPath.row].amount)"
+            cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
+            
+            return cell
+            
+        } else {
+            
+            cell.titleLabel.text = acceptLists[indexPath.row].name
+            cell.amountLabel.text = "\(acceptLists[indexPath.row].amount)"
+            cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
+            
+            return cell
+        }
         
-    
-        cell.titleLabel.text = awaitingList[indexPath.row].name
-        cell.amountLabel.text = "\(awaitingList[indexPath.row].amount)"
-        cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
-       
-        return cell
     }
     
     

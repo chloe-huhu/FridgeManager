@@ -56,9 +56,10 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         }
     }
     
+    
     @IBOutlet weak var noteTextView: UITextView! {
         didSet {
-            noteTextView.tag = 6
+            noteTextView.tag = 7
             noteTextView.layer.cornerRadius = 5.0
             noteTextView.layer.masksToBounds = true
             noteTextView.text = "豆腐顏色是黃色的"
@@ -102,6 +103,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         super.viewDidLoad()
         noteTextView.delegate = self
     }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if noteTextView.textColor == UIColor.lightGray {
             noteTextView.text = nil
@@ -115,6 +117,8 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
                     noteTextView.textColor = UIColor.lightGray
                 }
     }
+    
+    
     func addListToDB() {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
@@ -139,6 +143,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             "place": place,
             "note": note
         ]
+        
         
         document.setData(data)
     }
@@ -247,58 +252,3 @@ extension AddPurchaseListTableViewController: UIPickerViewDelegate,UIPickerViewD
         unitTextField.text = dataUnit[row]
     }
 }
-/*
- override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
- 
- // Configure the cell...
- 
- return cell
- }
- */
-
-/*
- // Override to support conditional editing of the table view.
- override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
- // Return false if you do not want the specified item to be editable.
- return true
- }
- */
-
-/*
- // Override to support editing the table view.
- override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
- if editingStyle == .delete {
- // Delete the row from the data source
- tableView.deleteRows(at: [indexPath], with: .fade)
- } else if editingStyle == .insert {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
- 
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
- // Return false if you do not want the item to be re-orderable.
- return true
- }
- */
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-

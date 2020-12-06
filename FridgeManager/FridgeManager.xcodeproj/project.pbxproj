@@ -186,7 +186,6 @@
 		AE5F8841256FE45900A97CD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 				AE9DCAF72572488F00CD44F3 /* SectionView.xib */,
 				AE7D32402572395B00D97E23 /* SectionView.swift */,
 				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
@@ -196,6 +195,7 @@
 				AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */,
 				AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */,
 				AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */,
+				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

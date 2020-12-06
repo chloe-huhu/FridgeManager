@@ -89,6 +89,7 @@
                     <connections>
                         <outlet property="datePicker" destination="DtB-Fv-y4H" id="Ab3-zt-Fd1"/>
                         <outlet property="tableView" destination="NEd-dZ-QOl" id="kW6-20-PeH"/>
+                        <segue destination="H6p-eG-vYX" kind="show" identifier="SeguePurchaseDetail" id="arr-R9-sMI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -235,10 +236,10 @@
         <scene sceneID="k0K-5P-jYQ">
             <objects>
                 <tableViewController id="yTY-l9-zTe" customClass="AddFoodTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RUl-da-5ga">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RUl-da-5ga">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="LJg-Nm-iK2">
                             <rect key="frame" x="0.0" y="846" width="414" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -248,21 +249,21 @@
                             <tableViewSection id="lcc-Fb-X3X">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="300" id="iNm-BX-RYh">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="300"/>
+                                        <rect key="frame" x="20" y="18" width="374" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iNm-BX-RYh" id="Ntj-rR-Lu6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-7q-CPb">
-                                                    <rect key="frame" x="157" y="100.5" width="100" height="99.5"/>
+                                                    <rect key="frame" x="162" y="125.5" width="50" height="49.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="VLG-Ja-UJw"/>
-                                                        <constraint firstAttribute="height" constant="100" id="h4j-pz-ZAf"/>
+                                                        <constraint firstAttribute="width" constant="50" id="VLG-Ja-UJw"/>
+                                                        <constraint firstAttribute="height" constant="50" id="h4j-pz-ZAf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更換" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-5a-0DV">
-                                                    <rect key="frame" x="348" y="234" width="50" height="50"/>
+                                                    <rect key="frame" x="308" y="234" width="50" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="6ac-eU-omD"/>
@@ -289,23 +290,23 @@
                                         <color key="backgroundColor" name="B5"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="FR2-Fw-lqv">
-                                        <rect key="frame" x="0.0" y="318" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="318" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FR2-Fw-lqv" id="l6D-BT-7Pl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-3O-mrn">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="食材名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-ro-HeZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="香蕉" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-7B-f81" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="mmJ-ck-jJx"/>
@@ -325,26 +326,26 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="naO-Gt-fcG">
-                                        <rect key="frame" x="0.0" y="403" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="403" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="naO-Gt-fcG" id="sCb-1i-oPk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wtJ-c3-4fg">
-                                                    <rect key="frame" x="22" y="12" width="370" height="61"/>
+                                                    <rect key="frame" x="22" y="12" width="330" height="61"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlb-wT-ptb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="25"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mla-wI-OpZ">
-                                                            <rect key="frame" x="0.0" y="25" width="370" height="36"/>
+                                                            <rect key="frame" x="0.0" y="25" width="330" height="36"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-lV-QML" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
@@ -354,7 +355,7 @@
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="根" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-kd-Bfc" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="298" y="0.0" width="72" height="35"/>
+                                                                    <rect key="frame" x="258" y="0.0" width="72" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
@@ -386,14 +387,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="IKx-iL-4oW">
-                                        <rect key="frame" x="0.0" y="488" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="488" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IKx-iL-4oW" id="eo6-4S-RJy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vAC-h0-t5T">
-                                                    <rect key="frame" x="21" y="12" width="372" height="61"/>
+                                                    <rect key="frame" x="21" y="12" width="332" height="61"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="數量提醒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-PM-SMi">
                                                             <rect key="frame" x="0.0" y="0.0" width="72" height="16"/>
@@ -402,21 +403,21 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-2d-dd8">
-                                                            <rect key="frame" x="0.0" y="26" width="347" height="35"/>
+                                                            <rect key="frame" x="0.0" y="26" width="319" height="35"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFg-e4-DxE" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="4Oz-L2-zOH"/>
-                                                                        <constraint firstAttribute="width" constant="288" id="fDf-zr-ldZ"/>
+                                                                        <constraint firstAttribute="width" constant="260" id="fDf-zr-ldZ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqu-sx-mT8">
-                                                                    <rect key="frame" x="298" y="0.0" width="51" height="35"/>
+                                                                    <rect key="frame" x="270" y="0.0" width="51" height="35"/>
                                                                     <color key="onTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </switch>
                                                             </subviews>
@@ -433,23 +434,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="3tb-Wh-471">
-                                        <rect key="frame" x="0.0" y="573" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="573" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3tb-Wh-471" id="x9x-At-ZaX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nDx-7g-QrK">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="類別" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-sH-XM2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="水果類" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="ev0-Pp-i95"/>
@@ -472,23 +473,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="MIr-pz-wvL">
-                                        <rect key="frame" x="0.0" y="658" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="658" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MIr-pz-wvL" id="JVp-mT-hPA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hmN-tC-Vhq">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="購買日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek5-on-EfG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gY-gQ-RjJ" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="NZv-l9-7NY"/>
@@ -508,23 +509,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="1gG-3r-iQg">
-                                        <rect key="frame" x="0.0" y="743" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="743" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1gG-3r-iQg" id="H6U-zK-IYp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qdP-WO-jZA">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="過期日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AL1-Xm-3yl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS4-6E-Cpl" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="t9i-KH-uXi"/>
@@ -603,29 +604,29 @@
         <scene sceneID="v9i-mx-TbO">
             <objects>
                 <tableViewController id="c3r-si-TlM" customClass="AddPurchaseListTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mgO-Uv-4Ju">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mgO-Uv-4Ju">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="kdZ-7W-PtC">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="300" id="5jU-a1-Hfr">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="300"/>
+                                        <rect key="frame" x="20" y="18" width="374" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5jU-a1-Hfr" id="xg0-2b-hRU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-GU-o4F">
-                                                    <rect key="frame" x="157" y="100.5" width="100" height="99.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.below.photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-GU-o4F">
+                                                    <rect key="frame" x="162" y="123" width="50" height="53.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="isd-65-vjO"/>
-                                                        <constraint firstAttribute="height" constant="100" id="tBF-Ce-dlb"/>
+                                                        <constraint firstAttribute="width" constant="50" id="isd-65-vjO"/>
+                                                        <constraint firstAttribute="height" constant="50" id="tBF-Ce-dlb"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更換" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UU7-lf-Rh7">
-                                                    <rect key="frame" x="348" y="234" width="50" height="50"/>
+                                                    <rect key="frame" x="308" y="234" width="50" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="5ob-n2-vur"/>
@@ -651,23 +652,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="5cb-aT-SCV">
-                                        <rect key="frame" x="0.0" y="318" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="318" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5cb-aT-SCV" id="dgo-eX-ADh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-BH-bLQ">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購買食材名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rA-EB-W5S">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購食材" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rA-EB-W5S">
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="中華雞蛋豆腐" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob2-vt-1MG" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="ev5-kq-kWN"/>
@@ -687,26 +688,26 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="dw5-PU-gew">
-                                        <rect key="frame" x="0.0" y="403" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="403" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dw5-PU-gew" id="JGw-ZL-eU6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MLf-y2-Sl1">
-                                                    <rect key="frame" x="22" y="12" width="370" height="61"/>
+                                                    <rect key="frame" x="22" y="12" width="330" height="61"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購買數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62I-hj-MYy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62I-hj-MYy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="20"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-OX-N5m">
-                                                            <rect key="frame" x="0.0" y="25" width="370" height="36"/>
+                                                            <rect key="frame" x="0.0" y="25" width="330" height="36"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-gB-N5I" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
@@ -716,7 +717,7 @@
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="盒" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mP-Usb" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="298" y="0.0" width="72" height="35"/>
+                                                                    <rect key="frame" x="258" y="0.0" width="72" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
@@ -748,23 +749,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="UR1-Fv-aon">
-                                        <rect key="frame" x="0.0" y="488" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="488" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UR1-Fv-aon" id="6oF-6G-X5Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tD1-gk-c3v">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選擇品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SK-3w-Lfg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SK-3w-Lfg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="中華食" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPw-9u-5Re" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="nC8-4r-a4c"/>
@@ -784,23 +785,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="ATy-uu-Xme">
-                                        <rect key="frame" x="0.0" y="573" width="414" height="85"/>
+                                        <rect key="frame" x="20" y="573" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ATy-uu-Xme" id="2fU-9m-Z8X">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="x26-Cn-nt4">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推薦購買地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-rt-NKU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="全聯褔利社" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kie-Fo-IXS" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
+                                                            <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="cuh-Yw-JAp"/>
@@ -819,65 +820,24 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="Wbn-1m-As5">
-                                        <rect key="frame" x="0.0" y="658" width="414" height="85"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wbn-1m-As5" id="oFy-HD-s8z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qfy-fS-7fp">
-                                                    <rect key="frame" x="22" y="16" width="370" height="57"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="採購時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIB-Gg-GGQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="17"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTg-EY-2cu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="370" height="35"/>
-                                                            <color key="backgroundColor" name="B6"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="35" id="kBw-jW-f8U"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="qfy-fS-7fp" firstAttribute="top" secondItem="oFy-HD-s8z" secondAttribute="topMargin" constant="5" id="Wjd-aH-Wnp"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qfy-fS-7fp" secondAttribute="bottom" constant="1" id="bUT-3M-TLG"/>
-                                                <constraint firstItem="qfy-fS-7fp" firstAttribute="leading" secondItem="oFy-HD-s8z" secondAttribute="leadingMargin" constant="2" id="k9c-0V-dJ3"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qfy-fS-7fp" secondAttribute="trailing" constant="2" id="ywK-bI-uXg"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="125" id="8jD-fP-GRn">
-                                        <rect key="frame" x="0.0" y="743" width="414" height="125"/>
+                                        <rect key="frame" x="20" y="658" width="374" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8jD-fP-GRn" id="kPh-o2-8Kt">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jWj-wn-t8x">
-                                                    <rect key="frame" x="22" y="16" width="370" height="97"/>
+                                                    <rect key="frame" x="22" y="16" width="330" height="97"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="備註" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-vn-yPu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-kX-gaU">
-                                                            <rect key="frame" x="0.0" y="30.5" width="370" height="66.5"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="雞蛋豆腐是黃色的" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-kX-gaU">
+                                                            <rect key="frame" x="0.0" y="30.5" width="330" height="66.5"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -887,10 +847,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jWj-wn-t8x" secondAttribute="bottom" constant="1" id="1G9-wW-Bck"/>
-                                                <constraint firstItem="jWj-wn-t8x" firstAttribute="leading" secondItem="kPh-o2-8Kt" secondAttribute="leadingMargin" constant="2" id="Xb3-pC-UVA"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="jWj-wn-t8x" secondAttribute="trailing" constant="2" id="aQT-wC-gDV"/>
-                                                <constraint firstItem="jWj-wn-t8x" firstAttribute="top" secondItem="kPh-o2-8Kt" secondAttribute="topMargin" constant="5" id="jhU-iv-yJd"/>
+                                                <constraint firstItem="jWj-wn-t8x" firstAttribute="top" secondItem="kPh-o2-8Kt" secondAttribute="topMargin" constant="5" id="Dhx-4J-oCy"/>
+                                                <constraint firstItem="jWj-wn-t8x" firstAttribute="leading" secondItem="kPh-o2-8Kt" secondAttribute="leadingMargin" constant="2" id="HJk-nF-9Hn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jWj-wn-t8x" secondAttribute="trailing" constant="2" id="Taj-qa-DVT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jWj-wn-t8x" secondAttribute="bottom" constant="1" id="f7Z-An-h3z"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -920,6 +880,7 @@
                         <outlet property="brandTextField" destination="lPw-9u-5Re" id="FVf-d0-1R6"/>
                         <outlet property="changePicLabel" destination="UU7-lf-Rh7" id="lfz-kc-SbK"/>
                         <outlet property="imageView" destination="Ip8-GU-o4F" id="MEv-E4-KKG"/>
+                        <outlet property="noteTextView" destination="OfU-kX-gaU" id="pyy-xM-Dcc"/>
                         <outlet property="placeTextField" destination="Kie-Fo-IXS" id="XD5-xU-qhZ"/>
                         <outlet property="titleTextField" destination="ob2-vt-1MG" id="Va4-b2-d71"/>
                         <outlet property="unitPickerView" destination="4p7-NY-7wb" id="KYs-hl-yfE"/>
@@ -933,6 +894,235 @@
                 </pickerView>
             </objects>
             <point key="canvasLocation" x="569.56521739130437" y="2404.6875"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Pa6-MI-aje">
+            <objects>
+                <tableViewController id="H6p-eG-vYX" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GaH-th-C0b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="YxA-l2-nAM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="ueN-p3-BcW">
+                                        <rect key="frame" x="20" y="18" width="374" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ueN-p3-BcW" id="MJu-qw-EeP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.below.photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gi-aU-LL7">
+                                                    <rect key="frame" x="162" y="123" width="50" height="53.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="5I2-LP-qa3"/>
+                                                        <constraint firstAttribute="width" constant="50" id="Itw-qu-jKH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採買人Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWi-3T-3xm">
+                                                    <rect key="frame" x="20" y="257.5" width="100" height="22.5"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="tkV-be-gCM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="B6"/>
+                                            <constraints>
+                                                <constraint firstItem="2gi-aU-LL7" firstAttribute="centerX" secondItem="MJu-qw-EeP" secondAttribute="centerX" id="Fk9-uz-erf"/>
+                                                <constraint firstItem="ZWi-3T-3xm" firstAttribute="leading" secondItem="MJu-qw-EeP" secondAttribute="leading" constant="20" id="aX5-ef-ay6"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZWi-3T-3xm" secondAttribute="bottom" constant="20" id="kiB-XH-r1g"/>
+                                                <constraint firstItem="2gi-aU-LL7" firstAttribute="centerY" secondItem="MJu-qw-EeP" secondAttribute="centerY" id="mYU-pq-tdz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="3Wf-EU-oOS">
+                                        <rect key="frame" x="20" y="318" width="374" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Wf-EU-oOS" id="cmO-6S-eR5">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="six-bW-MSn">
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購買食材" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OY6-XA-kYS">
+                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小熊餅乾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-AV-eFR">
+                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="six-bW-MSn" firstAttribute="top" secondItem="cmO-6S-eR5" secondAttribute="topMargin" constant="5" id="1QK-it-PHq"/>
+                                                <constraint firstItem="six-bW-MSn" firstAttribute="leading" secondItem="cmO-6S-eR5" secondAttribute="leadingMargin" constant="2" id="aTd-lI-HbC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="six-bW-MSn" secondAttribute="bottom" constant="1" id="gpD-Tl-7nK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="six-bW-MSn" secondAttribute="trailing" constant="2" id="wXT-E5-rqi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="mhw-4K-ZlZ">
+                                        <rect key="frame" x="20" y="403" width="374" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mhw-4K-ZlZ" id="clO-Xf-MdS">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hOv-vM-Mcz">
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peB-CF-55d">
+                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1盒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB1-D8-2Ct">
+                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hOv-vM-Mcz" secondAttribute="trailing" constant="2" id="8oR-Mc-vDO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hOv-vM-Mcz" secondAttribute="bottom" constant="1" id="IoY-mA-cgm"/>
+                                                <constraint firstItem="hOv-vM-Mcz" firstAttribute="leading" secondItem="clO-Xf-MdS" secondAttribute="leadingMargin" constant="2" id="sgZ-K9-yiv"/>
+                                                <constraint firstItem="hOv-vM-Mcz" firstAttribute="top" secondItem="clO-Xf-MdS" secondAttribute="topMargin" constant="5" id="zL9-kB-kuS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="zmc-RA-o0H">
+                                        <rect key="frame" x="20" y="488" width="374" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zmc-RA-o0H" id="C3d-Dk-9cb">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KPG-O5-7xN">
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwT-W9-KFq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="樂天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbI-TN-lab">
+                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KPG-O5-7xN" secondAttribute="trailing" constant="2" id="DyQ-zi-fs5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="KPG-O5-7xN" secondAttribute="bottom" constant="1" id="M2a-sj-ZfM"/>
+                                                <constraint firstItem="KPG-O5-7xN" firstAttribute="leading" secondItem="C3d-Dk-9cb" secondAttribute="leadingMargin" constant="2" id="oAd-yh-kXJ"/>
+                                                <constraint firstItem="KPG-O5-7xN" firstAttribute="top" secondItem="C3d-Dk-9cb" secondAttribute="topMargin" constant="5" id="saV-fr-W4o"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="wL8-bC-RPa">
+                                        <rect key="frame" x="20" y="573" width="374" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wL8-bC-RPa" id="S7w-E7-drb">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fda-0I-udY">
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推薦購買地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-Fu-QD7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寶雅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJt-Ig-geM">
+                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fda-0I-udY" secondAttribute="trailing" constant="2" id="6qz-YR-egy"/>
+                                                <constraint firstItem="fda-0I-udY" firstAttribute="leading" secondItem="S7w-E7-drb" secondAttribute="leadingMargin" constant="2" id="EGq-Yh-V65"/>
+                                                <constraint firstItem="fda-0I-udY" firstAttribute="top" secondItem="S7w-E7-drb" secondAttribute="topMargin" constant="5" id="KeT-Bb-Ofh"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fda-0I-udY" secondAttribute="bottom" constant="1" id="LcV-hv-qI7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="s4l-My-cCJ">
+                                        <rect key="frame" x="20" y="658" width="374" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s4l-My-cCJ" id="Ugo-ta-3q9">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rrp-S7-Wp3">
+                                                    <rect key="frame" x="22" y="16" width="330" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-w4-zta">
+                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大盒裝 讚！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-Sq-l5l">
+                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="57"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rrp-S7-Wp3" secondAttribute="bottom" constant="1" id="QAv-zU-CTN"/>
+                                                <constraint firstItem="rrp-S7-Wp3" firstAttribute="top" secondItem="Ugo-ta-3q9" secondAttribute="topMargin" constant="5" id="VeM-j6-bMG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rrp-S7-Wp3" secondAttribute="trailing" constant="2" id="ZwZ-Uc-QxD"/>
+                                                <constraint firstItem="rrp-S7-Wp3" firstAttribute="leading" secondItem="Ugo-ta-3q9" secondAttribute="leadingMargin" constant="2" id="oK6-WO-N94"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="H6p-eG-vYX" id="k1Q-K5-v7s"/>
+                            <outlet property="delegate" destination="H6p-eG-vYX" id="Wf2-Ad-7pa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JMp-vO-WFr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fH-IJ-ehC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="2405"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="wfL-h5-nDh">
@@ -962,16 +1152,19 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="80.357142857142847"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--採購計畫-->
         <scene sceneID="IP3-TI-O8R">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dR5-86-0hG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="hRc-63-nVx" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="採購計畫" id="hRc-63-nVx" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <imageReference key="image" image="list-text" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <imageReference key="selectedImage" image="list-text" symbolScale="large"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
@@ -1381,18 +1574,25 @@
             </objects>
             <point key="canvasLocation" x="3189.8550724637685" y="1664.7321428571429"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--冰箱食材-->
         <scene sceneID="X9s-75-8Ea">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GnR-h4-wYg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="0gz-GX-UJJ" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="冰箱食材" id="0gz-GX-UJJ" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <imageReference key="image" image="fridge-1" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                         <imageReference key="selectedImage" image="fridge-1" symbolScale="large"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="textFontSize">
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -1425,16 +1625,19 @@
             </objects>
             <point key="canvasLocation" x="-407" y="860"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--食譜計畫-->
         <scene sceneID="80u-F6-W7t">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="81u-89-Gpe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="mcT-im-OiG" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="食譜計畫" id="mcT-im-OiG" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <imageReference key="image" image="cooking" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <imageReference key="selectedImage" image="cooking" symbolScale="large"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
@@ -1467,15 +1670,18 @@
             </objects>
             <point key="canvasLocation" x="2170" y="860"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--個人頁面-->
         <scene sceneID="c3J-hb-HyE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4E9-oC-mVO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="E1y-L5-AG3" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="個人頁面" id="E1y-L5-AG3" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
@@ -1715,7 +1921,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Lds-aR-iOo"/>
+        <segue reference="MOh-Ic-hm6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
@@ -1734,6 +1940,7 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
+        <image name="text.below.photo" catalog="system" width="117" height="128"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <namedColor name="B5">
             <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

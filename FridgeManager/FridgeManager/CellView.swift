@@ -27,11 +27,11 @@ class CellView: UITableViewCell {
     func setup(data: Foods) {
         
         rowTitleLabel.text = data.name
-        rowAmountLabel.text = String(data.amount)
+        rowAmountLabel.text = "數量： \(String(data.amount)) \(data.unit)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        rowDateLabel.text = dateFormatter.string(from: data.expiredDate)
+        rowDateLabel.text = "過期日：\(dateFormatter.string(from: data.expiredDate))"
     }
     
 }

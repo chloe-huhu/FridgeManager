@@ -21,36 +21,39 @@
                         <rect key="frame" x="18" y="3" width="433" height="108"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costco 牛排" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-NI-V8h">
-                                <rect key="frame" x="16" y="8" width="100" height="22.5"/>
+                                <rect key="frame" x="16" y="43" width="100" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="N5t-Bu-Cn7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量：200 公克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIl-to-2yR">
-                                <rect key="frame" x="132" y="16" width="115" height="22.5"/>
-                                <color key="tintColor" red="0.99607843137254903" green="0.95294117647058818" blue="0.83921568627450982" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日：2020-12-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-5j-vde">
-                                <rect key="frame" x="132" y="46.5" width="157" height="22.5"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Xe-Zh-enZ">
+                                <rect key="frame" x="132" y="27.5" width="157.5" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量：200 公克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIl-to-2yR">
+                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="22.5"/>
+                                        <color key="tintColor" red="0.99607843137254903" green="0.95294117647058818" blue="0.83921568627450982" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日：2020-12-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-5j-vde">
+                                        <rect key="frame" x="0.0" y="30.5" width="157.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Xx6-5j-vde" firstAttribute="top" secondItem="PIl-to-2yR" secondAttribute="bottom" constant="8" id="4I2-W4-U6w"/>
-                            <constraint firstItem="5xe-NI-V8h" firstAttribute="top" secondItem="5UG-qk-jX5" secondAttribute="top" constant="8" id="FZT-fn-fdm"/>
-                            <constraint firstItem="PIl-to-2yR" firstAttribute="top" secondItem="5UG-qk-jX5" secondAttribute="top" constant="16" id="IbG-bc-8On"/>
-                            <constraint firstItem="PIl-to-2yR" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="16" id="PFX-Mv-5Bn"/>
+                            <constraint firstItem="5xe-NI-V8h" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="Obr-xn-Plv"/>
                             <constraint firstItem="5xe-NI-V8h" firstAttribute="leading" secondItem="5UG-qk-jX5" secondAttribute="leading" constant="16" id="TRL-nV-2ek"/>
-                            <constraint firstItem="Xx6-5j-vde" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="16" id="mFH-ZI-U8S"/>
+                            <constraint firstItem="3Xe-Zh-enZ" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="16" id="YU3-zq-Voe"/>
+                            <constraint firstItem="3Xe-Zh-enZ" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="gQi-Gp-tiM"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

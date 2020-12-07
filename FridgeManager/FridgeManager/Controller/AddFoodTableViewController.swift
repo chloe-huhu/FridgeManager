@@ -163,9 +163,9 @@ class AddFoodTableViewController: UITableViewController {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
               let unit = unitTextField.text,
-              let category = categoryTextField.text,
-              let purchaseDate = purchaseTextField.text,
-              let expiredDate = expiredTextField.text
+              let category = categoryTextField.text
+//              let purchaseDate = purchaseDatePicker.date,
+//              let expiredDate = expiredDatePicker.date
        
         else { return }
         
@@ -187,8 +187,8 @@ class AddFoodTableViewController: UITableViewController {
             "unit": unit,
             "amountAlert": Int(amountAlert),
             "category": category,
-            "purchaseDate": purchaseDate,
-            "expiredDate": expiredDate
+            "purchaseDate": purchaseDatePicker.date,
+            "expiredDate": expiredDatePicker.date
         ]
         
         //setData 到firebase

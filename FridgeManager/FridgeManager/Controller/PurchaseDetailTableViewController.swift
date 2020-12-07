@@ -24,12 +24,12 @@ class PurchaseDetailTableViewController: UITableViewController {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     
-    var awaiting = Bool()
+    var isAwaiting = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(awaiting)
+        print(isAwaiting)
 
     }
 

@@ -34,6 +34,8 @@ class PurchaseListViewController: UIViewController {
     
     let searchButton = UIButton()
     
+    var awaiting = Bool()
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var tableView: UITableView! {
@@ -55,12 +57,17 @@ class PurchaseListViewController: UIViewController {
         tabBarSetup()
         dblistenAwating()
         dblistenAccept()
-        dbGetAwaiting()
-        dbGetAccept()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let nextViewController = segue.destination as? PurchaseDetailTableViewController
+        
+        nextViewController?.awaiting = self.awaiting
     }
     
     func navigationTitleSetup() {
@@ -80,6 +87,7 @@ class PurchaseListViewController: UIViewController {
         
         FirebaseManager.shared.listen(ref: ref) {
             
+            self.dbGetAwaiting()
         }
     }
     
@@ -88,6 +96,7 @@ class PurchaseListViewController: UIViewController {
         
         FirebaseManager.shared.listen(ref: ref) {
             
+            self.dbGetAccept()
         }
     }
     
@@ -98,6 +107,9 @@ class PurchaseListViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                
+                self.awaitingList = []
+                
                 for document in querySnapshot!.documents {
                     print("待採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
@@ -106,6 +118,8 @@ class PurchaseListViewController: UIViewController {
                         
                         self.awaitingList.append(data!)
                         
+                        self.tableView.reloadData()
+                        
                     } catch {
                         
                         print("error to decode", error)
@@ -113,9 +127,7 @@ class PurchaseListViewController: UIViewController {
                     
                 }
             }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            
             
         }
         
@@ -128,6 +140,9 @@ class PurchaseListViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                
+                self.acceptLists = []
+                
                 for document in querySnapshot!.documents {
                     print("正在採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
@@ -136,6 +151,8 @@ class PurchaseListViewController: UIViewController {
                         
                         self.acceptLists.append(data!)
                         
+                        self.tableView.reloadData()
+                        
                     } catch {
                         
                         print("error to decode", error)
@@ -143,10 +160,7 @@ class PurchaseListViewController: UIViewController {
                     
                 }
             }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
+
         }
         
     }
@@ -183,6 +197,9 @@ extension PurchaseListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        awaiting = indexPath.section == 0 ? true : false
+        
         self.performSegue(withIdentifier: "SeguePurchaseDetail", sender: nil)
     }
 }

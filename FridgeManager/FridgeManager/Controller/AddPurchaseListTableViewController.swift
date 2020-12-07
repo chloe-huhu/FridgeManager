@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class AddPurchaseListTableViewController: UITableViewController, UITextViewDelegate {
     
-    let dataUnit = ["公克", "公斤", "包", "串", "根"]
+    let dataUnit = ["盒", "公克", "公斤", "包", "串", "根"]
     
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
@@ -141,6 +141,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             "unit": unit,
             "brand": brand,
             "place": place,
+            "whoBuy":"",
             "note": note
         ]
         
@@ -224,18 +225,8 @@ extension AddPurchaseListTableViewController: UIImagePickerControllerDelegate & 
         dismiss(animated: true, completion: nil)
     }
 }
-//設定return 跳到下一個文字框
-extension AddPurchaseListTableViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextTextField = view.viewWithTag(textField.tag + 1) {
-            textField.resignFirstResponder()
-            nextTextField.becomeFirstResponder()
-        }
-        return true
-    }
-}
 
-extension AddPurchaseListTableViewController: UIPickerViewDelegate,UIPickerViewDataSource {
+extension AddPurchaseListTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -250,5 +241,16 @@ extension AddPurchaseListTableViewController: UIPickerViewDelegate,UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         unitTextField.text = dataUnit[row]
+    }
+}
+
+//設定return 跳到下一個文字框
+extension AddPurchaseListTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = view.viewWithTag(textField.tag + 1) {
+            textField.resignFirstResponder()
+            nextTextField.becomeFirstResponder()
+        }
+        return true
     }
 }

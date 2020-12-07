@@ -10,6 +10,7 @@ import UIKit
 class InfoViewController: UIViewController {
 
     let fridgeID = ["9527", "9528"]
+    let numberOfPeople = ["共有3位成員", "共有2位成員"]
     
     @IBOutlet weak var personImageView: UIImageView!
     
@@ -91,33 +92,40 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         dismiss(animated: true, completion: nil)
     }
 }
+
 extension InfoViewController: UITableViewDelegate {
     
-}
-
-extension InfoViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-//        headerView.backgroundColor = .blue
         let headerLabel = UILabel()
         
         headerLabel.frame = CGRect.init(x: 0, y: 30, width: headerView.frame.width, height: 20)
-        headerLabel.text = "我的冰箱列表"
-//        headerLabel.backgroundColor = UIColor.red
+        headerLabel.text = section == 0 ? "我的冰箱" : "冰箱邀請"
         headerLabel.textColor = UIColor.chloeBlue
         headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
         headerView.addSubview(headerLabel)
         return headerView
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "我的冰箱列表"
-    }
+}
+
+extension InfoViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -130,6 +138,8 @@ extension InfoViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? InfoTableViewCell
         else { return UITableViewCell() }
         
+        cell.fridgeIDLabel.text = fridgeID [indexPath.row]
+        cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
         
         return cell
     }

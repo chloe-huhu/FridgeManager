@@ -8,7 +8,7 @@
 import UIKit
 import RAMAnimatedTabBarController
 
-class RAMBounceAnimation : RAMItemAnimation {
+class RAMBounceAnimation: RAMItemAnimation {
 
     override func playAnimation(_ icon: UIImageView, textLabel: UILabel) {
         playBounceAnimation(icon)
@@ -23,15 +23,13 @@ class RAMBounceAnimation : RAMItemAnimation {
         textLabel.textColor = textSelectedColor
     }
 
-    func playBounceAnimation(_ icon : UIImageView) {
+    func playBounceAnimation(_ icon: UIImageView) {
 
         let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
-        bounceAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
+        bounceAnimation.values = [1.0, 1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
         bounceAnimation.duration = TimeInterval(duration)
         bounceAnimation.calculationMode = CAAnimationCalculationMode.cubic
 
         icon.layer.add(bounceAnimation, forKey: "bounceAnimation")
     }
 }
-
-

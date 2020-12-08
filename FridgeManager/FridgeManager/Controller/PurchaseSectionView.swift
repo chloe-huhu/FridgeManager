@@ -17,16 +17,6 @@ class PurchaseSectionView: UITableViewHeaderFooterView {
     
     @IBOutlet weak var pendingLabel: UILabel!
     
-//    @IBOutlet weak var moreButton: UIButton!
-    
-//    weak var delegate: PurchaseSectionViewDelegate?
-//    var buttonTag: Int!
-//    var isExpand: Bool! // cell 的狀態(展開/縮合)
-    
-//    @IBAction func pressExpendBtn(_ sender: UIButton) {
-//        self.delegate?.sectionView(self, self.buttonTag, self.isExpand)
-//    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBackground()

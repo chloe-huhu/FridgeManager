@@ -138,13 +138,12 @@ class FoodListViewController: UIViewController {
         
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.view.backgroundColor = .chloeYellow
+        
     }
     
     func tabBarSetup() {
-        self.tabBarController!.tabBar.layer.borderWidth = 0.50
-        self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
+        self.tabBarController?.tabBar.layer.borderWidth = 0.50
+        self.tabBarController?.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
     }
     
@@ -251,7 +250,6 @@ extension FoodListViewController: UITableViewDataSource {
         
 //        let key = foodsKeyArray[indexPath.section]
 //        let foods = foodsDic[key]
-//
 //        let food = foods![indexPath.row]
         let food = foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row]
         
@@ -296,11 +294,11 @@ extension FoodListViewController {
         let xAxis = self.view.bounds.width
         let yAxis = self.view.bounds.height
         let origin = CGPoint.zero
-        let image = #imageLiteral(resourceName: "add")
-        let rotated = #imageLiteral(resourceName: "add")
+        let image = #imageLiteral(resourceName: "plus")
+        let rotated = #imageLiteral(resourceName: "plus")
         let menuButton = ExpandingMenuButton(frame: CGRect(origin: origin, size: btnSize), image: image, rotatedImage: rotated)
         
-        menuButton.center = CGPoint(x: xAxis-50, y: yAxis-200)
+        menuButton.center = CGPoint(x: xAxis-50, y: yAxis-225)
         self.view.addSubview(menuButton)
         
         func showAlert(_ title: String) {
@@ -309,18 +307,18 @@ extension FoodListViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-        let imageItem1 = UIImage(named: "type")
+        let imageItem1 = #imageLiteral(resourceName: "keyboard")
         let item1 = ExpandingMenuItem(size: btnSize, title: "手動輸入",
-                                      image: imageItem1!,
+                                      image: imageItem1,
                                       highlightedImage: imageItem1,
                                       backgroundImage: imageItem1,
                                       backgroundHighlightedImage: imageItem1) {
             self.performSegue(withIdentifier: "SegueAddContent", sender: self)
         }
         
-        let imageItem2 = UIImage(named: "photo")
+        let imageItem2 = #imageLiteral(resourceName: "camera")
         let item2 = ExpandingMenuItem(size: btnSize, title: "掃描發票",
-                                      image: imageItem2!,
+                                      image: imageItem2,
                                       highlightedImage: imageItem2,
                                       backgroundImage: imageItem2,
                                       backgroundHighlightedImage: imageItem2) {

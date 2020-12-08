@@ -29,3 +29,10 @@ struct Lists: Codable {
     let place: String
     let note: String
 }
+
+struct Users: Codable {
+    let id: String
+    let name: String
+    let photo: String
+    let fredge: [String]
+}

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6FD90FAC-92FE-4AC7-A751-D887ECA563AD"
+            uuid = "0E491455-76EB-4A9A-995F-139E72B70D95"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FridgeManager/Controller/FoodListViewController.swift"
+            filePath = "FridgeManager/SigninViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

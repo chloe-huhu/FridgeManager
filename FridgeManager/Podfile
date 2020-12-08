@@ -17,6 +17,7 @@ target 'FridgeManager' do
     pod 'RAMAnimatedTabBarController'
     pod 'IQKeyboardManagerSwift'
     pod 'ExpandingMenu', '~> 0.4'
+    pod 'FirebaseUI/OAuth'
  
 
   target 'FridgeManagerTests' do

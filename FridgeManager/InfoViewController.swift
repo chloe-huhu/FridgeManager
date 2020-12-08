@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class InfoViewController: UIViewController {
-
+    
     let fridgeID = ["9527", "9528"]
     let numberOfPeople = ["共有3位成員", "共有2位成員"]
+    var user : [Users] = []
     
     @IBOutlet weak var personImageView: UIImageView!
     
@@ -35,23 +39,23 @@ class InfoViewController: UIViewController {
         })
         
         let nameAction = UIAlertAction(title: "更換暱稱", style: .default, handler: { _ in
-           
+            
             let controller = UIAlertController(title: "更換暱稱", message: "請輸入新暱稱", preferredStyle: .alert)
-
+            
             controller.addTextField { (textField) in
                 textField.placeholder = "暱稱"
             }
-
+            
             let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-               let name = controller.textFields?[0].text
+                let name = controller.textFields?[0].text
                 print(name!)
                 self.nameLabel.text = name
             }
             controller.addAction(okAction)
-
+            
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             controller.addAction(cancelAction)
-
+            
             self.present(controller, animated: true, completion: nil)
         })
         
@@ -62,7 +66,7 @@ class InfoViewController: UIViewController {
         alterController.addAction(cancelAction)
         
         present(alterController, animated: true, completion: nil)
-
+        
     }
     
     @IBOutlet weak var tableView: UITableView! {
@@ -74,9 +78,64 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationTitleSetup()
+        dbListen()
+        dbGet()
     }
     
+    func navigationTitleSetup() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    }
+    
+    func dbListen() {
+        let ref = Firestore.firestore().collection("users").document("qQhDRA4paytTbRGOykM7")
+        
+        ref.addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            
+            guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+            }
+            print("Current data: \(data)")
+//
+//            documents.documentChanges.forEach{ diff in
+//                if (diff.type == .added) {
+//                    print("新增: \(diff.document.data())")
+//                    self.tableView.reloadData()
+//                }
+//                if (diff.type == .modified) {
+//                    print("修改: \(diff.document.data())")
+//                }
+//                if (diff.type == .removed) {
+//                    print("刪除: \(diff.document.data())")
+//                }
+//            }
+        }
+    }
+    
+    func dbGet() {
+        
+        let ref = Firestore.firestore().collection("users").document("qQhDRA4paytTbRGOykM7")
+        
+        ref.getDocument { (document, err) in
+            if let err = err {
+                print("Error getting documents:\(err)")
+            } else {
+                if let document = document, document.exists {
+                    print(document.documentID, document.data()!)
+                    
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            
+        }
+    }
 }
 
 extension InfoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -129,7 +188,7 @@ extension InfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         return fridgeID.count
     }
     

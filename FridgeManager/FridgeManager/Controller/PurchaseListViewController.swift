@@ -65,7 +65,7 @@ class PurchaseListViewController: UIViewController {
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+
     }
     
     func tabBarSetup() {
@@ -177,9 +177,6 @@ extension PurchaseListViewController: UITableViewDelegate {
         
         guard let sectionView: PurchaseSectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PurchaseSectionView") as? PurchaseSectionView else { return UIView() }
         
-        //        sectionView.buttonTag = section
-        //        sectionView.delegate = self
-        
         sectionView.imageView.image = UIImage(systemName: self.sectionImage[section])
         
         sectionView.pendingLabel.text = self.sectionDataList[section]
@@ -238,11 +235,3 @@ extension PurchaseListViewController: UITableViewDataSource {
     
     
 }
-//
-//extension PurchaseListViewController: PurchaseSectionViewDelegate {
-//    func sectionView(_ sectionView: PurchaseSectionView, _ didPressTag: Int, _ isExpand: Bool) {
-//        self.isExpendDataList[didPressTag] = !isExpand
-//        self.tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
-//    }
-//
-//}

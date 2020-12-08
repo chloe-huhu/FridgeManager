@@ -17,29 +17,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-zz-TzB" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
                     <rect key="frame" x="10" y="10" width="611" height="57"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avocado" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-Cg-ivW">
-                            <rect key="frame" x="16" y="10" width="34" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="34" id="R0j-iO-PPI"/>
-                                <constraint firstAttribute="width" constant="34" id="zSv-Hr-iER"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未認領" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-PF-QJC">
-                            <rect key="frame" x="66" y="8" width="52" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="34" id="2Th-yo-6UX"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WqY-pi-fex">
+                            <rect key="frame" x="16" y="8.5" width="112" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avocado" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-Cg-ivW">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="F0f-KC-MIU"/>
+                                        <constraint firstAttribute="height" constant="40" id="dvu-xF-BGA"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未認領" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-PF-QJC">
+                                    <rect key="frame" x="60" y="0.0" width="52" height="40"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="Jew-Cg-ivW" firstAttribute="leading" secondItem="YMH-zz-TzB" secondAttribute="leading" constant="16" id="RzF-5N-P2Q"/>
-                        <constraint firstItem="Jew-Cg-ivW" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="10" id="ToB-ZM-LhG"/>
-                        <constraint firstItem="Y5Z-PF-QJC" firstAttribute="top" secondItem="YMH-zz-TzB" secondAttribute="top" constant="8" id="hFw-pk-uQN"/>
-                        <constraint firstItem="Y5Z-PF-QJC" firstAttribute="leading" secondItem="Jew-Cg-ivW" secondAttribute="trailing" constant="16" id="vGB-J8-xWR"/>
+                        <constraint firstItem="WqY-pi-fex" firstAttribute="leading" secondItem="YMH-zz-TzB" secondAttribute="leading" constant="16" id="OAw-kT-Igg"/>
+                        <constraint firstItem="WqY-pi-fex" firstAttribute="centerY" secondItem="YMH-zz-TzB" secondAttribute="centerY" id="b24-lD-xYk"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

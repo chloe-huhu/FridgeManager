@@ -217,7 +217,7 @@ extension PurchaseListViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             
             cell.titleLabel.text = awaitingList[indexPath.row].name
-            cell.amountLabel.text = "\(awaitingList[indexPath.row].amount)"
+            cell.amountLabel.text = "數量：\(awaitingList[indexPath.row].amount)"
             cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
             
             return cell
@@ -225,7 +225,7 @@ extension PurchaseListViewController: UITableViewDataSource {
         } else {
             
             cell.titleLabel.text = acceptLists[indexPath.row].name
-            cell.amountLabel.text = "\(acceptLists[indexPath.row].amount)"
+            cell.amountLabel.text = "數量：\(acceptLists[indexPath.row].amount)"
             cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
             
             return cell

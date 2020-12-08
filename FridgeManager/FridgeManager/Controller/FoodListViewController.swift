@@ -21,7 +21,7 @@ class FoodListViewController: UIViewController {
     
     let sectionImage: [String: String] = ["肉類": "steak", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
     
-    var isExpendDataList: [Bool] = [false, false, false, false, false, false, false, false, false]
+    var isExpendDataList: [Bool] = []
     
     let searchButton = UIButton()
     
@@ -116,6 +116,7 @@ class FoodListViewController: UIViewController {
                         print("---- append")
                         //找到相對應的key,新增value
                         self.foodsDic[food!.category]?.append(food!)
+                        self.isExpendDataList.append(false)
                         
                         print("---- foodDic[\(food!.category)]=\(String(describing: self.foodsDic[food!.category]))")
                         
@@ -216,8 +217,8 @@ extension FoodListViewController: UITableViewDelegate {
         sectionView.buttonTag = section
         sectionView.delegate = self
         
-        let key: String = foodsKeyArray[section]
-        let foods: [Foods]? = foodsDic[key]
+//        let key: String = foodsKeyArray[section]
+//        let foods: [Foods]? = foodsDic[key]
         
         sectionView.foodImage.image = UIImage(named: sectionImage[foodsKeyArray[section]]!)
         sectionView.foodTitleLabel.text = foodsKeyArray[section]
@@ -238,9 +239,13 @@ extension FoodListViewController: UITableViewDataSource {
     // row 數量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return foodsDic[foodsKeyArray[section]]?.count ?? 0
+        if isExpendDataList[section] {
+            return foodsDic[foodsKeyArray[section]]?.count ?? 0
+        } else {
+            return 0
+        }
     }
-    
+
     // row content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -251,6 +256,7 @@ extension FoodListViewController: UITableViewDataSource {
 //        let key = foodsKeyArray[indexPath.section]
 //        let foods = foodsDic[key]
 //        let food = foods![indexPath.row]
+        
         let food = foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row]
         
         cell.setup(data: food)

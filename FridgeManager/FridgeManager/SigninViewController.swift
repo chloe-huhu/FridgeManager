@@ -33,9 +33,9 @@ class SigninViewController: UIViewController {
         appleButton.addTarget(self, action: #selector(startSignInWithAppleFlow), for: .touchUpInside)
         appleButton.translatesAutoresizingMaskIntoConstraints = false
         appleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        appleButton.widthAnchor.constraint(equalToConstant: 235).isActive = true
+        appleButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
         appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
     }
     
     // Unhashed nonce.
@@ -143,7 +143,14 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {
+                        
                         self.performSegue(withIdentifier: "SegueLogin", sender: self)
+//                        if let tabBarController = self.tabBarController {
+//
+//                              tabBarController.selectedIndex = 3
+//                            
+//                            }
+                        
                         print("the user has sign up or is logged in")
                     }
                 }
@@ -162,4 +169,3 @@ extension SigninViewController: ASAuthorizationControllerPresentationContextProv
         return self.view.window!
     }
 }
-

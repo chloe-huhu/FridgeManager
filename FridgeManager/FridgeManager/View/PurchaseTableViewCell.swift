@@ -26,6 +26,6 @@ class PurchaseTableViewCell: UITableViewCell {
     
     func setup(data: Lists) {
         titleLabel.text = data.name
-        amountLabel.text = String(data.amount)
+        amountLabel.text = "數量：\(String(data.amount))"
     }
 }

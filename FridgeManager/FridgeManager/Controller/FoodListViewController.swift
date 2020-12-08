@@ -136,7 +136,6 @@ class FoodListViewController: UIViewController {
     }
     
     func navigationTitleSetup() {
-        
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
@@ -251,7 +250,7 @@ extension FoodListViewController: UITableViewDataSource {
         return foodsKeyArray.count
     }
     
-    // row 數量
+    // row 數量(第一個Section True(被點擊展開）-> 回傳此Section 類別數量的Cell 否則顯示0個(折疊）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isExpendDataList[section] {
@@ -294,20 +293,20 @@ extension FoodListViewController: SectionViewDelegate {
     
 }
 
-//老唐寫的掃描發票
+//掃描發票用在這
 extension FoodListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            
-        }
+//        if let image = info[.originalImage] as? UIImage {
+//
+//        }
         
         takingPicture.dismiss(animated: true, completion: nil)
     }
 }
 
-//第三方套件
+//MenuButton
 extension FoodListViewController {
     
     func expandingMenuButton() {

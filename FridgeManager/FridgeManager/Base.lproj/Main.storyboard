@@ -476,7 +476,7 @@
                                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="black"/>
                                                                     </state>
                                                                     <connections>
-                                                                        <action selector="categoryButton:" destination="yTY-l9-zTe" eventType="touchUpInside" id="NDk-1Q-LqP"/>
+                                                                        <action selector="categoryBtnTapped:" destination="yTY-l9-zTe" eventType="touchUpInside" id="NDk-1Q-LqP"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -592,7 +592,6 @@
                         <outlet property="photoImageView" destination="lIv-7q-CPb" id="x67-k2-GdY"/>
                         <outlet property="purchaseDatePicker" destination="Vl6-ld-Agr" id="nlM-KH-4nk"/>
                         <outlet property="purchaseTextField" destination="4gY-gQ-RjJ" id="Pdp-Bb-y2V"/>
-                        <outlet property="saveBtnItem" destination="fsY-na-hYJ" id="u6z-8W-y0M"/>
                         <outlet property="titleTextField" destination="Zdr-7B-f81" id="hld-bq-BGI"/>
                         <outlet property="unitPickerView" destination="Hp1-VB-oah" id="1zo-4d-huF"/>
                         <outlet property="unitTextField" destination="qxh-kd-Bfc" id="vV5-ZC-DMB"/>

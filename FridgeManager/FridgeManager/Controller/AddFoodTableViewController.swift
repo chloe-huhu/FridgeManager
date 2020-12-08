@@ -11,15 +11,25 @@ import FirebaseFirestore
 
 class AddFoodTableViewController: UITableViewController {
     
-    let dataCategory = ["肉類", "雞蛋類", "青菜類", "水果類", "魚類", "五穀根筋類", "飲料類", "其他"]
-    
     var foodCategory: [String]?
+    
+    var food: Foods?
+    
+    let ref = Firestore.firestore().collection("fridges")
+    
+    let dataCategory = ["肉類", "雞蛋類", "青菜類", "水果類", "魚類", "五穀根筋類", "飲料類", "其他"]
     
     let dataUnit = ["盒", "公克", "公斤", "包", "串", "根"]
     
     var seletedCategoryIndex = 0
     
-    var food: Foods?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        print("🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷")
+        print(food)
+        dbListenCategory()
+    }
     
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
@@ -63,8 +73,8 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    
-    @IBAction func categoryButton(_ sender: UIButton) {
+
+    @IBAction func categoryBtnTapped(_ sender: UIButton) {
         let alterController = UIAlertController(title: "新增分類", message: nil, preferredStyle: .alert)
         
         alterController.addTextField {(textField) in
@@ -77,8 +87,8 @@ class AddFoodTableViewController: UITableViewController {
             self.foodCategory?.append(category!)
            
             //add上去firebase
-            let ref = Firestore.firestore()
-            ref.collection("fridges").document("1fK0iw24FWWiGf8f3r0G").updateData(["category": self.foodCategory!])
+            self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": self.foodCategory!])
+            
             
         }
         
@@ -89,6 +99,40 @@ class AddFoodTableViewController: UITableViewController {
         alterController.addAction(cancellAction)
         
         present(alterController, animated: true, completion: nil)
+    }
+    
+    func dbListenCategory() {
+        
+        ref.document("1fK0iw24FWWiGf8f3r0G").addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot
+            else {
+                print("Error fetching document:\(error!)")
+                return
+            }
+            guard let data = document.data() else {
+                print("Document data was empty")
+                return
+            }
+            print("======current data:\(data)======")
+            self.dbGetCategory()
+        }
+        
+        
+    }
+    
+    func dbGetCategory() {
+        
+        ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
+            if let document = document, document.exists {
+                let data = document.data()
+                print(data!)
+                self.foodCategory = data?["category"] as? [String]
+                print(self.foodCategory!)
+            } else {
+                print("Document does not exist ")
+            }
+            
+        }
     }
     
     @IBOutlet weak var purchaseTextField: RoundedTextField! {
@@ -143,22 +187,11 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet weak var saveBtnItem: UIBarButtonItem!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        print("🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷")
-        print(food)
-        
-        dbGetCategory()
-    }
-    
-    
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBAction func categoryDidSeclected(_ sender: UITextField) {
-        categoryTextField.text = dataCategory[seletedCategoryIndex]
+        categoryTextField.text = foodCategory![seletedCategoryIndex]
     }
     
     @objc private func purchaseDateSelected() {
@@ -197,23 +230,17 @@ class AddFoodTableViewController: UITableViewController {
 
     }
     
-    func makeFood(_ food: Foods) {
-        self.food = food
-    }
-    
+  
     func addListToDB() {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
               let unit = unitTextField.text,
               let category = categoryTextField.text
-//              let purchaseDate = purchaseDatePicker.date,
-//              let expiredDate = expiredDatePicker.date
+
        
         else { return }
         
-        let ref =  Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
-        
-        let document = ref.document()
+        let document =  ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document()
         
         let text = amountAlertTextField.text ?? "0"
         
@@ -238,20 +265,17 @@ class AddFoodTableViewController: UITableViewController {
         
     }
     
-    func dbGetCategory() {
-        let ref = Firestore.firestore()
-        ref.collection("fridges").document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
-            if let document = document, document.exists {
-                let data = document.data()
-                print(data!)
-                self.foodCategory = data?["category"] as? [String]
-                print(self.foodCategory!)
-            } else {
-                print("Document does not exist ")
-            }
-            
+    func setupFoodDetail() {
+        
+        if food != nil {
+            titleTextField.text = food?.name
         }
     }
+    
+    func makeFood(_ food: Foods) {
+        self.food = food
+    }
+    
 
     // MARK: - Table view data source
 
@@ -337,7 +361,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
 }
 
 extension AddFoodTableViewController: UITextFieldDelegate {
-    
+    //textfield自動換行
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1 ) {
             textField.resignFirstResponder()
@@ -359,18 +383,18 @@ extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        return pickerView == unitPickerView ? dataUnit.count : dataCategory.count
+        return pickerView == unitPickerView ? dataUnit.count : foodCategory!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView == unitPickerView ? dataUnit[row] : dataCategory[row]
+        return pickerView == unitPickerView ? dataUnit[row] : foodCategory![row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == unitPickerView {
             unitTextField.text = dataUnit[row]
         } else {
-            categoryTextField.text = dataCategory[row]
+            categoryTextField.text = foodCategory![row]
             seletedCategoryIndex = row
         }
     }

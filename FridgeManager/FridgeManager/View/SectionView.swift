@@ -12,16 +12,18 @@ protocol SectionViewDelegate: class {
 }
 
 class SectionView: UITableViewHeaderFooterView {
-
+   
+    var buttonTag: Int!
+    
+    var isExpand: Bool!
+    
+    weak var delegate: SectionViewDelegate?
+    
     @IBOutlet weak var cardView: CardView!
     @IBOutlet var foodImage: UIImageView!
     @IBOutlet var foodTitleLabel: UILabel!
     @IBOutlet var foodAmountLabel: UILabel!
     @IBOutlet var moreDataBtn: UIButton!
-    
-    weak var delegate: SectionViewDelegate?
-    var buttonTag: Int!
-    var isExpand: Bool!
     
     @IBAction func pressExpendBtn(_ sender: UIButton) {
         self.delegate?.sectionView(self, self.buttonTag, self.isExpand)

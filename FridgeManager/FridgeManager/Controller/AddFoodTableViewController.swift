@@ -12,9 +12,15 @@ import FirebaseFirestore
 class AddFoodTableViewController: UITableViewController {
     
     let dataCategory = ["肉類", "雞蛋類", "青菜類", "水果類", "魚類", "五穀根筋類", "飲料類", "其他"]
+    
+    var foodCategory: [String]?
+    
     let dataUnit = ["盒", "公克", "公斤", "包", "串", "根"]
+    
     var seletedCategoryIndex = 0
-     
+    
+    var food: Foods?
+    
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
             changePicLabel.layer.cornerRadius = 25
@@ -55,6 +61,34 @@ class AddFoodTableViewController: UITableViewController {
             categoryTextField.delegate = self
             categoryTextField.inputView = categoryPickerView
         }
+    }
+    
+    
+    @IBAction func categoryButton(_ sender: UIButton) {
+        let alterController = UIAlertController(title: "新增分類", message: nil, preferredStyle: .alert)
+        
+        alterController.addTextField {(textField) in
+            textField.placeholder = "輸入自定義分類"
+        }
+        
+        let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+            let category = alterController.textFields?[0].text
+            print(category!)
+            self.foodCategory?.append(category!)
+           
+            //add上去firebase
+            let ref = Firestore.firestore()
+            ref.collection("fridges").document("1fK0iw24FWWiGf8f3r0G").updateData(["category": self.foodCategory!])
+            
+        }
+        
+        alterController.addAction(okAction)
+        
+        let cancellAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        alterController.addAction(cancellAction)
+        
+        present(alterController, animated: true, completion: nil)
     }
     
     @IBOutlet weak var purchaseTextField: RoundedTextField! {
@@ -114,6 +148,10 @@ class AddFoodTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷")
+        print(food)
+        
+        dbGetCategory()
     }
     
     
@@ -159,6 +197,10 @@ class AddFoodTableViewController: UITableViewController {
 
     }
     
+    func makeFood(_ food: Foods) {
+        self.food = food
+    }
+    
     func addListToDB() {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
@@ -195,6 +237,22 @@ class AddFoodTableViewController: UITableViewController {
         document.setData(data)
         
     }
+    
+    func dbGetCategory() {
+        let ref = Firestore.firestore()
+        ref.collection("fridges").document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
+            if let document = document, document.exists {
+                let data = document.data()
+                print(data!)
+                self.foodCategory = data?["category"] as? [String]
+                print(self.foodCategory!)
+            } else {
+                print("Document does not exist ")
+            }
+            
+        }
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

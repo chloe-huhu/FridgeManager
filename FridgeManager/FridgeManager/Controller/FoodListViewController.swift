@@ -19,7 +19,7 @@ class FoodListViewController: UIViewController {
    
     var foodsKeyArray: [String] = []
     
-    let sectionImage: [String: String] = ["肉類": "steak", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
+    let sectionImage: [String: String] = ["肉類": "turkey", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
     
     var isExpendDataList: [Bool] = []
     
@@ -204,7 +204,22 @@ extension FoodListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+        
+        if let addFoodTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddFoodTableViewController") as? AddFoodTableViewController {
+            
+            let key = foodsKeyArray[indexPath.section]
+            
+            guard let foods = foodsDic[key] else { return }
+            
+            let food = foods[indexPath.row]
+                        
+            addFoodTableViewController.makeFood(food)
+            
+            self.navigationController?.pushViewController(addFoodTableViewController, animated: true)
+            
+        }
+        
+//        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
     }
     
     // section content

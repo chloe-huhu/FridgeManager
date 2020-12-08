@@ -235,7 +235,7 @@
         <!--新增食材-->
         <scene sceneID="k0K-5P-jYQ">
             <objects>
-                <tableViewController id="yTY-l9-zTe" customClass="AddFoodTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddFoodTableViewController" id="yTY-l9-zTe" customClass="AddFoodTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RUl-da-5ga">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,21 +345,22 @@
                                                             <rect key="frame" x="0.0" y="25" width="330" height="36"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-lV-QML" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="Lr7-ER-ujV"/>
+                                                                        <constraint firstAttribute="width" constant="260" id="aID-Z7-jwR"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="根" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-kd-Bfc" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                                    <rect key="frame" x="258" y="0.0" width="72" height="35"/>
+                                                                    <rect key="frame" x="270" y="0.0" width="60" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="72" id="RFh-MK-yaM"/>
+                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="RFh-MK-yaM"/>
                                                                         <constraint firstAttribute="height" constant="35" id="aCp-Ld-ksC"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -402,8 +403,8 @@
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-2d-dd8">
-                                                            <rect key="frame" x="0.0" y="26" width="319" height="35"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-2d-dd8">
+                                                            <rect key="frame" x="0.0" y="26" width="324" height="35"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFg-e4-DxE" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="35"/>
@@ -417,7 +418,7 @@
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqu-sx-mT8">
-                                                                    <rect key="frame" x="270" y="0.0" width="51" height="35"/>
+                                                                    <rect key="frame" x="275" y="0.0" width="51" height="35"/>
                                                                     <color key="onTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </switch>
                                                             </subviews>
@@ -449,18 +450,37 @@
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="水果類" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-iv-LCg">
                                                             <rect key="frame" x="0.0" y="22" width="330" height="35"/>
-                                                            <color key="backgroundColor" name="B6"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="35" id="ev0-Pp-i95"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <action selector="categoryDidSeclected:" destination="yTY-l9-zTe" eventType="editingDidBegin" id="IMt-hh-De6"/>
-                                                            </connections>
-                                                        </textField>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="水果類" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="35"/>
+                                                                    <color key="backgroundColor" name="B6"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="260" id="KP8-5a-yu3"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="ev0-Pp-i95"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <action selector="categoryDidSeclected:" destination="yTY-l9-zTe" eventType="editingDidBegin" id="IMt-hh-De6"/>
+                                                                    </connections>
+                                                                </textField>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-en-xfz">
+                                                                    <rect key="frame" x="260" y="0.0" width="70" height="35"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="70" id="9cD-xv-ePX"/>
+                                                                    </constraints>
+                                                                    <color key="tintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <state key="normal" image="folder.badge.plus.fill" catalog="system">
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="black"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="categoryButton:" destination="yTY-l9-zTe" eventType="touchUpInside" id="NDk-1Q-LqP"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -1818,6 +1838,7 @@
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="cooking" width="21.333333969116211" height="21.333333969116211"/>
         <image name="exclamationmark.arrow.circlepath" catalog="system" width="128" height="110"/>
+        <image name="folder.badge.plus.fill" catalog="system" width="128" height="91"/>
         <image name="fridge-1" width="21.333333969116211" height="21.333333969116211"/>
         <image name="list-text" width="21.333333969116211" height="21.333333969116211"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>

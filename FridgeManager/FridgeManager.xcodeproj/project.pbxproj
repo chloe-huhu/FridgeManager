@@ -42,7 +42,6 @@
 		AED556FE256E481B0068A855 /* FridgeManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556FD256E481B0068A855 /* FridgeManagerUITests.swift */; };
 		AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED5573B256E55F10068A855 /* GoogleService-Info.plist */; };
 		AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */; };
-		AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */; };
 		AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* MenuViewController.swift */; };
 		AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */; };
 		E76DB4D0845F3C2387111F7A /* Pods_FridgeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0FC776BE4D4B203359631 /* Pods_FridgeManager.framework */; };
@@ -110,7 +109,6 @@
 		AED556FF256E481B0068A855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED5573B256E55F10068A855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = FridgeManager/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodDetailViewController.swift; path = FridgeManager/FoodDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEDA4211257546F900AF4CC1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = FridgeManager/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,8 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
-				AEDA4209257542BC00AF4CC1 /* FoodDetailViewController.swift */,
-				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AE99DF89257DBF6100382BDE /* PurchaseDetailTableViewController.swift */,
@@ -186,6 +182,7 @@
 				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
 				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 				AEA06B48257E86620094F7F7 /* SigninViewController.swift */,
+				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -590,7 +587,6 @@
 				AE7D32412572395B00D97E23 /* SectionView.swift in Sources */,
 				AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */,
 				AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */,
-				AEDA420A257542BC00AF4CC1 /* FoodDetailViewController.swift in Sources */,
 				AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */,
 				AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */,
 				AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */,

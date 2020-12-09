@@ -26,7 +26,7 @@ class InfoViewController: UIViewController {
     
     @IBAction func editBtnTapped(_ sender: UIButton) {
         
-        let alterController = UIAlertController(title: "請選擇修改項目", message: nil, preferredStyle: .actionSheet)
+        let alterController = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
         
         let photoAction = UIAlertAction(title: "更換照片", style: .default, handler: { (_) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {

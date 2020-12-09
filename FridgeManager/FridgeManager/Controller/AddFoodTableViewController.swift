@@ -13,6 +13,8 @@ class AddFoodTableViewController: UITableViewController {
     
     var foodCategory: [String]?
     
+    var deleteCategory = ""
+    
     var selectedFood: Food?
     
     let ref = Firestore.firestore().collection("fridges")
@@ -25,6 +27,7 @@ class AddFoodTableViewController: UITableViewController {
         super.viewDidLoad()
         
         dbListenCategory()
+        
         setupFoodDetail()
     }
     
@@ -70,30 +73,62 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-
+    
     @IBAction func categoryBtnTapped(_ sender: UIButton) {
-        let alterController = UIAlertController(title: "新增分類", message: nil, preferredStyle: .alert)
         
-        alterController.addTextField {(textField) in
-            textField.placeholder = "輸入自定義分類"
-        }
+        let alterController = UIAlertController(title: "你想對分類做什麼", message: nil, preferredStyle: .actionSheet)
         
-        let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
-            let category = alterController.textFields?[0].text
-            print(category!)
-            self.foodCategory?.append(category!)
+        let addCateAction = UIAlertAction(title: "新增分類", style: .default, handler: { _ in
+            
+            let controller = UIAlertController(title: "輸入欲新增自訂義分類", message: nil, preferredStyle: .alert)
+            
+            controller.addTextField { (textField) in textField.placeholder = "輸入分類" }
+            
+            let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+                
+                guard let category = controller.textFields?[0].text else { return }
+               
+                self.foodCategory?.append(category)
+                
+                //add上去firebase
+                self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": self.foodCategory!])
+            }
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
            
-            //add上去firebase
-            self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": self.foodCategory!])
+            controller.addAction(okAction)
             
+            controller.addAction(cancelAction)
+           
+            self.present(controller, animated: true, completion: nil)
             
-        }
+        })
         
-        alterController.addAction(okAction)
+        let deletCateAction = UIAlertAction(title: "刪除分類", style: .default, handler: { _ in
+            
+            let controller = UIAlertController(title: "輸入欲刪除分類", message: nil, preferredStyle: .alert)
+           
+            controller.addTextField { (textField) in textField.placeholder = "輸入分類" }
+            
+            let okAction = UIAlertAction(title: "刪除", style: .default) { (_) in
+                
+                guard let category = controller.textFields?[0].text else { return }
+                
+                self.deleteCategory = category
+                
+            }
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            controller.addAction(okAction)
+            controller.addAction(cancelAction)
+            
+            self.present(controller, animated: true, completion: nil)
+        })
         
-        let cancellAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        
-        alterController.addAction(cancellAction)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alterController.addAction(addCateAction)
+        alterController.addAction(deletCateAction)
+        alterController.addAction(cancelAction)
         
         present(alterController, animated: true, completion: nil)
     }
@@ -122,9 +157,9 @@ class AddFoodTableViewController: UITableViewController {
         ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
-//                print(data!)
+                //                print(data!)
                 self.foodCategory = data?["category"] as? [String]
-//                print(self.foodCategory!)
+                //                print(self.foodCategory!)
             } else {
                 print("Document does not exist ")
             }
@@ -154,12 +189,12 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-   
+    
     @IBOutlet var unitPickerView: UIPickerView! {
         didSet {
             unitPickerView.delegate = self
             unitPickerView.dataSource = self
-           
+            
         }
     }
     
@@ -184,7 +219,7 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-
+    
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBAction func categoryDidSeclected(_ sender: UITextField) {
@@ -203,7 +238,7 @@ class AddFoodTableViewController: UITableViewController {
     @objc private func expiredDateSelected() {
         
         let formatter = DateFormatter()
-       
+        
         formatter.dateFormat = "yyyy-MM-dd"
         
         expiredTextField.text = formatter.string(from: expiredDatePicker.date)
@@ -222,20 +257,20 @@ class AddFoodTableViewController: UITableViewController {
         
         //資料上去firebase
         addListToDB()
-
+        
         //翻回去前一頁
         navigationController?.popViewController(animated: true)
-
+        
     }
     
-  
+    
     func addListToDB() {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
               let unit = unitTextField.text,
               let category = categoryTextField.text
-
-       
+        
+        
         else { return }
         
         let document =  ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document()
@@ -271,7 +306,7 @@ class AddFoodTableViewController: UITableViewController {
             amountTextField.text = "\(String(describing: amount))"
             unitTextField.text = selectedFood?.unit
             categoryTextField.text = selectedFood?.category
-          
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             guard let purchseDate = selectedFood?.purchaseDate,
@@ -284,20 +319,15 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-//    func makeFood(_ food: Food) {
-//        self.selectedFood = food
-//    }
-    
-
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return 7
     }
     
@@ -341,7 +371,7 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-   
+    
 }
 
 //從照片庫選擇照片後，從參數選擇被選取的照片
@@ -382,9 +412,9 @@ extension AddFoodTableViewController: UITextFieldDelegate {
         return true
     }
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        <#code#>
-//    }
+    //    func textFieldDidEndEditing(_ textField: UITextField) {
+    //        <#code#>
+    //    }
 }
 
 extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {

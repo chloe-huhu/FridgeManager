@@ -13,15 +13,15 @@ class AddFoodTableViewController: UITableViewController {
     
     var foodCategory: [String]?
     
-//    var deleteCategory = ""
-    
     var selectedFood: Food?
     
     let ref = Firestore.firestore().collection("fridges")
     
-    let dataUnit = ["盒", "公克", "公斤", "包", "串", "根"]
+    let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
     var seletedCategoryIndex = 0
+    
+    var seletedUnitIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -312,6 +312,7 @@ class AddFoodTableViewController: UITableViewController {
             guard let purchseDate = selectedFood?.purchaseDate,
                   let expiredDate = selectedFood?.expiredDate
             else { return }
+            
             purchaseTextField.text = dateFormatter.string(from: purchseDate)
             expiredTextField.text = dateFormatter.string(from: expiredDate)
             
@@ -425,16 +426,17 @@ extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        return pickerView == unitPickerView ? dataUnit.count : foodCategory!.count
+        return pickerView == unitPickerView ? unit.count : foodCategory!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView == unitPickerView ? dataUnit[row] : foodCategory![row]
+        return pickerView == unitPickerView ? unit[row] : foodCategory![row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == unitPickerView {
-            unitTextField.text = dataUnit[row]
+            unitTextField.text = unit[row]
+            seletedUnitIndex = row
         } else {
             categoryTextField.text = foodCategory![row]
             seletedCategoryIndex = row

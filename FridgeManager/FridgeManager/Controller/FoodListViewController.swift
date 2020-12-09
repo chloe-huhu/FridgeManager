@@ -13,7 +13,7 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    //    let sectionImage: [String: String] = ["肉類": "turkey", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
+    var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans","雞蛋類": "eggs", "青菜類": "cabbage","醃製類": "bacon" , "水果類": "blueberries", "魚類": "fish","海鮮類":"shrimp",  "五穀根筋類": "grain", "飲料類": "coffee-3","調味料類": "flour-1", "其他": "groceries"]
     
     var database: Firestore!
     
@@ -239,10 +239,15 @@ extension FoodListViewController: UITableViewDelegate {
         sectionView.buttonTag = section
         sectionView.delegate = self
         
-        //        let key: String = foodsKeyArray[section]
+                let key: String = foodsKeyArray[section]
         //        let foods: [Foods]? = foodsDic[key]
         
-        //        sectionView.foodImage.image = UIImage(named: sectionImage[foodsKeyArray[section]]!)
+        var picName = "default"
+        if let imageName = sectionImage[key] {
+            picName = imageName
+        }
+        
+        sectionView.foodImage.image = UIImage(named: picName)
         sectionView.foodTitleLabel.text = foodsKeyArray[section]
         sectionView.foodAmountLabel.text = "總計 \(String(foodsDic[foodsKeyArray[section]]?.count ?? 0)) 項"
         

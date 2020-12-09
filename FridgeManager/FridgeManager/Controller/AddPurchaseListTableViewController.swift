@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class AddPurchaseListTableViewController: UITableViewController, UITextViewDelegate {
     
-    let dataUnit = ["盒", "公克", "公斤", "包", "串", "根"]
+    let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
@@ -232,15 +232,15 @@ extension AddPurchaseListTableViewController: UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataUnit.count
+        return unit.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataUnit[row]
+        return unit[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        unitTextField.text = dataUnit[row]
+        unitTextField.text = unit[row]
     }
 }
 

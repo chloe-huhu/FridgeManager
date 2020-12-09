@@ -13,7 +13,7 @@ class AddFoodTableViewController: UITableViewController {
     
     var foodCategory: [String]?
     
-    var deleteCategory = ""
+//    var deleteCategory = ""
     
     var selectedFood: Food?
     
@@ -87,11 +87,9 @@ class AddFoodTableViewController: UITableViewController {
             let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
                 
                 guard let category = controller.textFields?[0].text else { return }
-               
-                self.foodCategory?.append(category)
                 
                 //add上去firebase
-                self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": self.foodCategory!])
+                self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": FieldValue.arrayUnion(["\(category)"]) ])
             }
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -112,9 +110,11 @@ class AddFoodTableViewController: UITableViewController {
             
             let okAction = UIAlertAction(title: "刪除", style: .default) { (_) in
                 
-                guard let category = controller.textFields?[0].text else { return }
+                guard let deleteCategory = controller.textFields?[0].text else { return }
                 
-                self.deleteCategory = category
+                
+                //從firebase delet
+                self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": FieldValue.arrayRemove(["\(deleteCategory)"])])
                 
             }
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)

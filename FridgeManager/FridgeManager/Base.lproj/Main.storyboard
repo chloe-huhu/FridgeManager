@@ -208,6 +208,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="冰箱食材" largeTitleDisplayMode="never" id="Elk-vc-w7N">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="34s-y4-qLc">
+                            <connections>
+                                <action selector="editBtnTapped:" destination="11Y-fg-Zvc" id="aK0-bh-RI6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="AZM-iE-k1W">
                             <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -218,6 +223,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="allButton" destination="9bJ-qr-Tf3" id="fGr-Yj-EXi"/>
+                        <outlet property="editButton" destination="34s-y4-qLc" id="86c-fX-lF7"/>
                         <outlet property="expiredButton" destination="hPy-6x-pG3" id="WHt-t0-lBu"/>
                         <outlet property="searchBar" destination="Hda-vH-vEb" id="12S-7B-GNH"/>
                         <outlet property="searchBarButton" destination="AZM-iE-k1W" id="ZkA-N9-xcZ"/>

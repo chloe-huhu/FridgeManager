@@ -17,8 +17,6 @@ class AddFoodTableViewController: UITableViewController {
     
     let ref = Firestore.firestore().collection("fridges")
     
-    let dataCategory = ["肉類", "雞蛋類", "青菜類", "水果類", "魚類", "五穀根筋類", "飲料類", "其他"]
-    
     let dataUnit = ["盒", "公克", "公斤", "包", "串", "根"]
     
     var seletedCategoryIndex = 0

@@ -19,7 +19,7 @@ class FoodListViewController: UIViewController {
    
     var foodsKeyArray: [String] = []
     
-    let sectionImage: [String: String] = ["肉類": "turkey", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
+//    let sectionImage: [String: String] = ["肉類": "turkey", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
     
     var isExpendDataList: [Bool] = []
     
@@ -28,6 +28,17 @@ class FoodListViewController: UIViewController {
     var showCategory: ShowCategory = .all
     
     let takingPicture = UIImagePickerController()
+    
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
+//    @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
+//        
+//        tableView.isEditing = !tableView.isEditing
+//    }
+    
+    @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
+        tableView.isEditing = !tableView.isEditing
+    }
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -51,6 +62,9 @@ class FoodListViewController: UIViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            
+            tableView.allowsMultipleSelection = true
+            tableView.allowsMultipleSelectionDuringEditing = true
             
             let sectionViewNib: UINib = UINib(nibName: "SectionView", bundle: nil)
             self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "SectionView")
@@ -234,7 +248,7 @@ extension FoodListViewController: UITableViewDelegate {
 //        let key: String = foodsKeyArray[section]
 //        let foods: [Foods]? = foodsDic[key]
         
-        sectionView.foodImage.image = UIImage(named: sectionImage[foodsKeyArray[section]]!)
+//        sectionView.foodImage.image = UIImage(named: sectionImage[foodsKeyArray[section]]!)
         sectionView.foodTitleLabel.text = foodsKeyArray[section]
         sectionView.foodAmountLabel.text = "總計 \(String(foodsDic[foodsKeyArray[section]]?.count ?? 0)) 項"
         

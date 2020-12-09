@@ -16,7 +16,16 @@ class CellView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        //類似左滑出來的色塊
+        let selectedCellView = UIView()
+        
+        selectedCellView.backgroundColor = #colorLiteral(red: 0.8783852458, green: 0.8784634471, blue: 0.8783199191, alpha: 1)
+        
+        self.backgroundView = selectedCellView
+        
+        //選中不變色
+        self.selectedBackgroundView = UIView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

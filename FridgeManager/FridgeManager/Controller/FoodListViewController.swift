@@ -31,11 +31,6 @@ class FoodListViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-//    @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
-//        
-//        tableView.isEditing = !tableView.isEditing
-//    }
-    
     @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
         tableView.isEditing = !tableView.isEditing
     }
@@ -292,10 +287,10 @@ extension FoodListViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //409頁
-    }
-    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        //409頁
+//    }
+//
 }
 
 extension FoodListViewController: SectionViewDelegate {

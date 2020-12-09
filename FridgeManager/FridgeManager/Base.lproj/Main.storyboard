@@ -208,22 +208,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="冰箱食材" largeTitleDisplayMode="never" id="Elk-vc-w7N">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="34s-y4-qLc">
-                            <connections>
-                                <action selector="editBtnTapped:" destination="11Y-fg-Zvc" id="aK0-bh-RI6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="AZM-iE-k1W">
-                            <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="AZM-iE-k1W">
+                            <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Ikq-Ci-VAF" kind="show" id="w3w-Ax-y7r"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="pencil.circle" catalog="system" style="done" id="34s-y4-qLc">
+                            <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editBtnTapped:" destination="11Y-fg-Zvc" id="fLs-UC-hIz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="allButton" destination="9bJ-qr-Tf3" id="fGr-Yj-EXi"/>
-                        <outlet property="editButton" destination="34s-y4-qLc" id="86c-fX-lF7"/>
+                        <outlet property="editButton" destination="34s-y4-qLc" id="NEA-Vd-AdC"/>
                         <outlet property="expiredButton" destination="hPy-6x-pG3" id="WHt-t0-lBu"/>
                         <outlet property="searchBar" destination="Hda-vH-vEb" id="12S-7B-GNH"/>
                         <outlet property="searchBarButton" destination="AZM-iE-k1W" id="ZkA-N9-xcZ"/>
@@ -1846,8 +1847,9 @@
         <image name="folder.badge.plus.fill" catalog="system" width="128" height="91"/>
         <image name="fridge-1" width="21.333333969116211" height="21.333333969116211"/>
         <image name="list-text" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>

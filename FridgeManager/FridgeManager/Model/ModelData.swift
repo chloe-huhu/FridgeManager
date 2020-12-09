@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Foods: Codable {
+struct Food: Codable {
     let id: String
     let photo: String
     let name: String
@@ -19,7 +19,7 @@ struct Foods: Codable {
     let expiredDate: Date
 }
 
-struct Lists: Codable {
+struct List: Codable {
     let id: String
     let photo: String
     let name: String
@@ -30,7 +30,7 @@ struct Lists: Codable {
     let note: String
 }
 
-struct Users: Codable {
+struct User: Codable {
     let id: String
     let name: String
     let photo: String

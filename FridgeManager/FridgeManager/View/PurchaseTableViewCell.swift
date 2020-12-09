@@ -24,7 +24,7 @@ class PurchaseTableViewCell: UITableViewCell {
 
     }
     
-    func setup(data: Lists) {
+    func setup(data: List) {
         titleLabel.text = data.name
         amountLabel.text = "數量：\(String(data.amount))"
     }

@@ -215,7 +215,7 @@
                                 <segue destination="Ikq-Ci-VAF" kind="show" id="w3w-Ax-y7r"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="pencil.circle" catalog="system" style="done" id="34s-y4-qLc">
+                        <barButtonItem key="rightBarButtonItem" image="pencil.circle" catalog="system" style="plain" id="34s-y4-qLc">
                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="editBtnTapped:" destination="11Y-fg-Zvc" id="fLs-UC-hIz"/>

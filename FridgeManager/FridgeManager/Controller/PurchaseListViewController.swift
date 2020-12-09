@@ -11,9 +11,9 @@ import FirebaseFirestore
 
 class PurchaseListViewController: UIViewController {
     
-    var awaitingList: [Lists] = []
+    var awaitingList: [List] = []
     
-    var acceptLists: [Lists] = []
+    var acceptLists: [List] = []
     
     let sectionImage: [String] = ["person.crop.circle.badge.questionmark", "person.crop.circle.badge.checkmark"]
     
@@ -106,7 +106,7 @@ class PurchaseListViewController: UIViewController {
                     print("待採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
                         
-                        let data = try document.data(as: Lists.self)
+                        let data = try document.data(as: List.self)
                         
                         self.awaitingList.append(data!)
                         
@@ -138,7 +138,7 @@ class PurchaseListViewController: UIViewController {
                     print("正在採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
                         
-                        let data = try document.data(as: Lists.self)
+                        let data = try document.data(as: List.self)
                         
                         self.acceptLists.append(data!)
                         

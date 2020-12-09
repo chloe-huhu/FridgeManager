@@ -33,7 +33,7 @@ class CellView: UITableViewCell {
 
     }
     
-    func setup(data: Foods) {
+    func setup(data: Food) {
         
         rowTitleLabel.text = data.name
         rowAmountLabel.text = "數量： \(String(data.amount)) \(data.unit)"

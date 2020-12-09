@@ -14,7 +14,7 @@ class InfoViewController: UIViewController {
     
     let fridgeID = ["9527", "9528"]
     let numberOfPeople = ["共有3位成員", "共有2位成員"]
-    var user : [Users] = []
+    var user : [User] = []
     
     @IBOutlet weak var personImageView: UIImageView!
     

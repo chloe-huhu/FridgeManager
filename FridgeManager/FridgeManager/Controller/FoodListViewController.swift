@@ -13,14 +13,16 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
+    //    let sectionImage: [String: String] = ["肉類": "turkey", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
+    
     var database: Firestore!
     
-    var foodsDic: [String: [Foods]] = [:]
-   
+    var foodsDic: [String: [Food]] = [:]
+    
     var foodsKeyArray: [String] = []
     
-//    let sectionImage: [String: String] = ["肉類": "turkey", "雞蛋類": "eggs", "青菜類": "cabbage", "水果類": "blueberries", "魚類": "fish", "五穀根筋類": "grain", "飲料類": "glass-3", "其他": "groceries"]
-    
+    var selectedFood: Food?
+
     var isExpendDataList: [Bool] = []
     
     let searchButton = UIButton()
@@ -82,68 +84,7 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
-    func dbListen() {
-        
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
-        
-        FirebaseManager.shared.listen(ref: ref) {
-            
-            self.dbGet()
-        }
-    }
-    
-    func dbGet() {
-        
-        let ref = Firestore.firestore().collectionGroup("foods")
-        
-        ref.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                
-                self.foodsDic = [:]
-                
-                for document in querySnapshot!.documents {
-                   
-                    print("現有的資料 \(document.documentID) => \(document.data())")
-                   
-                    do {
-                        //這邊會獲得食材相對應的資料
-                        let food = try document.data(as: Foods.self)
-                        
-                        print("---- category: catagory")
-                        //找到key
-                        if self.foodsDic[food!.category] == nil {
-                            print("---- category is not in dictionary")
-                            self.foodsDic[food!.category] = []
-                        }
-                        
-                        print("---- append")
-                        //找到相對應的key,新增value
-                        self.foodsDic[food!.category]?.append(food!)
-                        self.isExpendDataList.append(false)
-                        
-                        print("---- foodDic[\(food!.category)]=\(String(describing: self.foodsDic[food!.category]))")
-                        
-                    } catch {
-                        
-                        print("error to decode", error)
-                    }
-                    
-                }
-                
-                self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
-                
-                self.tableView.reloadData()
-            }
-            
-        }
-    }
-    
+  
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -191,7 +132,71 @@ class FoodListViewController: UIViewController {
             }
         }
     }
-
+    func dbListen() {
+        
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+        
+        FirebaseManager.shared.listen(ref: ref) {
+            
+            self.dbGet()
+        }
+    }
+    
+    func dbGet() {
+        
+        let ref = Firestore.firestore().collectionGroup("foods")
+        
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                self.foodsDic = [:]
+                
+                for document in querySnapshot!.documents {
+                    
+                    print("現有的資料 \(document.documentID) => \(document.data())")
+                    
+                    do {
+                        //獲得某食材的資料
+                        let food = try document.data(as: Food.self)
+                        
+                        //print("---- category: catagory")
+                        
+                        //產生key(Section)
+                        if self.foodsDic[food!.category] == nil {
+                            //print("---- category is not in dictionary")
+                            self.foodsDic[food!.category] = []
+                        }
+                        
+                        //print("---- append")
+                        //在key底下,新增value (Section:data 1 \ data 2)
+                        self.foodsDic[food!.category]?.append(food!)
+                        self.isExpendDataList.append(false)
+                        
+                        //print("---- foodDic[\(food!.category)]=\(String(describing: self.foodsDic[food!.category]))")
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                    
+                }
+                
+                self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
+                
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //有兩個perform segue，共用一個prepare，去分辨點選哪一個
+        let destVC = segue.destination as? AddFoodTableViewController
+        destVC?.selectedFood =  segue.identifier == "SegueAddContent" ? nil : selectedFood
+    }
+    
 }
 
 extension FoodListViewController: UITableViewDelegate {
@@ -212,22 +217,16 @@ extension FoodListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let key = foodsKeyArray[indexPath.section]
         
-        if let addFoodTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddFoodTableViewController") as? AddFoodTableViewController {
-            
-            let key = foodsKeyArray[indexPath.section]
-            
-            guard let foods = foodsDic[key] else { return }
-            
-            let food = foods[indexPath.row]
-                        
-            addFoodTableViewController.makeFood(food)
-            
-            self.navigationController?.pushViewController(addFoodTableViewController, animated: true)
-            
-        }
+        guard let foods = foodsDic[key] else { return }
         
-//        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+        let food = foods[indexPath.row]
+        
+        selectedFood = food
+        
+        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
     }
     
     // section content
@@ -240,10 +239,10 @@ extension FoodListViewController: UITableViewDelegate {
         sectionView.buttonTag = section
         sectionView.delegate = self
         
-//        let key: String = foodsKeyArray[section]
-//        let foods: [Foods]? = foodsDic[key]
+        //        let key: String = foodsKeyArray[section]
+        //        let foods: [Foods]? = foodsDic[key]
         
-//        sectionView.foodImage.image = UIImage(named: sectionImage[foodsKeyArray[section]]!)
+        //        sectionView.foodImage.image = UIImage(named: sectionImage[foodsKeyArray[section]]!)
         sectionView.foodTitleLabel.text = foodsKeyArray[section]
         sectionView.foodAmountLabel.text = "總計 \(String(foodsDic[foodsKeyArray[section]]?.count ?? 0)) 項"
         
@@ -268,17 +267,13 @@ extension FoodListViewController: UITableViewDataSource {
             return 0
         }
     }
-
+    
     // row content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell: CellView = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? CellView
         
         else { return UITableViewCell() }
-        
-//        let key = foodsKeyArray[indexPath.section]
-//        let foods = foodsDic[key]
-//        let food = foods![indexPath.row]
         
         let food = foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row]
         
@@ -287,10 +282,6 @@ extension FoodListViewController: UITableViewDataSource {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        //409頁
-//    }
-//
 }
 
 extension FoodListViewController: SectionViewDelegate {
@@ -307,9 +298,10 @@ extension FoodListViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-//        if let image = info[.originalImage] as? UIImage {
-//
-//        }
+        
+        //        if let image = info[.originalImage] as? UIImage {
+        //
+        //        }
         
         takingPicture.dismiss(animated: true, completion: nil)
     }

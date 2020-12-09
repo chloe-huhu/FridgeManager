@@ -13,7 +13,7 @@ class AddFoodTableViewController: UITableViewController {
     
     var foodCategory: [String]?
     
-    var food: Foods?
+    var selectedFood: Food?
     
     let ref = Firestore.firestore().collection("fridges")
     
@@ -23,10 +23,9 @@ class AddFoodTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷")
-        print(food)
+        
         dbListenCategory()
+        setupFoodDetail()
     }
     
     @IBOutlet weak var changePicLabel: UILabel! {
@@ -123,9 +122,9 @@ class AddFoodTableViewController: UITableViewController {
         ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
-                print(data!)
+//                print(data!)
                 self.foodCategory = data?["category"] as? [String]
-                print(self.foodCategory!)
+//                print(self.foodCategory!)
             } else {
                 print("Document does not exist ")
             }
@@ -221,8 +220,9 @@ class AddFoodTableViewController: UITableViewController {
             return
         }
         
+        //資料上去firebase
         addListToDB()
-        
+
         //翻回去前一頁
         navigationController?.popViewController(animated: true)
 
@@ -265,14 +265,28 @@ class AddFoodTableViewController: UITableViewController {
     
     func setupFoodDetail() {
         
-        if food != nil {
-            titleTextField.text = food?.name
+        if selectedFood != nil {
+            guard let amount = selectedFood?.amount else { return }
+            titleTextField.text = selectedFood?.name
+            amountTextField.text = "\(String(describing: amount))"
+            unitTextField.text = selectedFood?.unit
+            categoryTextField.text = selectedFood?.category
+          
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            guard let purchseDate = selectedFood?.purchaseDate,
+                  let expiredDate = selectedFood?.expiredDate
+            else { return }
+            purchaseTextField.text = dateFormatter.string(from: purchseDate)
+            expiredTextField.text = dateFormatter.string(from: expiredDate)
+            
+            
         }
     }
     
-    func makeFood(_ food: Foods) {
-        self.food = food
-    }
+//    func makeFood(_ food: Food) {
+//        self.selectedFood = food
+//    }
     
 
     // MARK: - Table view data source

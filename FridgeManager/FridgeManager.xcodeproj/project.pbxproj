@@ -185,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
+				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,
 				AE99DF89257DBF6100382BDE /* PurchaseDetailTableViewController.swift */,
 			);
 			path = Purchase;
@@ -201,7 +202,6 @@
 		AE5F8840256FE44100A97CD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,
 				AE40AA3525820E9D00C013E9 /* Food */,
 				AE40AA3625820EAC00C013E9 /* Purchase */,
 				AE40AA3D25820EDC00C013E9 /* Recipe */,

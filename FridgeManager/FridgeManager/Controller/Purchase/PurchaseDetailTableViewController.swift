@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class PurchaseDetailTableViewController: UITableViewController {
 
@@ -68,7 +70,42 @@ class PurchaseDetailTableViewController: UITableViewController {
     }
     
     @objc func rightNavBarItemAction() {
-        print("採購")
+        addAccept()
+        
+    }
+    
+    func addAccept() {
+        
+        guard let name = selectedList?.name,
+              let amount = selectedList?.amount,
+              let unit = selectedList?.unit,
+              let brand = selectedList?.brand,
+              let place = selectedList?.place,
+              let note = selectedList?.note
+        
+        else { return }
+        
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+        
+        let document = ref.document()
+        
+        let data: [String: Any] = [
+            "id": document.documentID,
+            "photo": "test",
+            "name": name,
+            "amount": Int(amount) ,
+            "unit": unit,
+            "brand": brand,
+            "place": place,
+            "whoBuy": "chloe",
+            "note": note
+        ]
+        
+        document.setData(data)
+    }
+    
+    func delete() {
+        
     }
     // MARK: - Table view data source
 

@@ -49,9 +49,9 @@
                                     <constraint firstAttribute="height" constant="50" id="qm7-q3-Jce"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-dZ-QOl">
-                                <rect key="frame" x="0.0" y="50" width="414" height="675"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-dZ-QOl">
+                                <rect key="frame" x="0.0" y="60" width="414" height="665"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osq-h1-dGz">
                                 <rect key="frame" x="313" y="624" width="100" height="100"/>
@@ -78,7 +78,7 @@
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K0b-ub-GFD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NEd-dZ-QOl" secondAttribute="trailing" id="PAb-kl-r5J"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="bottom" secondItem="osq-h1-dGz" secondAttribute="bottom" constant="1" id="cOu-bg-G62"/>
-                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="v7d-dT-VKG" secondAttribute="bottom" id="jhu-EM-OBI"/>
+                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="v7d-dT-VKG" secondAttribute="bottom" constant="10" id="jhu-EM-OBI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v7d-dT-VKG" secondAttribute="trailing" id="lGP-PT-QVC"/>
                             <constraint firstItem="v7d-dT-VKG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="npB-JI-wBw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NEd-dZ-QOl" secondAttribute="bottom" id="rWq-kj-gxx"/>

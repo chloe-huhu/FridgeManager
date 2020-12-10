@@ -15,7 +15,7 @@ class PurchaseListViewController: UIViewController {
     
     var acceptLists: [List] = []
     
-    let sectionImage: [String] = ["person.crop.circle.badge.questionmark", "person.crop.circle.badge.checkmark"]
+    let sectionImage: [String] = ["010-close", "003-check mark"]
     
     let sectionDataList: [String] = ["未採購", "採購中"]
     
@@ -179,7 +179,7 @@ extension PurchaseListViewController: UITableViewDelegate {
         
         guard let sectionView: PurchaseSectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PurchaseSectionView") as? PurchaseSectionView else { return UIView() }
         
-        sectionView.imageView.image = UIImage(systemName: self.sectionImage[section])
+        sectionView.imageView.image = UIImage(named: sectionImage[section])
         
         sectionView.pendingLabel.text = self.sectionDataList[section]
         

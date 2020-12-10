@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 
 class PurchaseDetailTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var whoBuyLabel: UILabel! {
         didSet {
             whoBuyLabel.layer.cornerRadius = 8
@@ -47,22 +47,22 @@ class PurchaseDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var noteLabel: UILabel! {
         didSet {
-//            noteLabel.lineBreakMode = .byWordWrapping
-//            noteLabel.numberOfLines = 0
+            //            noteLabel.lineBreakMode = .byWordWrapping
+            //            noteLabel.numberOfLines = 0
             noteLabel.text = selectedList?.note
         }
     }
     
-//    var isAwaiting = Bool()
+    //    var isAwaiting = Bool()
     
     var selectedList: List?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarBtnItem()
-
+        
     }
-
+    
     func setupBarBtnItem () {
         let img = UIImage(systemName: "person.crop.circle.badge.questionmark")
         let rightButton = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightNavBarItemAction))
@@ -71,7 +71,8 @@ class PurchaseDetailTableViewController: UITableViewController {
     
     @objc func rightNavBarItemAction() {
         addAccept()
-        
+        deleteAccept()
+        navigationController?.popViewController(animated: true)
     }
     
     func addAccept() {
@@ -104,18 +105,28 @@ class PurchaseDetailTableViewController: UITableViewController {
         document.setData(data)
     }
     
-    func delete() {
+    func deleteAccept() {
+        
+        guard let id = selectedList?.id else { return }
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+        ref.document("\(id)").delete(){ err in
+            if let err = err {
+                print("Error removing document :\(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
         
     }
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
-
-   
+    
+    
 }

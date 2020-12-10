@@ -13,7 +13,7 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans","雞蛋類": "eggs", "青菜類": "cabbage","醃製類": "bacon" , "水果類": "blueberries", "魚類": "fish","海鮮類":"shrimp",  "五穀根筋類": "grain", "飲料類": "coffee-3","調味料類": "flour-1", "其他": "groceries"]
+    var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類":"shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
     
     var database: Firestore!
     
@@ -169,7 +169,6 @@ class FoodListViewController: UIViewController {
                             self.foodsDic[food!.category] = []
                         }
                         
-                        //print("---- append")
                         //在key底下,新增value (Section:data 1 \ data 2)
                         self.foodsDic[food!.category]?.append(food!)
                         self.isExpendDataList.append(false)
@@ -239,10 +238,10 @@ extension FoodListViewController: UITableViewDelegate {
         sectionView.buttonTag = section
         sectionView.delegate = self
         
-                let key: String = foodsKeyArray[section]
+        let key: String = foodsKeyArray[section]
         //        let foods: [Foods]? = foodsDic[key]
         
-        var picName = "default"
+        var picName = "groceries"
         if let imageName = sectionImage[key] {
             picName = imageName
         }
@@ -267,9 +266,11 @@ extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isExpendDataList[section] {
+           
             return foodsDic[foodsKeyArray[section]]?.count ?? 0
         } else {
             return 0
+            
         }
     }
     

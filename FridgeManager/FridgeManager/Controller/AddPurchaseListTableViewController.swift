@@ -13,6 +13,8 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
     
     let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
+    var seletedUnitIndex = 0
+    
     @IBOutlet weak var changePicLabel: UILabel! {
         didSet {
             changePicLabel.layer.cornerRadius = 25
@@ -36,6 +38,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             amountTextField.delegate = self
         }
     }
+    
     @IBOutlet weak var unitTextField: RoundedTextField! {
         didSet {
             unitTextField.tag = 3
@@ -43,6 +46,11 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             unitTextField.inputView = unitPickerView
         }
     }
+    
+    @IBAction func unitDidSeleted(_ sender: UITextField) {
+        unitTextField.text = unit[seletedUnitIndex]
+    }
+    
     @IBOutlet weak var brandTextField: RoundedTextField! {
         didSet {
             brandTextField.tag = 4
@@ -141,7 +149,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             "unit": unit,
             "brand": brand,
             "place": place,
-            "whoBuy":"",
+            "whoBuy": "",
             "note": note
         ]
         
@@ -240,6 +248,7 @@ extension AddPurchaseListTableViewController: UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        seletedUnitIndex = row
         unitTextField.text = unit[row]
     }
 }

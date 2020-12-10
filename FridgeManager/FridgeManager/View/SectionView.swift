@@ -24,6 +24,11 @@ class SectionView: UITableViewHeaderFooterView {
     @IBOutlet var foodTitleLabel: UILabel!
     @IBOutlet var foodAmountLabel: UILabel!
     @IBOutlet var moreDataBtn: UIButton!
+    @IBOutlet var addPurchaseButton: UIButton! {
+        didSet {
+            addPurchaseButton.isHidden = true
+        }
+    }
     
     @IBAction func pressExpendBtn(_ sender: UIButton) {
         self.delegate?.sectionView(self, self.buttonTag, self.isExpand)

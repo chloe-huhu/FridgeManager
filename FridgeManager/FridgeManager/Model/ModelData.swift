@@ -28,6 +28,7 @@ struct List: Codable {
     let brand: String
     let place: String
     let note: String
+    let whoBuy: String
 }
 
 struct User: Codable {

@@ -63,6 +63,10 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func unitDidSeleted(_ sender: UITextField) {
+        unitTextField.text = unit[seletedUnitIndex]
+    }
+    
     @IBOutlet weak var amountAlertTextField: RoundedTextField!
     
     @IBOutlet weak var categoryTextField: RoundedTextField! {
@@ -73,6 +77,9 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func categoryDidSeclected(_ sender: UITextField) {
+        categoryTextField.text = foodCategory![seletedCategoryIndex]
+    }
     
     @IBAction func categoryBtnTapped(_ sender: UIButton) {
         
@@ -222,9 +229,7 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
-    @IBAction func categoryDidSeclected(_ sender: UITextField) {
-        categoryTextField.text = foodCategory![seletedCategoryIndex]
-    }
+
     
     @objc private func purchaseDateSelected() {
         

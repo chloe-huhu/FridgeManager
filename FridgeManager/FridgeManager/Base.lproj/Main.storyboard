@@ -224,7 +224,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="allButton" destination="9bJ-qr-Tf3" id="fGr-Yj-EXi"/>
-                        <outlet property="editButton" destination="34s-y4-qLc" id="NEA-Vd-AdC"/>
+                        <outlet property="editButton" destination="34s-y4-qLc" id="RBw-SZ-7UH"/>
                         <outlet property="expiredButton" destination="hPy-6x-pG3" id="WHt-t0-lBu"/>
                         <outlet property="searchBar" destination="Hda-vH-vEb" id="12S-7B-GNH"/>
                         <outlet property="searchBarButton" destination="AZM-iE-k1W" id="ZkA-N9-xcZ"/>
@@ -372,6 +372,9 @@
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <action selector="unitDidSeleted:" destination="yTY-l9-zTe" eventType="editingDidBegin" id="aJP-TM-ee8"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -752,6 +755,9 @@
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <action selector="unitDidSeleted:" destination="c3r-si-TlM" eventType="editingDidBegin" id="Zce-ZT-9vV"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -978,17 +984,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="six-bW-MSn">
-                                                    <rect key="frame" x="22" y="16" width="330" height="42"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="six-bW-MSn">
+                                                    <rect key="frame" x="22" y="14" width="330" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採買食材" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OY6-XA-kYS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小熊餅乾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-AV-eFR">
-                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="180" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -997,10 +1003,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="six-bW-MSn" firstAttribute="top" secondItem="cmO-6S-eR5" secondAttribute="topMargin" constant="5" id="1QK-it-PHq"/>
-                                                <constraint firstItem="six-bW-MSn" firstAttribute="leading" secondItem="cmO-6S-eR5" secondAttribute="leadingMargin" constant="2" id="aTd-lI-HbC"/>
+                                                <constraint firstItem="six-bW-MSn" firstAttribute="top" secondItem="cmO-6S-eR5" secondAttribute="topMargin" constant="3" id="1QK-it-PHq"/>
+                                                <constraint firstItem="six-bW-MSn" firstAttribute="leading" secondItem="cmO-6S-eR5" secondAttribute="leadingMargin" constant="2" id="5Ng-Kg-82I"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="six-bW-MSn" secondAttribute="bottom" constant="1" id="gpD-Tl-7nK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="six-bW-MSn" secondAttribute="trailing" constant="2" id="wXT-E5-rqi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="six-bW-MSn" secondAttribute="trailing" constant="2" id="sFv-sb-F6c"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1011,17 +1017,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hOv-vM-Mcz">
-                                                    <rect key="frame" x="22" y="16" width="330" height="42"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hOv-vM-Mcz">
+                                                    <rect key="frame" x="22" y="14" width="330" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peB-CF-55d">
-                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1盒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB1-D8-2Ct">
-                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="180" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1033,7 +1039,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="hOv-vM-Mcz" secondAttribute="trailing" constant="2" id="8oR-Mc-vDO"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hOv-vM-Mcz" secondAttribute="bottom" constant="1" id="IoY-mA-cgm"/>
                                                 <constraint firstItem="hOv-vM-Mcz" firstAttribute="leading" secondItem="clO-Xf-MdS" secondAttribute="leadingMargin" constant="2" id="sgZ-K9-yiv"/>
-                                                <constraint firstItem="hOv-vM-Mcz" firstAttribute="top" secondItem="clO-Xf-MdS" secondAttribute="topMargin" constant="5" id="zL9-kB-kuS"/>
+                                                <constraint firstItem="hOv-vM-Mcz" firstAttribute="top" secondItem="clO-Xf-MdS" secondAttribute="topMargin" constant="3" id="zL9-kB-kuS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1044,17 +1050,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KPG-O5-7xN">
-                                                    <rect key="frame" x="22" y="16" width="330" height="42"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="KPG-O5-7xN">
+                                                    <rect key="frame" x="22" y="14" width="330" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwT-W9-KFq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="樂天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbI-TN-lab">
-                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="180" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1066,7 +1072,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="KPG-O5-7xN" secondAttribute="trailing" constant="2" id="DyQ-zi-fs5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="KPG-O5-7xN" secondAttribute="bottom" constant="1" id="M2a-sj-ZfM"/>
                                                 <constraint firstItem="KPG-O5-7xN" firstAttribute="leading" secondItem="C3d-Dk-9cb" secondAttribute="leadingMargin" constant="2" id="oAd-yh-kXJ"/>
-                                                <constraint firstItem="KPG-O5-7xN" firstAttribute="top" secondItem="C3d-Dk-9cb" secondAttribute="topMargin" constant="5" id="saV-fr-W4o"/>
+                                                <constraint firstItem="KPG-O5-7xN" firstAttribute="top" secondItem="C3d-Dk-9cb" secondAttribute="topMargin" constant="3" id="saV-fr-W4o"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1077,17 +1083,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fda-0I-udY">
-                                                    <rect key="frame" x="22" y="16" width="330" height="42"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fda-0I-udY">
+                                                    <rect key="frame" x="22" y="14" width="330" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推薦購買地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-Fu-QD7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寶雅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJt-Ig-geM">
-                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="180" y="0.0" width="150" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1098,29 +1104,29 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fda-0I-udY" secondAttribute="trailing" constant="2" id="6qz-YR-egy"/>
                                                 <constraint firstItem="fda-0I-udY" firstAttribute="leading" secondItem="S7w-E7-drb" secondAttribute="leadingMargin" constant="2" id="EGq-Yh-V65"/>
-                                                <constraint firstItem="fda-0I-udY" firstAttribute="top" secondItem="S7w-E7-drb" secondAttribute="topMargin" constant="5" id="KeT-Bb-Ofh"/>
+                                                <constraint firstItem="fda-0I-udY" firstAttribute="top" secondItem="S7w-E7-drb" secondAttribute="topMargin" constant="3" id="KeT-Bb-Ofh"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="fda-0I-udY" secondAttribute="bottom" constant="1" id="LcV-hv-qI7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="s4l-My-cCJ">
-                                        <rect key="frame" x="20" y="598" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="s4l-My-cCJ">
+                                        <rect key="frame" x="20" y="598" width="374" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s4l-My-cCJ" id="Ugo-ta-3q9">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rrp-S7-Wp3">
-                                                    <rect key="frame" x="22" y="16" width="330" height="42"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rrp-S7-Wp3">
+                                                    <rect key="frame" x="22" y="14" width="330" height="54"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-w4-zta">
-                                                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="54"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大盒裝 讚！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-Sq-l5l">
-                                                            <rect key="frame" x="167.5" y="0.0" width="162.5" height="42"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大盒裝 讚！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-Sq-l5l">
+                                                            <rect key="frame" x="180" y="0.0" width="150" height="54"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1130,7 +1136,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="rrp-S7-Wp3" secondAttribute="bottom" constant="1" id="QAv-zU-CTN"/>
-                                                <constraint firstItem="rrp-S7-Wp3" firstAttribute="top" secondItem="Ugo-ta-3q9" secondAttribute="topMargin" constant="5" id="VeM-j6-bMG"/>
+                                                <constraint firstItem="rrp-S7-Wp3" firstAttribute="top" secondItem="Ugo-ta-3q9" secondAttribute="topMargin" constant="3" id="VeM-j6-bMG"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="rrp-S7-Wp3" secondAttribute="trailing" constant="2" id="ZwZ-Uc-QxD"/>
                                                 <constraint firstItem="rrp-S7-Wp3" firstAttribute="leading" secondItem="Ugo-ta-3q9" secondAttribute="leadingMargin" constant="2" id="oK6-WO-N94"/>
                                             </constraints>
@@ -1148,12 +1154,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="BrW-pV-kGl"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="amountUnitLabel" destination="MB1-D8-2Ct" id="Myg-5z-DpL"/>
                         <outlet property="brandLabel" destination="HbI-TN-lab" id="oSe-7s-qW1"/>
                         <outlet property="imageView" destination="2gi-aU-LL7" id="oXQ-Up-4C2"/>
                         <outlet property="noteLabel" destination="qWX-Sq-l5l" id="2Xm-4r-HLx"/>
                         <outlet property="placeLabel" destination="oJt-Ig-geM" id="qf0-eO-LQ6"/>
                         <outlet property="titleLabel" destination="JDV-AV-eFR" id="CXA-nF-s3c"/>
-                        <outlet property="unitLabel" destination="MB1-D8-2Ct" id="Myg-5z-DpL"/>
                         <outlet property="whoBuyLabel" destination="ZWi-3T-3xm" id="6Xd-Om-mix"/>
                     </connections>
                 </tableViewController>
@@ -1244,7 +1250,7 @@
         <!--今晚我想來點...-->
         <scene sceneID="Kho-je-hXL">
             <objects>
-                <viewController id="lIE-Du-8GI" customClass="MenuViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lIE-Du-8GI" customClass="RecipeViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eKM-ix-rCQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1253,7 +1259,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="100" id="gfW-eN-U3V" customClass="MenuTableViewCell" customModule="FridgeManager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="100" id="gfW-eN-U3V" customClass="RecipeTableViewCell" customModule="FridgeManager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfW-eN-U3V" id="2N1-zE-A4k">

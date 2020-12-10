@@ -42,13 +42,13 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewY-4l-TLa">
                                     <rect key="frame" x="301" y="62" width="20" height="22"/>
                                     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                    <state key="normal" image="ellipsis.circle" catalog="system"/>
+                                    <state key="normal" image="arrow.down.circle" catalog="system"/>
                                     <connections>
                                         <action selector="pressExpendBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="09T-m0-n6n"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmL-ec-fO8">
-                                    <rect key="frame" x="300" y="24" width="21" height="22"/>
+                                    <rect key="frame" x="300" y="10" width="21" height="22"/>
                                     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <state key="normal" image="bag.fill.badge.plus" catalog="system"/>
                                 </button>
@@ -59,7 +59,7 @@
                                 <constraint firstItem="mLZ-ZV-z0N" firstAttribute="top" secondItem="pFw-LP-7Ve" secondAttribute="bottom" constant="10" id="B48-1e-yaa"/>
                                 <constraint firstItem="mLZ-ZV-z0N" firstAttribute="leading" secondItem="pdm-gK-90m" secondAttribute="trailing" constant="20" id="XMZ-nR-dhT"/>
                                 <constraint firstItem="pFw-LP-7Ve" firstAttribute="leading" secondItem="pdm-gK-90m" secondAttribute="trailing" constant="20" id="YeB-38-NQd"/>
-                                <constraint firstItem="ewY-4l-TLa" firstAttribute="top" secondItem="OmL-ec-fO8" secondAttribute="bottom" constant="16" id="b3A-5R-bcQ"/>
+                                <constraint firstItem="ewY-4l-TLa" firstAttribute="top" secondItem="OmL-ec-fO8" secondAttribute="bottom" constant="30" id="b3A-5R-bcQ"/>
                                 <constraint firstAttribute="bottom" secondItem="ewY-4l-TLa" secondAttribute="bottom" constant="16" id="dhi-cu-nbe"/>
                                 <constraint firstItem="pdm-gK-90m" firstAttribute="centerY" secondItem="LOy-Qp-doT" secondAttribute="centerY" id="kjg-lJ-G2D"/>
                                 <constraint firstAttribute="trailing" secondItem="OmL-ec-fO8" secondAttribute="trailing" constant="16" id="n31-vj-Tyu"/>
@@ -120,6 +120,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="addPurchaseButton" destination="OmL-ec-fO8" id="hfL-6h-25C"/>
                 <outlet property="cardView" destination="PQm-zZ-ySK" id="98R-Nc-Gus"/>
                 <outlet property="foodAmountLabel" destination="mLZ-ZV-z0N" id="if6-XF-N1w"/>
                 <outlet property="foodImage" destination="pdm-gK-90m" id="XOg-b1-W1I"/>
@@ -131,8 +132,8 @@
     </objects>
     <resources>
         <image name="apple-1" width="512" height="512"/>
+        <image name="arrow.down.circle" catalog="system" width="128" height="121"/>
         <image name="bag.fill.badge.plus" catalog="system" width="128" height="128"/>
-        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

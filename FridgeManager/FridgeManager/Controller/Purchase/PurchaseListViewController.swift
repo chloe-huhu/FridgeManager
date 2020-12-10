@@ -27,6 +27,32 @@ class PurchaseListViewController: UIViewController {
     
     var isAwaiting = Bool()
     
+    var selectedList: List?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationTitleSetup()
+        tabBarSetup()
+        dblistenAwating()
+        dblistenAccept()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    func navigationTitleSetup() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+
+    }
+    
+    func tabBarSetup() {
+        self.tabBarController!.tabBar.layer.borderWidth = 0.50
+        self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
+        self.tabBarController?.tabBar.clipsToBounds = true
+    }
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var tableView: UITableView! {
@@ -42,38 +68,7 @@ class PurchaseListViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationTitleSetup()
-        tabBarSetup()
-        dblistenAwating()
-        dblistenAccept()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let nextViewController = segue.destination as? PurchaseDetailTableViewController
-        
-        nextViewController?.isAwaiting = self.isAwaiting
-    }
-    
-    func navigationTitleSetup() {
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-
-    }
-    
-    func tabBarSetup() {
-        self.tabBarController!.tabBar.layer.borderWidth = 0.50
-        self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
-        self.tabBarController?.tabBar.clipsToBounds = true
-    }
-    
+  
     func dblistenAwating() {
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
         
@@ -156,6 +151,13 @@ class PurchaseListViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destVC = segue.destination as? PurchaseDetailTableViewController
+        
+        destVC?.selectedList = selectedList
+        
+    }
     
 }
 extension PurchaseListViewController: UITableViewDelegate {
@@ -187,6 +189,8 @@ extension PurchaseListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         isAwaiting = indexPath.section == 0 ? true : false
+        
+        selectedList = isAwaiting ? awaitingList[indexPath.row] : acceptLists[indexPath.row]
         
         self.performSegue(withIdentifier: "SeguePurchaseDetail", sender: nil)
     }

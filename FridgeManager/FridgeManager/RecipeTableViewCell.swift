@@ -1,5 +1,5 @@
 //
-//  MenuTableViewCell.swift
+//  RecipeTableViewCell.swift
 //  FridgeManager
 //
 //  Created by ChloeHuHu on 2020/11/30.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuTableViewCell: UITableViewCell {
+class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var menuImageView: UIImageView!
     

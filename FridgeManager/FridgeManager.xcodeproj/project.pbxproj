@@ -41,8 +41,8 @@
 		AED556F3256E481B0068A855 /* FridgeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556F2256E481B0068A855 /* FridgeManagerTests.swift */; };
 		AED556FE256E481B0068A855 /* FridgeManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED556FD256E481B0068A855 /* FridgeManagerUITests.swift */; };
 		AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED5573B256E55F10068A855 /* GoogleService-Info.plist */; };
-		AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */; };
-		AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* MenuViewController.swift */; };
+		AEDA41FF25753E7C00AF4CC1 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */; };
+		AEDA4212257546F900AF4CC1 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */; };
 		AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */; };
 		E76DB4D0845F3C2387111F7A /* Pods_FridgeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0FC776BE4D4B203359631 /* Pods_FridgeManager.framework */; };
 		FDA81B5A9794ECFD31EF8D98 /* Pods_FridgeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EF771E787B9C23ED60EC7 /* Pods_FridgeManagerTests.framework */; };
@@ -108,8 +108,8 @@
 		AED556FD256E481B0068A855 /* FridgeManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeManagerUITests.swift; sourceTree = "<group>"; };
 		AED556FF256E481B0068A855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED5573B256E55F10068A855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = FridgeManager/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		AEDA4211257546F900AF4CC1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = FridgeManager/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeTableViewCell.swift; path = FridgeManager/RecipeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = FridgeManager/Controller/Recipe/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,18 +171,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AE5F8840256FE44100A97CD0 /* Controller */ = {
+		AE40AA3525820E9D00C013E9 /* Food */ = {
 			isa = PBXGroup;
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
 				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
+				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		AE40AA3625820EAC00C013E9 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
 				AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */,
 				AE99DF89257DBF6100382BDE /* PurchaseDetailTableViewController.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		AE40AA3D25820EDC00C013E9 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		AE5F8840256FE44100A97CD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */,
-				AEDA4211257546F900AF4CC1 /* MenuViewController.swift */,
+				AE40AA3525820E9D00C013E9 /* Food */,
+				AE40AA3625820EAC00C013E9 /* Purchase */,
+				AE40AA3D25820EDC00C013E9 /* Recipe */,
 				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 				AEA06B48257E86620094F7F7 /* SigninViewController.swift */,
-				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,7 +222,7 @@
 				AE716948257499C500659F2C /* PurchaseSectionView.xib */,
 				AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */,
 				AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */,
-				AEDA41FE25753E7C00AF4CC1 /* MenuTableViewCell.swift */,
+				AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */,
 				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 			);
 			path = View;
@@ -598,7 +622,7 @@
 				AEA01E45257CAA74009AC995 /* InfoTableViewCell.swift in Sources */,
 				AED556DE256E48190068A855 /* SceneDelegate.swift in Sources */,
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
-				AEDA4212257546F900AF4CC1 /* MenuViewController.swift in Sources */,
+				AEDA4212257546F900AF4CC1 /* RecipeViewController.swift in Sources */,
 				AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
@@ -606,7 +630,7 @@
 				AE6255FA257BE4CE0022CCB3 /* FancyButton.swift in Sources */,
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
 				AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */,
-				AEDA41FF25753E7C00AF4CC1 /* MenuTableViewCell.swift in Sources */,
+				AEDA41FF25753E7C00AF4CC1 /* RecipeTableViewCell.swift in Sources */,
 				AE99DF8A257DBF6100382BDE /* PurchaseDetailTableViewController.swift in Sources */,
 				AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */,
 				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,

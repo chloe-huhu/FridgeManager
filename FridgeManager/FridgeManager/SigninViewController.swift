@@ -134,7 +134,9 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 let displayName = user.displayName ?? ""
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
+                
                 let db = Firestore.firestore()
+                
                 db.collection("users").document(uid).setData([
                     "email": email,
                     "displayName": displayName,

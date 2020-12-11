@@ -15,13 +15,13 @@ class PurchaseListViewController: UIViewController {
     
     var acceptLists: [List] = []
     
-    let sectionImage: [String] = ["010-close", "003-check mark"]
+    let sectionImage: [String] = ["close", "check-mark"]
     
     let sectionDataList: [String] = ["未採購", "採購中"]
     
     
-    let cellDataWho: [[String]] = [["等你認領", "等你認領", "等你認領", "等你認領", "等你認領", "等你認領"],
-                                   ["Chloe", "Jeff", "Soda", "Chloe", "Chloe", "Jeff", "Soda", "Chloe"]]
+//    let cellDataWho: [[String]] = [["等你認領", "等你認領", "等你認領", "等你認領", "等你認領", "等你認領"],
+//                                   ["Chloe", "Jeff", "Soda", "Chloe", "Chloe", "Jeff", "Soda", "Chloe"]]
     
     let searchButton = UIButton()
     
@@ -157,6 +157,8 @@ class PurchaseListViewController: UIViewController {
         
         destVC?.selectedList = selectedList
         
+        destVC?.isAwaiting = isAwaiting
+        
     }
     
 }
@@ -189,7 +191,7 @@ extension PurchaseListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         isAwaiting = indexPath.section == 0 ? true : false
-        
+            
         selectedList = isAwaiting ? awaitingList[indexPath.row] : acceptLists[indexPath.row]
         
         self.performSegue(withIdentifier: "SeguePurchaseDetail", sender: nil)
@@ -220,17 +222,19 @@ extension PurchaseListViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             
-            cell.titleLabel.text = awaitingList[indexPath.row].name
-            cell.amountLabel.text = "數量：\(awaitingList[indexPath.row].amount) \(awaitingList[indexPath.row].unit)"
-            cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
+            cell.setup(data: awaitingList[indexPath.row])
+//            cell.titleLabel.text = awaitingList[indexPath.row].name
+//            cell.amountLabel.text = "數量：\(awaitingList[indexPath.row].amount) \(awaitingList[indexPath.row].unit)"
+//            cell.whoLabel.text = awaitingList[indexPath.row].whoBuy
             
             return cell
             
         } else {
             
-            cell.titleLabel.text = acceptLists[indexPath.row].name
-            cell.amountLabel.text = "數量：\(acceptLists[indexPath.row].amount) \(acceptLists[indexPath.row].unit)"
-            cell.whoLabel.text = self.cellDataWho[indexPath.section][indexPath.row]
+            cell.setup(data: acceptLists[indexPath.row])
+//            cell.titleLabel.text = acceptLists[indexPath.row].name
+//            cell.amountLabel.text = "數量：\(acceptLists[indexPath.row].amount) \(acceptLists[indexPath.row].unit)"
+//            cell.whoLabel.text = acceptLists[indexPath.row].whoBuy
             
             return cell
         }

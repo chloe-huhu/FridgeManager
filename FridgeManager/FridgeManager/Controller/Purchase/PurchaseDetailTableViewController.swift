@@ -11,6 +11,21 @@ import FirebaseFirestore
 
 class PurchaseDetailTableViewController: UITableViewController {
     
+    var isAwaiting = Bool()
+    
+    var selectedList: List?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if isAwaiting == true {
+            setupAwaitingBarBtnItem()
+        } else {
+            setupAcceptBarBtnItem()
+        }
+       
+    }
+    
     @IBOutlet weak var whoBuyLabel: UILabel! {
         didSet {
             whoBuyLabel.layer.cornerRadius = 8
@@ -47,31 +62,28 @@ class PurchaseDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var noteLabel: UILabel! {
         didSet {
-            //            noteLabel.lineBreakMode = .byWordWrapping
-            //            noteLabel.numberOfLines = 0
+
             noteLabel.text = selectedList?.note
         }
     }
     
-    //    var isAwaiting = Bool()
-    
-    var selectedList: List?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupBarBtnItem()
+    @IBAction func purchasedBtnTapped(_ sender: UIButton) {
+        //accept firebase 刪掉
         
+        
+        //開啟addFoodPage
+        //資料傳過去
     }
     
-    func setupBarBtnItem () {
-        let img = UIImage(systemName: "person.crop.circle.badge.questionmark")
-        let rightButton = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightNavBarItemAction))
-        navigationItem.rightBarButtonItem = rightButton
+    func setupAwaitingBarBtnItem () {
+        let img = UIImage(named: "check-mark")
+        let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(iWillBuyBtnTapped))
+        navigationItem.rightBarButtonItem = rightBtn
     }
     
-    @objc func rightNavBarItemAction() {
+    @objc func iWillBuyBtnTapped() {
         addAccept()
-        deleteAccept()
+        deleteAwaiting()
         navigationController?.popViewController(animated: true)
     }
     
@@ -105,11 +117,10 @@ class PurchaseDetailTableViewController: UITableViewController {
         document.setData(data)
     }
     
-    func deleteAccept() {
-        
-        guard let id = selectedList?.id else { return }
+    func deleteAwaiting() {
+        guard let id = selectedList? .id else { return }
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
-        ref.document("\(id)").delete(){ err in
+        ref.document("\(id)").delete() { err in
             if let err = err {
                 print("Error removing document :\(err)")
             } else {
@@ -118,6 +129,64 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
         
     }
+    
+    func setupAcceptBarBtnItem() {
+        let img = UIImage(named: "close")
+        let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(cantBuyBtnTapped))
+        navigationItem.rightBarButtonItem = rightBtn
+    }
+    
+    @objc func cantBuyBtnTapped() {
+        deleteAccept()
+        addAwaiting()
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func deleteAccept() {
+        
+        guard let id = selectedList? .id else { return }
+       
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+        ref.document("\(id)").delete() { err in
+            if let err = err {
+                print("Error removing document :\(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
+    func addAwaiting() {
+       
+        guard let name = selectedList?.name,
+              let amount = selectedList?.amount,
+              let unit = selectedList?.unit,
+              let brand = selectedList?.brand,
+              let place = selectedList?.place,
+              let note = selectedList?.note
+        
+        else { return }
+        
+        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+        
+        let document = ref.document()
+        
+        let data: [String: Any] = [
+            "id": document.documentID,
+            "photo": "test",
+            "name": name,
+            "amount": Int(amount) ,
+            "unit": unit,
+            "brand": brand,
+            "place": place,
+            "whoBuy": "",
+            "note": note
+        ]
+        
+        document.setData(data)
+    }
+    
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {

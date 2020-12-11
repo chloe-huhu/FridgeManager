@@ -19,6 +19,8 @@ class FoodListViewController: UIViewController {
     
     var foodsDic: [String: [Food]] = [:]
     
+    var foodsArray: [Food] = []
+    
     var foodsKeyArray: [String] = []
     
     var selectedFood: Food?
@@ -112,6 +114,28 @@ class FoodListViewController: UIViewController {
         showCategory = .expired
         btnPressedAnimation(type: .expired)
         
+        var calendar = Calendar.current
+            calendar.timeZone = TimeZone(abbreviation: "UTC")!
+            let today = Date()
+            let midnight = calendar.startOfDay(for: today)
+            let yesterday = calendar.date(byAdding: .day, value: -1, to: midnight)!
+            let midnightTS = midnight.timeIntervalSince1970
+//            let yesterdayTS = yesterday.timeIntervalSince1970
+            print(yesterday)
+        
+        for categoryIndex in 0..<foodsKeyArray.count {
+            
+            let category = foodsKeyArray[categoryIndex]
+            let test = foodsDic[category] ?? []
+            print("-----------------")
+            print(category)
+
+            let filteredArray = test.filter {
+                $0.expiredDate.timeIntervalSince1970 < midnightTS
+            }
+            print(filteredArray)
+            
+        }
     }
     
     func btnPressedAnimation(type: ShowCategory) {

@@ -23,12 +23,14 @@ class AddFoodTableViewController: UITableViewController {
     
     var seletedUnitIndex = 0
     
+    var segueText: List?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dbListenCategory()
-        
         setupFoodDetail()
+        setupFinishedPurchase()
     }
     
     @IBOutlet weak var changePicLabel: UILabel! {
@@ -263,9 +265,14 @@ class AddFoodTableViewController: UITableViewController {
         //資料上去firebase
         addListToDB()
         
-        //翻回去前一頁
-        navigationController?.popViewController(animated: true)
+//        let vc = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
         
+        //翻回去FoodListPage
+        
+        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.tabBarController?.selectedIndex = 0
+//        self.navigationController?.tabBarController?.tabBarItem
+
     }
     
     
@@ -323,6 +330,18 @@ class AddFoodTableViewController: UITableViewController {
             
             
         }
+        
+    }
+    
+    func setupFinishedPurchase() {
+        guard let title = segueText?.name,
+              let amount = segueText?.amount,
+              let unit = segueText?.unit
+              else { return }
+        
+        titleTextField.text = title
+        amountTextField.text = "\(amount)"
+        unitTextField.text = unit
     }
     
     // MARK: - Table view data source

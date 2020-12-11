@@ -84,10 +84,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="amountLabel" destination="PIl-to-2yR" id="b9i-MV-Qmw"/>
                 <outlet property="cardView" destination="5UG-qk-jX5" id="BEq-jP-8Dr"/>
-                <outlet property="rowAmountLabel" destination="PIl-to-2yR" id="b9i-MV-Qmw"/>
-                <outlet property="rowDateLabel" destination="Xx6-5j-vde" id="8qt-dk-Q9E"/>
-                <outlet property="rowTitleLabel" destination="5xe-NI-V8h" id="VIp-F1-eFl"/>
+                <outlet property="dateLabel" destination="Xx6-5j-vde" id="8qt-dk-Q9E"/>
+                <outlet property="titleLabel" destination="5xe-NI-V8h" id="VIp-F1-eFl"/>
             </connections>
             <point key="canvasLocation" x="406.52173913043481" y="52.901785714285715"/>
         </tableViewCell>

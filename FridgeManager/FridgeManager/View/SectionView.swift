@@ -20,9 +20,9 @@ class SectionView: UITableViewHeaderFooterView {
     weak var delegate: SectionViewDelegate?
     
     @IBOutlet weak var cardView: CardView!
-    @IBOutlet var foodImage: UIImageView!
-    @IBOutlet var foodTitleLabel: UILabel!
-    @IBOutlet var foodAmountLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var amountLabel: UILabel!
     @IBOutlet var moreDataBtn: UIButton!
     @IBOutlet var addPurchaseButton: UIButton! {
         didSet {

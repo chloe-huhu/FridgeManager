@@ -10,9 +10,9 @@ import UIKit
 class CellView: UITableViewCell {
 
     @IBOutlet weak var cardView: CardView!
-    @IBOutlet weak var rowTitleLabel: UILabel!
-    @IBOutlet weak var rowAmountLabel: UILabel!
-    @IBOutlet weak var rowDateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,12 +35,12 @@ class CellView: UITableViewCell {
     
     func setup(data: Food) {
         
-        rowTitleLabel.text = data.name
-        rowAmountLabel.text = "數量： \(String(data.amount)) \(data.unit)"
+        titleLabel.text = data.name
+        amountLabel.text = "數量： \(String(data.amount)) \(data.unit)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        rowDateLabel.text = "過期日：\(dateFormatter.string(from: data.expiredDate))"
+        dateLabel.text = "過期日：\(dateFormatter.string(from: data.expiredDate))"
     }
     
 }

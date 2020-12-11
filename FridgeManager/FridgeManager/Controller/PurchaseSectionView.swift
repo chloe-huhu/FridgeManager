@@ -16,6 +16,7 @@ class PurchaseSectionView: UITableViewHeaderFooterView {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var pendingLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +28,5 @@ class PurchaseSectionView: UITableViewHeaderFooterView {
         background.backgroundColor = .white
         self.backgroundView = background
     }
+    
 }

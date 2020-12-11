@@ -20,8 +20,10 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         if isAwaiting == true {
             setupAwaitingBarBtnItem()
+            finishedPurchaseButton.isHidden = true
         } else {
             setupAcceptBarBtnItem()
+            finishedPurchaseButton.isHidden = false
         }
        
     }
@@ -67,12 +69,29 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func purchasedBtnTapped(_ sender: UIButton) {
+    @IBOutlet weak var finishedPurchaseButton: UIButton!
+    
+    @IBAction func finishedPurchaseBtnTapped(_ sender: UIButton) {
         //accept firebase 刪掉
-        
+        deleteAccept()
         
         //開啟addFoodPage
+//        self.performSegue(withIdentifier: "SegueAddFood", sender: nil)
+        
+        
         //資料傳過去
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+        if segue.identifier == "SegueAddFood" {
+            
+            let destVC = segue.destination as? AddFoodTableViewController
+            
+//            guard let title = selectedList?.name else { return }
+            
+            destVC?.segueText = selectedList
+        }
     }
     
     func setupAwaitingBarBtnItem () {
@@ -194,7 +213,7 @@ class PurchaseDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     

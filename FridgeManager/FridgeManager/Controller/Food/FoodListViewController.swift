@@ -19,8 +19,6 @@ class FoodListViewController: UIViewController {
     
     var foodsDic: [String: [Food]] = [:]
     
-    var foodsArray: [Food] = []
-    
     var foodsKeyArray: [String] = []
     
     var selectedFood: Food?
@@ -270,9 +268,9 @@ extension FoodListViewController: UITableViewDelegate {
             picName = imageName
         }
         
-        sectionView.foodImage.image = UIImage(named: picName)
-        sectionView.foodTitleLabel.text = foodsKeyArray[section]
-        sectionView.foodAmountLabel.text = "總計 \(String(foodsDic[foodsKeyArray[section]]?.count ?? 0)) 項"
+        sectionView.imageView.image = UIImage(named: picName)
+        sectionView.titleLabel.text = foodsKeyArray[section]
+        sectionView.amountLabel.text = "總計 \(String(foodsDic[foodsKeyArray[section]]?.count ?? 0)) 項"
         
         return sectionView
     }

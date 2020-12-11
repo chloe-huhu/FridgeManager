@@ -19,10 +19,6 @@ class PurchaseListViewController: UIViewController {
     
     let sectionDataList: [String] = ["未採購", "採購中"]
     
-    
-//    let cellDataWho: [[String]] = [["等你認領", "等你認領", "等你認領", "等你認領", "等你認領", "等你認領"],
-//                                   ["Chloe", "Jeff", "Soda", "Chloe", "Chloe", "Jeff", "Soda", "Chloe"]]
-    
     let searchButton = UIButton()
     
     var isAwaiting = Bool()
@@ -223,18 +219,12 @@ extension PurchaseListViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             
             cell.setup(data: awaitingList[indexPath.row])
-//            cell.titleLabel.text = awaitingList[indexPath.row].name
-//            cell.amountLabel.text = "數量：\(awaitingList[indexPath.row].amount) \(awaitingList[indexPath.row].unit)"
-//            cell.whoLabel.text = awaitingList[indexPath.row].whoBuy
-            
+
             return cell
             
         } else {
             
             cell.setup(data: acceptLists[indexPath.row])
-//            cell.titleLabel.text = acceptLists[indexPath.row].name
-//            cell.amountLabel.text = "數量：\(acceptLists[indexPath.row].amount) \(acceptLists[indexPath.row].unit)"
-//            cell.whoLabel.text = acceptLists[indexPath.row].whoBuy
             
             return cell
         }

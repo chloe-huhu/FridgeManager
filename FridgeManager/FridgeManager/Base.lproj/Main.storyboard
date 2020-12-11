@@ -29,28 +29,8 @@
                                 <rect key="frame" x="0.0" y="382" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v7d-dT-VKG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hig-g6-Pxs">
-                                        <rect key="frame" x="0.0" y="0.0" width="204.5" height="50"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
-                                        <state key="normal" title="計畫日期" image="calendar.badge.clock.rtl" catalog="system">
-                                            <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="GPl-m6-4XK">
-                                        <rect key="frame" x="209.5" y="0.0" width="204.5" height="50"/>
-                                        <locale key="locale" localeIdentifier="zh_TW"/>
-                                    </datePicker>
-                                </subviews>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="qm7-q3-Jce"/>
-                                </constraints>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-dZ-QOl">
-                                <rect key="frame" x="0.0" y="60" width="414" height="665"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="660"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osq-h1-dGz">
@@ -70,19 +50,38 @@
                                     <segue destination="c3r-si-TlM" kind="show" identifier="" id="e9D-hC-ffV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hig-g6-Pxs">
+                                <rect key="frame" x="60" y="0.0" width="94.5" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="uRB-HH-qEO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                <state key="normal" title="計畫日期" image="calendar.badge.clock.rtl" catalog="system">
+                                    <color key="titleColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="GPl-m6-4XK">
+                                <rect key="frame" x="224" y="0.0" width="150" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="I6r-l5-UcK"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="zh_TW"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="trailing" secondItem="osq-h1-dGz" secondAttribute="trailing" constant="1" id="18Z-ar-axT"/>
+                            <constraint firstItem="hig-g6-Pxs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="1ZS-DF-Clc"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K0b-ub-GFD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NEd-dZ-QOl" secondAttribute="trailing" id="PAb-kl-r5J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GPl-m6-4XK" secondAttribute="trailing" constant="40" id="SnQ-J1-3Gq"/>
+                            <constraint firstItem="GPl-m6-4XK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Xzm-OA-qwh"/>
+                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="hig-g6-Pxs" secondAttribute="bottom" constant="5" id="ZUa-Pd-eIP"/>
+                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="GPl-m6-4XK" secondAttribute="bottom" id="aPx-JF-Qis"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="bottom" secondItem="osq-h1-dGz" secondAttribute="bottom" constant="1" id="cOu-bg-G62"/>
-                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="v7d-dT-VKG" secondAttribute="bottom" constant="10" id="jhu-EM-OBI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v7d-dT-VKG" secondAttribute="trailing" id="lGP-PT-QVC"/>
-                            <constraint firstItem="v7d-dT-VKG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="npB-JI-wBw"/>
+                            <constraint firstItem="hig-g6-Pxs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mpT-2O-e1o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NEd-dZ-QOl" secondAttribute="bottom" id="rWq-kj-gxx"/>
-                            <constraint firstItem="v7d-dT-VKG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vWt-IU-K1D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="採購任務" id="X1O-xN-7cd"/>
@@ -624,7 +623,7 @@
                     <locale key="locale" localeIdentifier="zh_TW"/>
                 </datePicker>
             </objects>
-            <point key="canvasLocation" x="-546" y="2405"/>
+            <point key="canvasLocation" x="-461" y="2405"/>
         </scene>
         <!--新增採購任務-->
         <scene sceneID="v9i-mx-TbO">
@@ -693,7 +692,7 @@
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="中華雞蛋豆腐" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob2-vt-1MG" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="激勵蛋炒飯" placeholder="中華雞蛋豆腐" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob2-vt-1MG" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
@@ -732,7 +731,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-OX-N5m">
                                                             <rect key="frame" x="0.0" y="25" width="330" height="36"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-gB-N5I" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9527" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-gB-N5I" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="248" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
@@ -742,7 +741,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="盒" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mP-Usb" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="碗" placeholder="盒" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mP-Usb" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="258" y="0.0" width="72" height="35"/>
                                                                     <color key="backgroundColor" name="B6"/>
                                                                     <color key="tintColor" name="B6"/>
@@ -793,7 +792,7 @@
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="中華食" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPw-9u-5Re" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="永盛食品" placeholder="中華食" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPw-9u-5Re" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
@@ -829,7 +828,7 @@
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="全聯褔利社" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kie-Fo-IXS" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="老唐家" placeholder="全聯褔利社" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kie-Fo-IXS" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="22" width="330" height="35"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <constraints>
@@ -1147,23 +1146,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nn-ms-5oh">
-                                                    <rect key="frame" x="62" y="21" width="250" height="38"/>
+                                                    <rect key="frame" x="16" y="21" width="342" height="38"/>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="250" id="XzN-Rv-3zu"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                     <state key="normal" title="完成採買，加入食物列表">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="purchasedBtnTapped:" destination="H6p-eG-vYX" eventType="touchUpInside" id="UDq-Ww-adA"/>
+                                                        <action selector="finishedPurchaseBtnTapped:" destination="H6p-eG-vYX" eventType="touchUpInside" id="UDq-Ww-adA"/>
+                                                        <segue destination="yTY-l9-zTe" kind="show" identifier="SegueAddFood" id="Cac-fM-gvU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0nn-ms-5oh" firstAttribute="centerX" secondItem="bMd-Cr-cW1" secondAttribute="centerX" id="26i-K3-g9A"/>
                                                 <constraint firstItem="0nn-ms-5oh" firstAttribute="centerY" secondItem="bMd-Cr-cW1" secondAttribute="centerY" id="77I-MU-35z"/>
+                                                <constraint firstAttribute="trailing" secondItem="0nn-ms-5oh" secondAttribute="trailing" constant="16" id="L1a-pM-EwO"/>
+                                                <constraint firstItem="0nn-ms-5oh" firstAttribute="leading" secondItem="bMd-Cr-cW1" secondAttribute="leading" constant="16" id="Lf0-vD-Ig3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1179,6 +1178,7 @@
                     <connections>
                         <outlet property="amountUnitLabel" destination="MB1-D8-2Ct" id="Myg-5z-DpL"/>
                         <outlet property="brandLabel" destination="HbI-TN-lab" id="oSe-7s-qW1"/>
+                        <outlet property="finishedPurchaseButton" destination="0nn-ms-5oh" id="Ox5-lU-gix"/>
                         <outlet property="imageView" destination="2gi-aU-LL7" id="oXQ-Up-4C2"/>
                         <outlet property="noteLabel" destination="qWX-Sq-l5l" id="2Xm-4r-HLx"/>
                         <outlet property="placeLabel" destination="oJt-Ig-geM" id="qf0-eO-LQ6"/>
@@ -1188,7 +1188,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fH-IJ-ehC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="539" y="2405"/>
+            <point key="canvasLocation" x="537.68115942028987" y="2404.6875"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="wfL-h5-nDh">

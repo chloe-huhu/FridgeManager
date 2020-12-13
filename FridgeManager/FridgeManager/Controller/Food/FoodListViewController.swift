@@ -13,7 +13,9 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類":"shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
+    let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+    
+    var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
     
     var database: Firestore!
     
@@ -30,6 +32,7 @@ class FoodListViewController: UIViewController {
     var showCategory: ShowCategory = .all
     
     let takingPicture = UIImagePickerController()
+    
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     
@@ -156,8 +159,6 @@ class FoodListViewController: UIViewController {
     }
     func dbListen() {
         
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
-        
         FirebaseManager.shared.listen(ref: ref) {
             
             self.dbGet()
@@ -165,8 +166,6 @@ class FoodListViewController: UIViewController {
     }
     
     func dbGet() {
-        
-        let ref = Firestore.firestore().collectionGroup("foods")
         
         ref.getDocuments { (querySnapshot, err) in
             if let err = err {

@@ -88,8 +88,6 @@ class PurchaseDetailTableViewController: UITableViewController {
             
             let destVC = segue.destination as? AddFoodTableViewController
             
-//            guard let title = selectedList?.name else { return }
-            
             destVC?.segueText = selectedList
         }
     }

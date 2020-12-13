@@ -215,14 +215,14 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet var purchaseDatePicker: UIDatePicker! {
         didSet {
-            
+            purchaseDatePicker.preferredDatePickerStyle = .inline
             purchaseDatePicker.addTarget(self, action: #selector(purchaseDateSelected), for: .valueChanged)
         }
     }
     
     @IBOutlet var expiredDatePicker: UIDatePicker! {
         didSet {
-            
+            expiredDatePicker.preferredDatePickerStyle = .inline
             expiredDatePicker.addTarget(self, action: #selector(expiredDateSelected), for: .valueChanged)
         }
     }

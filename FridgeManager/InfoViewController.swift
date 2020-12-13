@@ -16,17 +16,11 @@ class InfoViewController: UIViewController {
     
     let numberOfPeople = ["共有3位成員", "共有2位成員"]
     
-    var user: [String: Any] = [:]
-    
     let ref = Firestore.firestore().collection("users").document("UUNNN5YELPXtuppYQfluRMKm9Qd2")
     
     @IBOutlet weak var personImageView: UIImageView!
     
-    @IBOutlet weak var nameLabel: UILabel! {
-        didSet {
-//            nameLabel.text = user[name]
-        }
-    }
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -55,10 +49,16 @@ class InfoViewController: UIViewController {
             }
             
             let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-                let name = controller.textFields?[0].text
-                print(name!)
+                
+                guard let name = controller.textFields?[0].text else { return }
+                
+                self.ref.updateData(["name": name])
+                
                 self.nameLabel.text = name
+                
+                
             }
+            
             controller.addAction(okAction)
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -89,8 +89,6 @@ class InfoViewController: UIViewController {
         navigationTitleSetup()
         dbListen()
         
-        print("::::::::::::", user)
-//        dbGet()
     }
     
     func navigationTitleSetup() {
@@ -120,12 +118,24 @@ class InfoViewController: UIViewController {
             if let err = err {
                 print("Error getting documents:\(err)")
             } else {
-               
+                
                 if let document = document, document.exists {
-//                    print(document.documentID, document.data()!)
+                    //                    print(document.documentID, document.data()!)
                     do {
                         let user = try document.data(as: User.self)
                         print("==========", user!)
+                        
+                        guard let name = user?.name,
+                              let email = user?.email
+                        
+                        else { return }
+                        
+                        //                        self.personImageView.image = UIImage(named: user!.photo)
+                        
+                        self.nameLabel.text = name
+                        
+                        self.emailLabel.text = email
+                        
                         
                     } catch {
                         print("error to decode", error)

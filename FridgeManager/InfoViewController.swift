@@ -12,11 +12,27 @@ import FirebaseFirestoreSwift
 
 class InfoViewController: UIViewController {
     
-    let fridgeID = ["9527", "9528"]
-    
     let numberOfPeople = ["共有3位成員", "共有2位成員"]
     
     let ref = Firestore.firestore().collection("users").document("UUNNN5YELPXtuppYQfluRMKm9Qd2")
+    
+    let refNumberOfpeople = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G")
+    
+//    var userTest = [String: Any]()
+    
+    var fridgesIDArray: [String] = []
+    
+    var inviteArray: [String] = []
+    
+    var usersArray: [String] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationTitleSetup()
+        dbListen()
+        listenNumberOfPeople()
+        
+    }
     
     @IBOutlet weak var personImageView: UIImageView!
     
@@ -84,13 +100,6 @@ class InfoViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationTitleSetup()
-        dbListen()
-        
-    }
-    
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -120,22 +129,26 @@ class InfoViewController: UIViewController {
             } else {
                 
                 if let document = document, document.exists {
-                    //                    print(document.documentID, document.data()!)
                     do {
-                        let user = try document.data(as: User.self)
-                        print("==========", user!)
                         
-                        guard let name = user?.name,
-                              let email = user?.email
+                        let data = try document.data(as: User.self)
+                        
+                        guard let name = data?.name,
+                              let email = data?.email,
+                              let fridges = data?.fridges,
+                              let invites = data?.invites
                         
                         else { return }
                         
-                        //                        self.personImageView.image = UIImage(named: user!.photo)
+                        // self.personImageView.image = UIImage(named: user!.photo)
                         
                         self.nameLabel.text = name
                         
                         self.emailLabel.text = email
                         
+                        self.fridgesIDArray = fridges
+                        
+                        self.inviteArray = invites
                         
                     } catch {
                         print("error to decode", error)
@@ -144,10 +157,55 @@ class InfoViewController: UIViewController {
                 } else {
                     print("Document does not exist")
                 }
+                
+                self.tableView.reloadData()
             }
             
         }
     }
+    
+    
+    func listenNumberOfPeople() {
+        
+        refNumberOfpeople.addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            
+            guard document.data() != nil else {
+                print("Document data was empty.")
+                return
+            }
+            self.getNumberOfPeople()
+        }
+        
+    }
+    
+    func getNumberOfPeople() {
+        refNumberOfpeople.getDocument { (document, _) in
+            if let document = document, document.exists {
+                
+                do{
+                    let data = try document.data(as: Fridge.self)
+                   
+                    guard let users = data?.users
+                    
+                    else { return }
+                    
+                    self.usersArray = users
+                    
+                } catch {
+                    print("error to decode", error)
+                }
+                
+            } else {
+                print("Document does not exist")
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
 extension InfoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -200,18 +258,33 @@ extension InfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        if section == 0 {
+            return fridgesIDArray.count
+        } else {
+            return inviteArray.count
+        }
         
-        return fridgeID.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? InfoTableViewCell
-        else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
         
-        cell.fridgeIDLabel.text = fridgeID [indexPath.row]
-        cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
-        
+        if indexPath.section == 0 {
+            
+            cell.fridgeIDLabel.text = fridgesIDArray[indexPath.row]
+            
+            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
+            
+        } else {
+            
+            cell.fridgeIDLabel.text = inviteArray[indexPath.row]
+            
+            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
+            
+        }
+       
         return cell
     }
     

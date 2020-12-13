@@ -36,6 +36,13 @@ struct User: Codable {
     let name: String
     let photo: String
     let email: String
-    let displayName: String
+//    let displayName: String
     let fridges: [String]
+    let invites: [String]
+}
+
+struct Fridge: Codable {
+    let fridgeID: String
+    let users: [String]
+    let category: [String]
 }

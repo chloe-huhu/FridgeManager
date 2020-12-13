@@ -30,7 +30,7 @@ class AddFoodTableViewController: UITableViewController {
         
         dbListenCategory()
         setupFoodDetail()
-        setupFinishedPurchase()
+        finishedPurchaseAddToFood()
     }
     
     @IBOutlet weak var changePicLabel: UILabel! {
@@ -150,11 +150,10 @@ class AddFoodTableViewController: UITableViewController {
                 print("Error fetching document:\(error!)")
                 return
             }
-            guard let data = document.data() else {
+            guard document.data() != nil else {
                 print("Document data was empty")
                 return
             }
-            print("======current data:\(data)======")
             self.dbGetCategory()
         }
         
@@ -166,7 +165,7 @@ class AddFoodTableViewController: UITableViewController {
         ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
-                //                print(data!)
+                    print(data!)
                 self.foodCategory = data?["category"] as? [String]
                 //                print(self.foodCategory!)
             } else {
@@ -265,9 +264,7 @@ class AddFoodTableViewController: UITableViewController {
         //資料上去firebase
         addListToDB()
         
-//        let vc = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
-        
-        //翻回去FoodListPage
+        //翻回去PurchaseListPage
         
         self.navigationController?.popToRootViewController(animated: true)
 //        self.navigationController?.tabBarController?.selectedIndex = 0
@@ -333,7 +330,7 @@ class AddFoodTableViewController: UITableViewController {
         
     }
     
-    func setupFinishedPurchase() {
+    func finishedPurchaseAddToFood() {
         guard let title = segueText?.name,
               let amount = segueText?.amount,
               let unit = segueText?.unit

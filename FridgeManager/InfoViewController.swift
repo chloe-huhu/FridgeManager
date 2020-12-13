@@ -13,12 +13,20 @@ import FirebaseFirestoreSwift
 class InfoViewController: UIViewController {
     
     let fridgeID = ["9527", "9528"]
+    
     let numberOfPeople = ["共有3位成員", "共有2位成員"]
-    var user : [User] = []
+    
+    var user: [String: Any] = [:]
+    
+    let ref = Firestore.firestore().collection("users").document("UUNNN5YELPXtuppYQfluRMKm9Qd2")
     
     @IBOutlet weak var personImageView: UIImageView!
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel! {
+        didSet {
+//            nameLabel.text = user[name]
+        }
+    }
     
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -80,7 +88,9 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbListen()
-        dbGet()
+        
+        print("::::::::::::", user)
+//        dbGet()
     }
     
     func navigationTitleSetup() {
@@ -89,7 +99,6 @@ class InfoViewController: UIViewController {
     }
     
     func dbListen() {
-        let ref = Firestore.firestore().collection("users").document("qQhDRA4paytTbRGOykM7")
         
         ref.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
@@ -97,37 +106,30 @@ class InfoViewController: UIViewController {
                 return
             }
             
-            guard let data = document.data() else {
+            guard document.data() != nil else {
                 print("Document data was empty.")
                 return
             }
-            print("Current data: \(data)")
-//
-//            documents.documentChanges.forEach{ diff in
-//                if (diff.type == .added) {
-//                    print("新增: \(diff.document.data())")
-//                    self.tableView.reloadData()
-//                }
-//                if (diff.type == .modified) {
-//                    print("修改: \(diff.document.data())")
-//                }
-//                if (diff.type == .removed) {
-//                    print("刪除: \(diff.document.data())")
-//                }
-//            }
+            self.dbGet()
         }
     }
     
     func dbGet() {
         
-        let ref = Firestore.firestore().collection("users").document("qQhDRA4paytTbRGOykM7")
-        
         ref.getDocument { (document, err) in
             if let err = err {
                 print("Error getting documents:\(err)")
             } else {
+               
                 if let document = document, document.exists {
-                    print(document.documentID, document.data()!)
+//                    print(document.documentID, document.data()!)
+                    do {
+                        let user = try document.data(as: User.self)
+                        print("==========", user!)
+                        
+                    } catch {
+                        print("error to decode", error)
+                    }
                     
                 } else {
                     print("Document does not exist")

@@ -109,7 +109,7 @@
 		AED556FF256E481B0068A855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED5573B256E55F10068A855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeTableViewCell.swift; path = FridgeManager/RecipeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = FridgeManager/Controller/Recipe/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = FridgeManager/Controller/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,20 +191,12 @@
 			path = Purchase;
 			sourceTree = "<group>";
 		};
-		AE40AA3D25820EDC00C013E9 /* Recipe */ = {
-			isa = PBXGroup;
-			children = (
-				AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */,
-			);
-			path = Recipe;
-			sourceTree = "<group>";
-		};
 		AE5F8840256FE44100A97CD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				AE40AA3525820E9D00C013E9 /* Food */,
 				AE40AA3625820EAC00C013E9 /* Purchase */,
-				AE40AA3D25820EDC00C013E9 /* Recipe */,
+				AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */,
 				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 				AEA06B48257E86620094F7F7 /* SigninViewController.swift */,
 			);

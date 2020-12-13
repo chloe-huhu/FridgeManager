@@ -32,8 +32,10 @@ struct List: Codable {
 }
 
 struct User: Codable {
-    let id: String
+    let uid: String
     let name: String
     let photo: String
-    let fredge: [String]
+    let email: String
+    let displayName: String
+    let fridges: [String]
 }

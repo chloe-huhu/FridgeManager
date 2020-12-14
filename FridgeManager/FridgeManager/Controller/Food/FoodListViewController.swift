@@ -257,7 +257,13 @@ extension FoodListViewController: UITableViewDelegate {
         
         selectedFood = food
         
-        self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+//        if let indexPaths = tableView.indexPathsForSelectedRows {
+//            tableView.deleteRows(at: indexPaths, with: .automatic)
+//        }
+        
+        if !tableView.isEditing {
+            self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)
+        }
     }
     
     // section content

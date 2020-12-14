@@ -322,7 +322,6 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
-  - ImagePicker (3.2.0)
   - IQKeyboardManagerSwift (6.5.6)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
@@ -345,7 +344,6 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - FirebaseUI/OAuth
-  - ImagePicker
   - IQKeyboardManagerSwift
   - Kingfisher
   - RAMAnimatedTabBarController
@@ -371,7 +369,6 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
-    - ImagePicker
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
@@ -399,7 +396,6 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  ImagePicker: 1d950bbb2422548ed58791b4ec7f42fe42920511
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
@@ -408,6 +404,6 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: e7b8a290e74b66bf1d3725c6318b9a3a1ce43833
+PODFILE CHECKSUM: 4ae1f30e89e56b60298f3fa2fe4f4b99c697dcce
 
 COCOAPODS: 1.10.0

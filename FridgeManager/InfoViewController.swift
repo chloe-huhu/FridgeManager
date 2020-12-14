@@ -8,8 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
-import FirebaseFirestoreSwift
-import ImagePicker
+import FirebaseFirestoreSwiftg
 
 
 class InfoViewController: UIViewController {
@@ -18,7 +17,6 @@ class InfoViewController: UIViewController {
     
     let ref = Firestore.firestore().collection("users").document("UUNNN5YELPXtuppYQfluRMKm9Qd2")
     
-    let refNumberOfpeople = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G")
     
 //    var userTest = [String: Any]()
     
@@ -32,7 +30,6 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbListen()
-        listenNumberOfPeople()
         
     }
     
@@ -174,46 +171,7 @@ class InfoViewController: UIViewController {
     }
     
     
-    func listenNumberOfPeople() {
-        
-        refNumberOfpeople.addSnapshotListener { documentSnapshot, error in
-            guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-            }
-            
-            guard document.data() != nil else {
-                print("Document data was empty.")
-                return
-            }
-            self.getNumberOfPeople()
-        }
-        
-    }
-    
-    func getNumberOfPeople() {
-        refNumberOfpeople.getDocument { (document, _) in
-            if let document = document, document.exists {
-                
-                do {
-                    let data = try document.data(as: Fridge.self)
-                   
-                    guard let users = data?.users
-                    
-                    else { return }
-                    
-                    self.usersArray = users
-                    
-                } catch {
-                    print("error to decode", error)
-                }
-                
-            } else {
-                print("Document does not exist")
-            }
-            self.tableView.reloadData()
-        }
-    }
+
     
 }
 

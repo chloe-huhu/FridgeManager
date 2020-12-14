@@ -18,7 +18,6 @@ target 'FridgeManager' do
     pod 'IQKeyboardManagerSwift'
     pod 'ExpandingMenu', '~> 0.4'
     pod 'FirebaseUI/OAuth'
-    pod 'ImagePicker'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     pod 'Kingfisher'

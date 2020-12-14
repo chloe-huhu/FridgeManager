@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9CDCC779CADF62A1818499D9 /* Pods_FridgeManager_FridgeManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F313871C88389A371CCC6 /* Pods_FridgeManager_FridgeManagerUITests.framework */; };
+		AE0CA766258667890030A971 /* UIImage+ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */; };
 		AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* EnumExtension.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		97CD39AD8EAF13870C26ABDD /* Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A76F666C7A6E0046B73F9E17 /* Pods-FridgeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleExtension.swift"; sourceTree = "<group>"; };
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */,
 				AE41B04425716C59006C6EFD /* EnumExtension.swift */,
 				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
+				AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				AECC1FE92578EE1E004D6168 /* ModelData.swift in Sources */,
 				AEA06B49257E86620094F7F7 /* SigninViewController.swift in Sources */,
 				AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */,
+				AE0CA766258667890030A971 /* UIImage+ScaleExtension.swift in Sources */,
 				AED556DC256E48190068A855 /* AppDelegate.swift in Sources */,
 				AE8139CA2578D9CD00070681 /* FirebaseManager.swift in Sources */,
 				AEA01E45257CAA74009AC995 /* InfoTableViewCell.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 class AddFoodTableViewController: UITableViewController {
     
@@ -24,6 +25,8 @@ class AddFoodTableViewController: UITableViewController {
     var seletedUnitIndex = 0
     
     var segueText: List?
+    
+    var downloadURL: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -215,14 +218,14 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBOutlet var purchaseDatePicker: UIDatePicker! {
         didSet {
-            purchaseDatePicker.preferredDatePickerStyle = .inline
+//            purchaseDatePicker.preferredDatePickerStyle = .inline
             purchaseDatePicker.addTarget(self, action: #selector(purchaseDateSelected), for: .valueChanged)
         }
     }
     
     @IBOutlet var expiredDatePicker: UIDatePicker! {
         didSet {
-            expiredDatePicker.preferredDatePickerStyle = .inline
+//            expiredDatePicker.preferredDatePickerStyle = .inline
             expiredDatePicker.addTarget(self, action: #selector(expiredDateSelected), for: .valueChanged)
         }
     }
@@ -277,7 +280,8 @@ class AddFoodTableViewController: UITableViewController {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
               let unit = unitTextField.text,
-              let category = categoryTextField.text
+              let category = categoryTextField.text,
+              let url = downloadURL
         
         
         else { return }
@@ -292,7 +296,7 @@ class AddFoodTableViewController: UITableViewController {
         //設定data 內容
         let data: [String: Any] = [
             "id": document.documentID,
-            "photo": "test",
+            "photo": url,
             "name": name,
             "amount": Int(amount) ?? 0 ,
             "unit": unit,
@@ -324,8 +328,7 @@ class AddFoodTableViewController: UITableViewController {
             
             purchaseTextField.text = dateFormatter.string(from: purchseDate)
             expiredTextField.text = dateFormatter.string(from: expiredDate)
-            
-            
+
         }
         
     }
@@ -362,7 +365,7 @@ class AddFoodTableViewController: UITableViewController {
             let cameraAction = UIAlertAction(title: "拍照", style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let imagePicker = UIImagePickerController()
-                    imagePicker.allowsEditing = false
+                    imagePicker.allowsEditing = true
                     imagePicker.sourceType = .camera
                     imagePicker.delegate = self
                     
@@ -398,28 +401,69 @@ class AddFoodTableViewController: UITableViewController {
 
 //從照片庫選擇照片後，從參數選擇被選取的照片
 extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+
+        var selectedImageFromPicker: UIImage?
         
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        // 取得從 UIImagePickerController 選擇的檔案
+        if let pickedImage = info[.editedImage] as? UIImage {
+            
+            selectedImageFromPicker = pickedImage
+        }
+        
+        // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
+        let uniqueString = NSUUID().uuidString
+
+        // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
+        if let selectedImage = selectedImageFromPicker {
             photoImageView.image = selectedImage
             photoImageView.contentMode = .scaleAspectFill
             photoImageView.clipsToBounds = true
+            let storageRef = Storage.storage().reference().child("Food").child("\(uniqueString).png")
+
+            if let uploadData = selectedImage.pngData() {
+               
+                // 這行就是 FirebaseStorage 關鍵的存取方法。
+                storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
+
+                    if error != nil {
+
+                        // 若有接收到錯誤，我們就直接印在 Console 就好，在這邊就不另外做處理。
+                        print("Error: \(error!.localizedDescription)")
+                        return
+                    }
+                    
+                    storageRef.downloadURL { (url, error) in
+                        
+                        if let error = error {
+                            
+                            print(error)
+                        }
+                        guard let downloadURL = url else { return }
+                        
+                        print("Photo Url: \(downloadURL)")
+                        
+                        self.downloadURL = "\(downloadURL)"
+                    }
+                })
+            }
         }
+
         
-        //約束條件
+//        約束條件
         let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
         leadingConstraint.isActive = true
-        
+
         let trailingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
         trailingConstraint.isActive = true
-        
+
         let topConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)
         topConstraint.isActive = true
-        
+
         let bottomConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
         bottomConstraint.isActive = true
-        
+
         dismiss(animated: true, completion: nil)
     }
 }
@@ -433,10 +477,6 @@ extension AddFoodTableViewController: UITextFieldDelegate {
         }
         return true
     }
-    
-    //    func textFieldDidEndEditing(_ textField: UITextField) {
-    //        <#code#>
-    //    }
 }
 
 extension AddFoodTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {

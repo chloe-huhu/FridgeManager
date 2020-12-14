@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import ImagePicker
+
 
 class InfoViewController: UIViewController {
     
@@ -47,13 +49,20 @@ class InfoViewController: UIViewController {
         let alterController = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
         
         let photoAction = UIAlertAction(title: "更換照片", style: .default, handler: { (_) in
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .photoLibrary
-                imagePicker.delegate = self
-                self.present(imagePicker, animated: true, completion: nil)
-            }
+//            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//                let imagePicker = UIImagePickerController()
+//                imagePicker.allowsEditing = false
+//                imagePicker.sourceType = .photoLibrary
+//                imagePicker.delegate = self
+//                self.present(imagePicker, animated: true, completion: nil)
+//            }
+            
+//            let imagePickerController = ImagePickerController()
+//                imagePickerController.delegate = self
+//                imagePickerController.imageLimit = 1
+//
+//                self.present(imagePickerController, animated: true, completion: nil)
+//
         })
         
         let nameAction = UIAlertAction(title: "更換暱稱", style: .default, handler: { _ in
@@ -186,7 +195,7 @@ class InfoViewController: UIViewController {
         refNumberOfpeople.getDocument { (document, _) in
             if let document = document, document.exists {
                 
-                do{
+                do {
                     let data = try document.data(as: Fridge.self)
                    
                     guard let users = data?.users
@@ -208,19 +217,98 @@ class InfoViewController: UIViewController {
     
 }
 
-extension InfoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            personImageView.image = selectedImage
-            personImageView.contentMode = .scaleAspectFill
-            personImageView.clipsToBounds = true
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-}
+//extension InfoViewController: ImagePickerDelegate {
+//
+//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//
+//    }
+//
+//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        guard let image = images.first else {
+//            dismiss(animated: true, completion: nil)
+//            return
+//        }
+//
+//        let imageStorageRef = Storage.storage().reference().child("photos").child("\(imageKey).jpg")
+//
+//            // 調整圖片大小
+//            let scaledImage = image.scale(newWidth: 640.0)
+//
+//            guard let imageData = scaledImage.jpegData(compressionQuality: 0.9) else {
+//                dismiss(animated: true, completion: nil)
+//
+//                return
+//            }
+//            // 建立檔案的元資料
+//            let metadata = StorageMetadata()
+//            metadata.contentType = "image/jpg"
+//
+//            // 上傳任務準備
+//            let uploadTask = imageStorageRef.putData(imageData, metadata: metadata)
+//
+//            // 觀察上傳狀態
+//            uploadTask.observe(.success) { (snapshot) in
+//
+//                guard let displayName = Auth.auth().currentUser?.displayName else {
+//                    return
+//                }
+//
+//                snapshot.reference.downloadURL(completion: { (url, error) in
+//                    guard let url = url else {
+//                        return
+//                    }
+//
+//                    // 在資料庫加上一個參照
+//                    let imageFileURL = url.absoluteString
+//                    let timestamp = Int(Date().timeIntervalSince1970 * 1000)
+//
+//                    let post: [String : Any] = ["imageFileURL" : imageFileURL,
+//                                                "votes" : Int(0),
+//                                                "user" : displayName,
+//                                                "timestamp" : timestamp
+//                                                ]
+//
+//                    postDatabaseRef.setValue(post)
+//
+//                })
+//
+//
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//
+//            uploadTask.observe(.progress) { (snapshot) in
+//
+//                let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
+//                print("Uploading \(imageKey).jpg... \(percentComplete)% complete")
+//            }
+//
+//
+//            uploadTask.observe(.failure) { (snapshot) in
+//
+//                if let error = snapshot.error {
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
+//
+//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+//}
+//extension InfoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+//
+//        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            personImageView.image = selectedImage
+//            personImageView.contentMode = .scaleAspectFill
+//            personImageView.clipsToBounds = true
+//        }
+//
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
 
 extension InfoViewController: UITableViewDelegate {
     

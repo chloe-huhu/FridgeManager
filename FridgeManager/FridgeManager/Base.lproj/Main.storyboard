@@ -172,7 +172,7 @@
                                 </constraints>
                             </stackView>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-Q0-iUD">
-                                <rect key="frame" x="14" y="8" width="110" height="36"/>
+                                <rect key="frame" x="14" y="8" width="115" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -222,13 +222,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="allButton" destination="9bJ-qr-Tf3" id="fGr-Yj-EXi"/>
                         <outlet property="editButton" destination="34s-y4-qLc" id="RBw-SZ-7UH"/>
-                        <outlet property="expiredButton" destination="hPy-6x-pG3" id="WHt-t0-lBu"/>
                         <outlet property="searchBar" destination="Hda-vH-vEb" id="12S-7B-GNH"/>
                         <outlet property="searchBarButton" destination="AZM-iE-k1W" id="ZkA-N9-xcZ"/>
                         <outlet property="sliderView" destination="CD5-Q0-iUD" id="0mh-PA-Iue"/>
-                        <outlet property="soonExpiredButton" destination="qxl-8J-EAy" id="uN7-qe-xQF"/>
                         <outlet property="tableView" destination="o8F-l7-rEU" id="E5l-nn-eB0"/>
                         <segue destination="yTY-l9-zTe" kind="show" identifier="SegueAddContent" id="MOh-Ic-hm6"/>
                         <segue destination="yTY-l9-zTe" kind="show" identifier="SegueFoodDetail" id="Lds-aR-iOo"/>
@@ -1824,7 +1821,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cac-fM-gvU"/>
+        <segue reference="MOh-Ic-hm6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>

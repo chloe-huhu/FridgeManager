@@ -19,6 +19,8 @@ class PurchaseDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
+        
         if isAwaiting == true {
             setupAwaitingBarBtnItem()
             finishedPurchaseButton.isHidden = true

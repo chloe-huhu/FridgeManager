@@ -35,6 +35,8 @@ class AddFoodTableViewController: UITableViewController {
         dbListenCategory()
         setupFoodDetail()
         finishedPurchaseAddToFood()
+        
+        self.tabBarController?.tabBar.isHidden = true
     }
         
     @IBOutlet weak var imageView: UIImageView!

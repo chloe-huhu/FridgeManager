@@ -106,6 +106,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         noteTextView.delegate = self
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

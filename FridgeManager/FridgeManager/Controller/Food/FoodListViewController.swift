@@ -18,24 +18,21 @@ class FoodListViewController: UIViewController {
     
     var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
     
-    var database: Firestore!
-    
     var oriFoods: [Food] = []
     
     var foodsDic: [String: [Food]] = [:]
     
     var foodsKeyArray: [String] = []
     
-    var selectedFood: Food?
-    
     var isExpendDataList: [Bool] = []
     
-    let searchButton = UIButton()
+    var selectedFood: Food?
     
     var showCategory: ShowCategory = .all
     
-    let takingPicture = UIImagePickerController()
+    let searchButton = UIButton()
     
+    let takingPicture = UIImagePickerController()
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     
@@ -52,12 +49,6 @@ class FoodListViewController: UIViewController {
     }
     
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var allButton: UIButton!
-    
-    @IBOutlet weak var soonExpiredButton: UIButton!
-    
-    @IBOutlet weak var expiredButton: UIButton!
     
     @IBOutlet weak var sliderView: UIView!
     
@@ -105,6 +96,7 @@ class FoodListViewController: UIViewController {
     
     @IBAction func allPressed(_ sender: UIButton) {
         showCategory = .all
+        
         btnPressedAnimation(type: .all)
         
         reloadDataForFoods(foods: oriFoods)
@@ -112,18 +104,13 @@ class FoodListViewController: UIViewController {
     
     @IBAction func soonExpiredPressed(_ sender: UIButton) {
         showCategory = .soonExpired
+       
         btnPressedAnimation(type: .soonExpired)
         
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "UTC")!
-        let today = Date()
-        let midnight = calendar.startOfDay(for: today)
-        let yesterday = calendar.date(byAdding: .day, value: -1, to: midnight)!
-        let midnightTS = midnight.timeIntervalSince1970
-        
+        let midnight = getMidnightTime()
         let soonExpiredFoods = oriFoods.filter {
-            $0.expiredDate.timeIntervalSince1970 > midnightTS
-                && $0.expiredDate.timeIntervalSince1970 < midnightTS + 86400 * 3
+            $0.expiredDate.timeIntervalSince1970 > midnight
+                && $0.expiredDate.timeIntervalSince1970 < midnight + 86400 * 3
         }
         
         reloadDataForFoods(foods: soonExpiredFoods)
@@ -131,26 +118,30 @@ class FoodListViewController: UIViewController {
     
     @IBAction func expiredPressed(_ sender: UIButton) {
         showCategory = .expired
+       
         btnPressedAnimation(type: .expired)
         
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "UTC")!
-        let today = Date()
-        let midnight = calendar.startOfDay(for: today)
-        let yesterday = calendar.date(byAdding: .day, value: -1, to: midnight)!
-        let midnightTS = midnight.timeIntervalSince1970
-        
+        let midnight = getMidnightTime()
         let expiredFoods = oriFoods.filter {
-            $0.expiredDate.timeIntervalSince1970 < midnightTS
+            $0.expiredDate.timeIntervalSince1970 < midnight
         }
         
         reloadDataForFoods(foods: expiredFoods)
         
     }
     
+    func getMidnightTime() -> TimeInterval {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        let today = Date()
+        let midnight = calendar.startOfDay(for: today)
+        return midnight.timeIntervalSince1970
+    }
+    
     func reloadDataForFoods(foods: [Food]) {
         
         foodsDic = [:]
+        
         foodsKeyArray = []
         
         for food in foods {
@@ -166,6 +157,7 @@ class FoodListViewController: UIViewController {
         }
         
         self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
+        
         self.tableView.reloadData()
     }
     
@@ -198,17 +190,21 @@ class FoodListViewController: UIViewController {
     func dbGet() {
         
         ref.getDocuments { (querySnapshot, err) in
+            
             if let err = err {
+                
                 print("Error getting documents: \(err)")
+          
             } else {
                 
                 for document in querySnapshot!.documents {
                     
-                    print("現有的資料 \(document.documentID) => \(document.data())")
+//                    print("現有的資料 \(document.documentID) => \(document.data())")
                     
                     do {
                         //獲得某食材的資料
                         let food = try document.data(as: Food.self)
+                        
                         self.oriFoods.append(food!)
                         
                     } catch {

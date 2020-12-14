@@ -21,6 +21,7 @@ target 'FridgeManager' do
     pod 'ImagePicker'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
+    pod 'Kingfisher'
 
 
 

@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import ExpandingMenu
 
+
 class FoodListViewController: UIViewController {
     
     let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
@@ -19,12 +20,14 @@ class FoodListViewController: UIViewController {
     
     var database: Firestore!
     
+    var oriFoods: [Food] = []
+    
     var foodsDic: [String: [Food]] = [:]
     
     var foodsKeyArray: [String] = []
     
     var selectedFood: Food?
-
+    
     var isExpendDataList: [Bool] = []
     
     let searchButton = UIButton()
@@ -87,7 +90,7 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-  
+    
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -103,12 +106,27 @@ class FoodListViewController: UIViewController {
     @IBAction func allPressed(_ sender: UIButton) {
         showCategory = .all
         btnPressedAnimation(type: .all)
+        
+        reloadDataForFoods(foods: oriFoods)
     }
     
     @IBAction func soonExpiredPressed(_ sender: UIButton) {
         showCategory = .soonExpired
         btnPressedAnimation(type: .soonExpired)
         
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        let today = Date()
+        let midnight = calendar.startOfDay(for: today)
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: midnight)!
+        let midnightTS = midnight.timeIntervalSince1970
+        
+        let soonExpiredFoods = oriFoods.filter {
+            $0.expiredDate.timeIntervalSince1970 > midnightTS
+                && $0.expiredDate.timeIntervalSince1970 < midnightTS + 86400 * 3
+        }
+        
+        reloadDataForFoods(foods: soonExpiredFoods)
     }
     
     @IBAction func expiredPressed(_ sender: UIButton) {
@@ -116,27 +134,39 @@ class FoodListViewController: UIViewController {
         btnPressedAnimation(type: .expired)
         
         var calendar = Calendar.current
-            calendar.timeZone = TimeZone(abbreviation: "UTC")!
-            let today = Date()
-            let midnight = calendar.startOfDay(for: today)
-            let yesterday = calendar.date(byAdding: .day, value: -1, to: midnight)!
-            let midnightTS = midnight.timeIntervalSince1970
-//            let yesterdayTS = yesterday.timeIntervalSince1970
-            print(yesterday)
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        let today = Date()
+        let midnight = calendar.startOfDay(for: today)
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: midnight)!
+        let midnightTS = midnight.timeIntervalSince1970
         
-        for categoryIndex in 0..<foodsKeyArray.count {
-            
-            let category = foodsKeyArray[categoryIndex]
-            let test = foodsDic[category] ?? []
-            print("-----------------")
-            print(category)
-
-            let filteredArray = test.filter {
-                $0.expiredDate.timeIntervalSince1970 < midnightTS
-            }
-            print(filteredArray)
-            
+        let expiredFoods = oriFoods.filter {
+            $0.expiredDate.timeIntervalSince1970 < midnightTS
         }
+        
+        reloadDataForFoods(foods: expiredFoods)
+        
+    }
+    
+    func reloadDataForFoods(foods: [Food]) {
+        
+        foodsDic = [:]
+        foodsKeyArray = []
+        
+        for food in foods {
+            //產生key(Section)
+            if foodsDic[food.category] == nil {
+                //print("---- category is not in dictionary")
+                self.foodsDic[food.category] = []
+                self.isExpendDataList.append(false)
+            }
+            
+            //在key底下,新增value (Section:data 1 \ data 2)
+            self.foodsDic[food.category]?.append(food)
+        }
+        
+        self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
+        self.tableView.reloadData()
     }
     
     func btnPressedAnimation(type: ShowCategory) {
@@ -172,8 +202,6 @@ class FoodListViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 
-                self.foodsDic = [:]
-                
                 for document in querySnapshot!.documents {
                     
                     print("現有的資料 \(document.documentID) => \(document.data())")
@@ -181,20 +209,7 @@ class FoodListViewController: UIViewController {
                     do {
                         //獲得某食材的資料
                         let food = try document.data(as: Food.self)
-                        
-                        //print("---- category: catagory")
-                        
-                        //產生key(Section)
-                        if self.foodsDic[food!.category] == nil {
-                            //print("---- category is not in dictionary")
-                            self.foodsDic[food!.category] = []
-                        }
-                        
-                        //在key底下,新增value (Section:data 1 \ data 2)
-                        self.foodsDic[food!.category]?.append(food!)
-                        self.isExpendDataList.append(false)
-                        
-                        //print("---- foodDic[\(food!.category)]=\(String(describing: self.foodsDic[food!.category]))")
+                        self.oriFoods.append(food!)
                         
                     } catch {
                         
@@ -203,9 +218,7 @@ class FoodListViewController: UIViewController {
                     
                 }
                 
-                self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
-                
-                self.tableView.reloadData()
+                self.reloadDataForFoods(foods: self.oriFoods)
             }
             
         }
@@ -237,7 +250,7 @@ extension FoodListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let key = foodsKeyArray[indexPath.section]
         
         guard let foods = foodsDic[key] else { return }
@@ -287,7 +300,7 @@ extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isExpendDataList[section] {
-           
+            
             return foodsDic[foodsKeyArray[section]]?.count ?? 0
         } else {
             return 0
@@ -381,14 +394,6 @@ extension FoodListViewController {
         }
         
         menuButton.addMenuItems([item1, item2])
-        
-        menuButton.willPresentMenuItems = { (_) -> Void in
-            print("MenuItems will present.")
-        }
-        
-        menuButton.didDismissMenuItems = { (_) -> Void in
-            print("MenuItems dismissed.")
-        }
         
     }
     

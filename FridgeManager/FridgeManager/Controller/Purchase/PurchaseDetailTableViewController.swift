@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import Kingfisher
 
 class PurchaseDetailTableViewController: UITableViewController {
     
@@ -35,7 +36,16 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            guard let photo = selectedList?.photo else { return }
+            imageView.kf.indicatorType = .activity
+            
+            let purchasePhoto = URL(string: photo)
+            imageView.kf.setImage(with: purchasePhoto)
+            
+        }
+    }
     
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {

@@ -324,6 +324,9 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - ImagePicker (3.2.0)
   - IQKeyboardManagerSwift (6.5.6)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
   - leveldb-library (1.22)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -344,6 +347,7 @@ DEPENDENCIES:
   - FirebaseUI/OAuth
   - ImagePicker
   - IQKeyboardManagerSwift
+  - Kingfisher
   - RAMAnimatedTabBarController
   - SwiftLint
 
@@ -369,6 +373,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - ImagePicker
     - IQKeyboardManagerSwift
+    - Kingfisher
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -396,12 +401,13 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   ImagePicker: 1d950bbb2422548ed58791b4ec7f42fe42920511
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 121b4df707d2ce369fe24a59d49573c678e95530
+PODFILE CHECKSUM: e7b8a290e74b66bf1d3725c6318b9a3a1ce43833
 
 COCOAPODS: 1.10.0

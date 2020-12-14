@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import Kingfisher
 
 class AddFoodTableViewController: UITableViewController {
     
@@ -35,15 +36,8 @@ class AddFoodTableViewController: UITableViewController {
         setupFoodDetail()
         finishedPurchaseAddToFood()
     }
-    
-    @IBOutlet weak var changePicLabel: UILabel! {
-        didSet {
-            changePicLabel.layer.cornerRadius = 25
-            changePicLabel.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet weak var foodImageView: UIImageView!
+        
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var titleTextField: RoundedTextField! {
         didSet {
@@ -168,9 +162,9 @@ class AddFoodTableViewController: UITableViewController {
         ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
-                    print(data!)
+//                    print(data!)
                 self.foodCategory = data?["category"] as? [String]
-                //                print(self.foodCategory!)
+//                    print(self.foodCategory!)
             } else {
                 print("Document does not exist ")
             }
@@ -230,11 +224,6 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    
-    @IBOutlet weak var photoImageView: UIImageView!
-    
-
-    
     @objc private func purchaseDateSelected() {
         
         let formatter = DateFormatter()
@@ -256,7 +245,7 @@ class AddFoodTableViewController: UITableViewController {
     
     @IBAction func saveBtnTapped(_ sender: AnyObject) {
         
-        if titleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" || categoryTextField.text == "" || purchaseTextField.text == "" || expiredTextField.text == "" {
+        if  titleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" || categoryTextField.text == "" || purchaseTextField.text == "" || expiredTextField.text == "" {
             let alterController = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
             alterController.addAction(alertAction)
@@ -280,11 +269,11 @@ class AddFoodTableViewController: UITableViewController {
         guard let name = titleTextField.text,
               let amount = amountTextField.text,
               let unit = unitTextField.text,
-              let category = categoryTextField.text,
-              let url = downloadURL
-        
+              let category = categoryTextField.text
         
         else { return }
+        
+        let url = downloadURL == nil ? nil : downloadURL
         
         let document =  ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document()
         
@@ -296,7 +285,7 @@ class AddFoodTableViewController: UITableViewController {
         //設定data 內容
         let data: [String: Any] = [
             "id": document.documentID,
-            "photo": url,
+            "photo": url as Any,
             "name": name,
             "amount": Int(amount) ?? 0 ,
             "unit": unit,
@@ -314,7 +303,15 @@ class AddFoodTableViewController: UITableViewController {
     func setupFoodDetail() {
         
         if selectedFood != nil {
-            guard let amount = selectedFood?.amount else { return }
+            guard let amount = selectedFood?.amount,
+                  let photo = selectedFood?.photo
+            else { return }
+            
+            imageView.kf.indicatorType = .activity
+           
+            let foodPhoto = URL(string: photo)
+            imageView.kf.setImage(with: foodPhoto)
+            
             titleTextField.text = selectedFood?.name
             amountTextField.text = "\(String(describing: amount))"
             unitTextField.text = selectedFood?.unit
@@ -376,7 +373,7 @@ class AddFoodTableViewController: UITableViewController {
             let photoLibraryAction = UIAlertAction(title: "照片庫", style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                     let imagePicker = UIImagePickerController()
-                    imagePicker.allowsEditing = false
+                    imagePicker.allowsEditing = true
                     imagePicker.sourceType = .photoLibrary
                     imagePicker.delegate = self
                     self.present(imagePicker, animated: true, completion: nil)
@@ -417,9 +414,10 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
 
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
-            photoImageView.image = selectedImage
-            photoImageView.contentMode = .scaleAspectFill
-            photoImageView.clipsToBounds = true
+            imageView.image = selectedImage
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            
             let storageRef = Storage.storage().reference().child("Food").child("\(uniqueString).png")
 
             if let uploadData = selectedImage.pngData() {
@@ -449,20 +447,6 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
                 })
             }
         }
-
-        
-//        約束條件
-        let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
-        leadingConstraint.isActive = true
-
-        let trailingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
-        trailingConstraint.isActive = true
-
-        let topConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)
-        topConstraint.isActive = true
-
-        let bottomConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
-        bottomConstraint.isActive = true
 
         dismiss(animated: true, completion: nil)
     }

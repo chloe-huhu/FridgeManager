@@ -38,7 +38,7 @@ class AddFoodTableViewController: UITableViewController {
         
         self.tabBarController?.tabBar.isHidden = true
     }
-        
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var titleTextField: RoundedTextField! {
@@ -101,11 +101,11 @@ class AddFoodTableViewController: UITableViewController {
             }
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-           
+            
             controller.addAction(okAction)
             
             controller.addAction(cancelAction)
-           
+            
             self.present(controller, animated: true, completion: nil)
             
         })
@@ -113,7 +113,7 @@ class AddFoodTableViewController: UITableViewController {
         let deletCateAction = UIAlertAction(title: "刪除分類", style: .default, handler: { _ in
             
             let controller = UIAlertController(title: "輸入欲刪除分類", message: nil, preferredStyle: .alert)
-           
+            
             controller.addTextField { (textField) in textField.placeholder = "輸入分類" }
             
             let okAction = UIAlertAction(title: "刪除", style: .default) { (_) in
@@ -164,9 +164,9 @@ class AddFoodTableViewController: UITableViewController {
         ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
-//                    print(data!)
+                //                    print(data!)
                 self.foodCategory = data?["category"] as? [String]
-//                    print(self.foodCategory!)
+                //                    print(self.foodCategory!)
             } else {
                 print("Document does not exist ")
             }
@@ -253,21 +253,33 @@ class AddFoodTableViewController: UITableViewController {
             return
         }
         
+        addFoodListToDB()
+        
+        //翻回去PurchaseListPage
+        self.navigationController?.popToRootViewController(animated: true)
+        //        self.navigationController?.tabBarController?.selectedIndex = 0
+        //        self.navigationController?.tabBarController?.tabBarItem
+        
+    }
+    
+    
+    func addFoodListToDB() {
+        
+        guard let name = titleTextField.text,
+              let amount = amountTextField.text,
+              let unit = unitTextField.text,
+              let category = categoryTextField.text else { return }
+        
+        let url = downloadURL == nil ? nil : downloadURL
+        let text = amountAlertTextField.text ?? "0"
+        let amountAlert = Int(text) ?? 0
+        
+        //判斷更新食物還是新增食物
         if selectedFood != nil {
             
-            guard let name = titleTextField.text,
-                  let amount = amountTextField.text,
-                  let unit = unitTextField.text,
-                  let category = categoryTextField.text,
-                  let id = selectedFood?.id
-            else { return }
+            guard let id = selectedFood?.id else { return }
             
-            
-            let url = downloadURL == nil ? nil : downloadURL
-            let text = amountAlertTextField.text ?? "0"
-            let amountAlert = Int(text) ?? 0
-            
-            Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods").document(id).setData([
+            ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document(id).setData([
                 "photo": url as Any,
                 "name": name,
                 "amount": Int(amount) ?? 0 ,
@@ -277,69 +289,31 @@ class AddFoodTableViewController: UITableViewController {
                 "purchaseDate": purchaseDatePicker.date,
                 "expiredDate": expiredDatePicker.date
             ], merge: true)
-        
+            
         } else {
-            //資料上去firebase
-            addListToDB()
+            
+            let document =  ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document()
+            
+            let data: [String: Any] = [
+                "id": document.documentID,
+                "photo": url as Any,
+                "name": name,
+                "amount": Int(amount) ?? 0 ,
+                "unit": unit,
+                "amountAlert": Int(amountAlert),
+                "category": category,
+                "purchaseDate": purchaseDatePicker.date,
+                "expiredDate": expiredDatePicker.date
+            ]
+            document.setData(data)
         }
-        
-        //翻回去PurchaseListPage
-        self.navigationController?.popToRootViewController(animated: true)
-//        self.navigationController?.tabBarController?.selectedIndex = 0
-//        self.navigationController?.tabBarController?.tabBarItem
-
-    }
-    
-    
-    func addListToDB() {
-        
-        guard let name = titleTextField.text,
-              let amount = amountTextField.text,
-              let unit = unitTextField.text,
-              let category = categoryTextField.text else { return }
-        
-        let url = downloadURL == nil ? nil : downloadURL
-        
-        let document =  ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document()
-        
-        let text = amountAlertTextField.text ?? "0"
-        
-        let amountAlert = Int(text) ?? 0
-        
-        //設定data 內容
-        let data: [String: Any] = [
-            "id": document.documentID,
-            "photo": url as Any,
-            "name": name,
-            "amount": Int(amount) ?? 0 ,
-            "unit": unit,
-            "amountAlert": Int(amountAlert),
-            "category": category,
-            "purchaseDate": purchaseDatePicker.date,
-            "expiredDate": expiredDatePicker.date
-        ]
-        
-//        let data = Food(
-//            id: document.documentID,
-//            photo: url,
-//            name: name,
-//            amount: Int(amount) ?? 0,
-//            amountAlert: Int(amountAlert),
-//            category: category,
-//            unit: unit,
-//            purchaseDate: purchaseDatePicker.date,
-//            expiredDate: expiredDatePicker.date
-//        )
-        
-        //setData 到firebase
-        document.setData(data)
         
     }
     
     func setupFoodDetail() {
         
         if selectedFood != nil {
-           
+            
             guard let amount = selectedFood?.amount else { return }
             
             if let photo = selectedFood?.photo {
@@ -349,7 +323,7 @@ class AddFoodTableViewController: UITableViewController {
             } else {
                 imageView.image = UIImage(systemName: "photo")
             }
-           
+            
             titleTextField.text = selectedFood?.name
             amountTextField.text = "\(String(describing: amount))"
             unitTextField.text = selectedFood?.unit
@@ -363,7 +337,7 @@ class AddFoodTableViewController: UITableViewController {
             
             purchaseTextField.text = dateFormatter.string(from: purchseDate)
             expiredTextField.text = dateFormatter.string(from: expiredDate)
-
+            
         }
         
     }
@@ -373,12 +347,12 @@ class AddFoodTableViewController: UITableViewController {
         guard let title = segueText?.name,
               let amount = segueText?.amount,
               let unit = segueText?.unit
-              else { return }
+        else { return }
         
         titleTextField.text = title
         amountTextField.text = "\(amount)"
         unitTextField.text = unit
-
+        
     }
     
     // MARK: - Table view data source
@@ -438,9 +412,9 @@ class AddFoodTableViewController: UITableViewController {
 
 //從照片庫選擇照片後，從參數選擇被選取的照片
 extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-
+        
         var selectedImageFromPicker: UIImage?
         
         // 取得從 UIImagePickerController 選擇的檔案
@@ -451,7 +425,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
         
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
         let uniqueString = NSUUID().uuidString
-
+        
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
             imageView.image = selectedImage
@@ -459,14 +433,14 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
             imageView.clipsToBounds = true
             
             let storageRef = Storage.storage().reference().child("Food").child("\(uniqueString).png")
-
+            
             if let uploadData = selectedImage.pngData() {
-               
+                
                 // 這行就是 FirebaseStorage 關鍵的存取方法。
                 storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
-
+                    
                     if error != nil {
-
+                        
                         // 若有接收到錯誤，我們就直接印在 Console 就好，在這邊就不另外做處理。
                         print("Error: \(error!.localizedDescription)")
                         return
@@ -487,7 +461,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
                 })
             }
         }
-
+        
         dismiss(animated: true, completion: nil)
     }
 }

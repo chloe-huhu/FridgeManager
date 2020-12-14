@@ -227,7 +227,7 @@ extension AddPurchaseListTableViewController: UIImagePickerControllerDelegate & 
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
-            let storageRef = Storage.storage().reference().child("Food").child("\(uniqueString).png")
+            let storageRef = Storage.storage().reference().child("PurchaseList").child("\(uniqueString).png")
 
             if let uploadData = selectedImage.pngData() {
                
@@ -256,19 +256,6 @@ extension AddPurchaseListTableViewController: UIImagePickerControllerDelegate & 
                 })
             }
         }
-        //約束條件
-//        let leadingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .leading, relatedBy: .equal, toItem: imageView.superview, attribute: .leading, multiplier: 1, constant: 0)
-//        leadingConstraint.isActive = true
-//
-//        let trailingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .trailing, relatedBy: .equal, toItem: imageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
-//        trailingConstraint.isActive = true
-//
-//        let topConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .top, relatedBy: .equal, toItem: imageView.superview, attribute: .top, multiplier: 1, constant: 0)
-//        topConstraint.isActive = true
-//
-//        let bottomConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .bottom, relatedBy: .equal, toItem: imageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
-//        bottomConstraint.isActive = true
-        
         dismiss(animated: true, completion: nil)
     }
 }

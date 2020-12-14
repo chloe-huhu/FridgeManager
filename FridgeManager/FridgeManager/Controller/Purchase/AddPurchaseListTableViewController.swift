@@ -130,10 +130,12 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
               let unit = unitTextField.text,
               let brand = brandTextField.text,
               let place = placeTextField.text,
-              let note = noteTextView.text,
-              let url = downloadURL
+              let note = noteTextView.text
         
         else { return }
+        
+        
+        let url = downloadURL == nil ? nil : downloadURL
         
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
         
@@ -141,7 +143,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         
         let data: [String: Any] = [
             "id": document.documentID,
-            "photo": url,
+            "photo": url as Any,
             "name": name,
             "amount": Int(amount) ?? 0,
             "unit": unit,

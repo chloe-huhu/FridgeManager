@@ -40,12 +40,16 @@ class PurchaseDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
-            guard let photo = selectedList?.photo else { return }
-            imageView.kf.indicatorType = .activity
             
-            let purchasePhoto = URL(string: photo)
-            imageView.kf.setImage(with: purchasePhoto)
+            if let photo = selectedList?.photo {
             
+                let purchasePhoto = URL(string: photo)
+                imageView.kf.indicatorType = .activity
+                imageView.kf.setImage(with: purchasePhoto)
+                
+            } else {
+                imageView.image = UIImage(systemName: "photo")
+            }
         }
     }
     
@@ -133,7 +137,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         let data: [String: Any] = [
             "id": document.documentID,
-            "photo": "test",
+            "photo": selectedList?.photo as Any,
             "name": name,
             "amount": Int(amount) ,
             "unit": unit,

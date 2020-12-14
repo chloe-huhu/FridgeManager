@@ -95,7 +95,7 @@ class PurchaseListViewController: UIViewController {
                 self.awaitingList = []
                 
                 for document in querySnapshot!.documents {
-                    print("待採購：現有的資料 \(document.documentID) => \(document.data())")
+//                    print("待採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
                         
                         let data = try document.data(as: List.self)

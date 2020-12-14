@@ -9,7 +9,7 @@ import Foundation
 
 struct Food: Codable {
     let id: String
-    let photo: String
+    let photo: String?
     let name: String
     let amount: Int
     let amountAlert: Int
@@ -19,9 +19,26 @@ struct Food: Codable {
     let expiredDate: Date
 }
 
+extension Food {
+    
+    var dictionary: [String: Any] {
+        return [
+            "id": id,
+            "photo": photo as? Any,
+            "name": name,
+            "amount":amount ,
+            "unit": unit,
+            "amountAlert": amountAlert,
+            "category": category,
+            "purchaseDate": purchaseDate,
+            "expiredDate": expiredDate
+        ]
+    }
+}
+
 struct List: Codable {
     let id: String
-    let photo: String
+    let photo: String?
     let name: String
     let amount: Int
     let unit: String

@@ -197,6 +197,8 @@ class FoodListViewController: UIViewController {
           
             } else {
                 
+                self.oriFoods = []
+                
                 for document in querySnapshot!.documents {
                     
 //                    print("現有的資料 \(document.documentID) => \(document.data())")

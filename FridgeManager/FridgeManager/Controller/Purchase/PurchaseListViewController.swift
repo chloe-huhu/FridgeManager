@@ -61,7 +61,7 @@ class PurchaseListViewController: UIViewController {
     func selectedData() {
         switch showType {
         case .edit:
-            barBtnItem.image = #imageLiteral(resourceName: "close")
+            barBtnItem.image = #imageLiteral(resourceName: "trash")
             tableView.isEditing = !tableView.isEditing
             tableView.reloadData()
             showType = .delete

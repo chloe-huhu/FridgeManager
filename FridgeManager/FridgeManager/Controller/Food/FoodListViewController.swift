@@ -40,7 +40,7 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-        expandingMenuButton()
+//        expandingMenuButton()
         dbListen()
     }
     
@@ -57,7 +57,7 @@ class FoodListViewController: UIViewController {
     func selectedData() {
         switch showType {
         case .edit:
-            editButton.image = #imageLiteral(resourceName: "close")
+            editButton.image = #imageLiteral(resourceName: "trash")
             tableView.isEditing = !tableView.isEditing
             isExpendDataList = isExpendDataList.map { _ in return true }
             tableView.reloadData()
@@ -411,7 +411,7 @@ extension FoodListViewController {
                                       highlightedImage: imageItem1,
                                       backgroundImage: imageItem1,
                                       backgroundHighlightedImage: imageItem1) {
-            self.performSegue(withIdentifier: "SegueAddContent", sender: self)
+//            self.performSegue(withIdentifier: "SegueAddContent", sender: self)
         }
         
         let imageItem2 = #imageLiteral(resourceName: "camera")

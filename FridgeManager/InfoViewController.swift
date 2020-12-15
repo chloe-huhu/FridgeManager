@@ -74,7 +74,6 @@ class InfoViewController: UIViewController {
                 
                 self.nameLabel.text = name
                 
-                
             }
             
             controller.addAction(okAction)
@@ -237,7 +236,7 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         
         guard let photo = downloadURL else { return }
         
-        ref.setData(["photo": photo], merge: true)
+        ref.updateData(["photo": photo])
         
     }
 }

@@ -34,11 +34,24 @@ class FoodListViewController: UIViewController {
     
     let takingPicture = UIImagePickerController()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationTitleSetup()
+        tabBarSetup()
+        setupEditBarBtnItem()
+        expandingMenuButton()
+        dbListen()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
-        tableView.isEditing = !tableView.isEditing
-    }
+    @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -47,8 +60,6 @@ class FoodListViewController: UIViewController {
             }
         }
     }
-    
-    @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
     @IBOutlet weak var sliderView: UIView!
     
@@ -68,20 +79,6 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationTitleSetup()
-        tabBarSetup()
-        expandingMenuButton()
-        dbListen()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
-    
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -94,6 +91,56 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.clipsToBounds = true
     }
     
+    func setupEditBarBtnItem() {
+        let img = UIImage(named: "folder")
+        let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(editBtnTapped))
+        navigationItem.rightBarButtonItem = rightBtn
+        
+    }
+    
+    @objc func editBtnTapped(_ sender: UIBarButtonItem) {
+        tableView.isEditing = !tableView.isEditing
+        if tableView.isEditing {
+            self.navigationItem.rightBarButtonItem = nil
+            let img = UIImage(named: "close")
+            let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(deleteSeletecdRow))
+            navigationItem.rightBarButtonItem = rightBtn
+        }
+        
+    }
+    
+    @objc func deleteSeletecdRow(_ sender: UIBarButtonItem) {
+        
+        if let selectedRows = tableView.indexPathsForSelectedRows {
+            
+//            var selectedItems: [Food] = []
+            var selectedItems = [Int]()
+            
+            for indexPath in selectedRows {
+              
+                print(indexPath)
+//                selectedItems.append(foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row])
+//
+//                print("=========", selectedItems)
+            }
+            
+//            tableView.deleteRows(at: indexPaths, with: .automatic)
+            
+//            for selectedItem in selectedItems {
+//
+//                if let index = .index(of:selectedItem) {
+//
+//                }
+//            }
+            
+        }
+        
+        //        if let indexPaths = tableView.indexPathsForSelectedRows {
+        //            tableView.deleteRows(at: indexPaths, with: .automatic)
+        //        }
+        
+    }
+    
     @IBAction func allPressed(_ sender: UIButton) {
         showCategory = .all
         
@@ -104,7 +151,7 @@ class FoodListViewController: UIViewController {
     
     @IBAction func soonExpiredPressed(_ sender: UIButton) {
         showCategory = .soonExpired
-       
+        
         btnPressedAnimation(type: .soonExpired)
         
         let midnight = getMidnightTime()
@@ -118,7 +165,7 @@ class FoodListViewController: UIViewController {
     
     @IBAction func expiredPressed(_ sender: UIButton) {
         showCategory = .expired
-       
+        
         btnPressedAnimation(type: .expired)
         
         let midnight = getMidnightTime()
@@ -194,14 +241,14 @@ class FoodListViewController: UIViewController {
             if let err = err {
                 
                 print("Error getting documents: \(err)")
-          
+                
             } else {
                 
                 self.oriFoods = []
                 
                 for document in querySnapshot!.documents {
                     
-//                    print("現有的資料 \(document.documentID) => \(document.data())")
+                    //                    print("現有的資料 \(document.documentID) => \(document.data())")
                     
                     do {
                         //獲得某食材的資料
@@ -227,6 +274,7 @@ class FoodListViewController: UIViewController {
         let destVC = segue.destination as? AddFoodTableViewController
         destVC?.selectedFood =  segue.identifier == "SegueAddContent" ? nil : selectedFood
     }
+    
     
 }
 
@@ -256,10 +304,6 @@ extension FoodListViewController: UITableViewDelegate {
         let food = foods[indexPath.row]
         
         selectedFood = food
-        
-//        if let indexPaths = tableView.indexPathsForSelectedRows {
-//            tableView.deleteRows(at: indexPaths, with: .automatic)
-//        }
         
         if !tableView.isEditing {
             self.performSegue(withIdentifier: "SegueFoodDetail", sender: nil)

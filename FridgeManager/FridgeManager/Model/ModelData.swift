@@ -26,7 +26,7 @@ extension Food {
             "id": id,
             "photo": photo as? Any,
             "name": name,
-            "amount":amount ,
+            "amount": amount ,
             "unit": unit,
             "amountAlert": amountAlert,
             "category": category,

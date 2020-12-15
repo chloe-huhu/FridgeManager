@@ -35,7 +35,7 @@ class AddFoodTableViewController: UITableViewController {
         dbListenCategory()
         setupFoodDetail()
         finishedPurchaseAddToFood()
-        
+        setupSaveBarBtnItem()
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -243,7 +243,14 @@ class AddFoodTableViewController: UITableViewController {
         
     }
     
-    @IBAction func saveBtnTapped(_ sender: AnyObject) {
+    func setupSaveBarBtnItem() {
+        let img = UIImage(named: "download")
+        let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(saveBtnTapped))
+        navigationItem.rightBarButtonItem = rightBtn
+    }
+    
+    
+   @objc func saveBtnTapped(_ sender: AnyObject) {
         
         if  titleTextField.text == "" || amountTextField.text == "" || unitTextField.text == "" || categoryTextField.text == "" || purchaseTextField.text == "" || expiredTextField.text == "" {
             let alterController = UIAlertController(title: "Oops!!", message: "請填好填滿", preferredStyle: .alert)

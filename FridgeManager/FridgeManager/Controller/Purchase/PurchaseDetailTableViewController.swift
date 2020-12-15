@@ -85,7 +85,12 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet weak var finishedPurchaseButton: UIButton!
+    @IBOutlet weak var finishedPurchaseButton: UIButton! {
+        didSet {
+            finishedPurchaseButton.layer.cornerRadius = 8
+            finishedPurchaseButton.clipsToBounds = true
+        }
+    }
     
     @IBAction func finishedPurchaseBtnTapped(_ sender: UIButton) {
         //accept firebase 刪掉

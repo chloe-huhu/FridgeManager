@@ -68,7 +68,7 @@ class PurchaseListViewController: UIViewController {
         case .delete:
             barBtnItem.image = #imageLiteral(resourceName: "folder.png")
             showType = .edit
-//            deleteRows()
+            deleteRows()
             tableView.isEditing = !tableView.isEditing
             tableView.reloadData()
         }
@@ -79,14 +79,27 @@ class PurchaseListViewController: UIViewController {
         if let seletedRows = tableView.indexPathsForSelectedRows {
             
             var selectedItems: [List] = []
-           
             
             for indexPath in seletedRows {
-                selectedItems.append(awaitingList[indexPath.row])
+               
+                if indexPath.section == 0 {
+                    selectedItems.append(awaitingList[indexPath.row])
+                } else {
+                    selectedItems.append(acceptLists[indexPath.row])
+                }
+                print(selectedItems)
             }
             
             for selecteditem in selectedItems {
-//                ref.document(selecteditem.id).delete()
+                
+                if selecteditem.whoBuy == "" {
+                    let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+                    ref.document(selecteditem.id).delete()
+                } else {
+                    let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+                    ref.document(selecteditem.id).delete()
+                }
+
             }
         }
     }

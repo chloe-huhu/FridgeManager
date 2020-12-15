@@ -20,7 +20,7 @@ class CellView: UITableViewCell {
         //類似左滑出來的色塊
         let selectedCellView = UIView()
         
-        selectedCellView.backgroundColor = #colorLiteral(red: 0.8783852458, green: 0.8784634471, blue: 0.8783199191, alpha: 1)
+        selectedCellView.backgroundColor = .white
         
         self.backgroundView = selectedCellView
         

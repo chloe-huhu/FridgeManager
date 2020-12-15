@@ -40,7 +40,6 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-//        editBarBtnItemSetup()
         expandingMenuButton()
         dbListen()
     }
@@ -53,9 +52,7 @@ class FoodListViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        selectedData()
-    }
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) { selectedData() }
     
     func selectedData() {
         switch showType {
@@ -89,17 +86,13 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    
-    
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
-    @IBOutlet weak var searchBar: UISearchBar! {
-        didSet {
-            if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-                textfield.backgroundColor = .white
-            }
-        }
-    }
+    @IBOutlet weak var allBtn: UIButton!
+    
+    @IBOutlet weak var soonExpiredBtn: UIButton!
+    
+    @IBOutlet weak var expiredBtn: UIButton!
     
     @IBOutlet weak var sliderView: UIView!
     
@@ -117,18 +110,6 @@ class FoodListViewController: UIViewController {
             let cellViewNib: UINib = UINib(nibName: "CellView", bundle: nil)
             self.tableView.register(cellViewNib, forCellReuseIdentifier: "CellView")
         }
-    }
-    
-    func navigationTitleSetup() {
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
-    }
-    
-    func tabBarSetup() {
-        self.tabBarController?.tabBar.layer.borderWidth = 0.50
-        self.tabBarController?.tabBar.layer.borderColor = UIColor.clear.cgColor
-        self.tabBarController?.tabBar.clipsToBounds = true
     }
     
     @IBAction func allPressed(_ sender: UIButton) {
@@ -167,55 +148,6 @@ class FoodListViewController: UIViewController {
         
     }
     
-    func getMidnightTime() -> TimeInterval {
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "UTC")!
-        let today = Date()
-        let midnight = calendar.startOfDay(for: today)
-        return midnight.timeIntervalSince1970
-    }
-    
-    func reloadDataForFoods(foods: [Food]) {
-        
-        foodsDic = [:]
-        
-        foodsKeyArray = []
-        
-        for food in foods {
-            //產生key(Section)
-            if foodsDic[food.category] == nil {
-                //print("---- category is not in dictionary")
-                self.foodsDic[food.category] = []
-                self.isExpendDataList.append(false)
-            }
-            
-            //在key底下,新增value (Section:data 1 \ data 2)
-            self.foodsDic[food.category]?.append(food)
-        }
-        
-        self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
-        
-        self.tableView.reloadData()
-    }
-    
-    func btnPressedAnimation(type: ShowCategory) {
-        
-        switch showCategory {
-        case .all:
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = 6
-            }
-            
-        case .soonExpired:
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = ((self.view.frame.width)/3)+6
-            }
-        case .expired:
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = ((self.view.frame.width)/3*2)+6
-            }
-        }
-    }
     func dbListen() {
         
         FirebaseManager.shared.listen(ref: ref) {
@@ -259,30 +191,97 @@ class FoodListViewController: UIViewController {
         }
     }
     
+    func reloadDataForFoods(foods: [Food]) {
+        
+        foodsDic = [:]
+        
+        foodsKeyArray = []
+        
+        for food in foods {
+            //產生key(Section)
+            if foodsDic[food.category] == nil {
+                //print("---- category is not in dictionary")
+                self.foodsDic[food.category] = []
+                self.isExpendDataList.append(false)
+            }
+            
+            //在key底下,新增value (Section:data 1 \ data 2)
+            self.foodsDic[food.category]?.append(food)
+        }
+        
+        self.foodsKeyArray = Array(self.foodsDic.keys.sorted())
+        
+        self.tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //有兩個perform segue，共用一個prepare，去分辨點選哪一個
         let destVC = segue.destination as? AddFoodTableViewController
         destVC?.selectedFood =  segue.identifier == "SegueAddContent" ? nil : selectedFood
     }
     
+    func getMidnightTime() -> TimeInterval {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        let today = Date()
+        let midnight = calendar.startOfDay(for: today)
+        return midnight.timeIntervalSince1970
+    }
     
+    func btnPressedAnimation(type: ShowCategory) {
+        
+        switch showCategory {
+        case .all:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.frame.origin.x = 6
+            }
+            
+        case .soonExpired:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.frame.origin.x = ((self.view.frame.width)/3)
+            }
+        case .expired:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.frame.origin.x = ((self.view.frame.width)/3*2)
+            }
+        }
+    }
+    
+    func navigationTitleSetup() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
+    }
+    
+    func tabBarSetup() {
+        self.tabBarController?.tabBar.layer.borderWidth = 0.50
+        self.tabBarController?.tabBar.layer.borderColor = UIColor.clear.cgColor
+        self.tabBarController?.tabBar.clipsToBounds = true
+    }
 }
 
 extension FoodListViewController: UITableViewDelegate {
     
     // header高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 120
     }
     
     // footer高度
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        return 1
     }
     
     // row高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.frame = tableView.frame
+        view.backgroundColor = .white
+        return view
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

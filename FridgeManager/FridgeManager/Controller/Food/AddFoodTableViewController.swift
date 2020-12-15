@@ -325,8 +325,7 @@ class AddFoodTableViewController: UITableViewController {
             
             if let photo = selectedFood?.photo {
                 let foodPhoto = URL(string: photo)
-                imageView.kf.indicatorType = .activity
-                imageView.kf.setImage(with: foodPhoto)
+                imageView.kf.setImage(with: foodPhoto, options: [.transition(.fade(1))])
             } else {
                 imageView.image = UIImage(systemName: "photo")
             }

@@ -13,5 +13,5 @@ enum ShowCategory {
 
 
 enum ShowType {
-    case edit,delete
+    case edit, delete
 }

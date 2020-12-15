@@ -10,3 +10,8 @@ import Foundation
 enum ShowCategory {
     case all, soonExpired, expired
 }
+
+
+enum ShowType {
+    case edit,delete
+}

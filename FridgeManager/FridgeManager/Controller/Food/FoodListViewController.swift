@@ -34,11 +34,13 @@ class FoodListViewController: UIViewController {
     
     let takingPicture = UIImagePickerController()
     
+    var showType: ShowType = .edit
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-        setupEditBarBtnItem()
+//        editBarBtnItemSetup()
         expandingMenuButton()
         dbListen()
     }
@@ -50,6 +52,44 @@ class FoodListViewController: UIViewController {
     
     
     @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        selectedData()
+    }
+    
+    func selectedData() {
+        switch showType {
+        case .edit:
+            editButton.image = #imageLiteral(resourceName: "close")
+            tableView.isEditing = !tableView.isEditing
+            isExpendDataList = isExpendDataList.map { _ in return true }
+            tableView.reloadData()
+            showType = .delete
+
+            
+        case .delete:
+            editButton.image = #imageLiteral(resourceName: "folder.png")
+            showType = .edit
+            deleteRows()
+            tableView.isEditing = !tableView.isEditing
+            tableView.reloadData()
+        }
+        
+    }
+    
+    func deleteRows() {
+        if let seletedRows = tableView.indexPathsForSelectedRows {
+            var selectedItems: [Food] = []
+            for indexPath in seletedRows {
+                selectedItems.append(foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row])
+            }
+            for selecteditem in selectedItems {
+                ref.document(selecteditem.id).delete()
+            }
+        }
+    }
+    
+    
     
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
@@ -89,56 +129,6 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.layer.borderWidth = 0.50
         self.tabBarController?.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
-    }
-    
-    func setupEditBarBtnItem() {
-        let img = UIImage(named: "folder")
-        let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(editBtnTapped))
-        navigationItem.rightBarButtonItem = rightBtn
-        
-    }
-    
-    @objc func editBtnTapped(_ sender: UIBarButtonItem) {
-        tableView.isEditing = !tableView.isEditing
-        if tableView.isEditing {
-            self.navigationItem.rightBarButtonItem = nil
-            let img = UIImage(named: "close")
-            let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(deleteSeletecdRow))
-            navigationItem.rightBarButtonItem = rightBtn
-        }
-        
-    }
-    
-    @objc func deleteSeletecdRow(_ sender: UIBarButtonItem) {
-        
-        if let selectedRows = tableView.indexPathsForSelectedRows {
-            
-//            var selectedItems: [Food] = []
-            var selectedItems = [Int]()
-            
-            for indexPath in selectedRows {
-              
-                print(indexPath)
-//                selectedItems.append(foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row])
-//
-//                print("=========", selectedItems)
-            }
-            
-//            tableView.deleteRows(at: indexPaths, with: .automatic)
-            
-//            for selectedItem in selectedItems {
-//
-//                if let index = .index(of:selectedItem) {
-//
-//                }
-//            }
-            
-        }
-        
-        //        if let indexPaths = tableView.indexPathsForSelectedRows {
-        //            tableView.deleteRows(at: indexPaths, with: .automatic)
-        //        }
-        
     }
     
     @IBAction func allPressed(_ sender: UIButton) {

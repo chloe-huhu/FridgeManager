@@ -158,7 +158,7 @@ class PurchaseDetailTableViewController: UITableViewController {
     func deleteAwaiting() {
         guard let id = selectedList? .id else { return }
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
-        ref.document("\(id)").delete() { err in
+        ref.document(id).delete() { err in
             if let err = err {
                 print("Error removing document :\(err)")
             } else {
@@ -185,7 +185,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         guard let id = selectedList? .id else { return }
        
         let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
-        ref.document("\(id)").delete() { err in
+        ref.document(id).delete() { err in
             if let err = err {
                 print("Error removing document :\(err)")
             } else {

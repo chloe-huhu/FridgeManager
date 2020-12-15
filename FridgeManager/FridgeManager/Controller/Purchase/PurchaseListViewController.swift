@@ -25,6 +25,8 @@ class PurchaseListViewController: UIViewController {
     
     var selectedList: List?
     
+    var showType: ShowType = .edit
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
@@ -49,14 +51,55 @@ class PurchaseListViewController: UIViewController {
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
     }
+        
+    @IBOutlet weak var barBtnItem: UIBarButtonItem!
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBAction func editBtnTapped(_ sender: UIBarItem) {
+        selectedData()
+    }
+    
+    func selectedData() {
+        switch showType {
+        case .edit:
+            barBtnItem.image = #imageLiteral(resourceName: "close")
+            tableView.isEditing = !tableView.isEditing
+            tableView.reloadData()
+            showType = .delete
+        case .delete:
+            barBtnItem.image = #imageLiteral(resourceName: "folder.png")
+            showType = .edit
+//            deleteRows()
+            tableView.isEditing = !tableView.isEditing
+            tableView.reloadData()
+        }
+    }
+    
+    func deleteRows() {
+      
+        if let seletedRows = tableView.indexPathsForSelectedRows {
+            
+            var selectedItems: [List] = []
+           
+            
+            for indexPath in seletedRows {
+                selectedItems.append(awaitingList[indexPath.row])
+            }
+            
+            for selecteditem in selectedItems {
+//                ref.document(selecteditem.id).delete()
+            }
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView! {
         
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            
+            tableView.allowsMultipleSelection = true
+            tableView.allowsMultipleSelectionDuringEditing = true
+            
             let sectionViewNib: UINib = UINib(nibName: "PurchaseSectionView", bundle: nil)
             self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "PurchaseSectionView")
             
@@ -166,7 +209,7 @@ extension PurchaseListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        return 1
         
     }
     
@@ -191,7 +234,10 @@ extension PurchaseListViewController: UITableViewDelegate {
             
         selectedList = isAwaiting ? awaitingList[indexPath.row] : acceptLists[indexPath.row]
         
-        self.performSegue(withIdentifier: "SeguePurchaseDetail", sender: nil)
+        if !tableView.isEditing {
+            self.performSegue(withIdentifier: "SeguePurchaseDetail", sender: nil)
+        }
+       
     }
 }
 

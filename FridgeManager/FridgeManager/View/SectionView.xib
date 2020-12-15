@@ -52,7 +52,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmL-ec-fO8">
-                                    <rect key="frame" x="300" y="-10" width="21" height="22"/>
+                                    <rect key="frame" x="300" y="4" width="21" height="22"/>
                                     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <state key="normal" image="bag.fill.badge.plus" catalog="system"/>
                                 </button>
@@ -63,7 +63,7 @@
                                 <constraint firstItem="pFw-LP-7Ve" firstAttribute="top" secondItem="pdm-gK-90m" secondAttribute="top" id="I7c-qm-y2h"/>
                                 <constraint firstItem="mLZ-ZV-z0N" firstAttribute="leading" secondItem="pdm-gK-90m" secondAttribute="trailing" constant="20" id="XMZ-nR-dhT"/>
                                 <constraint firstItem="pFw-LP-7Ve" firstAttribute="leading" secondItem="pdm-gK-90m" secondAttribute="trailing" constant="20" id="YeB-38-NQd"/>
-                                <constraint firstItem="ewY-4l-TLa" firstAttribute="top" secondItem="OmL-ec-fO8" secondAttribute="bottom" constant="30" id="b3A-5R-bcQ"/>
+                                <constraint firstItem="ewY-4l-TLa" firstAttribute="top" secondItem="OmL-ec-fO8" secondAttribute="bottom" constant="16" id="b3A-5R-bcQ"/>
                                 <constraint firstAttribute="bottom" secondItem="ewY-4l-TLa" secondAttribute="bottom" constant="16" id="dhi-cu-nbe"/>
                                 <constraint firstItem="pdm-gK-90m" firstAttribute="centerY" secondItem="LOy-Qp-doT" secondAttribute="centerY" id="kjg-lJ-G2D"/>
                                 <constraint firstAttribute="trailing" secondItem="OmL-ec-fO8" secondAttribute="trailing" constant="16" id="n31-vj-Tyu"/>

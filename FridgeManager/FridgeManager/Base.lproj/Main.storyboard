@@ -29,8 +29,8 @@
                                 <rect key="frame" x="0.0" y="382" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-dZ-QOl">
-                                <rect key="frame" x="0.0" y="65" width="414" height="660"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-dZ-QOl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osq-h1-dGz">
@@ -50,54 +50,32 @@
                                     <segue destination="c3r-si-TlM" kind="show" identifier="" id="e9D-hC-ffV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hig-g6-Pxs">
-                                <rect key="frame" x="60" y="0.0" width="94.5" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="uRB-HH-qEO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="計畫日期" image="calendar.badge.clock.rtl" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="GPl-m6-4XK">
-                                <rect key="frame" x="209" y="0.0" width="180" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="t5I-BC-jpp"/>
-                                </constraints>
-                                <locale key="locale" localeIdentifier="zh_TW"/>
-                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="trailing" secondItem="osq-h1-dGz" secondAttribute="trailing" constant="1" id="18Z-ar-axT"/>
-                            <constraint firstItem="hig-g6-Pxs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="1ZS-DF-Clc"/>
+                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8oq-S8-rku"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K0b-ub-GFD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NEd-dZ-QOl" secondAttribute="trailing" id="PAb-kl-r5J"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GPl-m6-4XK" secondAttribute="trailing" constant="25" id="SnQ-J1-3Gq"/>
-                            <constraint firstItem="GPl-m6-4XK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Xzm-OA-qwh"/>
-                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="hig-g6-Pxs" secondAttribute="bottom" constant="5" id="ZUa-Pd-eIP"/>
-                            <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="GPl-m6-4XK" secondAttribute="bottom" id="aPx-JF-Qis"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="bottom" secondItem="osq-h1-dGz" secondAttribute="bottom" constant="1" id="cOu-bg-G62"/>
-                            <constraint firstItem="hig-g6-Pxs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mpT-2O-e1o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NEd-dZ-QOl" secondAttribute="bottom" id="rWq-kj-gxx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="採購任務" id="X1O-xN-7cd"/>
+                    <navigationItem key="navigationItem" title="採購任務" id="X1O-xN-7cd">
+                        <barButtonItem key="rightBarButtonItem" image="folder" id="Ft0-ms-1QQ">
+                            <connections>
+                                <action selector="editBtnTapped:" destination="BYZ-38-t0r" id="i7g-ic-gL6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="datePicker" destination="DtB-Fv-y4H" id="Ab3-zt-Fd1"/>
+                        <outlet property="barBtnItem" destination="Ft0-ms-1QQ" id="OOn-h0-6Ly"/>
                         <outlet property="tableView" destination="NEd-dZ-QOl" id="kW6-20-PeH"/>
                         <segue destination="H6p-eG-vYX" kind="show" identifier="SeguePurchaseDetail" id="9rv-Va-fdB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" id="DtB-Fv-y4H">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <locale key="locale" localeIdentifier="zh_TW"/>
-                </datePicker>
             </objects>
             <point key="canvasLocation" x="537.68115942028987" y="1664.7321428571429"/>
         </scene>
@@ -189,7 +167,7 @@
                                     <constraint firstAttribute="height" constant="52" id="tzs-AA-Hoe"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-l7-rEU">
                                 <rect key="frame" x="0.0" y="52" width="414" height="673"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -241,7 +219,7 @@
         <scene sceneID="k0K-5P-jYQ">
             <objects>
                 <tableViewController storyboardIdentifier="AddFoodTableViewController" id="yTY-l9-zTe" customClass="AddFoodTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RUl-da-5ga">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RUl-da-5ga">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -261,17 +239,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-7q-CPb">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="374" height="301"/>
+                                                    <rect key="frame" x="5" y="4.5" width="364" height="291"/>
                                                     <color key="tintColor" name="B6"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="lIv-7q-CPb" secondAttribute="trailing" id="7tG-Vg-cJ4"/>
-                                                <constraint firstAttribute="bottom" secondItem="lIv-7q-CPb" secondAttribute="bottom" id="98Z-9i-u1y"/>
-                                                <constraint firstItem="lIv-7q-CPb" firstAttribute="top" secondItem="Ntj-rR-Lu6" secondAttribute="top" id="UWA-nm-2Hz"/>
-                                                <constraint firstItem="lIv-7q-CPb" firstAttribute="leading" secondItem="Ntj-rR-Lu6" secondAttribute="leading" id="loz-rI-JFM"/>
+                                                <constraint firstAttribute="trailing" secondItem="lIv-7q-CPb" secondAttribute="trailing" constant="5" id="7tG-Vg-cJ4"/>
+                                                <constraint firstAttribute="bottom" secondItem="lIv-7q-CPb" secondAttribute="bottom" constant="5" id="98Z-9i-u1y"/>
+                                                <constraint firstItem="lIv-7q-CPb" firstAttribute="top" secondItem="Ntj-rR-Lu6" secondAttribute="top" constant="5" id="UWA-nm-2Hz"/>
+                                                <constraint firstItem="lIv-7q-CPb" firstAttribute="leading" secondItem="Ntj-rR-Lu6" secondAttribute="leading" constant="5" id="loz-rI-JFM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -337,7 +315,7 @@
                                                                     <color key="tintColor" name="B6"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="Lr7-ER-ujV"/>
-                                                                        <constraint firstAttribute="width" constant="260" id="aID-Z7-jwR"/>
+                                                                        <constraint firstAttribute="width" constant="260" id="thA-EW-feI"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -601,7 +579,7 @@
         <scene sceneID="v9i-mx-TbO">
             <objects>
                 <tableViewController id="c3r-si-TlM" customClass="AddPurchaseListTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mgO-Uv-4Ju">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mgO-Uv-4Ju">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -616,17 +594,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-GU-o4F">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="374" height="301"/>
+                                                    <rect key="frame" x="5" y="4.5" width="364" height="291"/>
                                                     <color key="tintColor" name="B6"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Ip8-GU-o4F" firstAttribute="top" secondItem="xg0-2b-hRU" secondAttribute="top" id="M6T-xW-z8G"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ip8-GU-o4F" secondAttribute="bottom" id="QqA-xj-jXf"/>
-                                                <constraint firstItem="Ip8-GU-o4F" firstAttribute="leading" secondItem="xg0-2b-hRU" secondAttribute="leading" id="VAj-xH-KHX"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ip8-GU-o4F" secondAttribute="trailing" id="jxj-GX-YhF"/>
+                                                <constraint firstItem="Ip8-GU-o4F" firstAttribute="top" secondItem="xg0-2b-hRU" secondAttribute="top" constant="5" id="M6T-xW-z8G"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ip8-GU-o4F" secondAttribute="bottom" constant="5" id="QqA-xj-jXf"/>
+                                                <constraint firstItem="Ip8-GU-o4F" firstAttribute="leading" secondItem="xg0-2b-hRU" secondAttribute="leading" constant="5" id="VAj-xH-KHX"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ip8-GU-o4F" secondAttribute="trailing" constant="5" id="jxj-GX-YhF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -880,7 +858,7 @@
         <scene sceneID="Pa6-MI-aje">
             <objects>
                 <tableViewController id="H6p-eG-vYX" customClass="PurchaseDetailTableViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GaH-th-C0b">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GaH-th-C0b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -895,7 +873,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gi-aU-LL7">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="374" height="301"/>
+                                                    <rect key="frame" x="5" y="4.5" width="364" height="291"/>
                                                     <color key="tintColor" name="B6"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
                                                 </imageView>
@@ -917,12 +895,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="2gi-aU-LL7" secondAttribute="trailing" id="0Su-2h-cAp"/>
+                                                <constraint firstAttribute="trailing" secondItem="2gi-aU-LL7" secondAttribute="trailing" constant="5" id="0Su-2h-cAp"/>
                                                 <constraint firstItem="ZWi-3T-3xm" firstAttribute="leading" secondItem="MJu-qw-EeP" secondAttribute="leading" constant="20" id="aX5-ef-ay6"/>
-                                                <constraint firstItem="2gi-aU-LL7" firstAttribute="leading" secondItem="MJu-qw-EeP" secondAttribute="leading" id="bDe-dS-4Ln"/>
+                                                <constraint firstItem="2gi-aU-LL7" firstAttribute="leading" secondItem="MJu-qw-EeP" secondAttribute="leading" constant="5" id="bDe-dS-4Ln"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZWi-3T-3xm" secondAttribute="bottom" constant="20" id="kiB-XH-r1g"/>
-                                                <constraint firstItem="2gi-aU-LL7" firstAttribute="top" secondItem="MJu-qw-EeP" secondAttribute="top" id="oHI-bZ-u6U"/>
-                                                <constraint firstAttribute="bottom" secondItem="2gi-aU-LL7" secondAttribute="bottom" id="oax-r4-MxB"/>
+                                                <constraint firstItem="2gi-aU-LL7" firstAttribute="top" secondItem="MJu-qw-EeP" secondAttribute="top" constant="5" id="oHI-bZ-u6U"/>
+                                                <constraint firstAttribute="bottom" secondItem="2gi-aU-LL7" secondAttribute="bottom" constant="5" id="oax-r4-MxB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1186,7 +1164,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1234,7 +1212,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-8C-S69">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-8C-S69">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1478,7 +1456,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-22-cvo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-22-cvo">
                                 <rect key="frame" x="0.0" y="150" width="414" height="575"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1623,13 +1601,12 @@
                         <imageReference key="image" image="fridge" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                        <imageReference key="selectedImage" image="fridge-1" symbolScale="large"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -1675,10 +1652,9 @@
                     <tabBarItem key="tabBarItem" title="" id="mcT-im-OiG" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <imageReference key="image" image="chef (2)" symbolScale="large"/>
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
-                        <imageReference key="selectedImage" image="cooking" symbolScale="large"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1728,7 +1704,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1828,16 +1804,13 @@
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
         <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
         <image name="chef (2)" width="32" height="32"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
-        <image name="cooking" width="21.333333969116211" height="21.333333969116211"/>
         <image name="download" width="42.666667938232422" height="42.666667938232422"/>
         <image name="exclamationmark.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="folder" width="42.666667938232422" height="42.666667938232422"/>
         <image name="folder.badge.plus.fill" catalog="system" width="128" height="91"/>
         <image name="fridge" width="32" height="32"/>
-        <image name="fridge-1" width="21.333333969116211" height="21.333333969116211"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" width="64" height="64"/>

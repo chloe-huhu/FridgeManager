@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-Sz-XDF" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                        <rect key="frame" x="16" y="5" width="288" height="63"/>
+                        <rect key="frame" x="16" y="3" width="284" height="67"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香蕉" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-fB-VZd">
                                 <rect key="frame" x="16" y="8" width="100" height="22.5"/>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-HO-nbK" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
-                                <rect key="frame" x="192" y="20.5" width="80" height="22.5"/>
+                                <rect key="frame" x="188" y="22.5" width="80" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="BcA-Zr-cRD"/>
                                 </constraints>
@@ -79,10 +79,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Jpf-Sz-XDF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="OuI-Ch-1hd"/>
-                    <constraint firstAttribute="bottom" secondItem="Jpf-Sz-XDF" secondAttribute="bottom" constant="5" id="g8S-WO-Cew"/>
+                    <constraint firstItem="Jpf-Sz-XDF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="OuI-Ch-1hd"/>
+                    <constraint firstAttribute="bottom" secondItem="Jpf-Sz-XDF" secondAttribute="bottom" constant="3" id="g8S-WO-Cew"/>
                     <constraint firstItem="Jpf-Sz-XDF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mbg-Lf-4nv"/>
-                    <constraint firstAttribute="trailing" secondItem="Jpf-Sz-XDF" secondAttribute="trailing" constant="16" id="ufo-23-9qS"/>
+                    <constraint firstAttribute="trailing" secondItem="Jpf-Sz-XDF" secondAttribute="trailing" constant="20" id="ufo-23-9qS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

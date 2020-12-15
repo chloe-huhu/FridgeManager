@@ -63,7 +63,6 @@ class FoodListViewController: UIViewController {
             tableView.reloadData()
             showType = .delete
 
-            
         case .delete:
             editButton.image = #imageLiteral(resourceName: "folder.png")
             showType = .edit
@@ -126,6 +125,7 @@ class FoodListViewController: UIViewController {
         btnPressedAnimation(type: .soonExpired)
         
         let midnight = getMidnightTime()
+        
         let soonExpiredFoods = oriFoods.filter {
             $0.expiredDate.timeIntervalSince1970 > midnight
                 && $0.expiredDate.timeIntervalSince1970 < midnight + 86400 * 3
@@ -140,6 +140,7 @@ class FoodListViewController: UIViewController {
         btnPressedAnimation(type: .expired)
         
         let midnight = getMidnightTime()
+        
         let expiredFoods = oriFoods.filter {
             $0.expiredDate.timeIntervalSince1970 < midnight
         }
@@ -170,7 +171,7 @@ class FoodListViewController: UIViewController {
                 
                 for document in querySnapshot!.documents {
                     
-                    //                    print("現有的資料 \(document.documentID) => \(document.data())")
+                    //print("現有的資料 \(document.documentID) => \(document.data())")
                     
                     do {
                         //獲得某食材的資料
@@ -205,7 +206,7 @@ class FoodListViewController: UIViewController {
                 self.isExpendDataList.append(false)
             }
             
-            //在key底下,新增value (Section:data 1 \ data 2)
+            //在key底下,新增value (Section:data1\data2)
             self.foodsDic[food.category]?.append(food)
         }
         
@@ -339,7 +340,9 @@ extension FoodListViewController: UITableViewDataSource {
         if isExpendDataList[section] {
             
             return foodsDic[foodsKeyArray[section]]?.count ?? 0
+       
         } else {
+            
             return 0
             
         }
@@ -348,9 +351,7 @@ extension FoodListViewController: UITableViewDataSource {
     // row content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell: CellView = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? CellView
-        
-        else { return UITableViewCell() }
+        guard let cell: CellView = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as? CellView else { return UITableViewCell() }
         
         let food = foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row]
         
@@ -373,8 +374,7 @@ extension FoodListViewController: SectionViewDelegate {
 //掃描發票用在這
 extension FoodListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         //        if let image = info[.originalImage] as? UIImage {
         //

@@ -15,7 +15,13 @@ class AddFoodTableViewController: UITableViewController {
     
     var foodCategory: [String]?
     
-    var selectedFood: Food?
+    var selectedFood: Food? {
+        
+        didSet {
+            
+            downloadURL = selectedFood?.photo
+        }
+    }
     
     let ref = Firestore.firestore().collection("fridges")
     
@@ -37,6 +43,8 @@ class AddFoodTableViewController: UITableViewController {
         finishedPurchaseAddToFood()
         setupSaveBarBtnItem()
         self.tabBarController?.tabBar.isHidden = true
+        
+        print(selectedFood)
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -325,7 +333,7 @@ class AddFoodTableViewController: UITableViewController {
             
             if let photo = selectedFood?.photo {
                 let foodPhoto = URL(string: photo)
-                imageView.kf.setImage(with: foodPhoto, options: [.transition(.fade(1))])
+                imageView.kf.setImage(with: foodPhoto, options: [.transition(.fade(0.5))])
             } else {
                 imageView.image = UIImage(systemName: "photo")
             }

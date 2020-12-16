@@ -58,7 +58,7 @@ struct User: Codable {
 }
 
 struct Fridge: Codable {
-    let firdgeName: String
+    let fridgeName: String
     let fridgeID: String
     let users: [String]
     let category: [String]

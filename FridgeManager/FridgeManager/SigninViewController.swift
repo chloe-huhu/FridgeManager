@@ -125,11 +125,11 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 
                 guard let user = authResult?.user else { return }
              
-//                if Auth.auth().currentUser != nil {
-//
-//                    self.performSegue(withIdentifier: "showSignin", sender: nil)
-//
-//                } else {
+                if Auth.auth().currentUser != nil {
+
+                    self.performSegue(withIdentifier: "showSignin", sender: nil)
+
+                } else {
                  
                     UserDefaults.standard.setValue(user.uid, forKey: "userUid")
                     
@@ -163,7 +163,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             
                         }
                     }
-//                }
+                }
                 print("the user has sign up or is logged in")
             }
         }

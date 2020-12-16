@@ -24,7 +24,7 @@ class InfoViewController: UIViewController {
         return Firestore.firestore().collection("users").document(id)
     }
     
-    var fridgesIDArray: [String] = []
+    var fridgesNameArray: [String] = []
     
     var inviteArray: [String] = []
     
@@ -74,14 +74,14 @@ class InfoViewController: UIViewController {
         doc.setData([
             "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
             "fridgeID": doc.documentID,
-            "fidgeName": name,
-            "users": Auth.auth().currentUser?.email
+            "fridgeName": name,
+            "users": [Auth.auth().currentUser?.email]
         ])
         
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
         
         userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
-
+        
     }
     
     
@@ -138,11 +138,11 @@ class InfoViewController: UIViewController {
     }
     
     @IBAction func myFridge(_ sender: UIButton) {
-   
+        
     }
     
     @IBAction func invite(_ sender: UIButton) {
-   
+        
     }
     
     @IBOutlet weak var tableView: UITableView! {
@@ -189,10 +189,10 @@ class InfoViewController: UIViewController {
                               let fridges = data?.myFridges,
                               let invites = data?.myInvites,
                               let photo = data?.photo
-                              
+                        
                         else { return }
-        
-                    
+                        
+                        
                         if photo != "" {
                             
                             let userPhoto = URL(string: photo)
@@ -200,17 +200,20 @@ class InfoViewController: UIViewController {
                             self.personImageView.kf.indicatorType = .activity
                             
                             self.personImageView.kf.setImage(with: userPhoto)
-                        
+                            
                         } else {
                             
                             self.personImageView.image = UIImage(systemName: "person.circle")
                         }
-                       
+                        
                         self.nameLabel.text = name
                         
-                        self.fridgesIDArray = fridges
+                        for fridge in fridges {
+                            self.getFridgeName(fridgeID: fridge)
+                        }
                         
                         self.inviteArray = invites
+                        
                         
                     } catch {
                         
@@ -228,15 +231,95 @@ class InfoViewController: UIViewController {
         }
     }
     
+    func getFridgeName (fridgeID: String) {
+        print(fridgeID)
+        Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documnets : \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    do {
+                        
+                        let data = try document.data(as: Fridge.self)
+                        
+                        self.fridgesNameArray.append(data!.fridgeName)
+                        
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                    
+                }
+                print("===========", self.fridgesNameArray)
+                self.tableView.reloadData()
+            }
+            
+            
+        }
+    }
     
+    
+}
 
+extension InfoViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+}
+
+extension InfoViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return fridgesNameArray.count
+        } else {
+            return inviteArray.count
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
+        
+        if indexPath.section == 0 {
+            
+            cell.fridgeIDLabel.text = fridgesNameArray[indexPath.row]
+            
+        } else {
+            
+            cell.fridgeIDLabel.text = inviteArray[indexPath.row]
+            
+        }
+        
+        return cell
+    }
+    
     
 }
 
 extension InfoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-
+        
         var selectedImageFromPicker: UIImage?
         
         // 取得從 UIImagePickerController 選擇的檔案
@@ -294,73 +377,4 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         refUID!.updateData(["photo": photo])
         
     }
-}
-
-extension InfoViewController: UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-//        let headerLabel = UILabel()
-//
-//        headerLabel.frame = CGRect.init(x: 0, y: 30, width: headerView.frame.width, height: 20)
-//        headerLabel.text = section == 0 ? "我的冰箱" : "冰箱邀請"
-//        headerLabel.textColor = UIColor.chloeBlue
-//        headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
-//        headerView.addSubview(headerLabel)
-//        return headerView
-//    }
-    
-}
-
-extension InfoViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        if section == 0 {
-            return fridgesIDArray.count
-        } else {
-            return inviteArray.count
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
-        
-        if indexPath.section == 0 {
-            
-            cell.fridgeIDLabel.text = fridgesIDArray[indexPath.row]
-            
-//            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
-            
-        } else {
-            
-            cell.fridgeIDLabel.text = inviteArray[indexPath.row]
-            
-//            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
-            
-        }
-       
-        return cell
-    }
-    
-    
 }

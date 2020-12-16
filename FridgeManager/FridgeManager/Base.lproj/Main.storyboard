@@ -580,12 +580,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </pickerView>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" id="Vl6-ld-Agr">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" id="Vl6-ld-Agr">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="453"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <locale key="locale" localeIdentifier="zh_TW"/>
                 </datePicker>
-                <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" id="fqE-YV-etr">
+                <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" id="fqE-YV-etr">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="459"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <locale key="locale" localeIdentifier="zh_TW"/>
@@ -1385,7 +1385,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-22-cvo">
-                                <rect key="frame" x="0.0" y="287" width="414" height="438"/>
+                                <rect key="frame" x="0.0" y="271" width="414" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" rowHeight="74" id="ZLu-cQ-MQM" customClass="InfoTableViewCell" customModule="FridgeManager" customModuleProvider="target">
@@ -1396,51 +1396,37 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Mc-SG-h0w" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                                                    <rect key="frame" x="1" y="3" width="372" height="68"/>
+                                                    <rect key="frame" x="3" y="10" width="368" height="54"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7F3-fT-pU4">
-                                                            <rect key="frame" x="16" y="19" width="30" height="30"/>
-                                                            <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7F3-fT-pU4">
+                                                            <rect key="frame" x="16" y="12" width="30" height="30"/>
+                                                            <color key="tintColor" systemColor="tertiaryLabelColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="Bvw-3T-2YL"/>
                                                                 <constraint firstAttribute="height" constant="30" id="dtN-wZ-n6l"/>
                                                             </constraints>
                                                             <imageReference key="image" image="fridge" symbolScale="large"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                                                    <integer key="value" value="15"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="冰箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-Fp-UHO">
-                                                            <rect key="frame" x="66" y="16" width="50" height="25.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="冰箱名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-Fp-UHO">
+                                                            <rect key="frame" x="66" y="14.5" width="80" height="25.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="50" id="LZr-dJ-YT8"/>
+                                                                <constraint firstAttribute="width" constant="80" id="LZr-dJ-YT8"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9527" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-n4-25P">
-                                                            <rect key="frame" x="132" y="17.5" width="38" height="22.5"/>
+                                                            <rect key="frame" x="162" y="16" width="38" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTU-nE-J1h">
-                                                            <rect key="frame" x="224.5" y="66.5" width="50" height="0.0"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="50" id="HYf-8p-5cm"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                                            <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="a7k-n4-25P" firstAttribute="centerY" secondItem="Grg-Fp-UHO" secondAttribute="centerY" id="ERO-vn-TZ0"/>
-                                                        <constraint firstItem="Grg-Fp-UHO" firstAttribute="top" secondItem="7Mc-SG-h0w" secondAttribute="top" constant="16" id="ZWp-tR-s4w"/>
+                                                        <constraint firstItem="Grg-Fp-UHO" firstAttribute="centerY" secondItem="7F3-fT-pU4" secondAttribute="centerY" id="WTe-Jc-tgB"/>
                                                         <constraint firstItem="7F3-fT-pU4" firstAttribute="leading" secondItem="7Mc-SG-h0w" secondAttribute="leading" constant="16" id="c0E-fV-PJB"/>
                                                         <constraint firstItem="Grg-Fp-UHO" firstAttribute="leading" secondItem="7F3-fT-pU4" secondAttribute="trailing" constant="20" id="m6L-pK-E2k"/>
                                                         <constraint firstItem="7F3-fT-pU4" firstAttribute="centerY" secondItem="7Mc-SG-h0w" secondAttribute="centerY" id="n08-wV-Dfm"/>
@@ -1466,10 +1452,10 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="7Mc-SG-h0w" secondAttribute="trailing" constant="1" id="538-7E-4GC"/>
-                                                <constraint firstAttribute="bottom" secondItem="7Mc-SG-h0w" secondAttribute="bottom" constant="3" id="62H-HE-4gI"/>
-                                                <constraint firstItem="7Mc-SG-h0w" firstAttribute="leading" secondItem="x0t-RH-bIy" secondAttribute="leading" constant="1" id="llE-I1-qOH"/>
-                                                <constraint firstItem="7Mc-SG-h0w" firstAttribute="top" secondItem="x0t-RH-bIy" secondAttribute="top" constant="3" id="nId-2M-8gh"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Mc-SG-h0w" secondAttribute="trailing" constant="3" id="538-7E-4GC"/>
+                                                <constraint firstAttribute="bottom" secondItem="7Mc-SG-h0w" secondAttribute="bottom" constant="10" id="62H-HE-4gI"/>
+                                                <constraint firstItem="7Mc-SG-h0w" firstAttribute="leading" secondItem="x0t-RH-bIy" secondAttribute="leading" constant="3" id="llE-I1-qOH"/>
+                                                <constraint firstItem="7Mc-SG-h0w" firstAttribute="top" secondItem="x0t-RH-bIy" secondAttribute="top" constant="10" id="nId-2M-8gh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1527,7 +1513,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-fc-ss0" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                                <rect key="frame" x="20" y="231" width="374" height="40"/>
+                                <rect key="frame" x="20" y="226" width="374" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rX-5p-c9Z">
                                         <rect key="frame" x="30" y="2" width="150" height="36"/>
@@ -1600,7 +1586,7 @@
                             <constraint firstItem="lWn-XY-DGk" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="94L-o6-I8Y"/>
                             <constraint firstItem="bey-uC-OPM" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="BG5-l0-Wpd"/>
                             <constraint firstItem="lWn-XY-DGk" firstAttribute="top" secondItem="CAZ-ay-4MF" secondAttribute="bottom" constant="20" id="BTk-gv-0zt"/>
-                            <constraint firstItem="ffe-22-cvo" firstAttribute="leading" secondItem="RmC-MY-l38" secondAttribute="leading" id="EQo-qL-zO8"/>
+                            <constraint firstItem="ffe-22-cvo" firstAttribute="leading" secondItem="stc-KJ-6yA" secondAttribute="leading" id="EQo-qL-zO8"/>
                             <constraint firstItem="3dU-s5-L9E" firstAttribute="centerY" secondItem="lWn-XY-DGk" secondAttribute="centerY" id="FXd-nW-myr"/>
                             <constraint firstItem="CAZ-ay-4MF" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="Lq2-Dj-Cpw"/>
                             <constraint firstItem="CAZ-ay-4MF" firstAttribute="top" secondItem="stc-KJ-6yA" secondAttribute="top" constant="15" id="Ls3-WM-Dm3"/>
@@ -1608,9 +1594,9 @@
                             <constraint firstItem="bey-uC-OPM" firstAttribute="top" secondItem="lWn-XY-DGk" secondAttribute="bottom" constant="20" id="RNE-Le-zoh"/>
                             <constraint firstItem="dp5-fc-ss0" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="RXb-q9-d7f"/>
                             <constraint firstItem="dp5-fc-ss0" firstAttribute="leading" secondItem="stc-KJ-6yA" secondAttribute="leading" constant="20" id="SGp-Xu-xS7"/>
-                            <constraint firstItem="dp5-fc-ss0" firstAttribute="top" secondItem="bey-uC-OPM" secondAttribute="bottom" constant="25" id="Z4E-cf-aKn"/>
-                            <constraint firstAttribute="trailing" secondItem="ffe-22-cvo" secondAttribute="trailing" id="b1i-hw-Z2y"/>
-                            <constraint firstItem="ffe-22-cvo" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="bottom" constant="16" id="dnb-EJ-sNt"/>
+                            <constraint firstItem="dp5-fc-ss0" firstAttribute="top" secondItem="bey-uC-OPM" secondAttribute="bottom" constant="20" id="Z4E-cf-aKn"/>
+                            <constraint firstItem="stc-KJ-6yA" firstAttribute="trailing" secondItem="ffe-22-cvo" secondAttribute="trailing" id="b1i-hw-Z2y"/>
+                            <constraint firstItem="ffe-22-cvo" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="bottom" constant="5" id="dnb-EJ-sNt"/>
                             <constraint firstItem="stc-KJ-6yA" firstAttribute="trailing" secondItem="dp5-fc-ss0" secondAttribute="trailing" constant="20" id="x8Z-4F-bqY"/>
                         </constraints>
                     </view>
@@ -1842,7 +1828,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cac-fM-gvU"/>
+        <segue reference="8dV-Mf-sHW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
@@ -1867,6 +1853,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -227,7 +227,7 @@ extension AddPurchaseListTableViewController: UIImagePickerControllerDelegate & 
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
-            let storageRef = Storage.storage().reference().child("PurchaseList").child("\(uniqueString).png")
+            let storageRef = Storage.storage().reference().child("purchaseList").child("\(uniqueString).png")
 
             if let uploadData = selectedImage.pngData() {
                

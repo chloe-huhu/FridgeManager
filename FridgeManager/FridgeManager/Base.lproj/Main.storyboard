@@ -1376,7 +1376,7 @@
             </objects>
             <point key="canvasLocation" x="2404" y="2405"/>
         </scene>
-        <!--個人頁面-->
+        <!--個人設定-->
         <scene sceneID="kAw-Ro-25R">
             <objects>
                 <viewController id="PbV-wG-u5g" customClass="InfoViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -1384,98 +1384,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-fc-ss0" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="394" height="130"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CAZ-ay-4MF">
-                                        <rect key="frame" x="8" y="25.5" width="80" height="79"/>
-                                        <color key="tintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="Meb-uK-yF2"/>
-                                            <constraint firstAttribute="width" constant="80" id="Q35-Lk-b3t"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="40"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暱稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7j2-YX-E0J">
-                                        <rect key="frame" x="118" y="24" width="40" height="26"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="VCe-Ig-gxi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登入Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkA-cU-QWt">
-                                        <rect key="frame" x="118" y="60" width="84" height="26"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="chloehuhu0924@gamil.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNI-ee-URj">
-                                        <rect key="frame" x="118" y="91" width="204" height="23"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                        <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dU-s5-L9E">
-                                        <rect key="frame" x="348" y="16" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="8FK-If-lwb"/>
-                                            <constraint firstAttribute="height" constant="30" id="M9Y-9N-hsU"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="add (1)"/>
-                                        <connections>
-                                            <action selector="editBtnTapped:" destination="PbV-wG-u5g" eventType="touchUpInside" id="TgT-cx-nGm"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沙士QQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-XY-DGk">
-                                        <rect key="frame" x="174" y="24" width="57" height="23"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="7j2-YX-E0J" firstAttribute="leading" secondItem="CAZ-ay-4MF" secondAttribute="trailing" constant="30" id="5Zp-Xh-Ikr"/>
-                                    <constraint firstItem="lWn-XY-DGk" firstAttribute="leading" secondItem="7j2-YX-E0J" secondAttribute="trailing" constant="16" id="7j9-E6-AeO"/>
-                                    <constraint firstAttribute="height" constant="130" id="LbQ-vx-WTN"/>
-                                    <constraint firstItem="bNI-ee-URj" firstAttribute="top" secondItem="bkA-cU-QWt" secondAttribute="bottom" constant="5" id="Lf2-2b-I22"/>
-                                    <constraint firstAttribute="trailing" secondItem="3dU-s5-L9E" secondAttribute="trailing" constant="16" id="MMW-hl-78P"/>
-                                    <constraint firstItem="bkA-cU-QWt" firstAttribute="leading" secondItem="7j2-YX-E0J" secondAttribute="leading" id="SqU-zj-3JL"/>
-                                    <constraint firstItem="3dU-s5-L9E" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="top" constant="16" id="TIR-5q-6SJ"/>
-                                    <constraint firstItem="bNI-ee-URj" firstAttribute="leading" secondItem="7j2-YX-E0J" secondAttribute="leading" id="VC0-7A-LC2"/>
-                                    <constraint firstItem="lWn-XY-DGk" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="top" constant="24" id="VvK-gZ-wal"/>
-                                    <constraint firstItem="7j2-YX-E0J" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="top" constant="24" id="bh2-Au-KI2"/>
-                                    <constraint firstItem="bkA-cU-QWt" firstAttribute="top" secondItem="7j2-YX-E0J" secondAttribute="bottom" constant="10" id="euf-Xt-QRr"/>
-                                    <constraint firstItem="CAZ-ay-4MF" firstAttribute="leading" secondItem="dp5-fc-ss0" secondAttribute="leading" constant="8" id="sAO-wT-9JZ"/>
-                                    <constraint firstItem="CAZ-ay-4MF" firstAttribute="centerY" secondItem="dp5-fc-ss0" secondAttribute="centerY" id="w8s-B5-XnJ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-22-cvo">
-                                <rect key="frame" x="0.0" y="150" width="414" height="575"/>
+                                <rect key="frame" x="0.0" y="255" width="414" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" rowHeight="120" id="ZLu-cQ-MQM" customClass="InfoTableViewCell" customModule="FridgeManager" customModuleProvider="target">
@@ -1498,7 +1408,7 @@
                                                             <imageReference key="image" image="fridge" symbolScale="large"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="冰箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-Fp-UHO">
-                                                            <rect key="frame" x="96" y="16" width="50" height="26"/>
+                                                            <rect key="frame" x="96" y="16" width="50" height="25.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="LZr-dJ-YT8"/>
                                                             </constraints>
@@ -1507,7 +1417,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9527" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-n4-25P">
-                                                            <rect key="frame" x="162" y="18" width="38" height="22.5"/>
+                                                            <rect key="frame" x="162" y="17.5" width="38" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1564,26 +1474,150 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CAZ-ay-4MF">
+                                <rect key="frame" x="167" y="15.5" width="80" height="79"/>
+                                <color key="tintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Meb-uK-yF2"/>
+                                    <constraint firstAttribute="width" constant="80" id="Q35-Lk-b3t"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-XY-DGk">
+                                <rect key="frame" x="182.5" y="103" width="49.5" height="25.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bey-uC-OPM">
+                                <rect key="frame" x="89" y="148.5" width="236" height="25.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當前冰箱：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scO-T4-ukJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="25.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="118" id="xrD-OE-wBD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市民大道冰箱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi">
+                                        <rect key="frame" x="118" y="0.0" width="118" height="25.5"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                        <color key="textColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dU-s5-L9E">
+                                <rect key="frame" x="307.5" y="105" width="17.5" height="22"/>
+                                <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="editBtnTapped:" destination="PbV-wG-u5g" eventType="touchUpInside" id="TgT-cx-nGm"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-fc-ss0" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
+                                <rect key="frame" x="20" y="199" width="374" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rX-5p-c9Z">
+                                        <rect key="frame" x="30" y="2" width="150" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Wd2-XW-m7M"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                        <state key="normal" title="冰箱列表">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="myFridge:" destination="PbV-wG-u5g" eventType="touchUpInside" id="43D-Ef-0TB"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcN-Z1-yos">
+                                        <rect key="frame" x="186" y="10" width="2" height="20"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="2" id="XP2-E5-Rnt"/>
+                                            <constraint firstAttribute="height" constant="20" id="nU7-Sp-iaf"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-sS-3xm">
+                                        <rect key="frame" x="177" y="2" width="167" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="167" id="Me9-2H-HTv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                        <state key="normal" title="冰箱邀請">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="invite:" destination="PbV-wG-u5g" eventType="touchUpInside" id="gsM-WS-ype"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="4rX-5p-c9Z" firstAttribute="leading" secondItem="dp5-fc-ss0" secondAttribute="leading" constant="30" id="1Gt-Ki-KXf"/>
+                                    <constraint firstItem="Mip-sS-3xm" firstAttribute="centerY" secondItem="dp5-fc-ss0" secondAttribute="centerY" id="BFT-Zj-3KK"/>
+                                    <constraint firstItem="tcN-Z1-yos" firstAttribute="centerY" secondItem="dp5-fc-ss0" secondAttribute="centerY" id="DSc-T9-23b"/>
+                                    <constraint firstItem="tcN-Z1-yos" firstAttribute="leading" secondItem="4rX-5p-c9Z" secondAttribute="trailing" constant="6" id="IHv-q1-JC1"/>
+                                    <constraint firstItem="4rX-5p-c9Z" firstAttribute="centerY" secondItem="dp5-fc-ss0" secondAttribute="centerY" id="SXY-9G-Gx8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mip-sS-3xm" secondAttribute="trailing" constant="30" id="h3s-0Q-pAQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="zad-NW-54b"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="stc-KJ-6yA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="stc-KJ-6yA" firstAttribute="bottom" secondItem="ffe-22-cvo" secondAttribute="bottom" id="5N4-Wh-mhH"/>
+                            <constraint firstItem="lWn-XY-DGk" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="94L-o6-I8Y"/>
+                            <constraint firstItem="bey-uC-OPM" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="BG5-l0-Wpd"/>
+                            <constraint firstItem="lWn-XY-DGk" firstAttribute="top" secondItem="CAZ-ay-4MF" secondAttribute="bottom" constant="8" id="BTk-gv-0zt"/>
                             <constraint firstItem="ffe-22-cvo" firstAttribute="leading" secondItem="RmC-MY-l38" secondAttribute="leading" id="EQo-qL-zO8"/>
-                            <constraint firstItem="dp5-fc-ss0" firstAttribute="leading" secondItem="stc-KJ-6yA" secondAttribute="leading" constant="10" id="ZtI-po-07K"/>
+                            <constraint firstItem="3dU-s5-L9E" firstAttribute="centerY" secondItem="lWn-XY-DGk" secondAttribute="centerY" id="FXd-nW-myr"/>
+                            <constraint firstItem="CAZ-ay-4MF" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="Lq2-Dj-Cpw"/>
+                            <constraint firstItem="CAZ-ay-4MF" firstAttribute="top" secondItem="stc-KJ-6yA" secondAttribute="top" constant="15" id="Ls3-WM-Dm3"/>
+                            <constraint firstItem="3dU-s5-L9E" firstAttribute="trailing" secondItem="fRf-b6-sCi" secondAttribute="trailing" id="McY-Lw-Y3I"/>
+                            <constraint firstItem="bey-uC-OPM" firstAttribute="top" secondItem="lWn-XY-DGk" secondAttribute="bottom" constant="20" id="RNE-Le-zoh"/>
+                            <constraint firstItem="dp5-fc-ss0" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="RXb-q9-d7f"/>
+                            <constraint firstItem="dp5-fc-ss0" firstAttribute="leading" secondItem="stc-KJ-6yA" secondAttribute="leading" constant="20" id="SGp-Xu-xS7"/>
+                            <constraint firstItem="dp5-fc-ss0" firstAttribute="top" secondItem="bey-uC-OPM" secondAttribute="bottom" constant="25" id="Z4E-cf-aKn"/>
                             <constraint firstAttribute="trailing" secondItem="ffe-22-cvo" secondAttribute="trailing" id="b1i-hw-Z2y"/>
-                            <constraint firstItem="stc-KJ-6yA" firstAttribute="trailing" secondItem="dp5-fc-ss0" secondAttribute="trailing" constant="10" id="bTt-V6-xbD"/>
-                            <constraint firstItem="dp5-fc-ss0" firstAttribute="top" secondItem="stc-KJ-6yA" secondAttribute="top" constant="10" id="eOA-zS-ND0"/>
-                            <constraint firstItem="dp5-fc-ss0" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="mwb-eo-A40"/>
-                            <constraint firstItem="ffe-22-cvo" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="bottom" constant="10" id="vyN-0A-hbf"/>
+                            <constraint firstItem="ffe-22-cvo" firstAttribute="top" secondItem="dp5-fc-ss0" secondAttribute="bottom" constant="16" id="dnb-EJ-sNt"/>
+                            <constraint firstItem="stc-KJ-6yA" firstAttribute="trailing" secondItem="dp5-fc-ss0" secondAttribute="trailing" constant="20" id="x8Z-4F-bqY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="個人頁面" id="6Hs-Wr-VC1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="5Xf-wN-apz"/>
+                    <navigationItem key="navigationItem" title="個人設定" id="6Hs-Wr-VC1">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="5Xf-wN-apz">
+                            <connections>
+                                <action selector="addNewFridgeBtnTapped:" destination="PbV-wG-u5g" id="1Ed-hk-C8c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="3dU-s5-L9E" id="bV6-qi-3FB"/>
-                        <outlet property="emailLabel" destination="bNI-ee-URj" id="Lrv-sc-xjt"/>
                         <outlet property="nameLabel" destination="lWn-XY-DGk" id="X0E-9M-Vaj"/>
                         <outlet property="personImageView" destination="CAZ-ay-4MF" id="wSI-28-ln1"/>
                         <outlet property="tableView" destination="ffe-22-cvo" id="hKz-Rs-CGs"/>
@@ -1591,7 +1625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxG-Z4-SVo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564" y="1665"/>
+            <point key="canvasLocation" x="2562.3188405797105" y="1664.7321428571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X9s-75-8Ea">
@@ -1799,11 +1833,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lds-aR-iOo"/>
+        <segue reference="Cac-fM-gvU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
         <image name="chef (2)" width="32" height="32"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="download" width="42.666667938232422" height="42.666667938232422"/>
@@ -1811,6 +1844,7 @@
         <image name="folder" width="42.666667938232422" height="42.666667938232422"/>
         <image name="folder.badge.plus.fill" catalog="system" width="128" height="91"/>
         <image name="fridge" width="32" height="32"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" width="64" height="64"/>

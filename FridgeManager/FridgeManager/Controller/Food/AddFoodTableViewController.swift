@@ -446,7 +446,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
-            let storageRef = Storage.storage().reference().child("Food").child("\(uniqueString).png")
+            let storageRef = Storage.storage().reference().child("food").child("\(uniqueString).png")
             
             if let uploadData = selectedImage.pngData() {
                 

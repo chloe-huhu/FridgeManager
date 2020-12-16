@@ -14,12 +14,9 @@ import Kingfisher
 
 class InfoViewController: UIViewController {
     
-    let numberOfPeople = ["共有3位成員", "共有2位成員"]
-    
     let ref = Firestore.firestore().collection("users").document("UUNNN5YELPXtuppYQfluRMKm9Qd2")
     
     
-//    var userTest = [String: Any]()
     
     var fridgesIDArray: [String] = []
     
@@ -40,7 +37,38 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBAction func addNewFridgeBtnTapped(_ sender: UIBarButtonItem) {
+        
+        let alterController = UIAlertController(title: "新增冰箱", message: "輸入新冰箱名稱", preferredStyle: .alert)
+        
+        alterController.addTextField { (textField) in
+            textField.placeholder = ""
+        }
+        
+        let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+            
+            guard  let fridgeName = alterController.textFields?[0].text else { return }
+            
+            self.addNewFridges(name: fridgeName)
+            
+        }
+        alterController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alterController.addAction(cancelAction)
+        
+        present(alterController, animated: true, completion: nil)
+    }
+    
+    func addNewFridges (name: String) {
+        Firestore.firestore().collection("fridges").document(name).setData([
+            "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
+            "fridgeID": name
+//            "users": Auth.auth().currentUser?.uid
+        ])
+    }
+    
+    
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -94,6 +122,14 @@ class InfoViewController: UIViewController {
         
     }
     
+    @IBAction func myFridge(_ sender: UIButton) {
+   
+    }
+    
+    @IBAction func invite(_ sender: UIButton) {
+   
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -135,7 +171,7 @@ class InfoViewController: UIViewController {
                         let data = try document.data(as: User.self)
                         
                         guard let name = data?.name,
-                              let email = data?.email,
+//                              let email = data?.email,
                               let fridges = data?.fridges,
                               let invites = data?.invites
                              
@@ -153,7 +189,7 @@ class InfoViewController: UIViewController {
                         
                         self.nameLabel.text = name
                         
-                        self.emailLabel.text = email
+//                        self.emailLabel.text = email
                         
                         self.fridgesIDArray = fridges
                         
@@ -198,7 +234,7 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
             personImageView.contentMode = .scaleAspectFill
             personImageView.clipsToBounds = true
             
-            let storageRef = Storage.storage().reference().child("Users").child("\(uniqueString).png")
+            let storageRef = Storage.storage().reference().child("users").child("\(uniqueString).png")
             if let uploadData = selectedImage.pngData() {
                 
                 // 這行就是 FirebaseStorage 關鍵的存取方法。
@@ -294,13 +330,13 @@ extension InfoViewController: UITableViewDataSource {
             
             cell.fridgeIDLabel.text = fridgesIDArray[indexPath.row]
             
-            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
+//            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
             
         } else {
             
             cell.fridgeIDLabel.text = inviteArray[indexPath.row]
             
-            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
+//            cell.numberOfuserLabel.text = numberOfPeople [indexPath.row]
             
         }
        

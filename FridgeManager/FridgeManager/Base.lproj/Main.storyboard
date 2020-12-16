@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H5k-kw-J00">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8qR-gX-gTu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -1385,30 +1385,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-22-cvo">
-                                <rect key="frame" x="0.0" y="255" width="414" height="470"/>
+                                <rect key="frame" x="0.0" y="287" width="414" height="438"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" rowHeight="120" id="ZLu-cQ-MQM" customClass="InfoTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" rowHeight="74" id="ZLu-cQ-MQM" customClass="InfoTableViewCell" customModule="FridgeManager" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZLu-cQ-MQM" id="x0t-RH-bIy">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Mc-SG-h0w" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                                                    <rect key="frame" x="1" y="10" width="372" height="100"/>
+                                                    <rect key="frame" x="1" y="3" width="372" height="68"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7F3-fT-pU4">
-                                                            <rect key="frame" x="16" y="20" width="60" height="60"/>
+                                                            <rect key="frame" x="16" y="19" width="30" height="30"/>
                                                             <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="Bvw-3T-2YL"/>
-                                                                <constraint firstAttribute="height" constant="60" id="dtN-wZ-n6l"/>
+                                                                <constraint firstAttribute="width" constant="30" id="Bvw-3T-2YL"/>
+                                                                <constraint firstAttribute="height" constant="30" id="dtN-wZ-n6l"/>
                                                             </constraints>
                                                             <imageReference key="image" image="fridge" symbolScale="large"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                                    <integer key="value" value="15"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="冰箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-Fp-UHO">
-                                                            <rect key="frame" x="96" y="16" width="50" height="25.5"/>
+                                                            <rect key="frame" x="66" y="16" width="50" height="25.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="LZr-dJ-YT8"/>
                                                             </constraints>
@@ -1417,7 +1422,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9527" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-n4-25P">
-                                                            <rect key="frame" x="162" y="17.5" width="38" height="22.5"/>
+                                                            <rect key="frame" x="132" y="17.5" width="38" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                             <color key="textColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1462,9 +1467,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="7Mc-SG-h0w" secondAttribute="trailing" constant="1" id="538-7E-4GC"/>
-                                                <constraint firstAttribute="bottom" secondItem="7Mc-SG-h0w" secondAttribute="bottom" constant="10" id="62H-HE-4gI"/>
+                                                <constraint firstAttribute="bottom" secondItem="7Mc-SG-h0w" secondAttribute="bottom" constant="3" id="62H-HE-4gI"/>
                                                 <constraint firstItem="7Mc-SG-h0w" firstAttribute="leading" secondItem="x0t-RH-bIy" secondAttribute="leading" constant="1" id="llE-I1-qOH"/>
-                                                <constraint firstItem="7Mc-SG-h0w" firstAttribute="top" secondItem="x0t-RH-bIy" secondAttribute="top" constant="10" id="nId-2M-8gh"/>
+                                                <constraint firstItem="7Mc-SG-h0w" firstAttribute="top" secondItem="x0t-RH-bIy" secondAttribute="top" constant="3" id="nId-2M-8gh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1475,38 +1480,38 @@
                                 <sections/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CAZ-ay-4MF">
-                                <rect key="frame" x="167" y="15.5" width="80" height="79"/>
+                                <rect key="frame" x="157" y="15.5" width="100" height="99"/>
                                 <color key="tintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Meb-uK-yF2"/>
-                                    <constraint firstAttribute="width" constant="80" id="Q35-Lk-b3t"/>
+                                    <constraint firstAttribute="height" constant="100" id="Meb-uK-yF2"/>
+                                    <constraint firstAttribute="width" constant="100" id="Q35-Lk-b3t"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="40"/>
+                                        <integer key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-XY-DGk">
-                                <rect key="frame" x="182.5" y="103" width="49.5" height="25.5"/>
+                                <rect key="frame" x="182.5" y="135" width="49.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bey-uC-OPM">
-                                <rect key="frame" x="89" y="148.5" width="236" height="25.5"/>
+                                <rect key="frame" x="97" y="180.5" width="220" height="25.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當前冰箱：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scO-T4-ukJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="25.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="118" id="xrD-OE-wBD"/>
+                                            <constraint firstAttribute="width" constant="110" id="xrD-OE-wBD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市民大道冰箱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi">
-                                        <rect key="frame" x="118" y="0.0" width="118" height="25.5"/>
+                                        <rect key="frame" x="110" y="0.0" width="110" height="25.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                         <color key="textColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1514,7 +1519,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dU-s5-L9E">
-                                <rect key="frame" x="307.5" y="105" width="17.5" height="22"/>
+                                <rect key="frame" x="299.5" y="137" width="17.5" height="22"/>
                                 <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="pencil" catalog="system"/>
                                 <connections>
@@ -1522,7 +1527,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-fc-ss0" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
-                                <rect key="frame" x="20" y="199" width="374" height="40"/>
+                                <rect key="frame" x="20" y="231" width="374" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rX-5p-c9Z">
                                         <rect key="frame" x="30" y="2" width="150" height="36"/>
@@ -1594,7 +1599,7 @@
                             <constraint firstItem="stc-KJ-6yA" firstAttribute="bottom" secondItem="ffe-22-cvo" secondAttribute="bottom" id="5N4-Wh-mhH"/>
                             <constraint firstItem="lWn-XY-DGk" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="94L-o6-I8Y"/>
                             <constraint firstItem="bey-uC-OPM" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="BG5-l0-Wpd"/>
-                            <constraint firstItem="lWn-XY-DGk" firstAttribute="top" secondItem="CAZ-ay-4MF" secondAttribute="bottom" constant="8" id="BTk-gv-0zt"/>
+                            <constraint firstItem="lWn-XY-DGk" firstAttribute="top" secondItem="CAZ-ay-4MF" secondAttribute="bottom" constant="20" id="BTk-gv-0zt"/>
                             <constraint firstItem="ffe-22-cvo" firstAttribute="leading" secondItem="RmC-MY-l38" secondAttribute="leading" id="EQo-qL-zO8"/>
                             <constraint firstItem="3dU-s5-L9E" firstAttribute="centerY" secondItem="lWn-XY-DGk" secondAttribute="centerY" id="FXd-nW-myr"/>
                             <constraint firstItem="CAZ-ay-4MF" firstAttribute="centerX" secondItem="RmC-MY-l38" secondAttribute="centerX" id="Lq2-Dj-Cpw"/>
@@ -1610,7 +1615,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="個人設定" id="6Hs-Wr-VC1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="5Xf-wN-apz">
+                        <barButtonItem key="rightBarButtonItem" image="add (1)" id="5Xf-wN-apz">
                             <connections>
                                 <action selector="addNewFridgeBtnTapped:" destination="PbV-wG-u5g" id="1Ed-hk-C8c"/>
                             </connections>
@@ -1809,10 +1814,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z2T-SL-7tg"/>
+                    <connections>
+                        <segue destination="H5k-kw-J00" kind="presentation" identifier="showSignin" modalPresentationStyle="fullScreen" id="L5Z-uM-981"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vy-BM-q2W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2403" y="-2"/>
+            <point key="canvasLocation" x="210" y="11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jRg-cP-OIy">
@@ -1829,7 +1837,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8Y-qE-LNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3387" y="-2"/>
+            <point key="canvasLocation" x="209" y="-719"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1837,6 +1845,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
         <image name="chef (2)" width="32" height="32"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="download" width="42.666667938232422" height="42.666667938232422"/>

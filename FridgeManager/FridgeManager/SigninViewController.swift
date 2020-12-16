@@ -130,32 +130,44 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 }
                 
                 guard let user = authResult?.user else { return }
-                let email = user.email ?? ""
-                let displayName = user.displayName ?? ""
-                
-                guard let uid = Auth.auth().currentUser?.uid else { return }
-                
-                let db = Firestore.firestore()
-                
-                db.collection("users").document(uid).setData([
-                    "email": email,
-                    "displayName": displayName,
-                    "uid": uid
-                ]) { err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                    } else {
-                        
-                        self.performSegue(withIdentifier: "SegueLogin", sender: self)
-//                        if let tabBarController = self.tabBarController {
-//
-//                              tabBarController.selectedIndex = 3
-//                            
-//                            }
-                        
-                        print("the user has sign up or is logged in")
+             
+                if Auth.auth().currentUser != nil {
+                    
+                    self.performSegue(withIdentifier: "showSignin", sender: nil)
+                    
+                } else {
+                 
+                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
+                    
+                    let email = user.email ?? ""
+                    
+                    let displayName = user.displayName ?? "請幫自己取名字"
+                    
+                    guard let uid = Auth.auth().currentUser?.uid else { return }
+                    
+                    let db = Firestore.firestore()
+                    
+                    db.collection("users").document(uid).setData([
+                        "email": email,
+                        "displayName": displayName,
+                        "uid": uid,
+                        "myFridge": []
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            
+                            self.performSegue(withIdentifier: "showSignin", sender: self)
+    //                        if let tabBarController = self.tabBarController {
+    //
+    //                              tabBarController.selectedIndex = 3
+    //
+    //                            }
+                            
+                        }
                     }
                 }
+                print("the user has sign up or is logged in")
             }
         }
     }

@@ -14,9 +14,15 @@ import Kingfisher
 
 class InfoViewController: UIViewController {
     
-    let ref = Firestore.firestore().collection("users").document("UUNNN5YELPXtuppYQfluRMKm9Qd2")
-    
-    
+    var ref:DocumentReference? {
+        
+        guard let id = UserDefaults.standard.value(forKey: "userUid") as? String else {
+            
+            fatalError("no user id")
+        }
+        
+        return Firestore.firestore().collection("users").document(id)
+    }
     
     var fridgesIDArray: [String] = []
     
@@ -30,7 +36,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbListen()
-        
+        print(Auth.auth().currentUser?.email)
     }
     
     @IBOutlet weak var personImageView: UIImageView!
@@ -61,11 +67,20 @@ class InfoViewController: UIViewController {
     }
     
     func addNewFridges (name: String) {
-        Firestore.firestore().collection("fridges").document(name).setData([
+        
+        let doc = Firestore.firestore().collection("fridges").document()
+        
+        doc.setData([
             "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
-            "fridgeID": name
-//            "users": Auth.auth().currentUser?.uid
+            "fridgeID": doc.documentID,
+            "fidgeName": name,
+            "users": Auth.auth().currentUser?.email
         ])
+        
+        let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
+        
+        userDoc.updateData(["myFridge": Firebase.FieldValue.arrayUnion([doc.documentID])])
+
     }
     
     
@@ -98,7 +113,7 @@ class InfoViewController: UIViewController {
                 
                 guard let name = controller.textFields?[0].text else { return }
                 
-                self.ref.updateData(["name": name])
+                self.ref!.updateData(["displayName": name])
                 
                 self.nameLabel.text = name
                 
@@ -144,7 +159,7 @@ class InfoViewController: UIViewController {
     
     func dbListen() {
         
-        ref.addSnapshotListener { documentSnapshot, error in
+        ref!.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
@@ -160,7 +175,7 @@ class InfoViewController: UIViewController {
     
     func dbGet() {
         
-        ref.getDocument { (document, err) in
+        ref!.getDocument { (document, err) in
             if let err = err {
                 print("Error getting documents:\(err)")
             } else {
@@ -171,7 +186,6 @@ class InfoViewController: UIViewController {
                         let data = try document.data(as: User.self)
                         
                         guard let name = data?.name,
-//                              let email = data?.email,
                               let fridges = data?.fridges,
                               let invites = data?.invites
                              
@@ -188,8 +202,6 @@ class InfoViewController: UIViewController {
                         }
                         
                         self.nameLabel.text = name
-                        
-//                        self.emailLabel.text = email
                         
                         self.fridgesIDArray = fridges
                         
@@ -272,44 +284,44 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         
         guard let photo = downloadURL else { return }
         
-        ref.updateData(["photo": photo])
+        ref!.updateData(["photo": photo])
         
     }
 }
 
 extension InfoViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 100
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        let headerLabel = UILabel()
-        
-        headerLabel.frame = CGRect.init(x: 0, y: 30, width: headerView.frame.width, height: 20)
-        headerLabel.text = section == 0 ? "我的冰箱" : "冰箱邀請"
-        headerLabel.textColor = UIColor.chloeBlue
-        headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
-        headerView.addSubview(headerLabel)
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+//        let headerLabel = UILabel()
+//
+//        headerLabel.frame = CGRect.init(x: 0, y: 30, width: headerView.frame.width, height: 20)
+//        headerLabel.text = section == 0 ? "我的冰箱" : "冰箱邀請"
+//        headerLabel.textColor = UIColor.chloeBlue
+//        headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
+//        headerView.addSubview(headerLabel)
+//        return headerView
+//    }
     
 }
 
 extension InfoViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

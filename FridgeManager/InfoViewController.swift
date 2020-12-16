@@ -14,7 +14,7 @@ import Kingfisher
 
 class InfoViewController: UIViewController {
     
-    var ref:DocumentReference? {
+    var refUID: DocumentReference? {
         
         guard let id = UserDefaults.standard.value(forKey: "userUid") as? String else {
             
@@ -35,13 +35,14 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
-        dbListen()
-        print(Auth.auth().currentUser?.email)
+        dbInfoListen()
     }
     
     @IBOutlet weak var personImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var fridgeNow: UILabel!
     
     @IBAction func addNewFridgeBtnTapped(_ sender: UIBarButtonItem) {
         
@@ -79,10 +80,9 @@ class InfoViewController: UIViewController {
         
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
         
-        userDoc.updateData(["myFridge": Firebase.FieldValue.arrayUnion([doc.documentID])])
+        userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
 
     }
-    
     
     
     @IBOutlet weak var editButton: UIButton!
@@ -113,7 +113,7 @@ class InfoViewController: UIViewController {
                 
                 guard let name = controller.textFields?[0].text else { return }
                 
-                self.ref!.updateData(["displayName": name])
+                self.refUID!.updateData(["displayName": name])
                 
                 self.nameLabel.text = name
                 
@@ -157,9 +157,9 @@ class InfoViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     }
     
-    func dbListen() {
+    func dbInfoListen() {
         
-        ref!.addSnapshotListener { documentSnapshot, error in
+        refUID!.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
@@ -169,13 +169,13 @@ class InfoViewController: UIViewController {
                 print("Document data was empty.")
                 return
             }
-            self.dbGet()
+            self.dbInfoGet()
         }
     }
     
-    func dbGet() {
+    func dbInfoGet() {
         
-        ref!.getDocument { (document, err) in
+        refUID!.getDocument { (document, err) in
             if let err = err {
                 print("Error getting documents:\(err)")
             } else {
@@ -185,22 +185,27 @@ class InfoViewController: UIViewController {
                         
                         let data = try document.data(as: User.self)
                         
-                        guard let name = data?.name,
-                              let fridges = data?.fridges,
-                              let invites = data?.invites
-                             
+                        guard let name = data?.displayName,
+                              let fridges = data?.myFridges,
+                              let invites = data?.myInvites,
+                              let photo = data?.photo
+                              
                         else { return }
-                        
+        
                     
-                        if let photo = data?.photo {
+                        if photo != "" {
                             
                             let userPhoto = URL(string: photo)
                             
                             self.personImageView.kf.indicatorType = .activity
                             
                             self.personImageView.kf.setImage(with: userPhoto)
-                        }
                         
+                        } else {
+                            
+                            self.personImageView.image = UIImage(systemName: "person.circle")
+                        }
+                       
                         self.nameLabel.text = name
                         
                         self.fridgesIDArray = fridges
@@ -208,10 +213,12 @@ class InfoViewController: UIViewController {
                         self.inviteArray = invites
                         
                     } catch {
+                        
                         print("error to decode", error)
                     }
                     
                 } else {
+                    
                     print("Document does not exist")
                 }
                 
@@ -284,7 +291,7 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         
         guard let photo = downloadURL else { return }
         
-        ref!.updateData(["photo": photo])
+        refUID!.updateData(["photo": photo])
         
     }
 }

@@ -50,16 +50,15 @@ struct List: Codable {
 
 struct User: Codable {
     let uid: String
-    let name: String
     let photo: String
     let email: String
-//    let displayName: String
-    let fridges: [String]
-    let invites: [String]
+    let displayName: String
+    let myFridges: [String]
+    let myInvites: [String]
 }
 
 struct Fridge: Codable {
-    
+    let firdgeName: String
     let fridgeID: String
     let users: [String]
     let category: [String]

@@ -1623,6 +1623,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="3dU-s5-L9E" id="bV6-qi-3FB"/>
+                        <outlet property="fridgeNow" destination="fRf-b6-sCi" id="tbC-yp-4Oe"/>
                         <outlet property="nameLabel" destination="lWn-XY-DGk" id="X0E-9M-Vaj"/>
                         <outlet property="personImageView" destination="CAZ-ay-4MF" id="wSI-28-ln1"/>
                         <outlet property="tableView" destination="ffe-22-cvo" id="hKz-Rs-CGs"/>

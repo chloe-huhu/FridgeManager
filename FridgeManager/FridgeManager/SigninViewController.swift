@@ -14,15 +14,9 @@ import CryptoKit
 
 class SigninViewController: UIViewController {
     
-    @IBOutlet weak var signinButton: FancyButton!
-    
-    
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setupAppleButton()
-        
     }
     
     func setupAppleButton() {
@@ -131,11 +125,11 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 
                 guard let user = authResult?.user else { return }
              
-                if Auth.auth().currentUser != nil {
-                    
-                    self.performSegue(withIdentifier: "showSignin", sender: nil)
-                    
-                } else {
+//                if Auth.auth().currentUser != nil {
+//
+//                    self.performSegue(withIdentifier: "showSignin", sender: nil)
+//
+//                } else {
                  
                     UserDefaults.standard.setValue(user.uid, forKey: "userUid")
                     
@@ -145,13 +139,16 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-                    let db = Firestore.firestore()
-                    
-                    db.collection("users").document(uid).setData([
-                        "email": email,
-                        "displayName": displayName,
+                    let ref = Firestore.firestore().collection("users")
+                
+                    ref.document(uid).setData([
                         "uid": uid,
-                        "myFridge": []
+                        "photo": "",
+                        "displayName": displayName,
+                        "email": email,
+                        "myFridges": [],
+                        "myInvites": []
+                        
                     ]) { err in
                         if let err = err {
                             print("Error writing document: \(err)")
@@ -166,7 +163,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             
                         }
                     }
-                }
+//                }
                 print("the user has sign up or is logged in")
             }
         }

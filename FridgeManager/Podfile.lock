@@ -219,12 +219,6 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
   - ExpandingMenu (0.4.0)
-  - FBSDKCoreKit (8.2.0):
-    - FBSDKCoreKit/Basics (= 8.2.0)
-    - FBSDKCoreKit/Core (= 8.2.0)
-  - FBSDKCoreKit/Basics (8.2.0)
-  - FBSDKCoreKit/Core (8.2.0):
-    - FBSDKCoreKit/Basics
   - Firebase/Auth (6.34.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.9.2)
@@ -334,11 +328,10 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.11)
   - RAMAnimatedTabBarController (5.2.0)
-  - SwiftLint (0.41.0)
+  - SwiftLint (0.42.0)
 
 DEPENDENCIES:
   - ExpandingMenu (~> 0.4)
-  - FBSDKCoreKit
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
@@ -354,7 +347,6 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - ExpandingMenu
-    - FBSDKCoreKit
     - Firebase
     - FirebaseAuth
     - FirebaseCore
@@ -381,7 +373,6 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
-  FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
@@ -402,8 +393,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
-  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: 4ae1f30e89e56b60298f3fa2fe4f4b99c697dcce
+PODFILE CHECKSUM: eb675becaacf340d851d341c0b090b333683b16d
 
 COCOAPODS: 1.10.0

@@ -3,7 +3,7 @@
 # ignore all warnings from all dependencies
 inhibit_all_warnings!
 # ignore warnings from a specific dependency
-pod 'FBSDKCoreKit', :inhibit_warnings => true
+#pod 'FBSDKCoreKit', :inhibit_warnings => true
 
 
 target 'FridgeManager' do

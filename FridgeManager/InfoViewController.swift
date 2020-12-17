@@ -43,26 +43,38 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var currentFridge: UILabel!
+   
+    @IBOutlet weak var myFridgeButton: UIButton!
     
-    @IBOutlet weak var myFridgesBtn: UIButton! {
-        didSet {
-            myFridgesBtn.setTitleColor(.chloeYellow, for: .normal)
+    @IBOutlet weak var fridgeInviteButton: UIButton!
+    
+    @IBOutlet weak var sliderView: UIView!
+    
+    func btnPressedAnimation(type: ShowFridge) {
+        switch showFridge {
+        case .myFridges:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+//                self.slideView.frame.origin.x = 0
+                self.sliderView.center = self.myFridgeButton.center
+                
+            }
+        case .myInvites:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+//                self.slideView.frame.origin.x = ((self.view.frame.width)/2)
+                self.sliderView.center = self.fridgeInviteButton.center
+            }
+    
         }
     }
-    
     @IBAction func myFridgesBtnTapped(_ sender: UIButton) {
         showFridge = .myFridges
-        myFridgesBtn.setTitleColor(.chloeYellow, for: .normal)
-        fridgeInviteBtn.setTitleColor(.darkGray, for: .normal)
+        btnPressedAnimation(type: .myFridges)
         tableView.reloadData()
     }
     
-    @IBOutlet weak var fridgeInviteBtn: UIButton!
-    
     @IBAction func fridgeInviteBtnTapped (_ sender: UIButton) {
         showFridge = .myInvites
-        fridgeInviteBtn.setTitleColor(.chloeYellow, for: .normal)
-        myFridgesBtn.setTitleColor(.darkGray, for: .normal)
+        btnPressedAnimation(type: .myInvites)
         tableView.reloadData()
     }
     
@@ -299,7 +311,6 @@ class InfoViewController: UIViewController {
                         let data = try document.data(as: Fridge.self)
                         
                         self.inviteArray.append(data!.fridgeName)
-                        
                         
                     } catch {
                         

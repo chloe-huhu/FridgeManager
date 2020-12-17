@@ -234,7 +234,7 @@ class FoodListViewController: UIViewController {
         switch showCategory {
         case .all:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.frame.origin.x = 6
+                self.sliderView.frame.origin.x = 0
             }
             
         case .soonExpired:

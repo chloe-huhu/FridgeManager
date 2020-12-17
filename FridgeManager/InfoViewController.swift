@@ -32,6 +32,8 @@ class InfoViewController: UIViewController {
     
     var downloadURL: String?
     
+    var showFridge: ShowFridge = .myFridges
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
@@ -138,11 +140,13 @@ class InfoViewController: UIViewController {
     }
     
     @IBAction func myFridge(_ sender: UIButton) {
-        
+        showFridge = .myFridges
+        tableView.reloadData()
     }
     
     @IBAction func invite(_ sender: UIButton) {
-        
+        showFridge = .myInvites
+        tableView.reloadData()
     }
     
     @IBOutlet weak var tableView: UITableView! {
@@ -159,6 +163,7 @@ class InfoViewController: UIViewController {
     
     func dbInfoListen() {
         
+        
         refUID!.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -169,7 +174,23 @@ class InfoViewController: UIViewController {
                 print("Document data was empty.")
                 return
             }
+            
             self.dbInfoGet()
+        }
+    }
+    
+    private func setupPhoto(_ photo: String) {
+        if photo != "" {
+            
+            let userPhoto = URL(string: photo)
+            
+            self.personImageView.kf.indicatorType = .activity
+            
+            self.personImageView.kf.setImage(with: userPhoto)
+            
+        } else {
+            
+            self.personImageView.image = UIImage(systemName: "person.circle")
         }
     }
     
@@ -193,18 +214,7 @@ class InfoViewController: UIViewController {
                         else { return }
                         
                         
-                        if photo != "" {
-                            
-                            let userPhoto = URL(string: photo)
-                            
-                            self.personImageView.kf.indicatorType = .activity
-                            
-                            self.personImageView.kf.setImage(with: userPhoto)
-                            
-                        } else {
-                            
-                            self.personImageView.image = UIImage(systemName: "person.circle")
-                        }
+                        self.setupPhoto(photo)
                         
                         self.nameLabel.text = name
                         
@@ -212,8 +222,9 @@ class InfoViewController: UIViewController {
                             self.getFridgeName(fridgeID: fridge)
                         }
                         
-                        self.inviteArray = invites
-                        
+                        for invite in invites {
+                            self.getInviteName(fridgeID: invite)
+                        }
                         
                     } catch {
                         
@@ -232,7 +243,9 @@ class InfoViewController: UIViewController {
     }
     
     func getFridgeName (fridgeID: String) {
-        print(fridgeID)
+        
+        fridgesNameArray = []
+        
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documnets : \(error)")
@@ -257,11 +270,40 @@ class InfoViewController: UIViewController {
                 self.tableView.reloadData()
             }
             
-            
         }
     }
     
-    
+    func getInviteName(fridgeID: String) {
+        
+        inviteArray = []
+        
+        Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documnets : \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    do {
+                        
+                        let data = try document.data(as: Fridge.self)
+                        
+                        self.inviteArray.append(data!.fridgeName)
+                        
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                    
+                }
+                print("===========", self.inviteArray)
+                self.tableView.reloadData()
+            }
+            
+        }
+        
+    }
 }
 
 extension InfoViewController: UITableViewDelegate {
@@ -275,7 +317,7 @@ extension InfoViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 70
     }
     
 }
@@ -288,26 +330,25 @@ extension InfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
+        switch showFridge {
+        
+        case .myFridges:
             return fridgesNameArray.count
-        } else {
+        case .myInvites:
             return inviteArray.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
         
-        if indexPath.section == 0 {
-            
+        switch showFridge {
+        
+        case .myFridges:
             cell.fridgeIDLabel.text = fridgesNameArray[indexPath.row]
-            
-        } else {
-            
-            cell.fridgeIDLabel.text = inviteArray[indexPath.row]
-            
+        case .myInvites:
+            cell.fridgeIDLabel.text = inviteArray [indexPath.row]
         }
         
         return cell

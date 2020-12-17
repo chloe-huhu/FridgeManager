@@ -15,3 +15,7 @@ enum ShowCategory {
 enum ShowType {
     case edit, delete
 }
+
+enum ShowFridge {
+    case myFridges, myInvites
+}

@@ -50,18 +50,17 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var sliderView: UIView!
     
+    
     func btnPressedAnimation(type: ShowFridge) {
         switch showFridge {
         case .myFridges:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-//                self.slideView.frame.origin.x = 0
-                self.sliderView.center = self.myFridgeButton.center
-                
+                self.sliderView.center.x = self.myFridgeButton.center.x
             }
+            
         case .myInvites:
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-//                self.slideView.frame.origin.x = ((self.view.frame.width)/2)
-                self.sliderView.center = self.fridgeInviteButton.center
+                self.sliderView.center.x = self.fridgeInviteButton.center.x
             }
     
         }

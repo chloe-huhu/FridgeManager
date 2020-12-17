@@ -1551,15 +1551,20 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcN-Z1-yos">
-                                        <rect key="frame" x="53.5" y="46" width="100" height="3"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcN-Z1-yos">
+                                        <rect key="frame" x="41.5" y="45" width="124" height="3"/>
                                         <color key="backgroundColor" red="0.89551275969999999" green="0.54123181099999995" blue="0.1802513301" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3" id="I6y-5h-iea"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tcN-Z1-yos" secondAttribute="bottom" constant="2" id="7Cw-uV-Mdr"/>
+                                    <constraint firstItem="tcN-Z1-yos" firstAttribute="centerX" secondItem="4rX-5p-c9Z" secondAttribute="centerX" id="KV0-Hs-DlU"/>
                                     <constraint firstItem="DyW-DE-t7y" firstAttribute="top" secondItem="pGr-10-B7k" secondAttribute="top" constant="5" id="R6o-ZL-pp9"/>
+                                    <constraint firstItem="tcN-Z1-yos" firstAttribute="width" secondItem="4rX-5p-c9Z" secondAttribute="width" multiplier="0.6" id="WZb-n7-CXC"/>
                                     <constraint firstItem="DyW-DE-t7y" firstAttribute="leading" secondItem="pGr-10-B7k" secondAttribute="leading" id="bx5-FF-jNs"/>
                                     <constraint firstAttribute="height" constant="50" id="hGT-0f-dhc"/>
                                     <constraint firstAttribute="trailing" secondItem="DyW-DE-t7y" secondAttribute="trailing" id="yM5-R3-onC"/>

@@ -28,8 +28,6 @@ class InfoViewController: UIViewController {
     
     var inviteArray: [String] = []
     
-    var usersArray: [String] = []
-    
     var downloadURL: String?
     
     var showFridge: ShowFridge = .myFridges
@@ -44,14 +42,36 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var fridgeNow: UILabel!
+    @IBOutlet weak var currentFridge: UILabel!
+    
+    @IBOutlet weak var myFridgesBtn: UIButton! {
+        didSet {
+            myFridgesBtn.setTitleColor(.chloeYellow, for: .normal)
+        }
+    }
+    
+    @IBAction func myFridgesBtnTapped(_ sender: UIButton) {
+        showFridge = .myFridges
+        myFridgesBtn.setTitleColor(.chloeYellow, for: .normal)
+        fridgeInviteBtn.setTitleColor(.darkGray, for: .normal)
+        tableView.reloadData()
+    }
+    
+    @IBOutlet weak var fridgeInviteBtn: UIButton!
+    
+    @IBAction func fridgeInviteBtnTapped (_ sender: UIButton) {
+        showFridge = .myInvites
+        fridgeInviteBtn.setTitleColor(.chloeYellow, for: .normal)
+        myFridgesBtn.setTitleColor(.darkGray, for: .normal)
+        tableView.reloadData()
+    }
     
     @IBAction func addNewFridgeBtnTapped(_ sender: UIBarButtonItem) {
         
-        let alterController = UIAlertController(title: "新增冰箱", message: "輸入新冰箱名稱", preferredStyle: .alert)
+        let alterController = UIAlertController(title: "新增冰箱", message: nil, preferredStyle: .alert)
         
         alterController.addTextField { (textField) in
-            textField.placeholder = ""
+            textField.placeholder = "輸入新冰箱名稱"
         }
         
         let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
@@ -91,7 +111,7 @@ class InfoViewController: UIViewController {
     
     @IBAction func editBtnTapped(_ sender: UIButton) {
         
-        let alterController = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
+        let alterController = UIAlertController(title: "更換個人設定", message: nil, preferredStyle: .actionSheet)
         
         let photoAction = UIAlertAction(title: "更換照片", style: .default, handler: { (_) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -105,13 +125,13 @@ class InfoViewController: UIViewController {
         
         let nameAction = UIAlertAction(title: "更換暱稱", style: .default, handler: { _ in
             
-            let controller = UIAlertController(title: "更換暱稱", message: "請輸入新暱稱", preferredStyle: .alert)
+            let controller = UIAlertController(title: "輸入新暱稱", message: nil, preferredStyle: .alert)
             
             controller.addTextField { (textField) in
                 textField.placeholder = "暱稱"
             }
             
-            let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
                 
                 guard let name = controller.textFields?[0].text else { return }
                 
@@ -137,16 +157,6 @@ class InfoViewController: UIViewController {
         
         present(alterController, animated: true, completion: nil)
         
-    }
-    
-    @IBAction func myFridge(_ sender: UIButton) {
-        showFridge = .myFridges
-        tableView.reloadData()
-    }
-    
-    @IBAction func invite(_ sender: UIButton) {
-        showFridge = .myInvites
-        tableView.reloadData()
     }
     
     @IBOutlet weak var tableView: UITableView! {

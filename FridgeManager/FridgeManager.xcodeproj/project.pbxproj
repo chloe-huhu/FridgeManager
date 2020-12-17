@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9CDCC779CADF62A1818499D9 /* Pods_FridgeManager_FridgeManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F313871C88389A371CCC6 /* Pods_FridgeManager_FridgeManagerUITests.framework */; };
 		AE0CA766258667890030A971 /* UIImage+ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */; };
+		AE1F8A73258BBA7100DA0B4E /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */; };
 		AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* EnumExtension.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
@@ -70,6 +71,7 @@
 		97CD39AD8EAF13870C26ABDD /* Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A76F666C7A6E0046B73F9E17 /* Pods-FridgeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleExtension.swift"; sourceTree = "<group>"; };
+		AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
@@ -212,10 +214,10 @@
 				AE7D32402572395B00D97E23 /* SectionView.swift */,
 				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
 				AE9DCAE62572401D00CD44F3 /* CellView.swift */,
-				AE7169432574995B00659F2C /* PurchaseSectionView.swift */,
 				AE716948257499C500659F2C /* PurchaseSectionView.xib */,
-				AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */,
+				AE7169432574995B00659F2C /* PurchaseSectionView.swift */,
 				AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */,
+				AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */,
 				AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */,
 				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 			);
@@ -227,8 +229,9 @@
 			children = (
 				AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */,
 				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
-				AE9DCB02257251C700CD44F3 /* CardView.swift */,
+				AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */,
 				AE71695D2574D47C00659F2C /* UILabelExtension.swift */,
+				AE9DCB02257251C700CD44F3 /* CardView.swift */,
 				AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */,
 				AE41B04425716C59006C6EFD /* EnumExtension.swift */,
 				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
@@ -603,6 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1F8A73258BBA7100DA0B4E /* LabelExtension.swift in Sources */,
 				AE7D32412572395B00D97E23 /* SectionView.swift in Sources */,
 				AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */,
 				AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */,

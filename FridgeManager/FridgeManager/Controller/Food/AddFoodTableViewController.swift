@@ -37,14 +37,11 @@ class AddFoodTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dbListenCategory()
         setupFoodDetail()
         finishedPurchaseAddToFood()
         setupSaveBarBtnItem()
         self.tabBarController?.tabBar.isHidden = true
-        
-        print(selectedFood)
     }
     
     @IBOutlet weak var imageView: UIImageView!

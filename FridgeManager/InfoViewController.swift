@@ -44,27 +44,13 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var currentFridge: UILabel!
     
-    @IBOutlet weak var myFridgeButton: UIButton!
+    @IBOutlet weak var fridgeListButton: UIButton!
     
-    @IBOutlet weak var fridgeInviteButton: UIButton!
+    @IBOutlet weak var fridgeInvitedButton: UIButton!
     
     @IBOutlet weak var sliderView: UIView!
     
-    
-    func btnPressedAnimation(type: ShowFridge) {
-        switch showFridge {
-        case .myFridges:
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.center.x = self.myFridgeButton.center.x
-            }
-            
-        case .myInvites:
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
-                self.sliderView.center.x = self.fridgeInviteButton.center.x
-            }
-            
-        }
-    }
+
     @IBAction func myFridgesBtnTapped(_ sender: UIButton) {
         showFridge = .myFridges
         btnPressedAnimation(type: .myFridges)
@@ -82,14 +68,14 @@ class InfoViewController: UIViewController {
         let alterController = UIAlertController(title: "新增冰箱", message: nil, preferredStyle: .alert)
         
         alterController.addTextField { (textField) in
-            textField.placeholder = "輸入新冰箱名稱"
+            textField.placeholder = "幫新冰箱取名"
         }
         
         let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
             
             guard  let fridgeName = alterController.textFields?[0].text else { return }
             
-            self.addNewFridges(name: fridgeName)
+            self.addNewFridgeSetup(name: fridgeName)
             
         }
         alterController.addAction(okAction)
@@ -100,7 +86,7 @@ class InfoViewController: UIViewController {
         present(alterController, animated: true, completion: nil)
     }
     
-    func addNewFridges (name: String) {
+    func addNewFridgeSetup (name: String) {
         
         let doc = Firestore.firestore().collection("fridges").document()
         
@@ -117,9 +103,10 @@ class InfoViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var editButton: UIButton!
+
+    @IBOutlet weak var editPersonInfoBarBtn: UIBarButtonItem!
     
-    @IBAction func editBtnTapped(_ sender: UIButton) {
+    @IBAction func editPersonInfoBtnTapped(_ sender: UIBarButtonItem) {
         
         let alterController = UIAlertController(title: "更換個人設定", message: nil, preferredStyle: .actionSheet)
         
@@ -166,7 +153,6 @@ class InfoViewController: UIViewController {
         alterController.addAction(cancelAction)
         
         present(alterController, animated: true, completion: nil)
-        
     }
     
     @IBOutlet weak var tableView: UITableView! {
@@ -347,6 +333,21 @@ class InfoViewController: UIViewController {
             
         }
         
+    }
+    
+    func btnPressedAnimation(type: ShowFridge) {
+        switch showFridge {
+        case .myFridges:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.center.x = self.fridgeListButton.center.x
+            }
+            
+        case .myInvites:
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
+                self.sliderView.center.x = self.fridgeInvitedButton.center.x
+            }
+            
+        }
     }
     
 }

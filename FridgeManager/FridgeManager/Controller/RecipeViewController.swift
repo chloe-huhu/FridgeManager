@@ -37,6 +37,7 @@ class RecipeViewController: UIViewController {
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = .chloeYellow
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
     }
 

@@ -7,9 +7,6 @@
 
 import UIKit
 
-//protocol PurchaseSectionViewDelegate: class {
-//    func sectionView(_ sectionView: PurchaseSectionView, _ didPressTag: Int, _ isExpand: Bool)
-//}
 
 class PurchaseSectionView: UITableViewHeaderFooterView {
     
@@ -21,6 +18,7 @@ class PurchaseSectionView: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBackground()
+        
     }
     
     private func setupBackground() {

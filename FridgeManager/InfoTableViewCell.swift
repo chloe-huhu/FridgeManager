@@ -11,23 +11,15 @@ class InfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var fridgeIDLabel: UILabel!
     
-    @IBOutlet weak var numberOfuserLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectedBackgroundView = UIView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-    
-//    func setup(info) {
-//        fridgeIDLabel.text =
-//        numberOfuserLabel.text =
-//
-//    }
     
 }

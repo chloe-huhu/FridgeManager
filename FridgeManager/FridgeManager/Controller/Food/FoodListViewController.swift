@@ -38,9 +38,8 @@ class FoodListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleSetup()
+        navigationBarSetup()
         tabBarSetup()
-//        expandingMenuButton()
         dbListen()
     }
     
@@ -248,9 +247,10 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    func navigationTitleSetup() {
+    func navigationBarSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
     }
     

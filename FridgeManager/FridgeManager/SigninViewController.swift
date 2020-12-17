@@ -26,9 +26,9 @@ class SigninViewController: UIViewController {
         appleButton.addTarget(self, action: #selector(startSignInWithAppleFlow), for: .touchUpInside)
         appleButton.translatesAutoresizingMaskIntoConstraints = false
         appleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        appleButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        appleButton.widthAnchor.constraint(equalToConstant: 350).isActive = true
         appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -350).isActive = true
+        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
     }
     
     // Unhashed nonce.

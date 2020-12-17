@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import AuthenticationServices
 import FirebaseAuth
 import FirebaseFirestore
 import AuthenticationServices
@@ -23,13 +22,13 @@ class SigninViewController: UIViewController {
         
         let appleButton = ASAuthorizationAppleIDButton(type: .continue, style: .black)
         view.addSubview(appleButton)
-        appleButton.cornerRadius = 12
+        appleButton.cornerRadius = 8
         appleButton.addTarget(self, action: #selector(startSignInWithAppleFlow), for: .touchUpInside)
         appleButton.translatesAutoresizingMaskIntoConstraints = false
         appleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         appleButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
         appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -350).isActive = true
     }
     
     // Unhashed nonce.

@@ -370,4 +370,3 @@ extension FoodListViewController: SectionViewDelegate {
     }
     
 }
-

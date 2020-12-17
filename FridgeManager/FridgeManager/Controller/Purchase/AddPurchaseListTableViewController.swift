@@ -210,6 +210,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
 extension AddPurchaseListTableViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
         var selectedImageFromPicker: UIImage?
         
         // 取得從 UIImagePickerController 選擇的檔案

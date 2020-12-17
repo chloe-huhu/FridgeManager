@@ -24,9 +24,9 @@ class InfoViewController: UIViewController {
         return Firestore.firestore().collection("users").document(id)
     }
     
-    var fridgesNameArray: [String] = []
+    var fridgesArray: [String] = []
     
-    var inviteArray: [String] = []
+    var invitesArray: [String] = []
     
     var downloadURL: String?
     
@@ -43,7 +43,7 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var currentFridge: UILabel!
-   
+    
     @IBOutlet weak var myFridgeButton: UIButton!
     
     @IBOutlet weak var fridgeInviteButton: UIButton!
@@ -62,7 +62,7 @@ class InfoViewController: UIViewController {
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
                 self.sliderView.center.x = self.fridgeInviteButton.center.x
             }
-    
+            
         }
     }
     @IBAction func myFridgesBtnTapped(_ sender: UIButton) {
@@ -116,7 +116,6 @@ class InfoViewController: UIViewController {
         userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
         
     }
-    
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -265,20 +264,20 @@ class InfoViewController: UIViewController {
     
     func getFridgeName (fridgeID: String) {
         
-        fridgesNameArray = []
+        fridgesArray = []
         
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    //                    print("\(document.documentID) => \(document.data())")
                     
                     do {
                         
                         let data = try document.data(as: Fridge.self)
                         
-                        self.fridgesNameArray.append(data!.fridgeName)
+                        self.fridgesArray.append(data!.fridgeName)
                         
                         
                     } catch {
@@ -287,7 +286,7 @@ class InfoViewController: UIViewController {
                     }
                     
                 }
-                print("===========", self.fridgesNameArray)
+                //                print("===========", self.fridgesArray)
                 self.tableView.reloadData()
             }
             
@@ -296,20 +295,20 @@ class InfoViewController: UIViewController {
     
     func getInviteName(fridgeID: String) {
         
-        inviteArray = []
+        invitesArray = []
         
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    //                    print("\(document.documentID) => \(document.data())")
                     
                     do {
                         
                         let data = try document.data(as: Fridge.self)
                         
-                        self.inviteArray.append(data!.fridgeName)
+                        self.invitesArray.append(data!.fridgeName)
                         
                     } catch {
                         
@@ -317,19 +316,45 @@ class InfoViewController: UIViewController {
                     }
                     
                 }
-                print("===========", self.inviteArray)
+                //                print("===========", self.invitesArray)
                 self.tableView.reloadData()
             }
             
         }
         
     }
+    
+    func switchFridge (fridgeName: String) {
+        
+        Firestore.firestore().collection("fridges").whereField("fridgeName", isEqualTo: fridgeName).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documnets : \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    //                    print("=======","\(document.documentID) => \(document.data())")
+                    do {
+                        
+                        let data = try document.data(as: Fridge.self)
+                        
+//                        data?.fridgeID
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    
 }
 
 extension InfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
+        return 10
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -337,7 +362,21 @@ extension InfoViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 85
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch showFridge {
+        
+        case .myFridges:
+            let selectedFridge = fridgesArray[indexPath.row]
+            switchFridge(fridgeName: selectedFridge)
+        case.myInvites:
+            let selectedInvite = invitesArray[indexPath.row]
+            switchFridge(fridgeName: selectedInvite)
+        }
     }
     
 }
@@ -353,9 +392,9 @@ extension InfoViewController: UITableViewDataSource {
         switch showFridge {
         
         case .myFridges:
-            return fridgesNameArray.count
+            return fridgesArray.count
         case .myInvites:
-            return inviteArray.count
+            return invitesArray.count
         }
     }
     
@@ -366,9 +405,9 @@ extension InfoViewController: UITableViewDataSource {
         switch showFridge {
         
         case .myFridges:
-            cell.fridgeIDLabel.text = fridgesNameArray[indexPath.row]
+            cell.fridgeIDLabel.text = fridgesArray[indexPath.row]
         case .myInvites:
-            cell.fridgeIDLabel.text = inviteArray [indexPath.row]
+            cell.fridgeIDLabel.text = invitesArray [indexPath.row]
         }
         
         return cell
@@ -418,7 +457,7 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
                         }
                         guard let downloadURL = url else { return }
                         
-                        print("Photo Url: \(downloadURL)")
+                        //                        print("Photo Url: \(downloadURL)")
                         
                         self.downloadURL = "\(downloadURL)"
                         self.updateUserPhoto()
@@ -429,7 +468,6 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         
         dismiss(animated: true, completion: nil)
     }
-    
     
     func updateUserPhoto() {
         

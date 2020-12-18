@@ -168,8 +168,7 @@ class InfoViewController: UIViewController {
     }
     
     func dbInfoListen() {
-        
-        
+    
         refUID!.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -218,7 +217,6 @@ class InfoViewController: UIViewController {
                               let photo = data?.photo
                         
                         else { return }
-                        
                         
                         self.setupPhoto(photo)
                         

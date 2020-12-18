@@ -1389,7 +1389,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-22-cvo">
-                                <rect key="frame" x="0.0" y="270" width="414" height="455"/>
+                                <rect key="frame" x="0.0" y="280" width="414" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="datacell" rowHeight="74" id="ZLu-cQ-MQM" customClass="InfoTableViewCell" customModule="FridgeManager" customModuleProvider="target">
@@ -1527,13 +1527,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGr-10-B7k">
-                                <rect key="frame" x="0.0" y="220" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="220" width="414" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DyW-DE-t7y">
-                                        <rect key="frame" x="0.0" y="5" width="414" height="36"/>
+                                        <rect key="frame" x="0.0" y="5" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rX-5p-c9Z">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
                                                 <state key="normal" title="冰箱列表">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1543,7 +1543,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-sS-3xm">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="36"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="50"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
                                                 <state key="normal" title="冰箱邀請">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1555,7 +1555,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcN-Z1-yos">
-                                        <rect key="frame" x="41.5" y="45" width="124" height="3"/>
+                                        <rect key="frame" x="41.5" y="55" width="124" height="3"/>
                                         <color key="backgroundColor" red="0.89551275969999999" green="0.54123181099999995" blue="0.1802513301" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="I6y-5h-iea"/>
@@ -1565,11 +1565,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="tcN-Z1-yos" secondAttribute="bottom" constant="2" id="7Cw-uV-Mdr"/>
+                                    <constraint firstItem="DyW-DE-t7y" firstAttribute="centerY" secondItem="pGr-10-B7k" secondAttribute="centerY" id="7eM-Ea-R33"/>
                                     <constraint firstItem="tcN-Z1-yos" firstAttribute="centerX" secondItem="4rX-5p-c9Z" secondAttribute="centerX" id="KV0-Hs-DlU"/>
                                     <constraint firstItem="DyW-DE-t7y" firstAttribute="top" secondItem="pGr-10-B7k" secondAttribute="top" constant="5" id="R6o-ZL-pp9"/>
                                     <constraint firstItem="tcN-Z1-yos" firstAttribute="width" secondItem="4rX-5p-c9Z" secondAttribute="width" multiplier="0.6" id="WZb-n7-CXC"/>
                                     <constraint firstItem="DyW-DE-t7y" firstAttribute="leading" secondItem="pGr-10-B7k" secondAttribute="leading" id="bx5-FF-jNs"/>
-                                    <constraint firstAttribute="height" constant="50" id="hGT-0f-dhc"/>
+                                    <constraint firstAttribute="height" constant="60" id="hGT-0f-dhc"/>
                                     <constraint firstAttribute="trailing" secondItem="DyW-DE-t7y" secondAttribute="trailing" id="yM5-R3-onC"/>
                                 </constraints>
                             </view>

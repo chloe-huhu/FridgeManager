@@ -126,7 +126,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 guard let user = authResult?.user else { return }
              
                 if Auth.auth().currentUser != nil {
-
+                    
                     self.performSegue(withIdentifier: "showSignin", sender: nil)
 
                 } else {

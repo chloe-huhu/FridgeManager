@@ -97,6 +97,8 @@ class InfoViewController: UIViewController {
             "users": [Auth.auth().currentUser?.email]
         ])
         
+        UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
+        
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
         
         userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
@@ -315,12 +317,12 @@ class InfoViewController: UIViewController {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    //                    print("=======","\(document.documentID) => \(document.data())")
+                                        print("=======", "\(document.documentID) => \(document.data())")
                     do {
                         
                         let data = try document.data(as: Fridge.self)
                         
-//                        data?.fridgeID
+                        UserDefaults.standard.setValue(data?.fridgeID, forKey: "FridgeID")
                         
                     } catch {
                         
@@ -332,6 +334,11 @@ class InfoViewController: UIViewController {
         }
         
     }
+    
+    func addFridge () {
+        
+    }
+    
     
     func btnPressedAnimation(type: ShowFridge) {
         switch showFridge {
@@ -345,6 +352,44 @@ class InfoViewController: UIViewController {
                 self.sliderView.center.x = self.fridgeInvitedButton.center.x
             }
             
+        }
+    }
+    
+    func  fridgePopUp(fridgeName: String) {
+       
+        switch showFridge {
+        
+        case .myFridges:
+            let controller = UIAlertController(title: "切換", message: "切換至\(fridgeName)冰箱", preferredStyle: .alert)
+           
+            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+                
+                self.currentFridge.text = fridgeName
+                
+                self.switchFridge(fridgeName: fridgeName)
+            })
+            
+            controller.addAction(okAction)
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            controller.addAction(cancelAction)
+            
+            present(controller, animated: true, completion: nil)
+        
+        case.myInvites:
+            let controller = UIAlertController(title: "接受邀請", message: "加入\(fridgeName)冰箱", preferredStyle: .alert)
+            
+            //把冰箱加到user_myfridge && fridge_user新增我
+            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in self.switchFridge(fridgeName: fridgeName)})
+            
+            controller.addAction(okAction)
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            controller.addAction(cancelAction)
+            
+            present(controller, animated: true, completion: nil)
         }
     }
     
@@ -371,10 +416,11 @@ extension InfoViewController: UITableViewDelegate {
         
         case .myFridges:
             let selectedFridge = fridgesArray[indexPath.row]
-            switchFridge(fridgeName: selectedFridge)
+            fridgePopUp(fridgeName: selectedFridge)
+            
         case.myInvites:
             let selectedInvite = invitesArray[indexPath.row]
-            switchFridge(fridgeName: selectedInvite)
+            fridgePopUp(fridgeName: selectedInvite)
         }
     }
     
@@ -405,13 +451,13 @@ extension InfoViewController: UITableViewDataSource {
         
         case .myFridges:
             cell.fridgeIDLabel.text = fridgesArray[indexPath.row]
+            
         case .myInvites:
             cell.fridgeIDLabel.text = invitesArray [indexPath.row]
         }
         
         return cell
     }
-    
     
 }
 

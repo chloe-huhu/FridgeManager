@@ -27,6 +27,10 @@ class PurchaseListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
+    let awaitingRef = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+    
+    let acceptRef = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
@@ -123,27 +127,24 @@ class PurchaseListViewController: UIViewController {
     
   
     func dblistenAwating() {
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
         
-        FirebaseManager.shared.listen(ref: ref) {
+        FirebaseManager.shared.listen(ref: awaitingRef) {
             
             self.dbGetAwaiting()
         }
     }
     
     func dblistenAccept() {
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
         
-        FirebaseManager.shared.listen(ref: ref) {
+        FirebaseManager.shared.listen(ref: acceptRef) {
             
             self.dbGetAccept()
         }
     }
     
     func dbGetAwaiting() {
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
-        
-        ref.getDocuments { (querySnapshot, err) in
+
+        awaitingRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -173,9 +174,8 @@ class PurchaseListViewController: UIViewController {
     }
     
     func dbGetAccept() {
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
         
-        ref.getDocuments { (querySnapshot, err) in
+        acceptRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

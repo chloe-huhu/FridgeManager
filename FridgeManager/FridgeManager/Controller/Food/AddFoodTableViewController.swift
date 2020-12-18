@@ -25,6 +25,16 @@ class AddFoodTableViewController: UITableViewController {
     
     let ref = Firestore.firestore().collection("fridges")
     
+    var fridgeID: String {
+        
+        guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
+            
+            return ""
+        }
+        
+        return fridgeID
+    }
+    
     let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
     var seletedCategoryIndex = 0
@@ -102,7 +112,7 @@ class AddFoodTableViewController: UITableViewController {
                 guard let category = controller.textFields?[0].text else { return }
                 
                 //add上去firebase
-                self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": FieldValue.arrayUnion(["\(category)"]) ])
+                self.ref.document(self.fridgeID).updateData(["category": FieldValue.arrayUnion(["\(category)"]) ])
             }
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -127,7 +137,7 @@ class AddFoodTableViewController: UITableViewController {
                 
                 
                 //從firebase delet
-                self.ref.document("1fK0iw24FWWiGf8f3r0G").updateData(["category": FieldValue.arrayRemove(["\(deleteCategory)"])])
+                self.ref.document(self.fridgeID).updateData(["category": FieldValue.arrayRemove(["\(deleteCategory)"])])
                 
             }
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -148,7 +158,7 @@ class AddFoodTableViewController: UITableViewController {
     
     func dbListenCategory() {
         
-        ref.document("1fK0iw24FWWiGf8f3r0G").addSnapshotListener { documentSnapshot, error in
+        ref.document(fridgeID).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot
             else {
                 print("Error fetching document:\(error!)")
@@ -166,7 +176,7 @@ class AddFoodTableViewController: UITableViewController {
     
     func dbGetCategory() {
         
-        ref.document("1fK0iw24FWWiGf8f3r0G").getDocument { (document, _) in
+        ref.document(fridgeID).getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
                 //                    print(data!)
@@ -291,7 +301,7 @@ class AddFoodTableViewController: UITableViewController {
             
             guard let id = selectedFood?.id else { return }
             
-            ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document(id).setData([
+            ref.document(fridgeID).collection("foods").document(id).setData([
                 "photo": url as Any,
                 "name": name,
                 "amount": Int(amount) ?? 0 ,
@@ -304,7 +314,7 @@ class AddFoodTableViewController: UITableViewController {
             
         } else {
             
-            let document =  ref.document("1fK0iw24FWWiGf8f3r0G").collection("foods").document()
+            let document =  ref.document(fridgeID).collection("foods").document()
             
             let data: [String: Any] = [
                 "id": document.documentID,

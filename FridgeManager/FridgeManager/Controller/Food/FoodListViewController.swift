@@ -14,7 +14,22 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+    let fridgeManager = FridgeManager.shared
+    
+    var fridgeID: String {
+        
+        guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
+            
+            return ""
+        }
+        
+        return fridgeID
+    }
+    
+    var ref: CollectionReference {
+        
+       return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
+    }
     
     var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
     
@@ -30,10 +45,8 @@ class FoodListViewController: UIViewController {
     
     var showCategory: ShowCategory = .all
     
-    let searchButton = UIButton()
-    
-    let takingPicture = UIImagePickerController()
-    
+//    let takingPicture = UIImagePickerController()
+//
     var showType: ShowType = .edit
     
     override func viewDidLoad() {
@@ -72,25 +85,13 @@ class FoodListViewController: UIViewController {
         
     }
     
-    func deleteRows() {
-        if let seletedRows = tableView.indexPathsForSelectedRows {
-            var selectedItems: [Food] = []
-            for indexPath in seletedRows {
-                selectedItems.append(foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row])
-            }
-            for selecteditem in selectedItems {
-                ref.document(selecteditem.id).delete()
-            }
-        }
-    }
-    
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var allBtn: UIButton!
-    
-    @IBOutlet weak var soonExpiredBtn: UIButton!
-    
-    @IBOutlet weak var expiredBtn: UIButton!
+//
+//    @IBOutlet weak var allBtn: UIButton!
+//
+//    @IBOutlet weak var soonExpiredBtn: UIButton!
+//
+//    @IBOutlet weak var expiredBtn: UIButton!
     
     @IBOutlet weak var sliderView: UIView!
     
@@ -170,10 +171,10 @@ class FoodListViewController: UIViewController {
                 
                 for document in querySnapshot!.documents {
                     
-                    //print("現有的資料 \(document.documentID) => \(document.data())")
+                    // print("現有的資料 \(document.documentID) => \(document.data())")
                     
                     do {
-                        //獲得某食材的資料
+                        // 獲得某食材的資料
                         let food = try document.data(as: Food.self)
                         
                         self.oriFoods.append(food!)
@@ -215,7 +216,7 @@ class FoodListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //有兩個perform segue，共用一個prepare，去分辨點選哪一個
+        // 有兩個perform segue，共用一個prepare，去分辨點選哪一個
         let destVC = segue.destination as? AddFoodTableViewController
         destVC?.selectedFood =  segue.identifier == "SegueAddContent" ? nil : selectedFood
     }
@@ -226,6 +227,18 @@ class FoodListViewController: UIViewController {
         let today = Date()
         let midnight = calendar.startOfDay(for: today)
         return midnight.timeIntervalSince1970
+    }
+    
+    func deleteRows() {
+        if let seletedRows = tableView.indexPathsForSelectedRows {
+            var selectedItems: [Food] = []
+            for indexPath in seletedRows {
+                selectedItems.append(foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row])
+            }
+            for selecteditem in selectedItems {
+                ref.document(selecteditem.id).delete()
+            }
+        }
     }
     
     func btnPressedAnimation(type: ShowCategory) {

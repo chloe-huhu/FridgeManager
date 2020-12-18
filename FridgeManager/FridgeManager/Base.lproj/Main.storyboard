@@ -223,12 +223,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="allBtn" destination="9bJ-qr-Tf3" id="zJx-jt-PSP"/>
                         <outlet property="editButton" destination="34s-y4-qLc" id="HeQ-xC-HD2"/>
-                        <outlet property="expiredBtn" destination="hPy-6x-pG3" id="fax-68-GK0"/>
                         <outlet property="searchBarButton" destination="AZM-iE-k1W" id="ZkA-N9-xcZ"/>
                         <outlet property="sliderView" destination="CD5-Q0-iUD" id="0mh-PA-Iue"/>
-                        <outlet property="soonExpiredBtn" destination="qxl-8J-EAy" id="1oc-RJ-maY"/>
                         <outlet property="tableView" destination="o8F-l7-rEU" id="E5l-nn-eB0"/>
                         <segue destination="yTY-l9-zTe" kind="show" identifier="SegueFoodDetail" id="Lds-aR-iOo"/>
                     </connections>

@@ -53,7 +53,7 @@ class FirebaseManager {
                 return
             }
             
-            //監聽新增項目
+            // 監聽新增項目
             documents.documentChanges.forEach { diff in
                 if diff.type == .added {
                     print("新增: \(diff.document.data())")

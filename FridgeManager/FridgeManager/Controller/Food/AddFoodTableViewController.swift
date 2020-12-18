@@ -13,18 +13,6 @@ import Kingfisher
 
 class AddFoodTableViewController: UITableViewController {
     
-    var foodCategory: [String]?
-    
-    var selectedFood: Food? {
-        
-        didSet {
-            
-            downloadURL = selectedFood?.photo
-        }
-    }
-    
-//    let ref = Firestore.firestore().collection("fridges")
-    
     var fridgeID: String {
         
         guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
@@ -40,6 +28,19 @@ class AddFoodTableViewController: UITableViewController {
        return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
     }
     
+    var refCategory: DocumentReference {
+        return Firestore.firestore().collection("fridges").document(fridgeID)
+    }
+    
+    var foodCategory: [String]?
+    
+    var selectedFood: Food? {
+        
+        didSet {
+            
+            downloadURL = selectedFood?.photo
+        }
+    }
     
     let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
@@ -55,8 +56,8 @@ class AddFoodTableViewController: UITableViewController {
         super.viewDidLoad()
         dbListenCategory()
         setupFoodDetail()
-        finishedPurchaseAddToFood()
         setupSaveBarBtnItem()
+        finishedPurchaseToFoodList()
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -118,7 +119,7 @@ class AddFoodTableViewController: UITableViewController {
                 
                 guard let category = controller.textFields?[0].text else { return }
                 
-                //add上去firebase
+                // add上去firebase
                 self.ref.document(self.fridgeID).updateData(["category": FieldValue.arrayUnion(["\(category)"]) ])
             }
             
@@ -143,7 +144,7 @@ class AddFoodTableViewController: UITableViewController {
                 guard let deleteCategory = controller.textFields?[0].text else { return }
                 
                 
-                //從firebase delet
+                // 從firebase delet
                 self.ref.document(self.fridgeID).updateData(["category": FieldValue.arrayRemove(["\(deleteCategory)"])])
                 
             }
@@ -165,7 +166,7 @@ class AddFoodTableViewController: UITableViewController {
     
     func dbListenCategory() {
         
-        ref.document(fridgeID).addSnapshotListener { documentSnapshot, error in
+        refCategory.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot
             else {
                 print("Error fetching document:\(error!)")
@@ -183,7 +184,7 @@ class AddFoodTableViewController: UITableViewController {
     
     func dbGetCategory() {
         
-        ref.document(fridgeID).getDocument { (document, _) in
+        refCategory.getDocument { (document, _) in
             if let document = document, document.exists {
                 let data = document.data()
                 //                    print(data!)
@@ -284,7 +285,7 @@ class AddFoodTableViewController: UITableViewController {
         
         addFoodListToDB()
         
-        //翻回去PurchaseListPage
+        // 翻回去PurchaseListPage
         self.navigationController?.popToRootViewController(animated: true)
         //        self.navigationController?.tabBarController?.selectedIndex = 0
         //        self.navigationController?.tabBarController?.tabBarItem
@@ -303,7 +304,7 @@ class AddFoodTableViewController: UITableViewController {
         let text = amountAlertTextField.text ?? "0"
         let amountAlert = Int(text) ?? 0
         
-        //判斷更新食物還是新增食物
+        // 判斷更新食物還是新增食物
         if selectedFood != nil {
             
             guard let id = selectedFood?.id else { return }
@@ -321,10 +322,10 @@ class AddFoodTableViewController: UITableViewController {
             
         } else {
             
-            let document =  ref.document(fridgeID).collection("foods").document()
+            let id = ref.document().documentID
             
             let data: [String: Any] = [
-                "id": document.documentID,
+                "id": id,
                 "photo": url as Any,
                 "name": name,
                 "amount": Int(amount) ?? 0 ,
@@ -334,7 +335,7 @@ class AddFoodTableViewController: UITableViewController {
                 "purchaseDate": purchaseDatePicker.date,
                 "expiredDate": expiredDatePicker.date
             ]
-            document.setData(data)
+            ref.document(id).setData(data)
         }
         
     }
@@ -370,7 +371,7 @@ class AddFoodTableViewController: UITableViewController {
         
     }
     
-    func finishedPurchaseAddToFood() {
+    func finishedPurchaseToFoodList() {
         
         guard let title = segueText?.name,
               let amount = segueText?.amount,

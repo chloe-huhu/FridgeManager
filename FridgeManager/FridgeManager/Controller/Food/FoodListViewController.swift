@@ -29,11 +29,6 @@ class FoodListViewController: UIViewController {
        return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
     }
     
-    var refCategory: DocumentReference {
-        return Firestore.firestore().collection("fridges").document(fridgeID)
-        
-    }
-    
     var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
     
     var oriFoods: [Food] = []
@@ -60,6 +55,7 @@ class FoodListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+    
     }
     
     
@@ -145,8 +141,8 @@ class FoodListViewController: UIViewController {
     }
     
     func dbListen() {
-       
-        FirebaseManager.shared.listen(ref: refCategory) {
+        
+        FirebaseManager.shared.listen(ref: ref) {
             
             self.dbGet()
         }
@@ -154,7 +150,7 @@ class FoodListViewController: UIViewController {
     
     func dbGet() {
         
-        refCategory.getDocuments { (querySnapshot, err) in
+        ref.getDocuments { (querySnapshot, err) in
             
             if let err = err {
                 

@@ -109,12 +109,6 @@ class PurchaseDetailTableViewController: UITableViewController {
         // accept firebase 刪掉
         deleteAccept()
         
-        // 開啟addFoodPage
-//        self.performSegue(withIdentifier: "SegueAddFood", sender: nil)
-        
-        
-        // 資料傳過去
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -219,7 +213,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         else { return }
         
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+        let ref = Firestore.firestore().collection("fridges").document(fridgeID).collection("awaiting")
         
         let document = ref.document()
         

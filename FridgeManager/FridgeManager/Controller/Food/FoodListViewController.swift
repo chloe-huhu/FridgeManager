@@ -54,6 +54,7 @@ class FoodListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        dbListen()
         self.tabBarController?.tabBar.isHidden = false
     
     }

@@ -12,6 +12,20 @@ import FirebaseStorage
 
 class AddPurchaseListTableViewController: UITableViewController, UITextViewDelegate {
     
+    var fridgeID: String {
+        guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
+            return ""
+        }
+        
+        return fridgeID
+    }
+
+    var awaitingRef: CollectionReference {
+        Firestore.firestore().collection("fridges").document(fridgeID).collection("awaiting")
+    }
+
+   
+    
     let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
     var seletedUnitIndex = 0
@@ -136,10 +150,9 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         
         
         let url = downloadURL == nil ? nil : downloadURL
+
         
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
-        
-        let document = ref.document()
+        let document = awaitingRef.document()
         
         let data: [String: Any] = [
             "id": document.documentID,

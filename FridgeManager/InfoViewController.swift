@@ -97,10 +97,11 @@ class InfoViewController: UIViewController {
             "users": [Auth.auth().currentUser?.email]
         ])
         
+        //將新增的冰箱ID存起來
         UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
         
+        //將新建的冰箱ID加到myFridges
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-        
         userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
         
     }
@@ -257,14 +258,13 @@ class InfoViewController: UIViewController {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    //                    print("\(document.documentID) => \(document.data())")
+                    // print("\(document.documentID) => \(document.data())")
                     
                     do {
                         
                         let data = try document.data(as: Fridge.self)
                         
                         self.fridgesArray.append(data!.fridgeName)
-                        
                         
                     } catch {
                         
@@ -317,7 +317,9 @@ class InfoViewController: UIViewController {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                                        print("=======", "\(document.documentID) => \(document.data())")
+                    
+                    print("=======", "\(document.documentID) => \(document.data())")
+                    
                     do {
                         
                         let data = try document.data(as: Fridge.self)
@@ -338,7 +340,6 @@ class InfoViewController: UIViewController {
     func addFridge () {
         
     }
-    
     
     func btnPressedAnimation(type: ShowFridge) {
         switch showFridge {
@@ -369,9 +370,9 @@ class InfoViewController: UIViewController {
                 self.switchFridge(fridgeName: fridgeName)
             })
             
-            controller.addAction(okAction)
-            
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            controller.addAction(okAction)
             
             controller.addAction(cancelAction)
             
@@ -380,12 +381,12 @@ class InfoViewController: UIViewController {
         case.myInvites:
             let controller = UIAlertController(title: "接受邀請", message: "加入\(fridgeName)冰箱", preferredStyle: .alert)
             
-            //把冰箱加到user_myfridge && fridge_user新增我
-            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in self.switchFridge(fridgeName: fridgeName)})
-            
-            controller.addAction(okAction)
+            // 把冰箱加到user_myfridge && fridge_user新增我
+            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in })
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            
+            controller.addAction(okAction)
             
             controller.addAction(cancelAction)
             

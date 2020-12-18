@@ -14,8 +14,6 @@ import ExpandingMenu
 
 class FoodListViewController: UIViewController {
     
-    let fridgeManager = FridgeManager.shared
-    
     var fridgeID: String {
         
         guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
@@ -29,6 +27,11 @@ class FoodListViewController: UIViewController {
     var ref: CollectionReference {
         
        return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
+    }
+    
+    var refCategory: DocumentReference {
+        return Firestore.firestore().collection("fridges").document(fridgeID)
+        
     }
     
     var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
@@ -45,8 +48,6 @@ class FoodListViewController: UIViewController {
     
     var showCategory: ShowCategory = .all
     
-//    let takingPicture = UIImagePickerController()
-//
     var showType: ShowType = .edit
     
     override func viewDidLoad() {
@@ -86,12 +87,6 @@ class FoodListViewController: UIViewController {
     }
     
     @IBOutlet weak var searchBarButton: UIBarButtonItem!
-//
-//    @IBOutlet weak var allBtn: UIButton!
-//
-//    @IBOutlet weak var soonExpiredBtn: UIButton!
-//
-//    @IBOutlet weak var expiredBtn: UIButton!
     
     @IBOutlet weak var sliderView: UIView!
     
@@ -150,8 +145,8 @@ class FoodListViewController: UIViewController {
     }
     
     func dbListen() {
-        
-        FirebaseManager.shared.listen(ref: ref) {
+       
+        FirebaseManager.shared.listen(ref: refCategory) {
             
             self.dbGet()
         }
@@ -159,7 +154,7 @@ class FoodListViewController: UIViewController {
     
     func dbGet() {
         
-        ref.getDocuments { (querySnapshot, err) in
+        refCategory.getDocuments { (querySnapshot, err) in
             
             if let err = err {
                 
@@ -206,7 +201,7 @@ class FoodListViewController: UIViewController {
                 self.isExpendDataList.append(false)
             }
             
-            //在key底下,新增value (Section:data1\data2)
+            // 在key底下,新增value (Section:data1\data2)
             self.foodsDic[food.category]?.append(food)
         }
         

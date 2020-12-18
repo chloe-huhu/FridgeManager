@@ -128,7 +128,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 if Auth.auth().currentUser != nil {
                     
                     self.performSegue(withIdentifier: "showSignin", sender: nil)
-
+                    
                 } else {
 
                     UserDefaults.standard.setValue(user.uid, forKey: "userUid")

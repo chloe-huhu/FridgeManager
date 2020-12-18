@@ -11,6 +11,25 @@ import FirebaseFirestore
 
 class PurchaseListViewController: UIViewController {
     
+    var fridgeID: String {
+       
+        guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
+           
+            return ""
+        }
+        
+        return fridgeID
+    }
+    
+    var awaitingRef: CollectionReference {
+        return Firestore.firestore().collection("fridges").document(fridgeID).collection("awaiting")
+    }
+    
+    var acceptRef: CollectionReference {
+       return
+        Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
+    }
+    
     var awaitingList: [List] = []
     
     var acceptLists: [List] = []
@@ -27,9 +46,6 @@ class PurchaseListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
-    let awaitingRef = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
-    
-    let acceptRef = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,11 +113,11 @@ class PurchaseListViewController: UIViewController {
             for selecteditem in selectedItems {
                 
                 if selecteditem.whoBuy == "" {
-                    let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
-                    ref.document(selecteditem.id).delete()
+
+                    awaitingRef.document(selecteditem.id).delete()
                 } else {
-                    let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
-                    ref.document(selecteditem.id).delete()
+                    
+                    acceptRef.document(selecteditem.id).delete()
                 }
 
             }
@@ -159,13 +175,13 @@ class PurchaseListViewController: UIViewController {
                         
                         self.awaitingList.append(data!)
                         
-                        self.tableView.reloadData()
-                        
                     } catch {
                         print("error to decode", error)
                     }
                     
                 }
+                
+                self.tableView.reloadData()
             }
             
             

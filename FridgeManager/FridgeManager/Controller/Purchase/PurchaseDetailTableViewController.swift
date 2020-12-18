@@ -12,6 +12,19 @@ import Kingfisher
 
 class PurchaseDetailTableViewController: UITableViewController {
     
+    var fridgeID: String {
+        guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
+            return ""
+        }
+        
+        return fridgeID
+    }
+    
+    var acceptRef: CollectionReference {
+       return
+        Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
+    }
+    
     var isAwaiting = Bool()
     
     var selectedList: List?
@@ -93,14 +106,15 @@ class PurchaseDetailTableViewController: UITableViewController {
     }
     
     @IBAction func finishedPurchaseBtnTapped(_ sender: UIButton) {
-        //accept firebase 刪掉
+        // accept firebase 刪掉
         deleteAccept()
         
-        //開啟addFoodPage
+        // 開啟addFoodPage
 //        self.performSegue(withIdentifier: "SegueAddFood", sender: nil)
         
         
-        //資料傳過去
+        // 資料傳過去
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,7 +150,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         else { return }
         
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+        let ref = Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
         
         let document = ref.document()
         
@@ -157,7 +171,7 @@ class PurchaseDetailTableViewController: UITableViewController {
     
     func deleteAwaiting() {
         guard let id = selectedList? .id else { return }
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("awaiting")
+        let ref = Firestore.firestore().collection("fridges").document(fridgeID).collection("awaiting")
         ref.document(id).delete() { err in
             if let err = err {
                 print("Error removing document :\(err)")
@@ -184,7 +198,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         guard let id = selectedList? .id else { return }
        
-        let ref = Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("accept")
+        let ref = Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
         ref.document(id).delete() { err in
             if let err = err {
                 print("Error removing document :\(err)")

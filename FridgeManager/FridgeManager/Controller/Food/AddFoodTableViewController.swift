@@ -23,7 +23,7 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    let ref = Firestore.firestore().collection("fridges")
+//    let ref = Firestore.firestore().collection("fridges")
     
     var fridgeID: String {
         
@@ -34,6 +34,12 @@ class AddFoodTableViewController: UITableViewController {
         
         return fridgeID
     }
+    
+    var ref: CollectionReference {
+        
+       return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
+    }
+    
     
     let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
@@ -94,6 +100,7 @@ class AddFoodTableViewController: UITableViewController {
     }
     
     @IBAction func categoryDidSeclected(_ sender: UITextField) {
+        
         categoryTextField.text = foodCategory![seletedCategoryIndex]
     }
     
@@ -301,7 +308,7 @@ class AddFoodTableViewController: UITableViewController {
             
             guard let id = selectedFood?.id else { return }
             
-            ref.document(fridgeID).collection("foods").document(id).setData([
+            ref.document(id).setData([
                 "photo": url as Any,
                 "name": name,
                 "amount": Int(amount) ?? 0 ,

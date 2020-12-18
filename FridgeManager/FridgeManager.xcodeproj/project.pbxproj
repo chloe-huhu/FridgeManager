@@ -11,7 +11,6 @@
 		AE0CA766258667890030A971 /* UIImage+ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */; };
 		AE1F8A73258BBA7100DA0B4E /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */; };
 		AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* EnumExtension.swift */; };
-		AE57EE54258C5F24002C02FB /* FridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57EE53258C5F24002C02FB /* FridgeManager.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
 		AE6255FA257BE4CE0022CCB3 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */; };
@@ -74,7 +73,6 @@
 		AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleExtension.swift"; sourceTree = "<group>"; };
 		AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
-		AE57EE53258C5F24002C02FB /* FridgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeManager.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
 		AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FancyButton.swift; path = FridgeManager/FancyButton.swift; sourceTree = SOURCE_ROOT; };
@@ -246,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				AE8139C92578D9CD00070681 /* FirebaseManager.swift */,
-				AE57EE53258C5F24002C02FB /* FridgeManager.swift */,
 				AECC1FE82578EE1E004D6168 /* ModelData.swift */,
 			);
 			path = Model;
@@ -627,7 +624,6 @@
 				AE9DCAE82572401D00CD44F3 /* CellView.swift in Sources */,
 				AEDA4212257546F900AF4CC1 /* RecipeViewController.swift in Sources */,
 				AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */,
-				AE57EE54258C5F24002C02FB /* FridgeManager.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,

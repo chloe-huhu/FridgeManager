@@ -90,7 +90,38 @@ class AddFoodTableViewController: UITableViewController {
         unitTextField.text = unit[seletedUnitIndex]
     }
     
-    @IBOutlet weak var amountAlertTextField: RoundedTextField!
+    @IBOutlet weak var amountAlertTextField: RoundedTextField! {
+        didSet {
+            if amountAlertTextField.text == "0" {
+                
+                amountAlertTextField.isUserInteractionEnabled = false
+                
+            } else {
+                amountAlertTextField.isUserInteractionEnabled = true
+                alterSwitch.isOn = true
+            }
+        }
+    }
+    
+    @IBOutlet weak var alterSwitch: UISwitch! {
+        didSet {
+            alterSwitch.isOn = false
+        }
+    }
+    
+    @IBAction func switchDidChange(_ sender: UISwitch) {
+        if sender.isOn {
+            alterSwitch.onTintColor = UIColor.chloeYellow
+            amountAlertTextField.backgroundColor = UIColor.chloeYellow
+            amountAlertTextField.isUserInteractionEnabled = true
+        } else {
+            alterSwitch.tintColor = UIColor.white
+            amountAlertTextField.backgroundColor = #colorLiteral(red: 0.9411043525, green: 0.9412171841, blue: 0.9410660267, alpha: 1)
+            amountAlertTextField.isUserInteractionEnabled = false
+            amountAlertTextField.text = ""
+        }
+        
+    }
     
     @IBOutlet weak var categoryTextField: RoundedTextField! {
         didSet {
@@ -299,10 +330,9 @@ class AddFoodTableViewController: UITableViewController {
               let amount = amountTextField.text,
               let unit = unitTextField.text,
               let category = categoryTextField.text else { return }
-        
-        let url = downloadURL == nil ? nil : downloadURL
-        let text = amountAlertTextField.text ?? "0"
-        let amountAlert = Int(text) ?? 0
+              let url = downloadURL == nil ? nil : downloadURL
+              let text = amountAlertTextField.text ?? "0"
+              let amountAlert = Int(text) ?? 0
         
         // 判斷更新食物還是新增食物
         if selectedFood != nil {

@@ -30,6 +30,8 @@ class InfoViewController: UIViewController {
     
     var downloadURL: String?
     
+    var currentFridgeID: String?
+    
     var showFridge: ShowFridge = .myFridges
     
     override func viewDidLoad() {
@@ -43,6 +45,7 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var currentFridge: UILabel!
+    
     
     @IBOutlet weak var fridgeListButton: UIButton!
     
@@ -67,7 +70,7 @@ class InfoViewController: UIViewController {
         
         let controller = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
         
-        let addFridgeAction = UIAlertAction(title: "新增冰箱", style: .default, handler: { _ in
+        let addFridgeAction = UIAlertAction(title: "建立新冰箱", style: .default, handler: { _ in
             let alterController = UIAlertController(title: "輸入冰箱名稱", message: nil, preferredStyle: .alert)
             
             alterController.addTextField { (textField) in
@@ -91,17 +94,19 @@ class InfoViewController: UIViewController {
         })
         
         let addMemberAction = UIAlertAction(title: "新增成員", style: .default, handler: { _ in
-            let alterController = UIAlertController(title: "輸入成員名稱", message: nil, preferredStyle: .alert)
+            let alterController = UIAlertController(title: "輸入成員AppleIDEmail", message: nil, preferredStyle: .alert)
             
             alterController.addTextField { (textField) in
-                textField.placeholder = ""
+                textField.placeholder = "對方下載app時使用的帳號"
             }
             
             let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
                 
-                guard  let memberName = alterController.textFields?[0].text else { return }
+                guard  let memberEmail = alterController.textFields?[0].text else { return }
                 
-                print(memberName)
+                self.findingFriends(email: memberEmail)
+                
+                
             }
             alterController.addAction(okAction)
             
@@ -141,6 +146,41 @@ class InfoViewController: UIViewController {
         
     }
     
+    //撈到朋友email -> 寄送邀請給他
+    func findingFriends(email: String) {
+        
+            Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
+            if let querySnapshot = querySnapshot {
+                for document in querySnapshot.documents {
+                    do {
+                        let data = try document.data(as: User.self)
+                        
+                        guard let userUID = data?.uid else { return }
+                        
+                        self.sendInite(userUID: userUID)
+                        
+                    } catch {
+                        print("error to decode", error)
+                    }
+            
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    func sendInite(userUID: String) {
+        
+        let doc = Firestore.firestore().collection("users").document(userUID)
+        
+        guard let currentFridgeID = currentFridgeID else { return }
+        
+        doc.updateData(["myInvites": Firebase.FieldValue.arrayUnion([currentFridgeID])]
+        )
+        
+    }
     
     @IBOutlet weak var editPersonInfoBarBtn: UIBarButtonItem!
     
@@ -293,7 +333,6 @@ class InfoViewController: UIViewController {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    // print("\(document.documentID) => \(document.data())")
                     
                     do {
                         
@@ -307,7 +346,6 @@ class InfoViewController: UIViewController {
                     }
                     
                 }
-                //                print("===========", self.fridgesArray)
                 self.tableView.reloadData()
             }
             
@@ -359,6 +397,8 @@ class InfoViewController: UIViewController {
                         
                         let data = try document.data(as: Fridge.self)
                         
+                        self.currentFridgeID = data?.fridgeID
+                        
                         UserDefaults.standard.setValue(data?.fridgeID, forKey: "FridgeID")
                         
                     } catch {
@@ -369,10 +409,6 @@ class InfoViewController: UIViewController {
             }
             
         }
-        
-    }
-    
-    func addFridge () {
         
     }
     

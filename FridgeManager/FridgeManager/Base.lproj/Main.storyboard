@@ -1504,7 +1504,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="50"/>
+                                                <integer key="value" value="55"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
@@ -1518,7 +1518,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按右上角創建新冰箱" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi" customClass="PaddingLabel" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="126" y="160" width="162" height="30"/>
+                                        <rect key="frame" x="119" y="160" width="176" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5WS-Vk-cvo"/>
@@ -1835,11 +1835,11 @@
     </scenes>
     <designables>
         <designable name="fRf-b6-sCi">
-            <size key="intrinsicContentSize" width="162" height="25.5"/>
+            <size key="intrinsicContentSize" width="176" height="35.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="8dV-Mf-sHW"/>
+        <segue reference="Cac-fM-gvU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>

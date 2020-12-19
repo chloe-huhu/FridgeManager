@@ -201,7 +201,7 @@ class PurchaseListViewController: UIViewController {
                 self.acceptLists = []
                 
                 for document in querySnapshot!.documents {
-                    print("正在採購：現有的資料 \(document.documentID) => \(document.data())")
+//                    print("正在採購：現有的資料 \(document.documentID) => \(document.data())")
                     do {
                         
                         let data = try document.data(as: List.self)

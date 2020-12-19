@@ -50,7 +50,7 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var sliderView: UIView!
     
-
+    
     @IBAction func myFridgesBtnTapped(_ sender: UIButton) {
         showFridge = .myFridges
         btnPressedAnimation(type: .myFridges)
@@ -65,25 +65,60 @@ class InfoViewController: UIViewController {
     
     @IBAction func addNewFridgeBtnTapped(_ sender: UIBarButtonItem) {
         
-        let alterController = UIAlertController(title: "新增冰箱", message: nil, preferredStyle: .alert)
+        let controller = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
         
-        alterController.addTextField { (textField) in
-            textField.placeholder = "幫新冰箱取名"
-        }
+        let addFridgeAction = UIAlertAction(title: "新增冰箱", style: .default, handler: { _ in
+            let alterController = UIAlertController(title: "輸入冰箱名稱", message: nil, preferredStyle: .alert)
+            
+            alterController.addTextField { (textField) in
+                textField.placeholder = ""
+            }
+            
+            let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+                
+                guard  let fridgeName = alterController.textFields?[0].text else { return }
+                
+                self.addNewFridgeSetup(name: fridgeName)
+                
+            }
+            alterController.addAction(okAction)
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            alterController.addAction(cancelAction)
+            
+            self.present(alterController, animated: true, completion: nil)
+            
+        })
         
-        let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+        let addMemberAction = UIAlertAction(title: "新增成員", style: .default, handler: { _ in
+            let alterController = UIAlertController(title: "輸入成員名稱", message: nil, preferredStyle: .alert)
             
-            guard  let fridgeName = alterController.textFields?[0].text else { return }
+            alterController.addTextField { (textField) in
+                textField.placeholder = ""
+            }
             
-            self.addNewFridgeSetup(name: fridgeName)
+            let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+                
+                guard  let memberName = alterController.textFields?[0].text else { return }
+                
+                print(memberName)
+            }
+            alterController.addAction(okAction)
             
-        }
-        alterController.addAction(okAction)
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            alterController.addAction(cancelAction)
+            
+            self.present(alterController, animated: true, completion: nil)
+        })
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alterController.addAction(cancelAction)
         
-        present(alterController, animated: true, completion: nil)
+        controller.addAction(addFridgeAction)
+        controller.addAction(addMemberAction)
+        controller.addAction(cancelAction)
+        
+        present(controller, animated: true, completion: nil)
+        
     }
     
     func addNewFridgeSetup (name: String) {
@@ -97,16 +132,16 @@ class InfoViewController: UIViewController {
             "users": [Auth.auth().currentUser?.email]
         ])
         
-        //將新增的冰箱ID存起來
+        // 將新增的冰箱ID存起來
         UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
         
-        //將新建的冰箱ID加到myFridges
+        // 將新建的冰箱ID加到myFridges
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
         userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
         
     }
     
-
+    
     @IBOutlet weak var editPersonInfoBarBtn: UIBarButtonItem!
     
     @IBAction func editPersonInfoBtnTapped(_ sender: UIBarButtonItem) {
@@ -171,7 +206,7 @@ class InfoViewController: UIViewController {
     }
     
     func dbInfoListen() {
-    
+        
         refUID!.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -357,12 +392,12 @@ class InfoViewController: UIViewController {
     }
     
     func  fridgePopUp(fridgeName: String) {
-       
+        
         switch showFridge {
         
         case .myFridges:
             let controller = UIAlertController(title: "切換", message: "切換至\(fridgeName)冰箱", preferredStyle: .alert)
-           
+            
             let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
                 
                 self.currentFridge.text = fridgeName
@@ -377,7 +412,7 @@ class InfoViewController: UIViewController {
             controller.addAction(cancelAction)
             
             present(controller, animated: true, completion: nil)
-        
+            
         case.myInvites:
             let controller = UIAlertController(title: "接受邀請", message: "加入\(fridgeName)冰箱", preferredStyle: .alert)
             

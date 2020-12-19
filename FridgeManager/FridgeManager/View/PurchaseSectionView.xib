@@ -90,7 +90,6 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="baW-Aj-m9K" secondAttribute="bottom" constant="10" id="1Wi-dj-LcU"/>
                 <constraint firstItem="baW-Aj-m9K" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="1m2-Y6-dwE"/>

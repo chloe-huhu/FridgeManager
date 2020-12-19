@@ -132,18 +132,22 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     
                     guard let user = authResult?.user else { return } // <FIRUser: 0x282b35480>
                    
-                    guard let id = Auth.auth().currentUser?.uid else { return } // UUNNN5YELPXtuppYQfluRMKm9Qd2
+                    guard let uid = Auth.auth().currentUser?.uid else { return } // UUNNN5YELPXtuppYQfluRMKm9Qd2
                     
                     
                     // 去Firebase找符合的uid
-                    Firestore.firestore().collection("users").whereField("uid", isEqualTo: id).getDocuments { (querySnapShot, error) in
+                    Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
                         if let error = error {
                             print("Error getting documnets : \(error)")
                         } else {
                             for document in querySnapShot!.documents {
                                 print("\(document.documentID) => \(document.data())")
                                 do {
+                                    
                                     let data = try document.data(as: User.self)
+                                    
+                                    UserDefaults.standard.setValue("1fK0iw24FWWiGf8f3r0G", forKey: "FridgeID")
+                                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
                                     
                                     self.performSegue(withIdentifier: "showSignin", sender: nil)
                                     
@@ -189,27 +193,6 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
             }
         }
     }
-    
-    
-    
-//    func addNewUser (user: User, uid: String) {
-//
-//        let email = user.email ?? ""
-//
-//        let displayName = user.displayName ?? "請設定暱稱"
-//
-//        let doc = Firestore.firestore().collection("users")
-//
-//        doc.document(uid).setData([
-//            "uid": uid,
-//            "photo": "",
-//            "displayName": displayName,
-//            "email": email,
-//            "myFridges": [],
-//            "myInvites": []
-//
-//        ])
-//    }
     
     func addNewFridgeSetup (name: String) {
         

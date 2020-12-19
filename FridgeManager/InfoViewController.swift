@@ -194,7 +194,7 @@ class InfoViewController: UIViewController {
             
             self.personImageView.kf.indicatorType = .activity
             
-            self.personImageView.kf.setImage(with: userPhoto)
+            self.personImageView.kf.setImage(with: userPhoto, options: [.transition(.fade(0.5))])
             
         } else {
             

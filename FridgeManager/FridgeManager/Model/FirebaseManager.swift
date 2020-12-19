@@ -56,13 +56,13 @@ class FirebaseManager {
             // 監聽新增項目
             documents.documentChanges.forEach { diff in
                 if diff.type == .added {
-                    print("新增: \(diff.document.data())")
+//                    print("新增: \(diff.document.data())")
                 }
                 if diff.type == .modified {
-                    print("修改: \(diff.document.data())")
+//                    print("修改: \(diff.document.data())")
                 }
                 if diff.type == .removed {
-                    print("刪除: \(diff.document.data())")
+//                    print("刪除: \(diff.document.data())")
                 }
             }
                 handler()

@@ -1174,6 +1174,29 @@
             </objects>
             <point key="canvasLocation" x="1189.8550724637682" y="-2.0089285714285712"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="cBp-ah-12v">
+            <objects>
+                <viewController id="PEN-Im-KDp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AdX-KM-dyd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNb-xf-dvD">
+                                <rect key="frame" x="58" y="615" width="322" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nu8-oc-hcl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zQ-EF-6zT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1973.913043478261" y="-31.473214285714285"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="IP3-TI-O8R">
             <objects>
@@ -1494,12 +1517,11 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市民大道冰箱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi" customClass="PaddingLabel" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="142" y="160" width="130" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按右上角創建新冰箱" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi" customClass="PaddingLabel" customModule="FridgeManager" customModuleProvider="target">
+                                        <rect key="frame" x="119" y="160" width="176" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5WS-Vk-cvo"/>
-                                            <constraint firstAttribute="width" constant="130" id="LsO-LM-wZV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                         <color key="textColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1813,7 +1835,7 @@
     </scenes>
     <designables>
         <designable name="fRf-b6-sCi">
-            <size key="intrinsicContentSize" width="108" height="25.5"/>
+            <size key="intrinsicContentSize" width="176" height="35.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

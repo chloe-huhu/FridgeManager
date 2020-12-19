@@ -57,8 +57,8 @@ class PurchaseDetailTableViewController: UITableViewController {
             if let photo = selectedList?.photo {
             
                 let purchasePhoto = URL(string: photo)
-                imageView.kf.indicatorType = .activity
-                imageView.kf.setImage(with: purchasePhoto)
+                
+                imageView.kf.setImage(with: purchasePhoto, options: [.transition(.fade(0.5))])
                 
             } else {
                 imageView.image = UIImage(systemName: "photo")

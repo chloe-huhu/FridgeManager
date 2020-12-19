@@ -23,32 +23,144 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F0C88627-3D6F-4529-B3DE-9EC7E16A846A"
-            shouldBeEnabled = "No"
+            uuid = "52FE8A29-7F01-47CD-8A13-245C42FDB86E"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InfoViewController.swift"
+            filePath = "FridgeManager/SigninViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
-            landmarkName = "switchFridge(fridgeName:)"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "89CF8955-1B3E-424A-AB0F-12A403B4F16F"
+            uuid = "0386A746-D52C-48C8-9843-C9D57D1AF344"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InfoViewController.swift"
+            filePath = "FridgeManager/SigninViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
-            landmarkName = "switchFridge(fridgeName:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0386A746-D52C-48C8-9843-C9D57D1AF344 - 15261e6dcc8155ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FridgeManager.SigninViewController.authorizationController(controller: __C.ASAuthorizationController, didCompleteWithAuthorization: __C.ASAuthorization) -&gt; ()"
+                  moduleName = "FridgeManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/SigninViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "1364">
+               </Location>
+               <Location
+                  uuid = "0386A746-D52C-48C8-9843-C9D57D1AF344 - 6003d3edd656cde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FridgeManager.SigninViewController.authorizationController(controller: __C.ASAuthorizationController, didCompleteWithAuthorization: __C.ASAuthorization) -&gt; ()"
+                  moduleName = "FridgeManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/SigninViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AC093CD-3885-4DAC-BCB0-34D1EE1E07F4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/SigninViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8CC21038-F08D-453D-820E-8D1C9518C6AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/SigninViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BFC0820-2248-4C41-B7F9-D924D2CD4B52"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/SigninViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "660F902F-C5CD-4D8F-831F-2665CA053D83"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/SigninViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "334B40BE-A6B2-446F-8D55-E9CC1F4BA1FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/SigninViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

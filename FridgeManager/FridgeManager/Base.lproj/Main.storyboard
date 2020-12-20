@@ -1817,11 +1817,6 @@
             <point key="canvasLocation" x="209" y="-719"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="fRf-b6-sCi">
-            <size key="intrinsicContentSize" width="162" height="25.5"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="8dV-Mf-sHW"/>
     </inferredMetricsTieBreakers>

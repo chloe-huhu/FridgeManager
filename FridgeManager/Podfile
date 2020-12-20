@@ -16,7 +16,6 @@ target 'FridgeManager' do
     pod 'FirebaseFirestoreSwift'
     pod 'RAMAnimatedTabBarController'
     pod 'IQKeyboardManagerSwift'
-    pod 'ExpandingMenu', '~> 0.4'
     pod 'FirebaseUI/OAuth'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'

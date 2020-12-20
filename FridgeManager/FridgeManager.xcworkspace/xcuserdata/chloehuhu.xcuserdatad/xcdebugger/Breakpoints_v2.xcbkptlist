@@ -14,8 +14,8 @@
             filePath = "FridgeManager/Controller/Food/AddFoodTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
             landmarkName = "addFoodListToDB()"
             landmarkType = "7">
          </BreakpointContent>
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1BFC0820-2248-4C41-B7F9-D924D2CD4B52"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeManager/SigninViewController.swift"
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "660F902F-C5CD-4D8F-831F-2665CA053D83"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeManager/SigninViewController.swift"
@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "334B40BE-A6B2-446F-8D55-E9CC1F4BA1FA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeManager/SigninViewController.swift"
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AB110F97-1CEE-40CC-A4A9-214626A63E2C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeManager/Controller/Purchase/PurchaseListViewController.swift"
@@ -103,124 +103,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A"
+            uuid = "25966D84-E465-450D-AF1D-747EB58DE9AB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FridgeManager/Controller/Food/AddFoodTableViewController.swift"
+            filePath = "FridgeManager/Controller/Food/FoodListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "selectedFood"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - 248853ecfba50e04"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.selectedFood.getter : Swift.Optional&lt;FridgeManager.Food&gt;"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - 1559e7b7c534be0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.selectedFood.setter : Swift.Optional&lt;FridgeManager.Food&gt;"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "240">
-               </Location>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - c6713931fab941f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.selectedFood.modify : Swift.Optional&lt;FridgeManager.Food&gt;"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - c07e2b24317a5e02"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.selectedFood.modify : Swift.Optional&lt;FridgeManager.Food&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - a75f4af7e7c2fac6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.init(style: __C.UITableViewStyle) -&gt; FridgeManager.AddFoodTableViewController"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "524">
-               </Location>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - 1ff90b49c5211d48"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; FridgeManager.AddFoodTableViewController"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "556">
-               </Location>
-               <Location
-                  uuid = "CFBB49E3-52D4-4B67-962C-A26436F6997A - fae74cf4273132c3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FridgeManager.AddFoodTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FridgeManager.AddFoodTableViewController&gt;"
-                  moduleName = "FridgeManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chloehuhu/Desktop/FridgeManager/FridgeManager/FridgeManager/Controller/Food/AddFoodTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "528">
-               </Location>
-            </Locations>
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "dbGet()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B3EEC78-5458-4EF9-B62C-A5FDD17D8EB4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FridgeManager/Controller/Food/FoodListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "dbGet()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -59,6 +59,7 @@ class AddFoodTableViewController: UITableViewController {
         setupSaveBarBtnItem()
         finishedPurchaseToFoodList()
         self.tabBarController?.tabBar.isHidden = true
+        
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -90,17 +91,10 @@ class AddFoodTableViewController: UITableViewController {
         unitTextField.text = unit[seletedUnitIndex]
     }
     
-    @IBOutlet weak var amountAlertTextField: RoundedTextField! {
+    @IBOutlet weak var alertTextField: RoundedTextField! {
         didSet {
-            if amountAlertTextField.text == "0" {
-                
-                amountAlertTextField.isUserInteractionEnabled = false
-                
-            } else {
-                amountAlertTextField.isUserInteractionEnabled = true
-                alterSwitch.isOn = true
+                alertTextField.isUserInteractionEnabled = false
             }
-        }
     }
     
     @IBOutlet weak var alterSwitch: UISwitch! {
@@ -112,13 +106,13 @@ class AddFoodTableViewController: UITableViewController {
     @IBAction func switchDidChange(_ sender: UISwitch) {
         if sender.isOn {
             alterSwitch.onTintColor = UIColor.chloeYellow
-            amountAlertTextField.backgroundColor = UIColor.chloeYellow
-            amountAlertTextField.isUserInteractionEnabled = true
+            alertTextField.backgroundColor = UIColor.chloeYellow
+            alertTextField.isUserInteractionEnabled = true
         } else {
             alterSwitch.tintColor = UIColor.white
-            amountAlertTextField.backgroundColor = #colorLiteral(red: 0.9411043525, green: 0.9412171841, blue: 0.9410660267, alpha: 1)
-            amountAlertTextField.isUserInteractionEnabled = false
-            amountAlertTextField.text = ""
+            alertTextField.backgroundColor = #colorLiteral(red: 0.9411043525, green: 0.9412171841, blue: 0.9410660267, alpha: 1)
+            alertTextField.isUserInteractionEnabled = false
+            alertTextField.text = ""
         }
         
     }
@@ -331,7 +325,7 @@ class AddFoodTableViewController: UITableViewController {
               let unit = unitTextField.text,
               let category = categoryTextField.text else { return }
               let url = downloadURL == nil ? nil : downloadURL
-              let text = amountAlertTextField.text ?? "0"
+              let text = alertTextField.text ?? "0"
               let amountAlert = Int(text) ?? 0
         
         // 判斷更新食物還是新增食物
@@ -374,7 +368,9 @@ class AddFoodTableViewController: UITableViewController {
         
         if selectedFood != nil {
             
-            guard let amount = selectedFood?.amount else { return }
+            guard let amount = selectedFood?.amount,
+                  let alter = selectedFood?.amountAlert
+            else { return }
             
             if let photo = selectedFood?.photo {
                 let foodPhoto = URL(string: photo)
@@ -385,11 +381,14 @@ class AddFoodTableViewController: UITableViewController {
             
             titleTextField.text = selectedFood?.name
             amountTextField.text = "\(String(describing: amount))"
+            setupAlter(alter: alter)
             unitTextField.text = selectedFood?.unit
             categoryTextField.text = selectedFood?.category
             
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
+            
             guard let purchseDate = selectedFood?.purchaseDate,
                   let expiredDate = selectedFood?.expiredDate
             else { return }
@@ -400,6 +399,19 @@ class AddFoodTableViewController: UITableViewController {
         }
         
     }
+    
+    func setupAlter(alter: Int) {
+        if alter == 0 {
+            alterSwitch.isOn = false
+            alertTextField.isUserInteractionEnabled = false
+        } else {
+            alterSwitch.isOn = true
+            alertTextField.isUserInteractionEnabled = true
+            alertTextField.text = "\(alter)"
+            
+        }
+    }
+    
     
     func finishedPurchaseToFoodList() {
         

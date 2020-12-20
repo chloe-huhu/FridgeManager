@@ -26,26 +26,35 @@
                         <rect key="frame" x="18" y="3" width="433" height="109"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costco 牛排" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-NI-V8h">
-                                <rect key="frame" x="16" y="43.5" width="100" height="22.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="N5t-Bu-Cn7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                <rect key="frame" x="20" y="42" width="103" height="25.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Xe-Zh-enZ">
-                                <rect key="frame" x="132" y="28" width="157.5" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLd-tS-hm5">
+                                <rect key="frame" x="392" y="42" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9Ha-j4-vBn"/>
+                                    <constraint firstAttribute="width" constant="25" id="Xs1-Ca-be9"/>
+                                </constraints>
+                                <color key="tintColor" red="0.89551275969999999" green="0.54123181099999995" blue="0.1802513301" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="cart.badge.plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addToPurchaseBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="58b-ac-c3S"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="raS-tO-WER">
+                                <rect key="frame" x="145" y="27" width="156.5" height="55"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量：200 公克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIl-to-2yR">
-                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量 : 200 公克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIl-to-2yR">
+                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="22.5"/>
                                         <color key="tintColor" red="0.99607843137254903" green="0.95294117647058818" blue="0.83921568627450982" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日：2020-12-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-5j-vde">
-                                        <rect key="frame" x="0.0" y="30.5" width="157.5" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日 : 2020-12-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-5j-vde">
+                                        <rect key="frame" x="0.0" y="32.5" width="156.5" height="22.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -55,10 +64,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5xe-NI-V8h" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="Obr-xn-Plv"/>
-                            <constraint firstItem="5xe-NI-V8h" firstAttribute="leading" secondItem="5UG-qk-jX5" secondAttribute="leading" constant="16" id="TRL-nV-2ek"/>
-                            <constraint firstItem="3Xe-Zh-enZ" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="16" id="YU3-zq-Voe"/>
-                            <constraint firstItem="3Xe-Zh-enZ" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="gQi-Gp-tiM"/>
+                            <constraint firstItem="5xe-NI-V8h" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="4Db-zM-hAT"/>
+                            <constraint firstItem="raS-tO-WER" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="22" id="7AO-5N-bMB"/>
+                            <constraint firstItem="5xe-NI-V8h" firstAttribute="leading" secondItem="5UG-qk-jX5" secondAttribute="leading" constant="20" id="QwM-ef-vAE"/>
+                            <constraint firstItem="raS-tO-WER" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="R8w-An-SLn"/>
+                            <constraint firstAttribute="trailing" secondItem="iLd-tS-hm5" secondAttribute="trailing" constant="16" id="j5W-pT-F9b"/>
+                            <constraint firstItem="iLd-tS-hm5" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="yg4-tM-eYc"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -93,6 +104,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="alterButton" destination="iLd-tS-hm5" id="bUq-qF-M8p"/>
                 <outlet property="amountLabel" destination="PIl-to-2yR" id="b9i-MV-Qmw"/>
                 <outlet property="cardView" destination="5UG-qk-jX5" id="BEq-jP-8Dr"/>
                 <outlet property="dateLabel" destination="Xx6-5j-vde" id="8qt-dk-Q9E"/>
@@ -102,6 +114,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <namedColor name="B5">
             <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

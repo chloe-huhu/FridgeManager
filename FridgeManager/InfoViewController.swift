@@ -146,7 +146,7 @@ class InfoViewController: UIViewController {
         
     }
     
-    //撈到朋友email -> 寄送邀請給他
+    // 撈到朋友email -> 寄送邀請給他
     func findingFriends(email: String) {
         
             Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
@@ -267,7 +267,7 @@ class InfoViewController: UIViewController {
             
             let userPhoto = URL(string: photo)
             
-            self.personImageView.kf.indicatorType = .activity
+//            self.personImageView.kf.indicatorType = .activity
             
             self.personImageView.kf.setImage(with: userPhoto, options: [.transition(.fade(0.5))])
             

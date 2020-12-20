@@ -45,6 +45,8 @@ class FoodListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
+    var alterList: [Bool] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSetup()
@@ -171,6 +173,18 @@ class FoodListViewController: UIViewController {
                         
                         self.oriFoods.append(food!)
                         
+                        //判斷alter
+                        guard let amount = food?.amount,
+                              let alter = food?.amountAlert
+                        
+                        else { return }
+                    
+                        if alter > amount {
+                            self.alterList.append(true)
+                        } else {
+                            self.alterList.append(false)
+                        }
+                        
                     } catch {
                         
                         print("error to decode", error)
@@ -191,9 +205,9 @@ class FoodListViewController: UIViewController {
         foodsKeyArray = []
         
         for food in foods {
-            //產生key(Section)
+            // 產生key(Section)
             if foodsDic[food.category] == nil {
-                //print("---- category is not in dictionary")
+                // print("---- category is not in dictionary")
                 self.foodsDic[food.category] = []
                 self.isExpendDataList.append(false)
             }
@@ -264,6 +278,7 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
     }
+    
 }
 
 extension FoodListViewController: UITableViewDelegate {
@@ -293,11 +308,8 @@ extension FoodListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let key = foodsKeyArray[indexPath.section]
-        
         guard let foods = foodsDic[key] else { return }
-        
         let food = foods[indexPath.row]
-        
         selectedFood = food
         
         if !tableView.isEditing {
@@ -362,7 +374,25 @@ extension FoodListViewController: UITableViewDataSource {
         
         cell.setup(data: food)
         
+//        if alterList[indexPath.row] == true {
+//            cell.alterButton.isHidden = false
+//        } else {
+//            cell.alterButton.isHidden = true
+//        }
+        
+        
+//
+//        for alter in alterList {
+//            if alter == true {
+//                cell.alterButton.isHidden = false
+//            } else {
+//                cell.alterButton.isHidden = true
+//            }
+//
+//        }
+    
         return cell
+        
     }
     
 }

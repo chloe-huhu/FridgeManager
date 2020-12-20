@@ -14,17 +14,27 @@ class CellView: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var alterButton: UIButton! {
+        didSet {
+            alterButton.isHidden = true
+        }
+    }
+    
+    @IBAction func addToPurchaseBtn(_ sender: UIButton) {
+        print("買買")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //類似左滑出來的色塊
+        // 類似左滑出來的色塊
         let selectedCellView = UIView()
         
         selectedCellView.backgroundColor = .white
         
         self.backgroundView = selectedCellView
         
-        //選中不變色
+        // 選中不變色
         self.selectedBackgroundView = UIView()
     }
 

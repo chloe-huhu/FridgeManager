@@ -145,7 +145,7 @@ class AddFoodTableViewController: UITableViewController {
                 guard let category = controller.textFields?[0].text else { return }
                 
                 // add上去firebase
-                self.ref.document(self.fridgeID).updateData(["category": FieldValue.arrayUnion(["\(category)"]) ])
+                self.refCategory.updateData(["category": FieldValue.arrayUnion(["\(category)"]) ])
             }
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -368,7 +368,7 @@ class AddFoodTableViewController: UITableViewController {
         
         if selectedFood != nil {
             
-            self.navigationItem.title = "查看食物列表"
+            self.navigationItem.title = "食物列表"
             
             guard let amount = selectedFood?.amount,
                   let alter = selectedFood?.amountAlert

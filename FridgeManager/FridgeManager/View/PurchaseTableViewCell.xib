@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XUk-Id-6Dd">
-                                <rect key="frame" x="81" y="7" width="78" height="51"/>
+                                <rect key="frame" x="86" y="7" width="78" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量 : 6 根" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W23-3A-YyL">
                                         <rect key="frame" x="0.0" y="0.0" width="78" height="22.5"/>
@@ -54,9 +54,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XUk-Id-6Dd" firstAttribute="leading" secondItem="SXf-fB-VZd" secondAttribute="trailing" constant="25" id="C7y-0q-r7b"/>
                             <constraint firstItem="SXf-fB-VZd" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="F0f-Bi-isC"/>
                             <constraint firstAttribute="trailing" secondItem="s6f-nD-z4H" secondAttribute="trailing" constant="16" id="I7M-Wj-xBa"/>
+                            <constraint firstItem="XUk-Id-6Dd" firstAttribute="leading" secondItem="SXf-fB-VZd" secondAttribute="trailing" constant="30" id="P4X-7n-5pb"/>
                             <constraint firstItem="s6f-nD-z4H" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="VGh-5b-PqF"/>
                             <constraint firstItem="XUk-Id-6Dd" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="dRu-mC-LtP"/>
                             <constraint firstItem="SXf-fB-VZd" firstAttribute="leading" secondItem="Jpf-Sz-XDF" secondAttribute="leading" constant="20" id="wNW-0E-KFD"/>

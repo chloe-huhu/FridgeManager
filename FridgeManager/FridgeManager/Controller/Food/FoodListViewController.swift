@@ -85,7 +85,6 @@ class FoodListViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
     @IBOutlet weak var sliderView: UIView!
     

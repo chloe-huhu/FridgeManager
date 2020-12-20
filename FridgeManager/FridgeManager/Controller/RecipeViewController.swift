@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class RecipeViewController: UIViewController {
+    
     let rowDataList = ["紅燒獅子頭", "清炒高麗菜", "洋蔥爆豬肉"]
     
     let rowDataImage = ["cabbage", "avocado", "boiled"]
     
     let rowDataIngredient = ["3項食材不足", "2項食材不足", "食材已備足"]
+    
+    let ref = Fire
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -23,33 +28,17 @@ class RecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationTitleSetup()
-        
-
-        
-    
+        navigationTitleSetup()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destVC = segue.destination as? MenuDetailViewController
-//    }
     
     func navigationTitleSetup() {
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.backgroundColor = .chloeYellow
         navigationController?.view.backgroundColor = .chloeYellow
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
+        navigationController?.navigationBar.barTintColor = .chloeYellow
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {

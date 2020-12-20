@@ -214,6 +214,8 @@ class InfoViewController: UIViewController {
                 
                 self.nameLabel.text = name
                 
+//                UserDefaults.standard.setValue(name, forKey: "displayName")
+                
             }
             
             controller.addAction(okAction)

@@ -15,6 +15,9 @@ class PurchaseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var whoLabel: UILabel!
     
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectedBackgroundView = UIView()

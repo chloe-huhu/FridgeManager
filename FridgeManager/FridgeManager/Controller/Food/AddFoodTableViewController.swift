@@ -368,6 +368,8 @@ class AddFoodTableViewController: UITableViewController {
         
         if selectedFood != nil {
             
+            self.navigationItem.title = "查看食物列表"
+            
             guard let amount = selectedFood?.amount,
                   let alter = selectedFood?.amountAlert
             else { return }
@@ -438,7 +440,7 @@ class AddFoodTableViewController: UITableViewController {
         return 7
     }
     
-    //選到第 0 row 開啟相機
+    // 選到第 0 row 開啟相機
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             
@@ -481,7 +483,7 @@ class AddFoodTableViewController: UITableViewController {
     
 }
 
-//從照片庫選擇照片後，從參數選擇被選取的照片
+// 從照片庫選擇照片後，從參數選擇被選取的照片
 extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -538,7 +540,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
 }
 
 extension AddFoodTableViewController: UITextFieldDelegate {
-    //textfield自動換行
+    // textfield自動換行
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1 ) {
             textField.resignFirstResponder()

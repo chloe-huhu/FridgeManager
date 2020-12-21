@@ -63,19 +63,26 @@ class PurchaseDetailTableViewController: UITableViewController {
         if isAwaiting == true {
             setupAwaitingBarBtnItem()
             finishedPurchaseButton.isHidden = true
+            whoBuyLabel.isHidden = true
         } else {
             setupAcceptBarBtnItem()
             finishedPurchaseButton.isHidden = false
+            whoBuyLabel.isHidden = false
         }
        
+        
+        
     }
     
     @IBOutlet weak var whoBuyLabel: PaddingLabel! {
         didSet {
             whoBuyLabel.layer.cornerRadius = 8
             whoBuyLabel.clipsToBounds = true
+            guard  let who = selectedList?.whoBuy  else { return }
+            whoBuyLabel.text = who
         }
     }
+    
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {

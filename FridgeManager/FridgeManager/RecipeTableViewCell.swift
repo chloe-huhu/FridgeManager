@@ -25,7 +25,7 @@ class RecipeTableViewCell: UITableViewCell {
     }
 
     func setup(data: Recipe) {
-        menuTitle.text = data.name
+        menuTitle.text = data.id
     }
 
 }

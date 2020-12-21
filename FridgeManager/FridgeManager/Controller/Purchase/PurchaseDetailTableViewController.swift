@@ -70,7 +70,7 @@ class PurchaseDetailTableViewController: UITableViewController {
        
     }
     
-    @IBOutlet weak var whoBuyLabel: UILabel! {
+    @IBOutlet weak var whoBuyLabel: PaddingLabel! {
         didSet {
             whoBuyLabel.layer.cornerRadius = 8
             whoBuyLabel.clipsToBounds = true
@@ -85,6 +85,8 @@ class PurchaseDetailTableViewController: UITableViewController {
                 let purchasePhoto = URL(string: photo)
                 
                 imageView.kf.setImage(with: purchasePhoto, options: [.transition(.fade(0.5))])
+                
+                setupImageView(imageView: imageView)
                 
             } else {
                 imageView.image = UIImage(systemName: "photo")
@@ -260,6 +262,19 @@ class PurchaseDetailTableViewController: UITableViewController {
         document.setData(data)
     }
     
+    func setupImageView(imageView: UIImageView) {
+            let leadingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .leading, relatedBy: .equal, toItem: imageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+            leadingConstraint.isActive = true
+
+            let trailingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .trailing, relatedBy: .equal, toItem: imageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+            trailingConstraint.isActive = true
+
+            let topConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .top, relatedBy: .equal, toItem: imageView.superview, attribute: .top, multiplier: 1, constant: 0)
+            topConstraint.isActive = true
+
+            let bottomConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .bottom, relatedBy: .equal, toItem: imageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+            bottomConstraint.isActive = true
+        }
     
     // MARK: - Table view data source
     

@@ -137,6 +137,19 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
                 }
     }
     
+    func setupImageView(imageView: UIImageView) {
+            let leadingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .leading, relatedBy: .equal, toItem: imageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+            leadingConstraint.isActive = true
+
+            let trailingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .trailing, relatedBy: .equal, toItem: imageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+            trailingConstraint.isActive = true
+
+            let topConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .top, relatedBy: .equal, toItem: imageView.superview, attribute: .top, multiplier: 1, constant: 0)
+            topConstraint.isActive = true
+
+            let bottomConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .bottom, relatedBy: .equal, toItem: imageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+            bottomConstraint.isActive = true
+        }
     
     func addListToDB() {
         guard let name = titleTextField.text,
@@ -168,6 +181,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         
         
         document.setData(data)
+        
     }
     // MARK: - Table view data source
     
@@ -270,6 +284,8 @@ extension AddPurchaseListTableViewController: UIImagePickerControllerDelegate & 
                 })
             }
         }
+        setupImageView(imageView: imageView)
+        
         dismiss(animated: true, completion: nil)
     }
 }

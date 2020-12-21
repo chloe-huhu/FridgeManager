@@ -350,6 +350,9 @@ class AddFoodTableViewController: UITableViewController {
             if let photo = selectedFood?.photo {
                 let foodPhoto = URL(string: photo)
                 imageView.kf.setImage(with: foodPhoto, options: [.transition(.fade(0.5))])
+                
+                setupImageView(imageView: imageView)
+                
             } else {
                 imageView.image = UIImage(systemName: "photo")
             }
@@ -384,6 +387,20 @@ class AddFoodTableViewController: UITableViewController {
         amountTextField.text = "\(amount)"
         unitTextField.text = unit
         
+    }
+    
+    func setupImageView(imageView: UIImageView) {
+        let leadingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .leading, relatedBy: .equal, toItem: imageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+        leadingConstraint.isActive = true
+
+        let trailingConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .trailing, relatedBy: .equal, toItem: imageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+        trailingConstraint.isActive = true
+
+        let topConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .top, relatedBy: .equal, toItem: imageView.superview, attribute: .top, multiplier: 1, constant: 0)
+        topConstraint.isActive = true
+
+        let bottomConstraint = NSLayoutConstraint(item: imageView as Any, attribute: .bottom, relatedBy: .equal, toItem: imageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+        bottomConstraint.isActive = true
     }
     
     // MARK: - Table view data source
@@ -452,6 +469,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
         if let pickedImage = info[.editedImage] as? UIImage {
             
             selectedImageFromPicker = pickedImage
+            
         }
         
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
@@ -492,6 +510,7 @@ extension AddFoodTableViewController: UIImagePickerControllerDelegate, UINavigat
                 })
             }
         }
+        setupImageView(imageView: imageView)
         
         dismiss(animated: true, completion: nil)
     }

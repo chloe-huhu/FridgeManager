@@ -65,13 +65,9 @@ struct Fridge: Codable {
 }
 
 struct Recipe: Codable {
-    let name: String
-    let url: [String]
-    let photo: String
+    let id: String
+    let ingredients: [String]
+    let content: String
+//    let photo: String
 }
 
-struct Ingredients: Codable {
-    let id: String
-    let amount: Int
-    let unit: String
-}

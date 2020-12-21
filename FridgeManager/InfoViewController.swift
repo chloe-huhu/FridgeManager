@@ -38,7 +38,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbInfoListen()
- 
+        
     }
     
     @IBOutlet weak var personImageView: UIImageView!
@@ -52,8 +52,6 @@ class InfoViewController: UIViewController {
         }
     }
     
-    var currentFridgeName: String?
-    
     func changeFridgeName(fridgeID: String) {
         
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
@@ -66,8 +64,6 @@ class InfoViewController: UIViewController {
                         
                         let data = try document.data(as: Fridge.self)
                         
-                        self.currentFridgeName = data?.fridgeName
-                        
                         self.currentFridge.text = data?.fridgeName
                         
                     } catch {
@@ -76,7 +72,7 @@ class InfoViewController: UIViewController {
                     }
                     
                 }
-
+                
             }
             
         }
@@ -165,6 +161,7 @@ class InfoViewController: UIViewController {
         
         let doc = Firestore.firestore().collection("fridges").document()
         
+        // 直接設定分類、冰箱名稱、把創建人加進去冰箱 users
         doc.setData([
             "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
             "fridgeID": doc.documentID,
@@ -172,8 +169,8 @@ class InfoViewController: UIViewController {
             "users": [Auth.auth().currentUser?.email]
         ])
         
-        // 將新增的冰箱ID存起來
-        UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
+        //        // 將新增的冰箱ID存起來
+        //        UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
         
         // 將新建的冰箱ID加到myFridges
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
@@ -184,7 +181,7 @@ class InfoViewController: UIViewController {
     // 撈到朋友email -> 寄送邀請給他
     func findingFriends(email: String) {
         
-            Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
+        Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
                     do {
@@ -197,7 +194,7 @@ class InfoViewController: UIViewController {
                     } catch {
                         print("error to decode", error)
                     }
-            
+                    
                     
                 }
             }
@@ -249,7 +246,7 @@ class InfoViewController: UIViewController {
                 
                 self.nameLabel.text = name
                 
-//                UserDefaults.standard.setValue(name, forKey: "displayName")
+                //                UserDefaults.standard.setValue(name, forKey: "displayName")
                 
             }
             
@@ -304,8 +301,6 @@ class InfoViewController: UIViewController {
             
             let userPhoto = URL(string: photo)
             
-//            self.personImageView.kf.indicatorType = .activity
-            
             self.personImageView.kf.setImage(with: userPhoto, options: [.transition(.fade(0.5))])
             
         } else {
@@ -339,13 +334,19 @@ class InfoViewController: UIViewController {
                         
                         self.nameLabel.text = name
                         
+                        self.fridgesArray = [] // eric
+                        
                         for fridge in fridges {
                             self.getFridgeName(fridgeID: fridge)
                         }
                         
+                        self.invitesArray = [] // eric
+                        
                         for invite in invites {
                             self.getInviteName(fridgeID: invite)
                         }
+                        
+                        self.tableView.reloadData()
                         
                     } catch {
                         
@@ -356,29 +357,29 @@ class InfoViewController: UIViewController {
                     
                     print("Document does not exist")
                 }
-                
-                self.tableView.reloadData()
             }
-            
         }
     }
     
     // 冰箱列表
     func getFridgeName (fridgeID: String) {
         
-        fridgesArray = []
+//        fridgesArray = [] // eric
         
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documnets : \(error)")
             } else {
+            
                 for document in querySnapshot!.documents {
                     
                     do {
                         
                         let data = try document.data(as: Fridge.self)
                         
-                        self.fridgesArray.append(data!.fridgeName)
+                        if (!self.fridgesArray.contains(data!.fridgeName)) {
+                            self.fridgesArray.append(data!.fridgeName)
+                        }
                         
                     } catch {
                         
@@ -386,16 +387,16 @@ class InfoViewController: UIViewController {
                     }
                     
                 }
+                
                 self.tableView.reloadData()
             }
-            
         }
     }
     
     //  冰箱邀請
     func getInviteName(fridgeID: String) {
         
-        invitesArray = []
+//        invitesArray = [] eric
         
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {
@@ -408,7 +409,10 @@ class InfoViewController: UIViewController {
                         
                         let data = try document.data(as: Fridge.self)
                         
-                        self.invitesArray.append(data!.fridgeName)
+                        if (!self.invitesArray.contains(data!.fridgeName)) {
+                            self.invitesArray.append(data!.fridgeName)
+                        }
+                       
                         
                     } catch {
                         
@@ -469,12 +473,12 @@ class InfoViewController: UIViewController {
         }
     }
     
-    func  fridgePopUp(fridgeName: String) {
+    func fridgePopUp(fridgeName: String) {
         
         switch showFridge {
         
         case .myFridges:
-            let controller = UIAlertController(title: "切換", message: "切換至\(fridgeName)冰箱", preferredStyle: .alert)
+            let controller = UIAlertController(title: "切換冰箱", message: "至\(fridgeName)冰箱", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
                 
@@ -492,11 +496,43 @@ class InfoViewController: UIViewController {
             present(controller, animated: true, completion: nil)
             
         case.myInvites:
+            
             let controller = UIAlertController(title: "接受邀請", message: "加入\(fridgeName)冰箱", preferredStyle: .alert)
             
-            // 把冰箱加到user_myfridge && fridge_user新增我
             let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
                 
+                Firestore.firestore().collection("fridges").whereField("fridgeName", isEqualTo: fridgeName).getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documnets : \(error)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            
+                            print("=======", "\(document.documentID) => \(document.data())")
+                            
+                            do {
+                                
+                                let data = try document.data(as: Fridge.self)
+                                
+                                guard let fridgeID = data?.fridgeID else { return }
+                                
+                                // 把接受的冰箱ID加入到user的myFridgeListArray裡面
+                                
+                                let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
+                                
+                                userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([fridgeID])])
+                                
+                                // 刪除InviteListArray
+                                userDoc.updateData(["myInvites": Firebase.FieldValue.arrayRemove([fridgeID])])
+                                
+                            } catch {
+                                
+                                print("error to decode", error)
+                            }
+                        }
+                    }
+                    
+                }
+            
                 
             })
             

@@ -13,7 +13,7 @@ import Kingfisher
 class PurchaseDetailTableViewController: UITableViewController {
     
     var fridgeID: String {
-        guard let fridgeID = UserDefaults.standard.value(forKey: "FridgeID") as? String else {
+        guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else  {
             return ""
         }
         

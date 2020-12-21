@@ -125,15 +125,9 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     return
                 } else {
                     
-                    guard Auth.auth().currentUser != nil else {
-                        self.performSegue(withIdentifier: "showSignin", sender: nil)
-                        return
-                    }
-                    
-                    guard let user = authResult?.user else { return } // <FIRUser: 0x282b35480>
+                    guard let user = authResult?.user else { return }
                    
-                    guard let uid = Auth.auth().currentUser?.uid else { return } // UUNNN5YELPXtuppYQfluRMKm9Qd2
-                    
+                    guard let uid = Auth.auth().currentUser?.uid else { return } 
                     
                     // 去Firebase找符合的uid
                     Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
@@ -146,8 +140,8 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                                     
                                     let data = try document.data(as: User.self)
                                     
-                                    UserDefaults.standard.setValue("1fK0iw24FWWiGf8f3r0G", forKey: "FridgeID")
-                                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
+                                    UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
+//                                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
                                     
                                     self.performSegue(withIdentifier: "showSignin", sender: nil)
                                     
@@ -158,14 +152,13 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             }
                             
                         print("新建使用者")
+                            
                             UserDefaults.standard.setValue(user.uid, forKey: "userUid")
                             
                             let email = user.email ?? ""
                             let displayName = user.displayName ?? "請設定暱稱"
                            
                             guard let uid =  Auth.auth().currentUser?.uid else { return }
-                          
-//                            let uid = "qAAmmu4A7VWmix2t0DaMyNKTU5f1"
                            
                             let doc = Firestore.firestore().collection("users")
 

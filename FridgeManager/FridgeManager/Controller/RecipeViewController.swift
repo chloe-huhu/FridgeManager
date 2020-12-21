@@ -17,20 +17,55 @@ class RecipeViewController: UIViewController {
     
     let rowDataIngredient = ["3項食材不足", "2項食材不足", "食材已備足"]
     
-    let ref = Fire
+    let ref = Firestore.firestore().collection("recipe")
     
-    @IBOutlet weak var tableView: UITableView! {
+    var recipeList: [Recipe] = []
+    
+     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
+        listenRecipe()
     }
     
+    func listenRecipe() {
+        FirebaseManager.shared.listen(ref: ref) {
+            self.getRecipe()
+        }
+    }
+    
+    
+    func getRecipe() {
+        ref.getDocuments { (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.recipeList = []
+
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    do {
+                        let data = try document.data(as: Recipe.self)
+                        self.recipeList.append(data!)
+                    } catch {
+                        print("error to decode", error)
+                    }
+                    
+                }
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
     
     func navigationTitleSetup() {
         navigationController?.navigationBar.backgroundColor = .chloeYellow

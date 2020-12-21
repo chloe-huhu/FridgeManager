@@ -24,5 +24,8 @@ class RecipeTableViewCell: UITableViewCell {
         self.selectedBackgroundView = UIView()
     }
 
+    func setup(data: Recipe) {
+        menuTitle.text = data.name
+    }
 
 }

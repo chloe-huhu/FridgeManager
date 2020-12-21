@@ -14,41 +14,25 @@
             filePath = "FridgeManager/Controller/Food/AddFoodTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
-            landmarkName = "saveBtnTapped(_:)"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
+            landmarkName = "addFoodListToDB()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB110F97-1CEE-40CC-A4A9-214626A63E2C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FridgeManager/Controller/Purchase/PurchaseListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "deleteRows()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7A6AED90-7F54-4E3B-A915-A755CCDBFA8A"
+            uuid = "E5B0A32B-A22E-467F-9285-EDB321554866"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeManager/Controller/Purchase/PurchaseListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "deleteRows()"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "listenUserDisplayName()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

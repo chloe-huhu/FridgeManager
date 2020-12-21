@@ -46,13 +46,13 @@ class PurchaseListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
         dblistenAwating()
         dblistenAccept()
+        listenUserDisplayName()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +151,17 @@ class PurchaseListViewController: UIViewController {
             self.dbGetAwaiting()
         }
     }
+    
+
+    
+    func listenUserDisplayName() {
+        
+        let ref = Firestore.firestore().collection("users")
+        FirebaseManager.shared.listen(ref: ref) {
+            self.dbGetAccept()
+        }
+    }
+    
     
     func dblistenAccept() {
         

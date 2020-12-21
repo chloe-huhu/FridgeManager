@@ -16,8 +16,6 @@ class PurchaseTableViewCell: UITableViewCell {
     @IBOutlet weak var whoLabel: UILabel!
     
     
-    @IBOutlet weak var photoImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectedBackgroundView = UIView()
@@ -35,8 +33,7 @@ class PurchaseTableViewCell: UITableViewCell {
         whoLabel.text = data.whoBuy == "" ? "等你認領" : data.whoBuy
 
         if data.whoBuy == "" {
-            whoLabel.text = "等你認領"
-            photoImageView.image = UIImage(systemName: "person")
+            whoLabel.text = "待認領"
         } else {
             whoLabel.text = data.whoBuy
             

@@ -21,6 +21,7 @@
 		AE71695325749CF400659F2C /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */; };
 		AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695D2574D47C00659F2C /* UILabelExtension.swift */; };
 		AE7D32412572395B00D97E23 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D32402572395B00D97E23 /* SectionView.swift */; };
+		AE7E1078259089DC00E6E224 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */; };
 		AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */; };
 		AE8139CA2578D9CD00070681 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8139C92578D9CD00070681 /* FirebaseManager.swift */; };
 		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
@@ -83,6 +84,7 @@
 		AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
 		AE71695D2574D47C00659F2C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		AE7D32402572395B00D97E23 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultExtension.swift; path = Pods/UserDefaultExtension.swift; sourceTree = SOURCE_ROOT; };
 		AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		AE8139C92578D9CD00070681 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */,
 				AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */,
 				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
 				AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */,
@@ -634,6 +637,7 @@
 				AE99DF8A257DBF6100382BDE /* PurchaseDetailTableViewController.swift in Sources */,
 				AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */,
 				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,
+				AE7E1078259089DC00E6E224 /* UserDefaultExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,9 +23,11 @@ class PurchaseDetailTableViewController: UITableViewController {
     
     var userDisplayName = String()
     
-    func getUserDisplayName(handler: @escaping ()-> Void) {
+    func getUserDisplayName(handler: @escaping () -> Void) {
         
         guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else { return }
+        
+        
         
         Firestore.firestore().collection("users").whereField("uid", isEqualTo: userUid).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
@@ -216,7 +218,6 @@ class PurchaseDetailTableViewController: UITableViewController {
     }
     
     func deleteAccept() {
-        
         guard let id = selectedList? .id else { return }
        
         let ref = Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")

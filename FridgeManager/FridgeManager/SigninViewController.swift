@@ -141,6 +141,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                                     let data = try document.data(as: User.self)
 
                                     UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
+                                    
                                     UserDefaults.standard.setValue(user.uid, forKey: "userUid")
 
                                     self.performSegue(withIdentifier: "showSignin", sender: nil)

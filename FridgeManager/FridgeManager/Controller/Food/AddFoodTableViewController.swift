@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 import Kingfisher
+import IQKeyboardManagerSwift
 
 class AddFoodTableViewController: UITableViewController {
     
@@ -59,7 +60,7 @@ class AddFoodTableViewController: UITableViewController {
         setupSaveBarBtnItem()
         finishedPurchaseToFoodList()
         self.tabBarController?.tabBar.isHidden = true
-        
+    
     }
     
     @IBOutlet weak var imageView: UIImageView!

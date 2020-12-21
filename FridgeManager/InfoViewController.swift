@@ -16,12 +16,12 @@ class InfoViewController: UIViewController {
     
     var refUID: DocumentReference? {
         
-        guard let id = UserDefaults.standard.value(forKey: "userUid") as? String else {
+        guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else {
             
             fatalError("no user id")
         }
         
-        return Firestore.firestore().collection("users").document(id)
+        return Firestore.firestore().collection("users").document(userUid)
     }
     
     var fridgesArray: [String] = []
@@ -38,16 +38,49 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbInfoListen()
-        
-        currentFridge.sizeToFit()
+ 
     }
     
     @IBOutlet weak var personImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var currentFridge: LabelPadding!
+    @IBOutlet weak var currentFridge: LabelPadding! {
+        didSet {
+            guard let fridgeID = UserDefaults.standard.value(forKey: .fridgeID) as? String else { return }
+            changeFridgeName(fridgeID: fridgeID)
+        }
+    }
     
+    var currentFridgeName: String?
+    
+    func changeFridgeName(fridgeID: String) {
+        
+        Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documnets : \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    do {
+                        
+                        let data = try document.data(as: Fridge.self)
+                        
+                        self.currentFridgeName = data?.fridgeName
+                        
+                        self.currentFridge.text = data?.fridgeName
+                        
+                    } catch {
+                        
+                        print("error to decode", error)
+                    }
+                    
+                }
+
+            }
+            
+        }
+    }
     
     @IBOutlet weak var fridgeListButton: UIButton!
     
@@ -281,6 +314,8 @@ class InfoViewController: UIViewController {
         }
     }
     
+    
+    // 監聽個人頁面(photo\displayName\冰箱列表\冰箱邀請)
     func dbInfoGet() {
         
         refUID!.getDocument { (document, err) in
@@ -328,6 +363,7 @@ class InfoViewController: UIViewController {
         }
     }
     
+    // 冰箱列表
     func getFridgeName (fridgeID: String) {
         
         fridgesArray = []
@@ -356,6 +392,7 @@ class InfoViewController: UIViewController {
         }
     }
     
+    //  冰箱邀請
     func getInviteName(fridgeID: String) {
         
         invitesArray = []
@@ -387,6 +424,7 @@ class InfoViewController: UIViewController {
         
     }
     
+    // 切換冰箱
     func switchFridge (fridgeName: String) {
         
         Firestore.firestore().collection("fridges").whereField("fridgeName", isEqualTo: fridgeName).getDocuments { (querySnapshot, error) in
@@ -457,7 +495,10 @@ class InfoViewController: UIViewController {
             let controller = UIAlertController(title: "接受邀請", message: "加入\(fridgeName)冰箱", preferredStyle: .alert)
             
             // 把冰箱加到user_myfridge && fridge_user新增我
-            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in })
+            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+                
+                
+            })
             
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             

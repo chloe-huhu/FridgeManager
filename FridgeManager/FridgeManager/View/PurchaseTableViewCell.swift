@@ -29,14 +29,17 @@ class PurchaseTableViewCell: UITableViewCell {
     }
     
     func setup(data: List) {
+        
         titleLabel.text = data.name
         amountLabel.text = "數量：\(String(data.amount)) \(String(data.unit))"
         whoLabel.text = data.whoBuy == "" ? "等你認領" : data.whoBuy
 
         if data.whoBuy == "" {
             whoLabel.text = "等你認領"
+            photoImageView.image = UIImage(systemName: "person")
         } else {
             whoLabel.text = data.whoBuy
+            
         }
     }
 }

@@ -12,7 +12,7 @@ struct Food: Codable {
     let photo: String?
     let name: String
     let amount: Int
-    let amountAlert: Int
+//    let amountAlert: Int
     let category: String
     let unit: String
     let purchaseDate: Date
@@ -28,7 +28,7 @@ extension Food {
             "name": name,
             "amount": amount ,
             "unit": unit,
-            "amountAlert": amountAlert,
+//            "amountAlert": amountAlert,
             "category": category,
             "purchaseDate": purchaseDate,
             "expiredDate": expiredDate
@@ -71,7 +71,7 @@ struct Recipe: Codable {
 }
 
 struct Ingredients: Codable {
-    let name: String
+    let id: String
     let amount: Int
     let unit: String
 }

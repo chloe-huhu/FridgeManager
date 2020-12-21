@@ -20,6 +20,30 @@ class PurchaseDetailTableViewController: UITableViewController {
         return fridgeID
     }
     
+    
+    var userDisplayName = String()
+    
+    func getUserDisplayName(handler: @escaping ()-> Void) {
+        
+        guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else { return }
+        
+        Firestore.firestore().collection("users").whereField("uid", isEqualTo: userUid).getDocuments { (querySnapshot, _ ) in
+            if let querySnapshot = querySnapshot {
+                for document in querySnapshot.documents {
+                print("\(document.documentID) => \(document.data())")
+                    do {
+                        let data = try document.data(as: User.self)
+                        self.userDisplayName = data!.displayName
+                        handler()
+                    } catch {
+                        print("error to decode", error)
+                    }
+                }
+            }
+        }
+        
+    }
+    
     var acceptRef: CollectionReference {
        return
         Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
@@ -148,19 +172,22 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         let document = ref.document()
         
-        let data: [String: Any] = [
-            "id": document.documentID,
-            "photo": selectedList?.photo as Any,
-            "name": name,
-            "amount": Int(amount) ,
-            "unit": unit,
-            "brand": brand,
-            "place": place,
-            "whoBuy": "chloe",
-            "note": note
-        ]
-        
-        document.setData(data)
+        getUserDisplayName {
+            
+            let data: [String: Any] = [
+                "id": document.documentID,
+                "photo": self.selectedList?.photo as Any,
+                "name": name,
+                "amount": Int(amount) ,
+                "unit": unit,
+                "brand": brand,
+                "place": place,
+                "whoBuy": self.userDisplayName,
+                "note": note
+            ]
+            
+            document.setData(data)
+        }
     }
     
     func deleteAwaiting() {

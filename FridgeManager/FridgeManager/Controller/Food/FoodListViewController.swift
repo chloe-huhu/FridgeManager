@@ -44,8 +44,6 @@ class FoodListViewController: UIViewController {
     var showCategory: ShowCategory = .all
     
     var showType: ShowType = .edit
-    
-    var alterList: [Bool] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,18 +169,6 @@ class FoodListViewController: UIViewController {
                         let food = try document.data(as: Food.self)
                         
                         self.oriFoods.append(food!)
-                        
-                        //判斷alter
-                        guard let amount = food?.amount,
-                              let alter = food?.amountAlert
-                        
-                        else { return }
-                    
-                        if alter > amount {
-                            self.alterList.append(true)
-                        } else {
-                            self.alterList.append(false)
-                        }
                         
                     } catch {
                         
@@ -372,23 +358,6 @@ extension FoodListViewController: UITableViewDataSource {
         let food = foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row]
         
         cell.setup(data: food)
-        
-//        if alterList[indexPath.row] == true {
-//            cell.alterButton.isHidden = false
-//        } else {
-//            cell.alterButton.isHidden = true
-//        }
-        
-        
-//
-//        for alter in alterList {
-//            if alter == true {
-//                cell.alterButton.isHidden = false
-//            } else {
-//                cell.alterButton.isHidden = true
-//            }
-//
-//        }
     
         return cell
         

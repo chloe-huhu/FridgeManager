@@ -31,18 +31,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLd-tS-hm5">
-                                <rect key="frame" x="392" y="42" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="9Ha-j4-vBn"/>
-                                    <constraint firstAttribute="width" constant="25" id="Xs1-Ca-be9"/>
-                                </constraints>
-                                <color key="tintColor" red="0.89551275969999999" green="0.54123181099999995" blue="0.1802513301" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="cart.badge.plus" catalog="system"/>
-                                <connections>
-                                    <action selector="addToPurchaseBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="58b-ac-c3S"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="raS-tO-WER">
                                 <rect key="frame" x="145" y="27" width="156.5" height="55"/>
                                 <subviews>
@@ -68,8 +56,6 @@
                             <constraint firstItem="raS-tO-WER" firstAttribute="leading" secondItem="5xe-NI-V8h" secondAttribute="trailing" constant="22" id="7AO-5N-bMB"/>
                             <constraint firstItem="5xe-NI-V8h" firstAttribute="leading" secondItem="5UG-qk-jX5" secondAttribute="leading" constant="20" id="QwM-ef-vAE"/>
                             <constraint firstItem="raS-tO-WER" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="R8w-An-SLn"/>
-                            <constraint firstAttribute="trailing" secondItem="iLd-tS-hm5" secondAttribute="trailing" constant="16" id="j5W-pT-F9b"/>
-                            <constraint firstItem="iLd-tS-hm5" firstAttribute="centerY" secondItem="5UG-qk-jX5" secondAttribute="centerY" id="yg4-tM-eYc"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,7 +90,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="alterButton" destination="iLd-tS-hm5" id="bUq-qF-M8p"/>
                 <outlet property="amountLabel" destination="PIl-to-2yR" id="b9i-MV-Qmw"/>
                 <outlet property="cardView" destination="5UG-qk-jX5" id="BEq-jP-8Dr"/>
                 <outlet property="dateLabel" destination="Xx6-5j-vde" id="8qt-dk-Q9E"/>
@@ -114,7 +99,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <namedColor name="B5">
             <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

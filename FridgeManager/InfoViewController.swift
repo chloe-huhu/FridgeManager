@@ -38,13 +38,15 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbInfoListen()
+        
+        currentFridge.sizeToFit()
     }
     
     @IBOutlet weak var personImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var currentFridge: UILabel!
+    @IBOutlet weak var currentFridge: LabelPadding!
     
     
     @IBOutlet weak var fridgeListButton: UIButton!

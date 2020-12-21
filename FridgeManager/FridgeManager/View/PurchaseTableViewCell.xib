@@ -20,14 +20,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-Sz-XDF" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
                         <rect key="frame" x="20" y="3" width="280" height="65"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香蕉" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-fB-VZd">
-                                <rect key="frame" x="20" y="20" width="36" height="25.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香蕉" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-fB-VZd" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="40" height="25.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="7lf-By-uuU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XUk-Id-6Dd">
-                                <rect key="frame" x="86" y="7" width="78" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XUk-Id-6Dd">
+                                <rect key="frame" x="75" y="7" width="78" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量 : 6 根" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W23-3A-YyL">
                                         <rect key="frame" x="0.0" y="0.0" width="78" height="22.5"/>
@@ -35,8 +38,8 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-HO-nbK" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28.5" width="44" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-HO-nbK">
+                                        <rect key="frame" x="0.0" y="28.5" width="78" height="22.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +59,7 @@
                         <constraints>
                             <constraint firstItem="SXf-fB-VZd" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="F0f-Bi-isC"/>
                             <constraint firstAttribute="trailing" secondItem="s6f-nD-z4H" secondAttribute="trailing" constant="16" id="I7M-Wj-xBa"/>
-                            <constraint firstItem="XUk-Id-6Dd" firstAttribute="leading" secondItem="SXf-fB-VZd" secondAttribute="trailing" constant="30" id="P4X-7n-5pb"/>
+                            <constraint firstItem="XUk-Id-6Dd" firstAttribute="leading" secondItem="SXf-fB-VZd" secondAttribute="trailing" constant="15" id="P4X-7n-5pb"/>
                             <constraint firstItem="s6f-nD-z4H" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="VGh-5b-PqF"/>
                             <constraint firstItem="XUk-Id-6Dd" firstAttribute="centerY" secondItem="Jpf-Sz-XDF" secondAttribute="centerY" id="dRu-mC-LtP"/>
                             <constraint firstItem="SXf-fB-VZd" firstAttribute="leading" secondItem="Jpf-Sz-XDF" secondAttribute="leading" constant="20" id="wNW-0E-KFD"/>

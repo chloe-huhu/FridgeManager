@@ -91,31 +91,6 @@ class AddFoodTableViewController: UITableViewController {
         unitTextField.text = unit[seletedUnitIndex]
     }
     
-    @IBOutlet weak var alertTextField: RoundedTextField! {
-        didSet {
-                alertTextField.isUserInteractionEnabled = false
-            }
-    }
-    
-    @IBOutlet weak var alterSwitch: UISwitch! {
-        didSet {
-            alterSwitch.isOn = false
-        }
-    }
-    
-    @IBAction func switchDidChange(_ sender: UISwitch) {
-        if sender.isOn {
-            alterSwitch.onTintColor = UIColor.chloeYellow
-            alertTextField.backgroundColor = UIColor.chloeYellow
-            alertTextField.isUserInteractionEnabled = true
-        } else {
-            alterSwitch.tintColor = UIColor.white
-            alertTextField.backgroundColor = #colorLiteral(red: 0.9411043525, green: 0.9412171841, blue: 0.9410660267, alpha: 1)
-            alertTextField.isUserInteractionEnabled = false
-            alertTextField.text = ""
-        }
-        
-    }
     
     @IBOutlet weak var categoryTextField: RoundedTextField! {
         didSet {
@@ -324,9 +299,8 @@ class AddFoodTableViewController: UITableViewController {
               let amount = amountTextField.text,
               let unit = unitTextField.text,
               let category = categoryTextField.text else { return }
+        
               let url = downloadURL == nil ? nil : downloadURL
-              let text = alertTextField.text ?? "0"
-              let amountAlert = Int(text) ?? 0
         
         // 判斷更新食物還是新增食物
         if selectedFood != nil {
@@ -338,7 +312,6 @@ class AddFoodTableViewController: UITableViewController {
                 "name": name,
                 "amount": Int(amount) ?? 0 ,
                 "unit": unit,
-                "amountAlert": Int(amountAlert),
                 "category": category,
                 "purchaseDate": purchaseDatePicker.date,
                 "expiredDate": expiredDatePicker.date
@@ -354,7 +327,7 @@ class AddFoodTableViewController: UITableViewController {
                 "name": name,
                 "amount": Int(amount) ?? 0 ,
                 "unit": unit,
-                "amountAlert": Int(amountAlert),
+//                "amountAlert": Int(amountAlert),
                 "category": category,
                 "purchaseDate": purchaseDatePicker.date,
                 "expiredDate": expiredDatePicker.date
@@ -370,8 +343,7 @@ class AddFoodTableViewController: UITableViewController {
             
             self.navigationItem.title = "食物列表"
             
-            guard let amount = selectedFood?.amount,
-                  let alter = selectedFood?.amountAlert
+            guard let amount = selectedFood?.amount
             else { return }
             
             if let photo = selectedFood?.photo {
@@ -383,7 +355,6 @@ class AddFoodTableViewController: UITableViewController {
             
             titleTextField.text = selectedFood?.name
             amountTextField.text = "\(String(describing: amount))"
-            setupAlter(alter: alter)
             unitTextField.text = selectedFood?.unit
             categoryTextField.text = selectedFood?.category
             
@@ -401,20 +372,6 @@ class AddFoodTableViewController: UITableViewController {
         }
         
     }
-    
-    func setupAlter(alter: Int) {
-        if alter == 0 {
-            alterSwitch.isOn = false
-            alertTextField.isUserInteractionEnabled = false
-        } else {
-            alterSwitch.isOn = true
-            alertTextField.isUserInteractionEnabled = true
-            alertTextField.text = "\(alter)"
-            
-        }
-    }
-    
-    
     func finishedPurchaseToFoodList() {
         
         guard let title = segueText?.name,
@@ -437,7 +394,7 @@ class AddFoodTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 7
+        return 6
     }
     
     // 選到第 0 row 開啟相機

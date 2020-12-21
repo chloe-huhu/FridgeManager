@@ -14,9 +14,9 @@
             filePath = "FridgeManager/Controller/Food/AddFoodTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
-            landmarkName = "addFoodListToDB()"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "saveBtnTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

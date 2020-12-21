@@ -10,19 +10,9 @@ import UIKit
 class CellView: UITableViewCell {
 
     @IBOutlet weak var cardView: CardView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: LabelPadding!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
-    @IBOutlet weak var alterButton: UIButton! {
-        didSet {
-            alterButton.isHidden = true
-        }
-    }
-    
-    @IBAction func addToPurchaseBtn(_ sender: UIButton) {
-        print("買買")
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

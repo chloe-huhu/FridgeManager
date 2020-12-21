@@ -137,14 +137,14 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             for document in querySnapShot!.documents {
                                 print("\(document.documentID) => \(document.data())")
                                 do {
-                                    
+
                                     let data = try document.data(as: User.self)
-                                    
+
                                     UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
-//                                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
-                                    
+                                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
+
                                     self.performSegue(withIdentifier: "showSignin", sender: nil)
-                                    
+
                                 } catch {
                                     print("error to decode", error)
                                 }
@@ -152,14 +152,14 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             }
                             
                         print("新建使用者")
-                            
+
                             UserDefaults.standard.setValue(user.uid, forKey: "userUid")
-                            
+
                             let email = user.email ?? ""
                             let displayName = user.displayName ?? "請設定暱稱"
-                           
+
                             guard let uid =  Auth.auth().currentUser?.uid else { return }
-                           
+
                             let doc = Firestore.firestore().collection("users")
 
                             doc.document(uid).setData([
@@ -177,7 +177,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                                     self.addNewFridgeSetup(name: "")
                                     self.performSegue(withIdentifier: "showSignin", sender: nil)
                                 }
-                                
+
                             }
                         }
                     }

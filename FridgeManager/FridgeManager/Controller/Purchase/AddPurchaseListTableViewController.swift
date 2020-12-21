@@ -111,7 +111,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         
         addListToDB()
         
-        //翻回去前一頁
+        // 翻回去前一頁
         navigationController?.popViewController(animated: true)
        
         

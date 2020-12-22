@@ -125,6 +125,13 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     return
                 } else {
                     
+                    guard Auth.auth().currentUser != nil else {
+                       
+                        
+                        
+                        return
+                    }
+                    
                     guard let user = authResult?.user else { return }
                    
                     guard let uid = Auth.auth().currentUser?.uid else { return } 

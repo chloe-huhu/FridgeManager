@@ -22,7 +22,6 @@ target 'FridgeManager' do
     pod 'Kingfisher'
 
 
-
   target 'FridgeManagerTests' do
     inherit! :search_paths
     # Pods for testing

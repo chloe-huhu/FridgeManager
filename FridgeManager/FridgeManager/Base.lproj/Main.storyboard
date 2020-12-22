@@ -1291,37 +1291,26 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bV-Ob-L1s" customClass="CardView" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="0.0" width="376" height="100"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="gra-1b-VQT">
-                                                                    <rect key="frame" x="91" y="20.5" width="122" height="59"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紅燒獅子頭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-sl-uU0">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="25.5"/>
-                                                                            <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
-                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3項食材尚未備齊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eQ-rl-Gxc">
-                                                                            <rect key="frame" x="0.0" y="36.5" width="122" height="22.5"/>
-                                                                            <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="16"/>
-                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xce-AL-acQ">
-                                                                    <rect key="frame" x="16" y="25" width="50" height="50"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紅燒獅子頭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-sl-uU0">
+                                                                    <rect key="frame" x="101" y="37.5" width="90" height="25.5"/>
+                                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="005-rice-2" translatesAutoresizingMaskIntoConstraints="NO" id="Xce-AL-acQ">
+                                                                    <rect key="frame" x="16" y="20" width="60" height="60"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="50" id="akF-Bx-6oF"/>
-                                                                        <constraint firstAttribute="height" constant="50" id="lzq-zl-z64"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="akF-Bx-6oF"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="lzq-zl-z64"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="gra-1b-VQT" firstAttribute="centerY" secondItem="3bV-Ob-L1s" secondAttribute="centerY" id="4Hi-SI-49T"/>
                                                                 <constraint firstItem="Xce-AL-acQ" firstAttribute="centerY" secondItem="3bV-Ob-L1s" secondAttribute="centerY" id="Ad7-fq-Byw"/>
-                                                                <constraint firstItem="gra-1b-VQT" firstAttribute="leading" secondItem="Xce-AL-acQ" secondAttribute="trailing" constant="25" id="C9q-Fr-pX2"/>
                                                                 <constraint firstItem="Xce-AL-acQ" firstAttribute="leading" secondItem="3bV-Ob-L1s" secondAttribute="leading" constant="16" id="FcW-xb-pAR"/>
+                                                                <constraint firstItem="8zL-sl-uU0" firstAttribute="leading" secondItem="Xce-AL-acQ" secondAttribute="trailing" constant="25" id="ptB-yr-xYA"/>
+                                                                <constraint firstItem="8zL-sl-uU0" firstAttribute="centerY" secondItem="3bV-Ob-L1s" secondAttribute="centerY" id="th0-D5-UfZ"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1377,7 +1366,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="Xce-AL-acQ" id="NFO-oY-ilB"/>
-                                            <outlet property="ingredientLabel" destination="9eQ-rl-Gxc" id="JQa-JG-Szk"/>
                                             <outlet property="menuImageView" destination="Xce-AL-acQ" id="icx-tz-nlc"/>
                                             <outlet property="menuTitle" destination="8zL-sl-uU0" id="0k1-yt-cmF"/>
                                         </connections>
@@ -1919,6 +1907,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="005-rice-2" width="512" height="512"/>
         <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
         <image name="chef (2)" width="32" height="32"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>

@@ -11,16 +11,20 @@ import FirebaseFirestoreSwift
 
 class RecipeViewController: UIViewController {
     
-    var searchController: UISearchController!
-    
-    
-    let rowDataImage = ["cabbage", "avocado", "boiled"]
+    let rowDataImage = ["018-meat-ball", "009-curry-1", "boiled"]
     
     let rowDataIngredient = ["3項食材不足", "2項食材不足", "食材已備足"]
+    
+    
+    var searchController: UISearchController!
+    
+    var shouldShowSearchResults = false
     
     let ref = Firestore.firestore().collection("recipe")
     
     var recipeList: [Recipe] = []
+    
+    var filteredArray = [Recipe]()
     
      @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -41,12 +45,12 @@ class RecipeViewController: UIViewController {
     func setupSearch() {
         searchController = UISearchController(searchResultsController: nil)
         
-        self.tableView.tableHeaderView = self.searchController.searchBar
+//        self.tableView.tableHeaderView = self.searchController.searchBar
+        searchController.searchResultsUpdater = self
         self.searchController.searchBar.placeholder = "請輸入食材名稱"
-                
-                // 將searchBar掛載到tableView上
-        self.tableView.tableHeaderView = self.searchController.searchBar
-
+        self.navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
     
     }
     func listenRecipe() {
@@ -98,29 +102,41 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeList.count
+        
+        if shouldShowSearchResults {
+                return filteredArray.count
+            }
+            else {
+                return recipeList.count
+            }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as? RecipeTableViewCell else { return UITableViewCell() }
+
         
-    
+        if shouldShowSearchResults {
+            cell.setup(data: filteredArray[indexPath.row])
+//            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
+          }
+          else {
+            cell.setup(data: recipeList[indexPath.row])
+//            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
+          }
        
-//        cell.menuTitle.text = [indexPath.row]
-        cell.ingredientLabel.text = self.rowDataIngredient[indexPath.row]
-       
-        cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
-       
-        cell.setup(data: recipeList[indexPath.row])
-        
         return cell
         
     }
-    
-    
 }
 
+extension RecipeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+}
+ 

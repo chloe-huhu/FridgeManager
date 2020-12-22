@@ -394,6 +394,7 @@ class InfoViewController: UIViewController {
     }
     
     //  冰箱邀請
+    
     func getInviteName(fridgeID: String) {
         
 //        invitesArray = [] eric

@@ -261,16 +261,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-3O-mrn">
-                                                    <rect key="frame" x="22" y="16" width="330" height="62"/>
+                                                    <rect key="frame" x="22" y="16" width="370" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="食材名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-ro-HeZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="香蕉" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-7B-f81" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="27" width="330" height="35"/>
+                                                            <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="mmJ-ck-jJx"/>
@@ -361,16 +361,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nDx-7g-QrK">
-                                                    <rect key="frame" x="22" y="16" width="330" height="62"/>
+                                                    <rect key="frame" x="22" y="16" width="370" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="類別" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-sH-XM2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="22"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-iv-LCg">
-                                                            <rect key="frame" x="0.0" y="27" width="330" height="35"/>
+                                                            <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="水果類" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="35"/>
@@ -386,7 +386,7 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-en-xfz">
-                                                                    <rect key="frame" x="268" y="0.0" width="62" height="35"/>
+                                                                    <rect key="frame" x="268" y="0.0" width="102" height="35"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" image="folder.badge.plus.fill" catalog="system">
@@ -417,16 +417,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hmN-tC-Vhq">
-                                                    <rect key="frame" x="22" y="16" width="330" height="62"/>
+                                                    <rect key="frame" x="22" y="16" width="370" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="購買日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek5-on-EfG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gY-gQ-RjJ" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="27" width="330" height="35"/>
+                                                            <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="NZv-l9-7NY"/>
@@ -453,16 +453,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qdP-WO-jZA">
-                                                    <rect key="frame" x="22" y="16" width="330" height="62"/>
+                                                    <rect key="frame" x="22" y="16" width="370" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="過期日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AL1-Xm-3yl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS4-6E-Cpl" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="27" width="330" height="35"/>
+                                                            <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="t9i-KH-uXi"/>
@@ -1109,10 +1109,10 @@
             </objects>
             <point key="canvasLocation" x="1189.8550724637682" y="-2.0089285714285712"/>
         </scene>
-        <!--View Controller-->
+        <!--New Friend View Controller-->
         <scene sceneID="uNV-gB-HeB">
             <objects>
-                <viewController id="50d-X4-KvH" sceneMemberID="viewController">
+                <viewController id="50d-X4-KvH" customClass="NewFriendViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4K-d1-MiJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1121,11 +1121,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="400" width="254" height="40"/>
+                                        <rect key="frame" x="80" y="400" width="254" height="50"/>
                                         <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="oxR-sU-Psi"/>
+                                            <constraint firstAttribute="height" constant="50" id="oxR-sU-Psi"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                         <state key="normal" title="加入冰箱" image="menu">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1140,25 +1141,42 @@
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
-                                                <real key="value" value="70"/>
+                                                <real key="value" value="100"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈摟！新朋友歡迎來到Open Fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-CI-878">
-                                        <rect key="frame" x="57" y="200" width="300" height="26"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-CI-878">
+                                        <rect key="frame" x="57" y="200" width="300" height="64.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="bQV-EO-fQu"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">哈摟！新朋友
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="23" name="PingFangTC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingHead" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="歡迎來到Open Fridge">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="23" name="PingFangTC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="540" width="254" height="40"/>
+                                        <rect key="frame" x="80" y="550" width="254" height="50"/>
                                         <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="kEH-GB-C0s"/>
+                                            <constraint firstAttribute="height" constant="50" id="kEH-GB-C0s"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                         <state key="normal" title="創建冰箱" image="add (1)">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1167,21 +1185,21 @@
                                                 <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
-                                                <real key="value" value="70"/>
+                                                <real key="value" value="100"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="80" id="0eb-ME-lxY"/>
+                                    <constraint firstAttribute="trailing" secondItem="AW8-3Z-NvN" secondAttribute="trailing" constant="80" id="5QD-Kh-Gz3"/>
                                     <constraint firstItem="fqq-CI-878" firstAttribute="top" secondItem="MrP-u2-7Aa" secondAttribute="top" constant="200" id="7cD-SW-hsg"/>
                                     <constraint firstItem="AW8-3Z-NvN" firstAttribute="top" secondItem="MrP-u2-7Aa" secondAttribute="top" constant="400" id="Ebg-ew-EQy"/>
-                                    <constraint firstAttribute="trailing" secondItem="AW8-3Z-NvN" secondAttribute="trailing" constant="80" id="HV2-22-Fi2"/>
-                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="80" id="KZf-z2-rJQ"/>
-                                    <constraint firstItem="KCC-22-lQW" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="80" id="VGx-l5-bB2"/>
+                                    <constraint firstItem="KCC-22-lQW" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="80" id="Kpm-WS-tM3"/>
                                     <constraint firstItem="fqq-CI-878" firstAttribute="centerX" secondItem="MrP-u2-7Aa" secondAttribute="centerX" id="aq9-IW-NvS"/>
-                                    <constraint firstAttribute="trailing" secondItem="KCC-22-lQW" secondAttribute="trailing" constant="80" id="c1h-rT-qU2"/>
                                     <constraint firstItem="KCC-22-lQW" firstAttribute="top" secondItem="AW8-3Z-NvN" secondAttribute="bottom" constant="100" id="unQ-l9-vgO"/>
+                                    <constraint firstAttribute="trailing" secondItem="KCC-22-lQW" secondAttribute="trailing" constant="80" id="vgS-fH-GSK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1389,7 +1407,6 @@
         <!--食譜計畫-->
         <scene sceneID="cGG-Kr-l0s">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hgU-hg-Xg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="kqI-Es-f5y" customClass="RecipeDetailViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gKt-MO-DLL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
@@ -1445,6 +1462,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="食譜計畫" id="Wza-7k-Wmm"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgU-hg-Xg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2160.8695652173915" y="2404.6875"/>
         </scene>
@@ -1890,10 +1908,10 @@
     </scenes>
     <designables>
         <designable name="AW8-3Z-NvN">
-            <size key="intrinsicContentSize" width="116.5" height="42.5"/>
+            <size key="intrinsicContentSize" width="114.5" height="42.5"/>
         </designable>
         <designable name="KCC-22-lQW">
-            <size key="intrinsicContentSize" width="116.5" height="42.5"/>
+            <size key="intrinsicContentSize" width="114.5" height="42.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

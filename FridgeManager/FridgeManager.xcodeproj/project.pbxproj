@@ -33,6 +33,7 @@
 		AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAE72572401D00CD44F3 /* CellView.xib */; };
 		AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAF72572488F00CD44F3 /* SectionView.xib */; };
 		AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCB02257251C700CD44F3 /* CardView.swift */; };
+		AE9EEB1B2592046300E26D83 /* NewFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9EEB192592046300E26D83 /* NewFriend.storyboard */; };
 		AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */; };
 		AEA01E45257CAA74009AC995 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */; };
 		AEA06B49257E86620094F7F7 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA06B48257E86620094F7F7 /* SigninViewController.swift */; };
@@ -100,6 +101,7 @@
 		AE9DCAE72572401D00CD44F3 /* CellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellView.xib; path = FridgeManager/CellView.xib; sourceTree = SOURCE_ROOT; };
 		AE9DCAF72572488F00CD44F3 /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		AE9DCB02257251C700CD44F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AE9EEB1A2592046300E26D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewFriend.storyboard; sourceTree = "<group>"; };
 		AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEA06B44257E85770094F7F7 /* FridgeManagerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FridgeManagerDebug.entitlements; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA06B44257E85770094F7F7 /* FridgeManagerDebug.entitlements */,
+				AE9EEB192592046300E26D83 /* NewFriend.storyboard */,
 				AE23D4782591F13500F2A36E /* Signin.storyboard */,
 				AED556E1256E48190068A855 /* Main.storyboard */,
 				AE5F8846256FE47D00A97CD0 /* Extension */,
@@ -445,6 +448,7 @@
 				AE71695325749CF400659F2C /* PurchaseTableViewCell.xib in Resources */,
 				AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */,
 				AED556E8256E481B0068A855 /* LaunchScreen.storyboard in Resources */,
+				AE9EEB1B2592046300E26D83 /* NewFriend.storyboard in Resources */,
 				AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */,
 				AED556E5256E481B0068A855 /* Assets.xcassets in Resources */,
 				AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */,
@@ -697,6 +701,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AE9EEB192592046300E26D83 /* NewFriend.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE9EEB1A2592046300E26D83 /* Base */,
+			);
+			name = NewFriend.storyboard;
+			sourceTree = "<group>";
+		};
 		AED556E1256E48190068A855 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

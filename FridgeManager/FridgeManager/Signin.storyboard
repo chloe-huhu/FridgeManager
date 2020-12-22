@@ -43,7 +43,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="SigninViewController" id="YuB-Pf-ti5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zS-11-VUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189.8550724637682" y="-2.0089285714285712"/>
+            <point key="canvasLocation" x="954" y="11"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>

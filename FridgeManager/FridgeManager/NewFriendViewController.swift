@@ -22,8 +22,6 @@ class NewFriendViewController: UIViewController {
     
     @IBAction func joinFridge(_ sender: FancyButton) {
         
-        
-        
     }
     
     

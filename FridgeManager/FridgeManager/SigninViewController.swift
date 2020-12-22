@@ -150,9 +150,13 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             print("Error writing document: \(err)")
                         } else {
                             
-                            let next = self.storyboard?.instantiateViewController(withIdentifier: "NewFriendViewController")
+                            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewFriendViewController")
                             
-                            self.present(next!,animated: true, completion: nil)
+                            viewController.modalPresentationStyle = .fullScreen
+                            
+                            self.present(viewController, animated: true, completion: nil)
+                            
+                            
                         }
                           
                         }

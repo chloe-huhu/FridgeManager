@@ -50,6 +50,41 @@ class FoodListViewController: UIViewController {
         navigationBarSetup()
         tabBarSetup()
         dbListen()
+        fetchData()
+    }
+    
+    func fetchData() {
+        
+             guard let uid = Auth.auth().currentUser?.uid else { return }
+             
+             // 去Firebase找符合的uid
+             Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
+                 if let error = error {
+                     print("Error getting documnets : \(error)")
+                 } else {
+                     
+                     for document in querySnapShot!.documents {
+                         print("\(document.documentID) => \(document.data())")
+                         do {
+
+                             let data = try document.data(as: User.self)
+
+                             UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
+                             
+                             UserDefaults.standard.setValue(uid, forKey: "userUid")
+
+//                             var rootVC: UIViewController
+//                              rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodListViewController")
+
+                         } catch {
+                             print("error to decode", error)
+                         }
+                         return
+                     }
+                     
+
+                 }
+             }
     }
     
     override func viewWillAppear(_ animated: Bool) {

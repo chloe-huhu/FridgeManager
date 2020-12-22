@@ -44,15 +44,18 @@ class RecipeViewController: UIViewController {
     
     func setupSearch() {
         searchController = UISearchController(searchResultsController: nil)
-        
-//        self.tableView.tableHeaderView = self.searchController.searchBar
+        self.navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
         self.searchController.searchBar.placeholder = "請輸入食材名稱"
-        self.navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
     
     }
+    
+    
     func listenRecipe() {
         FirebaseManager.shared.listen(ref: ref) {
             self.getRecipe()
@@ -133,7 +136,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension RecipeViewController: UISearchResultsUpdating {
+extension RecipeViewController: UISearchResultsUpdating, UISearchBarDelegate  {
     func updateSearchResults(for searchController: UISearchController) {
         
     }

@@ -125,101 +125,51 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     return
                 } else {
                     
-                    guard Auth.auth().currentUser != nil else {
-                       
-                        
-                        
-                        return
-                    }
-                    
                     guard let user = authResult?.user else { return }
-                   
-                    guard let uid = Auth.auth().currentUser?.uid else { return } 
+                    print("新建使用者")
                     
-                    // 去Firebase找符合的uid
-                    Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
-                        if let error = error {
-                            print("Error getting documnets : \(error)")
+                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
+                    
+                    let email = user.email ?? ""
+                    let displayName = user.displayName ?? "請設定暱稱"
+                    
+                    guard let uid =  Auth.auth().currentUser?.uid else { return }
+                    
+                    let doc = Firestore.firestore().collection("users")
+                    
+                    doc.document(uid).setData([
+                        "uid": uid,
+                        "photo": "",
+                        "displayName": displayName,
+                        "email": email,
+                        "myFridges": [],
+                        "myInvites": []
+                        
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
                         } else {
-                            for document in querySnapShot!.documents {
-                                print("\(document.documentID) => \(document.data())")
-                                do {
-
-                                    let data = try document.data(as: User.self)
-
-                                    UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
-                                    
-                                    UserDefaults.standard.setValue(user.uid, forKey: "userUid")
-
-                                    self.performSegue(withIdentifier: "showSignin", sender: nil)
-
-                                } catch {
-                                    print("error to decode", error)
-                                }
-                                return
-                            }
                             
-                        print("新建使用者")
-
-                            UserDefaults.standard.setValue(user.uid, forKey: "userUid")
-
-                            let email = user.email ?? ""
-                            let displayName = user.displayName ?? "請設定暱稱"
-
-                            guard let uid =  Auth.auth().currentUser?.uid else { return }
-
-                            let doc = Firestore.firestore().collection("users")
-
-                            doc.document(uid).setData([
-                                "uid": uid,
-                                "photo": "",
-                                "displayName": displayName,
-                                "email": email,
-                                "myFridges": [],
-                                "myInvites": []
-
-                            ]) { err in
-                                if let err = err {
-                                    print("Error writing document: \(err)")
-                                } else {
-                                    self.addNewFridgeSetup(name: "")
-                                    self.performSegue(withIdentifier: "showSignin", sender: nil)
-                                }
-
-                            }
+                            let next = self.storyboard?.instantiateViewController(withIdentifier: "NewFriendViewController")
+                            
+                            self.present(next!,animated: true, completion: nil)
                         }
+                          
+                        }
+                        
                     }
+                    
                 }
                 print("the user has sign up or is logged in")
             }
         }
     }
-    
-    func addNewFridgeSetup (name: String) {
-        
-        let doc = Firestore.firestore().collection("fridges").document()
-        
-        doc.setData([
-            "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
-            "fridgeID": doc.documentID,
-            "fridgeName": name,
-            "users": [Auth.auth().currentUser?.email]
-        ])
-        
-        // 將新增的冰箱ID存起來
-        UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
-        
-        // 將新建的冰箱ID加到myFridges
-        let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-        userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
-        
-    }
-    
+
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
         print("Sign in with Apple errored: \(error)")
     }
-}
+
 
 extension SigninViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {

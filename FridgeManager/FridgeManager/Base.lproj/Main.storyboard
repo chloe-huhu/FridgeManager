@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8qR-gX-gTu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H5k-kw-J00">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -1082,7 +1082,7 @@
         <!--Animated Tab Bar Controller-->
         <scene sceneID="wfL-h5-nDh">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="H5k-kw-J00" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="H5k-kw-J00" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KkX-ib-qrY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oqn-En-sh7">
@@ -1112,7 +1112,7 @@
         <!--New Friend View Controller-->
         <scene sceneID="uNV-gB-HeB">
             <objects>
-                <viewController id="50d-X4-KvH" customClass="NewFriendViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewFriendViewController" id="50d-X4-KvH" customClass="NewFriendViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4K-d1-MiJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1144,6 +1144,9 @@
                                                 <real key="value" value="100"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="joinFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="rA7-eB-pak"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-CI-878">
                                         <rect key="frame" x="57" y="200" width="300" height="64.5"/>
@@ -1188,6 +1191,9 @@
                                                 <real key="value" value="100"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addNewFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="kas-Lz-FDg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1215,7 +1221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5j-LP-1O0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="-2"/>
+            <point key="canvasLocation" x="-578" y="11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IP3-TI-O8R">
@@ -1846,36 +1852,6 @@
             </objects>
             <point key="canvasLocation" x="2564" y="860"/>
         </scene>
-        <!--Signin View Controller-->
-        <scene sceneID="1kw-ap-6Te">
-            <objects>
-                <viewController storyboardIdentifier="WelcomeView" id="8qR-gX-gTu" customClass="SigninViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kEk-4A-Xbo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launching page3" translatesAutoresizingMaskIntoConstraints="NO" id="Cmk-uG-Ol0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="UMg-yD-6eg"/>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="UMg-yD-6eg" firstAttribute="bottom" secondItem="Cmk-uG-Ol0" secondAttribute="bottom" id="2Au-O3-06k"/>
-                            <constraint firstItem="Cmk-uG-Ol0" firstAttribute="leading" secondItem="UMg-yD-6eg" secondAttribute="leading" id="8Zc-QT-A3B"/>
-                            <constraint firstItem="UMg-yD-6eg" firstAttribute="trailing" secondItem="Cmk-uG-Ol0" secondAttribute="trailing" id="HSL-oV-I5p"/>
-                            <constraint firstItem="Cmk-uG-Ol0" firstAttribute="top" secondItem="UMg-yD-6eg" secondAttribute="top" id="qIS-1f-Yg1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="z2T-SL-7tg"/>
-                    <connections>
-                        <segue destination="H5k-kw-J00" kind="presentation" identifier="showSignin" modalPresentationStyle="fullScreen" id="L5Z-uM-981"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0vy-BM-q2W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="210" y="11"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jRg-cP-OIy">
             <objects>
@@ -1886,12 +1862,22 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8qR-gX-gTu" kind="relationship" relationship="rootViewController" id="46t-4h-paX"/>
+                        <segue destination="l4L-MP-O3d" kind="relationship" relationship="rootViewController" id="46t-4h-paX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8Y-qE-LNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="-719"/>
+        </scene>
+        <!--SigninViewController-->
+        <scene sceneID="UTh-KW-GFc">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SigninViewController" storyboardName="Signin" referencedIdentifier="SigninViewController" id="l4L-MP-O3d" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3XK-w1-KQi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68X-lO-O6Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="11"/>
         </scene>
     </scenes>
     <designables>
@@ -1903,7 +1889,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Cac-fM-gvU"/>
+        <segue reference="Lds-aR-iOo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
@@ -1916,7 +1902,6 @@
         <image name="folder" width="42.666667938232422" height="42.666667938232422"/>
         <image name="folder.badge.plus.fill" catalog="system" width="128" height="91"/>
         <image name="fridge" width="32" height="32"/>
-        <image name="launching page3" width="642" height="1389"/>
         <image name="menu" width="42.666667938232422" height="42.666667938232422"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8qR-gX-gTu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signin View Controller-->
+        <scene sceneID="1kw-ap-6Te">
+            <objects>
+                <viewController storyboardIdentifier="SigninViewController" id="8qR-gX-gTu" customClass="SigninViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kEk-4A-Xbo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launching page3" translatesAutoresizingMaskIntoConstraints="NO" id="Cmk-uG-Ol0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UMg-yD-6eg"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UMg-yD-6eg" firstAttribute="bottom" secondItem="Cmk-uG-Ol0" secondAttribute="bottom" id="2Au-O3-06k"/>
+                            <constraint firstItem="Cmk-uG-Ol0" firstAttribute="leading" secondItem="UMg-yD-6eg" secondAttribute="leading" id="8Zc-QT-A3B"/>
+                            <constraint firstItem="UMg-yD-6eg" firstAttribute="trailing" secondItem="Cmk-uG-Ol0" secondAttribute="trailing" id="HSL-oV-I5p"/>
+                            <constraint firstItem="Cmk-uG-Ol0" firstAttribute="top" secondItem="UMg-yD-6eg" secondAttribute="top" id="qIS-1f-Yg1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="z2T-SL-7tg"/>
+                    <connections>
+                        <segue destination="YuB-Pf-ti5" kind="presentation" identifier="showSignin" modalPresentationStyle="fullScreen" id="L5Z-uM-981"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vy-BM-q2W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="11"/>
+        </scene>
+        <!--SigninViewController-->
+        <scene sceneID="8oz-Cu-usG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="SigninViewController" id="YuB-Pf-ti5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zS-11-VUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189.8550724637682" y="-2.0089285714285712"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="launching page3" width="642" height="1389"/>
+    </resources>
+</document>

@@ -10,6 +10,8 @@
 		9CDCC779CADF62A1818499D9 /* Pods_FridgeManager_FridgeManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F313871C88389A371CCC6 /* Pods_FridgeManager_FridgeManagerUITests.framework */; };
 		AE0CA766258667890030A971 /* UIImage+ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */; };
 		AE1F8A73258BBA7100DA0B4E /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */; };
+		AE23D4702591EF4400F2A36E /* UIStoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */; };
+		AE23D4792591F13500F2A36E /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE23D4782591F13500F2A36E /* Signin.storyboard */; };
 		AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41B04425716C59006C6EFD /* EnumExtension.swift */; };
 		AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F8818256FB13200A97CD0 /* AppTabBar.swift */; };
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
@@ -75,6 +77,8 @@
 		A76F666C7A6E0046B73F9E17 /* Pods-FridgeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleExtension.swift"; sourceTree = "<group>"; };
 		AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
+		AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIStoryBoardExtension.swift; path = FridgeManager/UIStoryBoardExtension.swift; sourceTree = SOURCE_ROOT; };
+		AE23D4782591F13500F2A36E /* Signin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
@@ -118,8 +122,8 @@
 		AED556FF256E481B0068A855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED5573B256E55F10068A855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeTableViewCell.swift; path = FridgeManager/RecipeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = FridgeManager/Controller/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
-		AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeDetailViewController.swift; path = FridgeManager/RecipeDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = FridgeManager/Controller/Recipe/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeDetailViewController.swift; path = FridgeManager/Controller/Recipe/RecipeDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +185,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE23D47D2591FA9C00F2A36E /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */,
+				AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
 		AE40AA3525820E9D00C013E9 /* Food */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,13 +217,12 @@
 		AE5F8840256FE44100A97CD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AE79070B2591902F00779B9E /* NewFriendViewController.swift */,
-				AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */,
 				AE40AA3525820E9D00C013E9 /* Food */,
 				AE40AA3625820EAC00C013E9 /* Purchase */,
-				AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */,
+				AE23D47D2591FA9C00F2A36E /* Recipe */,
 				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 				AEA06B48257E86620094F7F7 /* SigninViewController.swift */,
+				AE79070B2591902F00779B9E /* NewFriendViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */,
 				AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */,
 				AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */,
 				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
@@ -284,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA06B44257E85770094F7F7 /* FridgeManagerDebug.entitlements */,
+				AE23D4782591F13500F2A36E /* Signin.storyboard */,
 				AED556E1256E48190068A855 /* Main.storyboard */,
 				AE5F8846256FE47D00A97CD0 /* Extension */,
 				AE5F8840256FE44100A97CD0 /* Controller */,
@@ -434,6 +448,7 @@
 				AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */,
 				AED556E5256E481B0068A855 /* Assets.xcassets in Resources */,
 				AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */,
+				AE23D4792591F13500F2A36E /* Signin.storyboard in Resources */,
 				AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */,
 				AED556E3256E48190068A855 /* Main.storyboard in Resources */,
 			);
@@ -641,6 +656,7 @@
 				AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */,
 				AEDA41FF25753E7C00AF4CC1 /* RecipeTableViewCell.swift in Sources */,
 				AE99DF8A257DBF6100382BDE /* PurchaseDetailTableViewController.swift in Sources */,
+				AE23D4702591EF4400F2A36E /* UIStoryBoardExtension.swift in Sources */,
 				AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */,
 				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,
 				AEE29B4125911914005A6350 /* RecipeDetailViewController.swift in Sources */,

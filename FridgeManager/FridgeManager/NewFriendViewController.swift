@@ -21,6 +21,33 @@ class NewFriendViewController: UIViewController {
     
     
     @IBAction func joinFridge(_ sender: FancyButton) {
+        let alterController = UIAlertController(title: "請輸入代碼", message: nil, preferredStyle: .alert)
+        
+        alterController.addTextField { (textField) in
+            textField.placeholder = ""
+        }
+        
+        let okAction = UIAlertAction(title: "加入冰箱", style: .default) { (_) in
+            
+            guard  let fridgeName = alterController.textFields?[0].text else { return }
+            
+            let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
+            
+            userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([fridgeName])])
+            
+            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
+            
+            viewController.modalPresentationStyle = .fullScreen
+            
+            self.present(viewController, animated: true, completion: nil)
+            
+        }
+        alterController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alterController.addAction(cancelAction)
+        
+        self.present(alterController, animated: true, completion: nil)
         
     }
     
@@ -38,6 +65,12 @@ class NewFriendViewController: UIViewController {
             guard  let fridgeName = alterController.textFields?[0].text else { return }
             
             self.addNewFridgeSetup(name: fridgeName)
+            
+            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
+            
+            viewController.modalPresentationStyle = .fullScreen
+            
+            self.present(viewController, animated: true, completion: nil)
             
         }
         alterController.addAction(okAction)

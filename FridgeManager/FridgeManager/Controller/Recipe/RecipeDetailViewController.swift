@@ -7,13 +7,19 @@
 
 import UIKit
 
+
 class RecipeDetailViewController: UIViewController {
+    
+    var selectedRecipe: Recipe?
     
     var showRecipe: [ShowRecipe] = [.image, .indregient, .content]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
+        
+        guard let recipe = selectedRecipe?.id else { return }
+        self.navigationItem.title = "\(recipe)"
     }
     
     @IBOutlet weak var tableView: UITableView! {
@@ -22,6 +28,7 @@ class RecipeDetailViewController: UIViewController {
             tableView.delegate = self
         }
     }
+    
 }
 
 extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -54,7 +61,7 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
         
         let headerLabel = UILabel()
         
-        headerLabel.frame = CGRect.init(x: 8, y: 0, width: tableView.frame.width, height: 50)
+        headerLabel.frame = CGRect.init(x: 25, y: 0, width: tableView.frame.width, height: 50)
 
         switch showRecipe[section] {
         
@@ -62,10 +69,10 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             headerLabel.text = nil
         
         case.indregient:
-            headerLabel.text =  "食材"
+            headerLabel.text =  "所需食材"
         
         case.content:
-            headerLabel.text = "步驟"
+            headerLabel.text = "烹飪步驟"
             
         }
         
@@ -83,9 +90,13 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
-            return 500
-        }else{
+        if indexPath.section == 0 {
+            return 350
+        } else if indexPath.section == 1 {
+            
+            return UITableView.automaticDimension
+        } else {
+            
             return UITableView.automaticDimension
         }
         
@@ -94,22 +105,27 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
+        guard let recipe = selectedRecipe else { return 0 }
+        
         switch showRecipe[section] {
         
         case .image:
             return 1
        
         case.indregient:
-            return 5
+            return (selectedRecipe?.ingredients.count)!
         
         case.content:
-            return 1
+            return (selectedRecipe?.content.count)!
         }
 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let recipe = selectedRecipe else {
+            return UITableViewCell()
+        }
         
         switch showRecipe[indexPath.section] {
         
@@ -117,16 +133,22 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "imageData", for: indexPath) as? ImageTableViewCell else { return UITableViewCell() }
             
+            cell.setup(data: recipe)
+            
             return cell
       
         case.indregient:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientData", for: indexPath) as? IngredientsTableViewCell else { return UITableViewCell() }
+            
+            cell.setup(data: recipe.ingredients[indexPath.row])
             
             return cell
       
         
         case.content:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "contentData", for: indexPath) as? ContentTableViewCell else { return UITableViewCell() }
+            
+            cell.setup(data: recipe.content[indexPath.row])
             
             return cell
       

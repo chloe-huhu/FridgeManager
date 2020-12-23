@@ -12,16 +12,16 @@ import FirebaseFirestoreSwift
 class RecipeViewController: UIViewController {
     
     let rowDataImage = ["018-meat-ball", "009-curry-1", "boiled"]
+
+    let ref = Firestore.firestore().collection("recipe")
     
-    let rowDataIngredient = ["3項食材不足", "2項食材不足", "食材已備足"]
+    var recipeList: [Recipe] = []
+    
+    var selectedRecipe: Recipe?
     
     var searchController: UISearchController!
     
     var shouldShowSearchResults = false
-    
-    let ref = Firestore.firestore().collection("recipe")
-    
-    var recipeList: [Recipe] = []
     
     var filteredArray = [Recipe]()
     
@@ -35,7 +35,6 @@ class RecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = ""
         navigationTitleSetup()
         listenRecipe()
         setupSearch()
@@ -97,6 +96,12 @@ class RecipeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .chloeYellow
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as? RecipeDetailViewController
+        
+        destVC?.selectedRecipe = selectedRecipe
+    }
 
 }
 
@@ -104,7 +109,11 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        selectedRecipe = recipeList[indexPath.row]
+        
         self.performSegue(withIdentifier: "SegueRecipeDetail", sender: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

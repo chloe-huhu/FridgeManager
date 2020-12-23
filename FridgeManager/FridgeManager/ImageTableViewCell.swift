@@ -21,8 +21,12 @@ class ImageTableViewCell: UITableViewCell {
 
     }
     
-    func setup(data:Recipe) {
-        recipeImageView.kf.setImage(with: data.photo)
-//        setImage(with: data.photo, options: [.transition(.fade(0.5))])
+    func setup(data: Recipe) {
+        
+        let photo = URL(string: data.photo)
+    
+        recipeImageView.kf.setImage(with: photo, options: [.transition(.fade(0.5))])
     }
+    
+    
 }

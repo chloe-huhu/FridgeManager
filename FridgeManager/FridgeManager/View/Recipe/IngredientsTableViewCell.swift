@@ -19,7 +19,8 @@ class IngredientsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-   func setup(data: Recipe) {
-    ingrdientsLabel.text = data.id
+   func setup(data: String) {
+    
+    ingrdientsLabel.text = data
     }
 }

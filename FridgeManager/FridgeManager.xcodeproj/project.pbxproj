@@ -34,8 +34,9 @@
 		AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9DCAF72572488F00CD44F3 /* SectionView.xib */; };
 		AE9DCB03257251C700CD44F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DCB02257251C700CD44F3 /* CardView.swift */; };
 		AE9EEB1B2592046300E26D83 /* NewFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9EEB192592046300E26D83 /* NewFriend.storyboard */; };
-		AE9EEB532593170500E26D83 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EEB522593170500E26D83 /* TitleTableViewCell.swift */; };
+		AE9EEB532593170500E26D83 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EEB522593170500E26D83 /* ImageTableViewCell.swift */; };
 		AE9EEB5B2593174200E26D83 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EEB5A2593174200E26D83 /* IngredientsTableViewCell.swift */; };
+		AE9EEB60259324B200E26D83 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EEB5F259324B200E26D83 /* ContentTableViewCell.swift */; };
 		AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */; };
 		AEA01E45257CAA74009AC995 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */; };
 		AEA06B49257E86620094F7F7 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA06B48257E86620094F7F7 /* SigninViewController.swift */; };
@@ -104,8 +105,9 @@
 		AE9DCAF72572488F00CD44F3 /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		AE9DCB02257251C700CD44F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AE9EEB1A2592046300E26D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewFriend.storyboard; sourceTree = "<group>"; };
-		AE9EEB522593170500E26D83 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleTableViewCell.swift; path = FridgeManager/TitleTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		AE9EEB522593170500E26D83 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = FridgeManager/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AE9EEB5A2593174200E26D83 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
+		AE9EEB5F259324B200E26D83 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentTableViewCell.swift; path = FridgeManager/Controller/Recipe/ContentTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEA06B44257E85770094F7F7 /* FridgeManagerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FridgeManagerDebug.entitlements; sourceTree = "<group>"; };
@@ -251,17 +253,17 @@
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */,
-				AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */,
+				AE9DCB02257251C700CD44F3 /* CardView.swift */,
 				AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */,
-				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
 				AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */,
 				AE71695D2574D47C00659F2C /* UILabelExtension.swift */,
-				AE9DCB02257251C700CD44F3 /* CardView.swift */,
+				AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */,
+				AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */,
+				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
 				AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */,
 				AE41B04425716C59006C6EFD /* EnumExtension.swift */,
-				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
-				AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */,
+				AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */,
+				AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -297,8 +299,9 @@
 			isa = PBXGroup;
 			children = (
 				AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */,
-				AE9EEB522593170500E26D83 /* TitleTableViewCell.swift */,
+				AE9EEB522593170500E26D83 /* ImageTableViewCell.swift */,
 				AE9EEB5A2593174200E26D83 /* IngredientsTableViewCell.swift */,
+				AE9EEB5F259324B200E26D83 /* ContentTableViewCell.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				AE7D32412572395B00D97E23 /* SectionView.swift in Sources */,
 				AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */,
 				AED556E0256E48190068A855 /* FoodListViewController.swift in Sources */,
+				AE9EEB60259324B200E26D83 /* ContentTableViewCell.swift in Sources */,
 				AE41B04525716C59006C6EFD /* EnumExtension.swift in Sources */,
 				AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */,
 				AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */,
@@ -689,7 +693,7 @@
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
 				AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */,
 				AEDA41FF25753E7C00AF4CC1 /* RecipeTableViewCell.swift in Sources */,
-				AE9EEB532593170500E26D83 /* TitleTableViewCell.swift in Sources */,
+				AE9EEB532593170500E26D83 /* ImageTableViewCell.swift in Sources */,
 				AE99DF8A257DBF6100382BDE /* PurchaseDetailTableViewController.swift in Sources */,
 				AE23D4702591EF4400F2A36E /* UIStoryBoardExtension.swift in Sources */,
 				AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */,

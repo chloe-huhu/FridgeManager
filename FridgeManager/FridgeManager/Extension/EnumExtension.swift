@@ -22,5 +22,5 @@ enum ShowFridge {
 
 
 enum ShowRecipe {
-    case title, indregient, content
+    case image, indregient, content
 }

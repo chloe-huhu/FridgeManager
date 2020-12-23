@@ -35,11 +35,15 @@ class RecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = ""
         navigationTitleSetup()
         listenRecipe()
         setupSearch()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     func setupSearch() {
         searchController = UISearchController(searchResultsController: nil)

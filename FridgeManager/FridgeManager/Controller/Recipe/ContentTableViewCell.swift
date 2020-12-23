@@ -1,5 +1,5 @@
 //
-//  TitleTableViewCell.swift
+//  ContentTableViewCell.swift
 //  FridgeManager
 //
 //  Created by ChloeHuHu on 2020/12/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleTableViewCell: UITableViewCell {
+class ContentTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

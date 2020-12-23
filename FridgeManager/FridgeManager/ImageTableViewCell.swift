@@ -26,6 +26,9 @@ class ImageTableViewCell: UITableViewCell {
         let photo = URL(string: data.photo)
     
         recipeImageView.kf.setImage(with: photo, options: [.transition(.fade(0.5))])
+        recipeImageView.contentMode = .scaleAspectFill
+        recipeImageView.clipsToBounds = true
+        
     }
     
     

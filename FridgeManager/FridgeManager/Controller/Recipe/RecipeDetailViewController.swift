@@ -57,11 +57,11 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
         // header 位置、文字、背景顏色、文字顏色、字型修改
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         
-        headerView.backgroundColor = UIColor.white
+        headerView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         let headerLabel = UILabel()
         
-        headerLabel.frame = CGRect.init(x: 25, y: 0, width: tableView.frame.width, height: 50)
+        headerLabel.frame = CGRect.init(x: 16, y: 0, width: tableView.frame.width, height: 50)
 
         switch showRecipe[section] {
         
@@ -76,10 +76,9 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             
         }
         
-        headerLabel.backgroundColor = UIColor.white
+        headerLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
-        headerLabel.textColor = UIColor { _ in return UIColor(red: 63.0 / 255.0, green: 58.0 / 255.0, blue: 58.0 / 255.0, alpha: 1.0)
-        }
+        headerLabel.textColor = #colorLiteral(red: 1, green: 0.6047399044, blue: 0.2367118895, alpha: 1)
         
         headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
         

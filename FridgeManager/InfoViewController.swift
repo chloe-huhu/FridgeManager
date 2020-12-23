@@ -316,6 +316,10 @@ class InfoViewController: UIViewController {
             
             self.personImageView.kf.setImage(with: userPhoto, options: [.transition(.fade(0.5))])
             
+            personImageView.contentMode = .scaleAspectFill
+            
+            personImageView.clipsToBounds = true
+            
         } else {
             
             self.personImageView.image = UIImage(systemName: "person.circle")

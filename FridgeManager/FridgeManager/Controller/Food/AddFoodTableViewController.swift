@@ -350,8 +350,9 @@ class AddFoodTableViewController: UITableViewController {
             if let photo = selectedFood?.photo {
                 let foodPhoto = URL(string: photo)
                 imageView.kf.setImage(with: foodPhoto, options: [.transition(.fade(0.5))])
-                
                 setupImageView(imageView: imageView)
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
                 
             } else {
                 imageView.image = UIImage(systemName: "photo")

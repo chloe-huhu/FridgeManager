@@ -53,6 +53,15 @@ class FoodListViewController: UIViewController {
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dbListen()
+        self.tabBarController?.tabBar.isHidden = false
+        showCategory = .all
+        btnPressedAnimation(type: .all)
+
+    }
+    
     func fetchData() {
         
              guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -86,14 +95,9 @@ class FoodListViewController: UIViewController {
                  }
              }
     }
+
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        dbListen()
-        self.tabBarController?.tabBar.isHidden = false
-    
-    }
-    
+    @IBOutlet weak var addNewFoodBtn: UIButton!
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     
@@ -143,6 +147,7 @@ class FoodListViewController: UIViewController {
         btnPressedAnimation(type: .all)
         
         reloadDataForFoods(foods: oriFoods)
+        
     }
     
     @IBAction func soonExpiredPressed(_ sender: UIButton) {
@@ -158,9 +163,11 @@ class FoodListViewController: UIViewController {
         }
         
         reloadDataForFoods(foods: soonExpiredFoods)
+        
     }
     
     @IBAction func expiredPressed(_ sender: UIButton) {
+        
         showCategory = .expired
         
         btnPressedAnimation(type: .expired)

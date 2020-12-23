@@ -95,6 +95,10 @@ class PurchaseDetailTableViewController: UITableViewController {
                 
                 setupImageView(imageView: imageView)
                 
+                imageView.contentMode = .scaleAspectFill
+                
+                imageView.clipsToBounds = true
+                
             } else {
                 imageView.image = UIImage(systemName: "photo")
             }

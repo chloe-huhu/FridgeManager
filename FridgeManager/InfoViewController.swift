@@ -30,7 +30,18 @@ class InfoViewController: UIViewController {
     
     var downloadURL: String?
     
-    var currentFridgeID: String?
+    var currentFridgeID: String? {
+        
+        get {
+        
+            guard let currentFridgeID = UserDefaults.standard.string(forKey: .fridgeID) else { return "" }
+        
+            return currentFridgeID
+        }
+        
+        set {}
+    }
+            
     
     var showFridge: ShowFridge = .myFridges
     
@@ -184,6 +195,7 @@ class InfoViewController: UIViewController {
         Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
+                    print("==========" ,document)
                     do {
                         let data = try document.data(as: User.self)
                         
@@ -209,8 +221,9 @@ class InfoViewController: UIViewController {
         
         guard let currentFridgeID = currentFridgeID else { return }
         
-        doc.updateData(["myInvites": Firebase.FieldValue.arrayUnion([currentFridgeID])]
-        )
+        doc.updateData(["myInvites": Firebase.FieldValue.arrayUnion([currentFridgeID])])
+        
+        print("邀請\(userUID)入群")
         
     }
     

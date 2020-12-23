@@ -15,7 +15,6 @@ class RecipeViewController: UIViewController {
     
     let rowDataIngredient = ["3項食材不足", "2項食材不足", "食材已備足"]
     
-    
     var searchController: UISearchController!
     
     var shouldShowSearchResults = false
@@ -51,7 +50,7 @@ class RecipeViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
-        tableView.tableHeaderView = searchController.searchBar
+//        tableView.tableHeaderView = searchController.searchBar
     
     }
     
@@ -112,8 +111,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         
         if shouldShowSearchResults {
                 return filteredArray.count
-            }
-            else {
+            } else {
                 return recipeList.count
             }
     }
@@ -125,8 +123,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         if shouldShowSearchResults {
             cell.setup(data: filteredArray[indexPath.row])
 //            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
-          }
-          else {
+          } else {
             cell.setup(data: recipeList[indexPath.row])
 //            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
           }
@@ -136,7 +133,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension RecipeViewController: UISearchResultsUpdating, UISearchBarDelegate  {
+extension RecipeViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
     }

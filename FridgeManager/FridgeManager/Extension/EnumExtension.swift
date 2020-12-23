@@ -19,3 +19,8 @@ enum ShowType {
 enum ShowFridge {
     case myFridges, myInvites
 }
+
+
+enum ShowRecipe {
+    case title, indregient, content
+}

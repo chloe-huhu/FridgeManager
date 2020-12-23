@@ -24,12 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if Auth.auth().currentUser != nil {
             
             let firebaseAuth = Auth.auth()
-            do {
-              try firebaseAuth.signOut()
-            } catch let signOutError as NSError {
-              print ("Error signing out: %@", signOutError)
-            }
-            
+//            do {
+//              try firebaseAuth.signOut()
+//            } catch let signOutError as NSError {
+//              print ("Error signing out: %@", signOutError)
+//            }
+//            
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
         
         } else {

@@ -21,16 +21,10 @@ class RecipeViewController: UIViewController {
     
     var searchController: UISearchController!
     
-//    var shouldShowSearchResults = false
-    
+    // 重設filteredArray後重整tableview
     var filteredArray: [Recipe] = [] {
-        
         didSet {
-            
-            // 重設filteredArray後重整tableview
-           
             self.tableView.reloadData()
-            print(filteredArray)
         }
     }
     
@@ -40,7 +34,6 @@ class RecipeViewController: UIViewController {
             tableView.delegate = self
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,8 +111,19 @@ class RecipeViewController: UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         navigationController?.navigationBar.backgroundColor = .chloeYellow
-        navigationController?.view.backgroundColor = .chloeYellow
         navigationController?.navigationBar.barTintColor = .chloeYellow
+        
+        if #available(iOS 13.0, *) {
+                let app = UIApplication.shared
+                let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+                let statusbarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: statusBarHeight))
+                statusbarView.backgroundColor = UIColor.chloeYellow
+                view.addSubview(statusbarView)
+            } else {
+                let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+                statusBar?.backgroundColor = UIColor.chloeYellow
+            }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -202,15 +206,15 @@ extension RecipeViewController: UISearchResultsUpdating {
 }
 
 extension RecipeViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        if let vc = self.navigationController?.viewControllers.first {
-            vc.view.frame.origin.y -= 100
-        }
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if let vc = self.navigationController?.viewControllers.first {
-            vc.view.frame.origin.y += 100
-        }
-    }
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        if let vc = self.navigationController?.viewControllers.first {
+//            vc.view.frame.origin.y -= 100
+//        }
+//    }
+//    
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        if let vc = self.navigationController?.viewControllers.first {
+//            vc.view.frame.origin.y += 100
+//        }
+//    }
 }

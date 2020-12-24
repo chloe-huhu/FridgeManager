@@ -112,7 +112,7 @@
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                <state key="normal" title="即將過期" image="clock.arrow.circlepath" catalog="system">
+                                                <state key="normal" title="三天後過期" image="clock.arrow.circlepath" catalog="system">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -124,7 +124,7 @@
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                <state key="normal" title="已經過期" image="exclamationmark.arrow.circlepath" catalog="system">
+                                                <state key="normal" title="已過期" image="exclamationmark.arrow.circlepath" catalog="system">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -1302,7 +1302,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-8C-S69">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="120" id="gfW-eN-U3V" customClass="RecipeTableViewCell" customModule="FridgeManager" customModuleProvider="target">
@@ -1403,10 +1403,10 @@
                         <viewLayoutGuide key="safeArea" id="zGe-1K-34O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c4c-8C-S69" firstAttribute="top" secondItem="eKM-ix-rCQ" secondAttribute="top" id="50r-X0-n2A"/>
-                            <constraint firstAttribute="bottom" secondItem="c4c-8C-S69" secondAttribute="bottom" id="KwM-MY-DL2"/>
-                            <constraint firstItem="c4c-8C-S69" firstAttribute="leading" secondItem="eKM-ix-rCQ" secondAttribute="leading" id="WU0-BG-pfg"/>
-                            <constraint firstAttribute="trailing" secondItem="c4c-8C-S69" secondAttribute="trailing" id="cD3-25-hOW"/>
+                            <constraint firstItem="c4c-8C-S69" firstAttribute="leading" secondItem="zGe-1K-34O" secondAttribute="leading" id="3dX-tW-gse"/>
+                            <constraint firstItem="c4c-8C-S69" firstAttribute="top" secondItem="zGe-1K-34O" secondAttribute="top" id="FSF-RN-saI"/>
+                            <constraint firstItem="c4c-8C-S69" firstAttribute="bottom" secondItem="zGe-1K-34O" secondAttribute="bottom" id="MZh-lh-ebP"/>
+                            <constraint firstItem="c4c-8C-S69" firstAttribute="trailing" secondItem="zGe-1K-34O" secondAttribute="trailing" id="Qxm-nW-0W0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="今晚我想來點" largeTitleDisplayMode="always" id="kB2-8L-kgJ"/>
@@ -1424,29 +1424,58 @@
             <objects>
                 <viewController id="kqI-Es-f5y" customClass="RecipeDetailViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gKt-MO-DLL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-zx-4lf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageData" rowHeight="350" id="RGQ-n9-nwa" customClass="ImageTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="350"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageData" rowHeight="450" id="RGQ-n9-nwa" customClass="ImageTableViewCell" customModule="FridgeManager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="450"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RGQ-n9-nwa" id="vGT-EF-QhN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="014-crab" translatesAutoresizingMaskIntoConstraints="NO" id="2Wv-OC-GR9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="968-xd-jEV">
+                                                    <rect key="frame" x="30" y="50" width="40" height="40"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="8vv-CW-tck"/>
+                                                        <constraint firstAttribute="height" constant="40" id="CxX-de-dOJ"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="chevron.backward" catalog="system">
+                                                        <color key="titleColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="backButton:" destination="kqI-Es-f5y" eventType="touchUpInside" id="4dE-gC-pTW"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwb-9Q-6tL">
+                                                    <rect key="frame" x="179" y="450" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="2Wv-OC-GR9" secondAttribute="trailing" id="1Tr-9K-ahf"/>
                                                 <constraint firstAttribute="bottom" secondItem="2Wv-OC-GR9" secondAttribute="bottom" id="9sP-fe-SnW"/>
                                                 <constraint firstItem="2Wv-OC-GR9" firstAttribute="top" secondItem="vGT-EF-QhN" secondAttribute="top" id="DmV-xK-YY3"/>
+                                                <constraint firstItem="968-xd-jEV" firstAttribute="leading" secondItem="vGT-EF-QhN" secondAttribute="leading" constant="30" id="POp-Sc-5hS"/>
                                                 <constraint firstItem="2Wv-OC-GR9" firstAttribute="leading" secondItem="vGT-EF-QhN" secondAttribute="leading" id="Wfj-YZ-FUR"/>
+                                                <constraint firstItem="968-xd-jEV" firstAttribute="top" secondItem="vGT-EF-QhN" secondAttribute="top" constant="50" id="ljk-n3-F0I"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1454,7 +1483,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientData" id="s8F-db-cZM" customClass="IngredientsTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="378" width="414" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="478" width="414" height="49.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8F-db-cZM" id="jB2-8v-6Mn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
@@ -1466,7 +1495,7 @@
                                                 </stackView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-bt-XMV">
                                                     <rect key="frame" x="35" y="20" width="10" height="10"/>
-                                                    <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="73F-zE-1kY"/>
                                                         <constraint firstAttribute="height" constant="10" id="Ily-NQ-BCT"/>
@@ -1500,7 +1529,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentData" id="dnw-mJ-dtQ" customClass="ContentTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="427.5" width="414" height="72"/>
+                                        <rect key="frame" x="0.0" y="527.5" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dnw-mJ-dtQ" id="OS7-Dc-Oow">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
@@ -1514,7 +1543,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-l7-oTb">
                                                     <rect key="frame" x="35" y="31" width="10" height="10"/>
-                                                    <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="IBW-bf-ZOT"/>
                                                         <constraint firstAttribute="height" constant="10" id="h89-li-dqq"/>
@@ -1552,10 +1581,11 @@
                             <constraint firstItem="luJ-dN-S9d" firstAttribute="trailing" secondItem="xwf-zx-4lf" secondAttribute="trailing" id="CMR-8E-wDW"/>
                             <constraint firstItem="xwf-zx-4lf" firstAttribute="leading" secondItem="luJ-dN-S9d" secondAttribute="leading" id="Dqd-mJ-KNq"/>
                             <constraint firstItem="luJ-dN-S9d" firstAttribute="bottom" secondItem="xwf-zx-4lf" secondAttribute="bottom" id="Ppa-8W-FXa"/>
-                            <constraint firstItem="xwf-zx-4lf" firstAttribute="top" secondItem="luJ-dN-S9d" secondAttribute="top" id="gwf-kh-upO"/>
+                            <constraint firstItem="xwf-zx-4lf" firstAttribute="top" secondItem="gKt-MO-DLL" secondAttribute="top" id="gwf-kh-upO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="食譜計畫" id="Wza-7k-Wmm"/>
+                    <navigationItem key="navigationItem" title="食譜計畫" largeTitleDisplayMode="never" id="Wza-7k-Wmm"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="xwf-zx-4lf" id="cjb-kz-gTB"/>
                     </connections>
@@ -1880,8 +1910,8 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="HYg-Gv-j8b">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="HYg-Gv-j8b">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2020,6 +2050,7 @@
         <image name="014-crab" width="512" height="512"/>
         <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
         <image name="chef (2)" width="32" height="32"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="download" width="42.666667938232422" height="42.666667938232422"/>
         <image name="exclamationmark.arrow.circlepath" catalog="system" width="128" height="110"/>

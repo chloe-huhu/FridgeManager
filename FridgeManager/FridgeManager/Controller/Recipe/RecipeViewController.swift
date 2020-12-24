@@ -21,9 +21,18 @@ class RecipeViewController: UIViewController {
     
     var searchController: UISearchController!
     
-    var shouldShowSearchResults = false
+//    var shouldShowSearchResults = false
     
-    var filteredArray = [Recipe]()
+    var filteredArray: [Recipe] = [] {
+        
+        didSet {
+            
+            // 重設filteredArray後重整tableview
+           
+            self.tableView.reloadData()
+            print(filteredArray)
+        }
+    }
     
      @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -42,19 +51,31 @@ class RecipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.hidesBackButton = false
     }
     
     func setupSearch() {
+        
+        // 建立searchController 設置搜索控制器為nil
         searchController = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
-        self.searchController.searchBar.placeholder = "請輸入食材名稱"
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.dimsBackgroundDuringPresentation = false
+        
         searchController.searchBar.delegate = self
-        searchController.searchBar.sizeToFit()
-//        tableView.tableHeaderView = searchController.searchBar
-    
+                
+        self.navigationItem.searchController = searchController
+        
+        // 將更新搜尋結果的對象設為 self
+        searchController.searchResultsUpdater = self
+        
+        searchController.searchBar.searchBarStyle = .minimal
+        
+        // 搜尋時是否使用燈箱效果 (會將畫面變暗以集中搜尋焦點)
+        searchController.dimsBackgroundDuringPresentation = false
+      
+        self.searchController.searchBar.placeholder = "請輸入食材名稱"
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
+      
     }
     
     
@@ -91,10 +112,14 @@ class RecipeViewController: UIViewController {
     }
     
     func navigationTitleSetup() {
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         navigationController?.navigationBar.backgroundColor = .chloeYellow
         navigationController?.view.backgroundColor = .chloeYellow
         navigationController?.navigationBar.barTintColor = .chloeYellow
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,8 +135,12 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
-        selectedRecipe = recipeList[indexPath.row]
-        
+        if self.searchController.isActive {
+            selectedRecipe = filteredArray[indexPath.row]
+        } else {
+            selectedRecipe = recipeList[indexPath.row]
+        }
+
         self.performSegue(withIdentifier: "SegueRecipeDetail", sender: nil)
         
     }
@@ -122,7 +151,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if shouldShowSearchResults {
+        if self.searchController.isActive {
                 return filteredArray.count
             } else {
                 return recipeList.count
@@ -133,7 +162,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as? RecipeTableViewCell else { return UITableViewCell() }
 
         
-        if shouldShowSearchResults {
+        if self.searchController.isActive {
             cell.setup(data: filteredArray[indexPath.row])
 //            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
           } else {
@@ -146,10 +175,42 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension RecipeViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension RecipeViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         
+        guard  let searchText = searchController.searchBar.text else { return }
+        
+        var array: [Recipe] = []
+
+        for recipe in recipeList {
+
+            for item in recipe.ingredients where item.contains(searchText) {
+
+                print(item, "==", searchText)
+
+                if !array.contains(recipe) {
+
+                    array.append(recipe)
+                }
+            }
+        }
+        
+        filteredArray = array
     }
     
 }
- 
+
+extension RecipeViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if let vc = self.navigationController?.viewControllers.first {
+            vc.view.frame.origin.y -= 100
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let vc = self.navigationController?.viewControllers.first {
+            vc.view.frame.origin.y += 100
+        }
+    }
+}

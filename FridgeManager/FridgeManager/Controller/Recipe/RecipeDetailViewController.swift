@@ -16,17 +16,33 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
+        naviTabBarSetup()
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
-        guard let recipe = selectedRecipe?.id else { return }
-        self.navigationItem.title = "\(recipe)"
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            tableView.contentInsetAdjustmentBehavior = .never
         }
+    }
+    
+    func naviTabBarSetup() {
+        self.tabBarController?.tabBar.isHidden = true
+        guard let recipe = selectedRecipe?.id else { return }
+        self.navigationItem.title = "\(recipe)"
+        navigationController?.isNavigationBarHidden = true
+        navigationItem.hidesBackButton = true
+    }
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
@@ -45,23 +61,23 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             return 0
         
         case.indregient:
-            return 50
+            return 40
         
         case.content:
-            return 50
+            return 40
         }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         // header 位置、文字、背景顏色、文字顏色、字型修改
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
         
         headerView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         let headerLabel = UILabel()
         
-        headerLabel.frame = CGRect.init(x: 16, y: 0, width: tableView.frame.width, height: 50)
+        headerLabel.frame = CGRect.init(x: 16, y: 10, width: tableView.frame.width, height: 30)
 
         switch showRecipe[section] {
         
@@ -69,16 +85,16 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             headerLabel.text = nil
         
         case.indregient:
-            headerLabel.text =  "所需食材"
+            headerLabel.text =  "所需食材 : "
         
         case.content:
-            headerLabel.text = "烹飪步驟"
+            headerLabel.text = "烹飪步驟 : "
             
         }
         
         headerLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
-        headerLabel.textColor = #colorLiteral(red: 1, green: 0.6047399044, blue: 0.2367118895, alpha: 1)
+        headerLabel.textColor = #colorLiteral(red: 0.3333521485, green: 0.3332782388, blue: 0.3375991285, alpha: 1)
         
         headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
         
@@ -90,13 +106,17 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
-            return 350
+            
+            return 450
+            
         } else if indexPath.section == 1 {
             
             return UITableView.automaticDimension
+            
         } else {
             
             return UITableView.automaticDimension
+            
         }
         
     }
@@ -112,10 +132,10 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             return 1
        
         case.indregient:
-            return (selectedRecipe?.ingredients.count)!
+            return recipe.ingredients.count
         
         case.content:
-            return (selectedRecipe?.content.count)!
+            return recipe.content.count
         }
 
     }

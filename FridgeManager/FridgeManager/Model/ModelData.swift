@@ -64,7 +64,7 @@ struct Fridge: Codable {
     let category: [String]
 }
 
-struct Recipe: Codable {
+struct Recipe: Codable, Equatable {
     let id: String
     let ingredients: [String]
     let content: [String]

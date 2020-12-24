@@ -270,7 +270,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="香蕉" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-7B-f81" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="香蕉" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-7B-f81" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -309,7 +309,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mla-wI-OpZ">
                                                             <rect key="frame" x="0.0" y="30" width="370" height="36"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-lV-QML" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-lV-QML" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
                                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                     <color key="tintColor" name="B6"/>
@@ -373,7 +373,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-iv-LCg">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="水果類" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="水果類" placeholder="水果類" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="35"/>
                                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                     <constraints>
@@ -462,7 +462,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS4-6E-Cpl" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2020-12-25" placeholder="請選擇日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS4-6E-Cpl" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -835,10 +835,10 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWi-3T-3xm" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
-                                                    <rect key="frame" x="298" y="283" width="80" height="40"/>
+                                                    <rect key="frame" x="298" y="293" width="80" height="30"/>
                                                     <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="P3C-YF-Xps"/>
+                                                        <constraint firstAttribute="height" constant="30" id="P3C-YF-Xps"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="tkV-be-gCM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
@@ -1441,16 +1441,15 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="014-crab" translatesAutoresizingMaskIntoConstraints="NO" id="2Wv-OC-GR9">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="968-xd-jEV">
-                                                    <rect key="frame" x="30" y="50" width="40" height="40"/>
-                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="968-xd-jEV">
+                                                    <rect key="frame" x="16" y="60" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="8vv-CW-tck"/>
-                                                        <constraint firstAttribute="height" constant="40" id="CxX-de-dOJ"/>
+                                                        <constraint firstAttribute="width" constant="20" id="8vv-CW-tck"/>
+                                                        <constraint firstAttribute="height" constant="20" id="CxX-de-dOJ"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="chevron.backward" catalog="system">
-                                                        <color key="titleColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1461,25 +1460,37 @@
                                                         <action selector="backButton:" destination="kqI-Es-f5y" eventType="touchUpInside" id="4dE-gC-pTW"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwb-9Q-6tL">
-                                                    <rect key="frame" x="179" y="450" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 酒釀丸子" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAj-yr-5cQ" customClass="THLabel">
+                                                    <rect key="frame" x="142" y="397" width="130" height="37"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="7er-AB-a1K"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="0.0" height="2"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="2Wv-OC-GR9" secondAttribute="trailing" id="1Tr-9K-ahf"/>
+                                                <constraint firstItem="DAj-yr-5cQ" firstAttribute="centerX" secondItem="vGT-EF-QhN" secondAttribute="centerX" id="5le-qW-P13"/>
                                                 <constraint firstAttribute="bottom" secondItem="2Wv-OC-GR9" secondAttribute="bottom" id="9sP-fe-SnW"/>
                                                 <constraint firstItem="2Wv-OC-GR9" firstAttribute="top" secondItem="vGT-EF-QhN" secondAttribute="top" id="DmV-xK-YY3"/>
-                                                <constraint firstItem="968-xd-jEV" firstAttribute="leading" secondItem="vGT-EF-QhN" secondAttribute="leading" constant="30" id="POp-Sc-5hS"/>
+                                                <constraint firstItem="968-xd-jEV" firstAttribute="leading" secondItem="vGT-EF-QhN" secondAttribute="leading" constant="16" id="POp-Sc-5hS"/>
+                                                <constraint firstAttribute="bottom" secondItem="DAj-yr-5cQ" secondAttribute="bottom" constant="16" id="RwD-Jz-IdK"/>
                                                 <constraint firstItem="2Wv-OC-GR9" firstAttribute="leading" secondItem="vGT-EF-QhN" secondAttribute="leading" id="Wfj-YZ-FUR"/>
-                                                <constraint firstItem="968-xd-jEV" firstAttribute="top" secondItem="vGT-EF-QhN" secondAttribute="top" constant="50" id="ljk-n3-F0I"/>
+                                                <constraint firstItem="968-xd-jEV" firstAttribute="top" secondItem="vGT-EF-QhN" secondAttribute="top" constant="60" id="ljk-n3-F0I"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="recipeImageView" destination="2Wv-OC-GR9" id="3oT-Pz-EnA"/>
+                                            <outlet property="titleLabel" destination="DAj-yr-5cQ" id="9rG-hV-EMV"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientData" id="s8F-db-cZM" customClass="IngredientsTableViewCell" customModule="FridgeManager" customModuleProvider="target">
@@ -2042,7 +2053,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="8dV-Mf-sHW"/>
+        <segue reference="Cac-fM-gvU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>

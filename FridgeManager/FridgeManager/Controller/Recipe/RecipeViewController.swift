@@ -52,8 +52,6 @@ class RecipeViewController: UIViewController {
         
         // 建立searchController 設置搜索控制器為nil
         searchController = UISearchController(searchResultsController: nil)
-        
-        searchController.searchBar.delegate = self
                 
         self.navigationItem.searchController = searchController
         
@@ -205,16 +203,3 @@ extension RecipeViewController: UISearchResultsUpdating {
     
 }
 
-extension RecipeViewController: UISearchBarDelegate {
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        if let vc = self.navigationController?.viewControllers.first {
-//            vc.view.frame.origin.y -= 100
-//        }
-//    }
-//    
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        if let vc = self.navigationController?.viewControllers.first {
-//            vc.view.frame.origin.y += 100
-//        }
-//    }
-}

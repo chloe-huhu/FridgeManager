@@ -20,6 +20,7 @@ target 'FridgeManager' do
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     pod 'Kingfisher'
+    pod 'THLabel', '~> 1.4.0'
 
 
   target 'FridgeManagerTests' do

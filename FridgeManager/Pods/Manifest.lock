@@ -328,6 +328,7 @@ PODS:
   - PromisesObjC (1.2.11)
   - RAMAnimatedTabBarController (5.2.0)
   - SwiftLint (0.42.0)
+  - THLabel (1.4.10)
 
 DEPENDENCIES:
   - Firebase/Database
@@ -339,6 +340,7 @@ DEPENDENCIES:
   - Kingfisher
   - RAMAnimatedTabBarController
   - SwiftLint
+  - THLabel (~> 1.4.0)
 
 SPEC REPOS:
   trunk:
@@ -365,6 +367,7 @@ SPEC REPOS:
     - PromisesObjC
     - RAMAnimatedTabBarController
     - SwiftLint
+    - THLabel
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -390,7 +393,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
+  THLabel: 3fc93a0f01f74e4eec7574df2819e576d57150b3
 
-PODFILE CHECKSUM: 0580bbd0fdb63f5dbf2571a705e2759bb2f502ac
+PODFILE CHECKSUM: e1967b2ec4bf05bc5a796be4f056c25fb7721446
 
 COCOAPODS: 1.10.0

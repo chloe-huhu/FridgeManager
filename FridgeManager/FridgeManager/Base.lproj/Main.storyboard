@@ -1844,11 +1844,60 @@
                         <outlet property="personImageView" destination="CAZ-ay-4MF" id="wSI-28-ln1"/>
                         <outlet property="sliderView" destination="tcN-Z1-yos" id="bUC-eV-gQ3"/>
                         <outlet property="tableView" destination="ffe-22-cvo" id="hKz-Rs-CGs"/>
+                        <segue destination="Vof-B7-h5j" kind="show" identifier="segueQRCodeCamera" id="Gfa-82-SnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxG-Z4-SVo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2562.3188405797105" y="1664.7321428571429"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="IrZ-Md-O2B">
+            <objects>
+                <viewController id="Vof-B7-h5j" customClass="QRCodeViewController" customModule="FridgeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OdM-u9-ctw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIP-xy-KRX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請掃碼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-xt-hIN">
+                                        <rect key="frame" x="167" y="48" width="80" height="32.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5El-bT-pwz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="23"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hmB-xt-hIN" firstAttribute="centerY" secondItem="tIP-xy-KRX" secondAttribute="centerY" id="IDY-MA-dqp"/>
+                                    <constraint firstItem="hmB-xt-hIN" firstAttribute="centerX" secondItem="tIP-xy-KRX" secondAttribute="centerX" id="Y0d-ef-Hle"/>
+                                    <constraint firstAttribute="height" constant="128" id="a3v-XD-PfD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xW4-eE-hgU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tIP-xy-KRX" firstAttribute="leading" secondItem="xW4-eE-hgU" secondAttribute="leading" id="5dR-DA-TLj"/>
+                            <constraint firstItem="tIP-xy-KRX" firstAttribute="top" secondItem="xW4-eE-hgU" secondAttribute="top" id="8gZ-C3-I7U"/>
+                            <constraint firstItem="xW4-eE-hgU" firstAttribute="trailing" secondItem="tIP-xy-KRX" secondAttribute="trailing" id="OeI-Mf-mVz"/>
+                            <constraint firstItem="tIP-xy-KRX" firstAttribute="centerX" secondItem="OdM-u9-ctw" secondAttribute="centerX" id="mVS-nr-Xyf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PRv-bI-Xdh"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="hmB-xt-hIN" id="4Z1-gE-K1t"/>
+                        <outlet property="topbarView" destination="tIP-xy-KRX" id="jRO-Gf-AuA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ois-ll-eZh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3446" y="1665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X9s-75-8Ea">

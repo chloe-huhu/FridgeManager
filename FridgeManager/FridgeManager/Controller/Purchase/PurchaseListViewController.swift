@@ -30,9 +30,11 @@ class PurchaseListViewController: UIViewController {
         Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
     }
     
-    var awaitingList: [List] = []
+    var awaitingList = [List]()
     
-    var acceptLists: [List] = []
+    var acceptLists = [List]()
+    
+    var whoBuyArray = [String]()
     
     let sectionImage: [String] = ["close", "check-mark"]
     
@@ -46,7 +48,6 @@ class PurchaseListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
-    var whoBuys = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +59,6 @@ class PurchaseListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        dblistenAwating()
-        dblistenAccept()
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -210,7 +209,7 @@ class PurchaseListViewController: UIViewController {
                 } else {
                     
                     self.acceptLists.removeAll()
-                    self.whoBuys.removeAll()
+                    self.whoBuyArray.removeAll()
                     
                     for document in querySnapshot!.documents {
 
@@ -233,7 +232,7 @@ class PurchaseListViewController: UIViewController {
                         
                         self.getUserDisplayName(who: acceptList.whoBuy) { whoBuy in
 
-                            self.whoBuys.append(whoBuy)
+                            self.whoBuyArray.append(whoBuy)
 
                             self.tableView.reloadData()
                         }
@@ -260,10 +259,7 @@ class PurchaseListViewController: UIViewController {
                         guard let whoBuy = data?.displayName else { return }
                         
                         handler(whoBuy)
-                        
-//                        self.whoBuys.append(whoBuy)
-                        
-//                        self.tableView.reloadData()
+
                     } catch {
                         print("error to decode", error)
                     }
@@ -336,7 +332,7 @@ extension PurchaseListViewController: UITableViewDataSource {
             return awaitingList.count
         } else {
 //            return acceptLists.count
-            return whoBuys.count
+            return whoBuyArray.count
         }
         
     }
@@ -354,7 +350,7 @@ extension PurchaseListViewController: UITableViewDataSource {
             
         } else {
             
-            cell.setup(data: acceptLists[indexPath.row], whoBuy: whoBuys[indexPath.row])
+            cell.setup(data: acceptLists[indexPath.row], whoBuy: whoBuyArray[indexPath.row])
             
             return cell
         }

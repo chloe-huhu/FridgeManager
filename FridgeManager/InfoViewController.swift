@@ -135,27 +135,29 @@ class InfoViewController: UIViewController {
             
         })
         
-        let addMemberAction = UIAlertAction(title: "新增成員", style: .default, handler: { _ in
-            let alterController = UIAlertController(title: "輸入成員AppleIDEmail", message: nil, preferredStyle: .alert)
-            
-            alterController.addTextField { (textField) in
-                textField.placeholder = "對方下載app時使用的帳號"
-            }
-            
-            let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
-                
-                guard  let memberEmail = alterController.textFields?[0].text else { return }
-                
-                self.findingFriends(email: memberEmail)
-                
-                
-            }
-            alterController.addAction(okAction)
-            
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            alterController.addAction(cancelAction)
-            
-            self.present(alterController, animated: true, completion: nil)
+        guard let currentFridgeName = currentFridge.text else { return }
+        
+        let addMemberAction = UIAlertAction(title: "邀請成員加入\(currentFridgeName)", style: .default, handler: { _ in
+//            let alterController = UIAlertController(title: "輸入成員AppleIDEmail", message: nil, preferredStyle: .alert)
+//
+//
+//
+//
+//            let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
+//
+//                guard  let memberEmail = alterController.textFields?[0].text else { return }
+//
+//                self.findingFriends(email: memberEmail)
+//
+//
+//            }
+//            alterController.addAction(okAction)
+//
+//            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+//            alterController.addAction(cancelAction)
+//
+//            self.present(alterController, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "segueQRCodeCamera", sender: nil)
         })
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -195,7 +197,6 @@ class InfoViewController: UIViewController {
         Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
-                    print("==========" ,document)
                     do {
                         let data = try document.data(as: User.self)
                         
@@ -259,8 +260,6 @@ class InfoViewController: UIViewController {
                 
                 self.nameLabel.text = name
                 
-                //                UserDefaults.standard.setValue(name, forKey: "displayName")
-                
             }
             
             controller.addAction(okAction)
@@ -271,14 +270,72 @@ class InfoViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
         })
         
+        
+        let qrCodeAction = UIAlertAction(title: "我的 QR Code", style: .default, handler: { _ in
+        
+            
+            let controller = UIAlertController(title: "讓他人掃碼邀請我", message: nil, preferredStyle: .alert)
+            
+            let qrImageView = UIImageView()
+            
+            qrImageView.backgroundColor = .red
+            
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            
+            qrImageView.image = self.generateQRCode(from: "\(uid)")
+            
+            controller.view.addSubview(qrImageView)
+            
+            let height = NSLayoutConstraint(item: controller.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+            
+            let width = NSLayoutConstraint(item: controller.view!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+            
+            controller.view.addConstraint(height)
+            
+            controller.view.addConstraint(width)
+            
+            qrImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                qrImageView.widthAnchor.constraint(equalToConstant: 100),
+                qrImageView.heightAnchor.constraint(equalToConstant: 100),
+                qrImageView.centerXAnchor.constraint(equalTo: controller.view.centerXAnchor),
+                qrImageView.centerYAnchor.constraint(equalTo: controller.view.centerYAnchor)
+            ])
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            controller.addAction(cancelAction)
+            
+            self.present(controller, animated: true, completion: nil)
+        })
+        
+        
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
         alterController.addAction(photoAction)
         alterController.addAction(nameAction)
         alterController.addAction(cancelAction)
+        alterController.addAction(qrCodeAction)
         
         present(alterController, animated: true, completion: nil)
     }
+    
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+
+        return nil
+    }
+
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -412,8 +469,6 @@ class InfoViewController: UIViewController {
     
     func getInviteName(fridgeID: String) {
         
-//        invitesArray = [] eric
-        
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documnets : \(error)")
@@ -436,7 +491,6 @@ class InfoViewController: UIViewController {
                     }
                     
                 }
-                //                print("===========", self.invitesArray)
                 self.tableView.reloadData()
             }
             

@@ -17,6 +17,7 @@
 		AE5F883C256FE43C00A97CD0 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */; };
 		AE6255FA257BE4CE0022CCB3 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */; };
 		AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */; };
+		AE68A17F2595DEBB00B86711 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */; };
 		AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7169432574995B00659F2C /* PurchaseSectionView.swift */; };
 		AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE716948257499C500659F2C /* PurchaseSectionView.xib */; };
 		AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */; };
@@ -88,6 +89,7 @@
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
 		AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FancyButton.swift; path = FridgeManager/FancyButton.swift; sourceTree = SOURCE_ROOT; };
 		AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTableViewController.swift; sourceTree = "<group>"; };
+		AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = FridgeManager/QRCodeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AE7169432574995B00659F2C /* PurchaseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSectionView.swift; path = FridgeManager/View/Purchase/PurchaseSectionView.swift; sourceTree = SOURCE_ROOT; };
 		AE716948257499C500659F2C /* PurchaseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionView.xib; sourceTree = "<group>"; };
 		AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				AE40AA3625820EAC00C013E9 /* Purchase */,
 				AE23D47D2591FA9C00F2A36E /* Recipe */,
 				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
+				AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				AE99DF8A257DBF6100382BDE /* PurchaseDetailTableViewController.swift in Sources */,
 				AE23D4702591EF4400F2A36E /* UIStoryBoardExtension.swift in Sources */,
 				AEA01E3D257CA8F2009AC995 /* InfoViewController.swift in Sources */,
+				AE68A17F2595DEBB00B86711 /* QRCodeViewController.swift in Sources */,
 				AEC5A4EE2576A4E700C17248 /* RoundedTextField.swift in Sources */,
 				AEE29B4125911914005A6350 /* RecipeDetailViewController.swift in Sources */,
 				AE79070C2591902F00779B9E /* NewFriendViewController.swift in Sources */,

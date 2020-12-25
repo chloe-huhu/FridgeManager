@@ -351,13 +351,13 @@ class InfoViewController: UIViewController {
                         
                         self.nameLabel.text = name
                         
-                        self.fridgesArray = [] // eric
+                        self.fridgesArray = []
                         
                         for fridge in fridges {
                             self.getFridgeName(fridgeID: fridge)
                         }
                         
-                        self.invitesArray = [] // eric
+                        self.invitesArray = []
                         
                         for invite in invites {
                             self.getInviteName(fridgeID: invite)
@@ -380,8 +380,6 @@ class InfoViewController: UIViewController {
     
     // 冰箱列表
     func getFridgeName (fridgeID: String) {
-        
-//        fridgesArray = [] // eric
         
         Firestore.firestore().collection("fridges").whereField("fridgeID", isEqualTo: fridgeID).getDocuments { (querySnapshot, error) in
             if let error = error {

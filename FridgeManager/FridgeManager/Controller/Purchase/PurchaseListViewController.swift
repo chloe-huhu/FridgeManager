@@ -46,13 +46,14 @@ class PurchaseListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
+    var whoBuys = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
         dblistenAwating()
         dblistenAccept()
-        listenUserDisplayName()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +63,8 @@ class PurchaseListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    
+    // 頁面設定
     func navigationTitleSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -74,6 +77,24 @@ class PurchaseListViewController: UIViewController {
         self.tabBarController?.tabBar.clipsToBounds = true
     }
         
+    @IBOutlet weak var tableView: UITableView! {
+        
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+            
+            tableView.allowsMultipleSelection = true
+            tableView.allowsMultipleSelectionDuringEditing = true
+            
+            let sectionViewNib: UINib = UINib(nibName: "PurchaseSectionView", bundle: nil)
+            self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "PurchaseSectionView")
+            
+            let cellNib: UINib = UINib(nibName: "PurchaseTableViewCell", bundle: nil)
+            self.tableView.register(cellNib, forCellReuseIdentifier: "CellView")
+        }
+    }
+    
+    // 使用者按下編輯按鈕
     @IBOutlet weak var barBtnItem: UIBarButtonItem!
     
     @IBAction func editBtnTapped(_ sender: UIBarItem) {
@@ -125,25 +146,8 @@ class PurchaseListViewController: UIViewController {
             }
         }
     }
-    
-    @IBOutlet weak var tableView: UITableView! {
-        
-        didSet {
-            tableView.dataSource = self
-            tableView.delegate = self
-            
-            tableView.allowsMultipleSelection = true
-            tableView.allowsMultipleSelectionDuringEditing = true
-            
-            let sectionViewNib: UINib = UINib(nibName: "PurchaseSectionView", bundle: nil)
-            self.tableView.register(sectionViewNib, forHeaderFooterViewReuseIdentifier: "PurchaseSectionView")
-            
-            let cellNib: UINib = UINib(nibName: "PurchaseTableViewCell", bundle: nil)
-            self.tableView.register(cellNib, forCellReuseIdentifier: "CellView")
-        }
-    }
-    
-  
+   
+  // firebase 監聽
     func dblistenAwating() {
         
         FirebaseManager.shared.listen(ref: awaitingRef) {
@@ -151,17 +155,6 @@ class PurchaseListViewController: UIViewController {
             self.dbGetAwaiting()
         }
     }
-    
-
-    
-    func listenUserDisplayName() {
-        
-        let ref = Firestore.firestore().collection("users")
-        FirebaseManager.shared.listen(ref: ref) {
-            self.dbGetAccept()
-        }
-    }
-    
     
     func dblistenAccept() {
         
@@ -171,6 +164,7 @@ class PurchaseListViewController: UIViewController {
         }
     }
     
+    // firebase 取得資料awaitingList＆acceptLists
     func dbGetAwaiting() {
 
         awaitingRef.getDocuments { (querySnapshot, err) in
@@ -178,10 +172,10 @@ class PurchaseListViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 
-                self.awaitingList = []
+                self.awaitingList.removeAll()
                 
                 for document in querySnapshot!.documents {
-//                    print("待採購：現有的資料 \(document.documentID) => \(document.data())")
+                    
                     do {
                         
                         let data = try document.data(as: List.self)
@@ -202,33 +196,79 @@ class PurchaseListViewController: UIViewController {
         
     }
     
+    var isLoading = false
+    
     func dbGetAccept() {
-        
-        acceptRef.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                
-                self.acceptLists = []
-                
-                for document in querySnapshot!.documents {
-//                    print("正在採購：現有的資料 \(document.documentID) => \(document.data())")
-                    do {
+
+        if !isLoading {
+            
+            isLoading = true
+            acceptRef.getDocuments { (querySnapshot, err) in
+                self.isLoading = false
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    self.acceptLists.removeAll()
+                    self.whoBuys.removeAll()
+                    
+                    for document in querySnapshot!.documents {
+
+                        do {
+                            
+                            let data = try document.data(as: List.self)
+                            
+                            self.acceptLists.append(data!)
+                            
+                            self.tableView.reloadData()
+                            
+                        } catch {
+                            
+                            print("error to decode", error)
+                        }
                         
-                        let data = try document.data(as: List.self)
-                        
-                        self.acceptLists.append(data!)
-                        
-                        self.tableView.reloadData()
-                        
-                    } catch {
-                        
-                        print("error to decode", error)
                     }
                     
+                    for acceptList in self.acceptLists {
+                        
+                        self.getUserDisplayName(who: acceptList.whoBuy) { whoBuy in
+
+                            self.whoBuys.append(whoBuy)
+
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        
+    }
+    
+    // uid -> displayName
+    func getUserDisplayName(who: String, handler: @escaping (String) -> Void) {
+       
+        Firestore.firestore().collection("users").whereField("uid", isEqualTo: who).limit(to: 1).getDocuments { (querySnapshot, _ ) in
+            if let querySnapshot = querySnapshot {
+                
+                for document in querySnapshot.documents {
+                print("\(document.documentID) => \(document.data())")
+                    do {
+                        let data = try document.data(as: User.self)
+                        
+                        guard let whoBuy = data?.displayName else { return }
+                        
+                        handler(whoBuy)
+                        
+//                        self.whoBuys.append(whoBuy)
+                        
+//                        self.tableView.reloadData()
+                    } catch {
+                        print("error to decode", error)
+                    }
                 }
             }
-            
         }
         
     }
@@ -295,7 +335,8 @@ extension PurchaseListViewController: UITableViewDataSource {
         if section == 0 {
             return awaitingList.count
         } else {
-            return acceptLists.count
+//            return acceptLists.count
+            return whoBuys.count
         }
         
     }
@@ -307,13 +348,13 @@ extension PurchaseListViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             
-            cell.setup(data: awaitingList[indexPath.row])
+            cell.setup(data: awaitingList[indexPath.row], whoBuy: "")
 
             return cell
             
         } else {
             
-            cell.setup(data: acceptLists[indexPath.row])
+            cell.setup(data: acceptLists[indexPath.row], whoBuy: whoBuys[indexPath.row])
             
             return cell
         }

@@ -328,7 +328,6 @@ class AddFoodTableViewController: UITableViewController {
                 "name": name,
                 "amount": Int(amount) ?? 0 ,
                 "unit": unit,
-//                "amountAlert": Int(amountAlert),
                 "category": category,
                 "purchaseDate": purchaseDatePicker.date,
                 "expiredDate": expiredDatePicker.date

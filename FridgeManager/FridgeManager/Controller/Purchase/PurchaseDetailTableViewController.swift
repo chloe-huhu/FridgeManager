@@ -12,6 +12,25 @@ import Kingfisher
 
 class PurchaseDetailTableViewController: UITableViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.isHidden = true
+        
+        if isAwaiting == true {
+            setupAwaitingBarBtnItem()
+            finishedPurchaseButton.isHidden = true
+            whoBuyLabel.isHidden = true
+        } else {
+            setupAcceptBarBtnItem()
+            finishedPurchaseButton.isHidden = false
+            whoBuyLabel.isHidden = false
+        }
+        
+    }
+
+    var userDisplayName = String()
+    
     var fridgeID: String {
         guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else {
             return ""
@@ -21,13 +40,32 @@ class PurchaseDetailTableViewController: UITableViewController {
     }
     
     
-    var userDisplayName = String()
+    var acceptRef: CollectionReference {
+       return
+        Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
+    }
     
+    var isAwaiting = Bool()
+    
+    var selectedList: List?
+    
+    @IBOutlet weak var whoBuyLabel: PaddingLabel! {
+        didSet {
+            whoBuyLabel.layer.cornerRadius = 8
+            whoBuyLabel.clipsToBounds = true
+            
+            getUserDisplayName {
+                self.whoBuyLabel.text = self.userDisplayName
+            }
+        }
+    }
+    
+    // acceptList whoBuy Uid -> 尋找DisplayName
     func getUserDisplayName(handler: @escaping () -> Void) {
+       
+        guard  let who = selectedList?.whoBuy  else { return }
         
-        guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else { return }
-        
-        Firestore.firestore().collection("users").whereField("uid", isEqualTo: userUid).getDocuments { (querySnapshot, _ ) in
+        Firestore.firestore().collection("users").whereField("uid", isEqualTo: who).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
                 print("\(document.documentID) => \(document.data())")
@@ -43,44 +81,6 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
         
     }
-    
-    var acceptRef: CollectionReference {
-       return
-        Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
-    }
-    
-    var isAwaiting = Bool()
-    
-    var selectedList: List?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.tabBarController?.tabBar.isHidden = true
-        
-        if isAwaiting == true {
-            setupAwaitingBarBtnItem()
-            finishedPurchaseButton.isHidden = true
-            whoBuyLabel.isHidden = true
-        } else {
-            setupAcceptBarBtnItem()
-            finishedPurchaseButton.isHidden = false
-            whoBuyLabel.isHidden = false
-        }
-       
-        
-        
-    }
-    
-    @IBOutlet weak var whoBuyLabel: PaddingLabel! {
-        didSet {
-            whoBuyLabel.layer.cornerRadius = 8
-            whoBuyLabel.clipsToBounds = true
-            guard  let who = selectedList?.whoBuy  else { return }
-            whoBuyLabel.text = who
-        }
-    }
-    
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
@@ -158,6 +158,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
     }
     
+    //awaiting頁面->接收任務
     func setupAwaitingBarBtnItem () {
         let img = UIImage(named: "check-mark")
         let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(iWillBuyBtnTapped))
@@ -177,15 +178,14 @@ class PurchaseDetailTableViewController: UITableViewController {
               let unit = selectedList?.unit,
               let brand = selectedList?.brand,
               let place = selectedList?.place,
-              let note = selectedList?.note
+              let note = selectedList?.note,
+              let uid = Auth.auth().currentUser?.uid
         
         else { return }
         
         let ref = Firestore.firestore().collection("fridges").document(fridgeID).collection("accept")
         
         let document = ref.document()
-        
-        getUserDisplayName {
             
             let data: [String: Any] = [
                 "id": document.documentID,
@@ -195,12 +195,11 @@ class PurchaseDetailTableViewController: UITableViewController {
                 "unit": unit,
                 "brand": brand,
                 "place": place,
-                "whoBuy": self.userDisplayName,
+                "whoBuy": uid,
                 "note": note
             ]
             
             document.setData(data)
-        }
     }
     
     func deleteAwaiting() {
@@ -216,6 +215,30 @@ class PurchaseDetailTableViewController: UITableViewController {
         
     }
     
+   
+//    func getUserDisplayName(handler: @escaping () -> Void) {
+//
+//        guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else { return }
+//
+//        Firestore.firestore().collection("users").whereField("uid", isEqualTo: userUid).getDocuments { (querySnapshot, _ ) in
+//            if let querySnapshot = querySnapshot {
+//                for document in querySnapshot.documents {
+//                print("\(document.documentID) => \(document.data())")
+//                    do {
+//                        let data = try document.data(as: User.self)
+//                        self.userDisplayName = data!.uid
+//                        handler()
+//                    } catch {
+//                        print("error to decode", error)
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
+    
+    
+    // 放棄任務->退回去awaiting
     func setupAcceptBarBtnItem() {
         let img = UIImage(named: "close")
         let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(cantBuyBtnTapped))

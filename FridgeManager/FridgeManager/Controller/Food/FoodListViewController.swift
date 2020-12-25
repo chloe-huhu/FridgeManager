@@ -249,7 +249,6 @@ class FoodListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      
         // 有兩個perform segue，共用一個prepare，去分辨點選哪一個
         let destVC = segue.destination as? AddFoodTableViewController
         destVC?.selectedFood =  segue.identifier == "SegueAddContent" ? nil : selectedFood

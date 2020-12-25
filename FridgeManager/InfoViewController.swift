@@ -14,6 +14,7 @@ import Kingfisher
 
 class InfoViewController: UIViewController {
     
+    
     var refUID: DocumentReference? {
         
         guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else {
@@ -29,6 +30,8 @@ class InfoViewController: UIViewController {
     var invitesArray: [String] = []
     
     var downloadURL: String?
+
+    var invitedFriend: String?
     
     var currentFridgeID: String? {
         
@@ -39,7 +42,7 @@ class InfoViewController: UIViewController {
             return currentFridgeID
         }
         
-        set {}
+        set { }
     }
             
     
@@ -49,7 +52,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         dbInfoListen()
-        
+        print("+++++++++", invitedFriend)
     }
     
     @IBOutlet weak var personImageView: UIImageView!
@@ -139,6 +142,7 @@ class InfoViewController: UIViewController {
         
         let addMemberAction = UIAlertAction(title: "邀請成員加入\(currentFridgeName)", style: .default, handler: { _ in
             self.performSegue(withIdentifier: "segueQRCodeCamera", sender: nil)
+            
         })
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -148,6 +152,27 @@ class InfoViewController: UIViewController {
         controller.addAction(cancelAction)
         
         present(controller, animated: true, completion: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueQRCodeCamera" {
+            
+            let nextViewController = segue.destination as? QRCodeViewController
+            
+            nextViewController?.delegate = self
+        }
+    }
+    
+    func sendInite(userUID: String) {
+        
+        let doc = Firestore.firestore().collection("users").document(userUID)
+        
+        guard let currentFridgeID = currentFridgeID else { return }
+        
+        doc.updateData(["myInvites": Firebase.FieldValue.arrayUnion([currentFridgeID])])
+        
+        print("邀請\(userUID)入群")
         
     }
     
@@ -171,43 +196,29 @@ class InfoViewController: UIViewController {
         userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
         
     }
-    
-    // 撈到朋友email -> 寄送邀請給他
-    func findingFriends(email: String) {
-        
-        Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
-            if let querySnapshot = querySnapshot {
-                for document in querySnapshot.documents {
-                    do {
-                        let data = try document.data(as: User.self)
-                        
-                        guard let userUID = data?.uid else { return }
-                        
-                        self.sendInite(userUID: userUID)
-                        
-                    } catch {
-                        print("error to decode", error)
-                    }
-                    
-                    
-                }
-            }
-            
-        }
-        
-    }
-    
-    func sendInite(userUID: String) {
-        
-        let doc = Firestore.firestore().collection("users").document(userUID)
-        
-        guard let currentFridgeID = currentFridgeID else { return }
-        
-        doc.updateData(["myInvites": Firebase.FieldValue.arrayUnion([currentFridgeID])])
-        
-        print("邀請\(userUID)入群")
-        
-    }
+//
+//    // 撈到朋友email -> 寄送邀請給他
+//    func findingFriends(email: String) {
+//
+//        Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { (querySnapshot, _ ) in
+//            if let querySnapshot = querySnapshot {
+//                for document in querySnapshot.documents {
+//                    do {
+//                        let data = try document.data(as: User.self)
+//
+//                        guard let userUID = data?.uid else { return }
+//
+//                        self.sendInite(userUID: userUID)
+//
+//                    } catch {
+//                        print("error to decode", error)
+//                    }
+//                }
+//            }
+//
+//        }
+//
+//    }
     
     @IBOutlet weak var editPersonInfoBarBtn: UIBarButtonItem!
     
@@ -254,7 +265,6 @@ class InfoViewController: UIViewController {
         
         let qrCodeAction = UIAlertAction(title: "我的 QR Code", style: .default, handler: { _ in
         
-            
             let controller = UIAlertController(title: "讓他人掃碼邀請我", message: nil, preferredStyle: .alert)
             
             let qrImageView = UIImageView()
@@ -455,8 +465,7 @@ class InfoViewController: UIViewController {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    //                    print("\(document.documentID) => \(document.data())")
-                    
+
                     do {
                         
                         let data = try document.data(as: Fridge.self)
@@ -487,9 +496,7 @@ class InfoViewController: UIViewController {
                 print("Error getting documnets : \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    
-                    print("=======", "\(document.documentID) => \(document.data())")
-                    
+
                     do {
                         
                         let data = try document.data(as: Fridge.self)
@@ -724,5 +731,12 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         
         refUID!.updateData(["photo": photo])
         
+    }
+}
+
+extension InfoViewController: Eric {
+    
+    func passValue() {
+        <#code#>
     }
 }

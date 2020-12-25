@@ -8,18 +8,25 @@
 import AVFoundation
 import UIKit
 
+protocol Eric: AnyObject {
+    
+    func passValue()
+}
+
 class QRCodeViewController: UIViewController {
 
     @IBOutlet weak var topbarView: UIView!
-    
-//    @IBOutlet weak var showLabel: UILabel!
     
     @IBOutlet weak var contentLabel: UILabel!
     
     var captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    
+    var invitedFriend: String?
 
+    weak var delegate: Eric?
+    
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                       AVMetadataObject.ObjectType.code39,
                                       AVMetadataObject.ObjectType.code39Mod43,
@@ -114,7 +121,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
         // 檢查metadataObjects陣列為非空值，他至少需要包含一個物件
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            contentLabel.text = "No QR code is detected"
+            contentLabel.text = "沒有偵測到 QR code"
             return
         }
         
@@ -130,8 +137,11 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                 
                 if metadataObj.stringValue != nil {
                     
-                    contentLabel.text = metadataObj.stringValue
+                    contentLabel.text = " 搜索到朋友 "
                     
+                    invitedFriend  = metadataObj.stringValue
+                    
+                    delegate?.passValue()
                     
                     print("=============", metadataObj.stringValue)
                 }
@@ -140,4 +150,5 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
         } else { return }
     }
     
+
 }

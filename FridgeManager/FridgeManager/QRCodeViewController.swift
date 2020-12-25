@@ -132,6 +132,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                     
                     contentLabel.text = metadataObj.stringValue
                     
+                    
                     print("=============", metadataObj.stringValue)
                 }
             }

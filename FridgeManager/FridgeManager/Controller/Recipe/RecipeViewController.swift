@@ -185,7 +185,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
 //            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
           } else {
             cell.setup(data: recipeList[indexPath.row])
-            cell.menuImageView.image = generateQRCode(from: "Hacking with Swift is the best iOS coding tutorial I've ever read!")
+//            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
           }
        
         return cell

@@ -138,25 +138,6 @@ class InfoViewController: UIViewController {
         guard let currentFridgeName = currentFridge.text else { return }
         
         let addMemberAction = UIAlertAction(title: "邀請成員加入\(currentFridgeName)", style: .default, handler: { _ in
-//            let alterController = UIAlertController(title: "輸入成員AppleIDEmail", message: nil, preferredStyle: .alert)
-//
-//
-//
-//
-//            let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
-//
-//                guard  let memberEmail = alterController.textFields?[0].text else { return }
-//
-//                self.findingFriends(email: memberEmail)
-//
-//
-//            }
-//            alterController.addAction(okAction)
-//
-//            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-//            alterController.addAction(cancelAction)
-//
-//            self.present(alterController, animated: true, completion: nil)
             self.performSegue(withIdentifier: "segueQRCodeCamera", sender: nil)
         })
         

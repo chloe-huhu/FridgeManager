@@ -70,4 +70,3 @@ struct Recipe: Codable, Equatable {
     let content: [String]
     let photo: String
 }
-

@@ -86,7 +86,7 @@ class RecipeViewController: UIViewController {
                 self.recipeList = []
 
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+//                    print("\(document.documentID) => \(document.data())")
                     
                     do {
                         let data = try document.data(as: Recipe.self)
@@ -202,4 +202,3 @@ extension RecipeViewController: UISearchResultsUpdating {
     }
     
 }
-

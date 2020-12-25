@@ -85,10 +85,10 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
             headerLabel.text = nil
         
         case.indregient:
-            headerLabel.text =  "所需食材 : "
+            headerLabel.text =  "所需食材"
         
         case.content:
-            headerLabel.text = "烹飪步驟 : "
+            headerLabel.text = "烹飪步驟"
             
         }
         

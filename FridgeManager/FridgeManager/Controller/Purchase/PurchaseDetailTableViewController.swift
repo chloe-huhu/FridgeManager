@@ -13,7 +13,7 @@ import Kingfisher
 class PurchaseDetailTableViewController: UITableViewController {
     
     var fridgeID: String {
-        guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else  {
+        guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else {
             return ""
         }
         
@@ -26,8 +26,6 @@ class PurchaseDetailTableViewController: UITableViewController {
     func getUserDisplayName(handler: @escaping () -> Void) {
         
         guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else { return }
-        
-        
         
         Firestore.firestore().collection("users").whereField("uid", isEqualTo: userUid).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
@@ -260,7 +258,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         
         let data: [String: Any] = [
             "id": document.documentID,
-            "photo": "test",
+            "photo": self.selectedList?.photo as Any,
             "name": name,
             "amount": Int(amount) ,
             "unit": unit,

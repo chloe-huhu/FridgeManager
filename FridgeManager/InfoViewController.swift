@@ -235,7 +235,7 @@ class InfoViewController: UIViewController {
         
         let qrCodeAction = UIAlertAction(title: "我的 QR Code", style: .default, handler: { _ in
         
-            let controller = UIAlertController(title: "讓他人掃碼邀請我", message: nil, preferredStyle: .alert)
+            let controller = UIAlertController(title: "讓他人掃碼後\n到冰箱列表點選確認", message: nil, preferredStyle: .alert)
             
             let qrImageView = UIImageView()
             

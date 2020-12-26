@@ -96,7 +96,7 @@ extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource
         
         headerLabel.textColor = #colorLiteral(red: 0.3333521485, green: 0.3332782388, blue: 0.3375991285, alpha: 1)
         
-        headerLabel.font = UIFont(name: "PingFangTC-Semibold", size: 18)
+        headerLabel.font = UIFont(name: "jf-openhuninn-1.1", size: 18)
         
         headerView.addSubview(headerLabel)
         return headerView

@@ -127,6 +127,8 @@ class RecipeViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .chloeYellow
         navigationController?.navigationBar.barTintColor = .chloeYellow
         
+        
+        
         if #available(iOS 13.0, *) {
                 let app = UIApplication.shared
                 let statusBarHeight: CGFloat = app.statusBarFrame.size.height

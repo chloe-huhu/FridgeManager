@@ -354,7 +354,11 @@ class AddFoodTableViewController: UITableViewController {
                 imageView.clipsToBounds = true
                 
             } else {
-                imageView.image = UIImage(systemName: "photo")
+                imageView.image = UIImage(named: "emptyFood")
+                imageView.backgroundColor = .white
+                setupImageView(imageView: imageView)
+                imageView.contentMode = .scaleAspectFit
+                imageView.clipsToBounds = true
             }
             
             titleTextField.text = selectedFood?.name

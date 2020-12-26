@@ -19,6 +19,7 @@
 		AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */; };
 		AE68A17F2595DEBB00B86711 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */; };
 		AE68A1D42597230B00B86711 /* food-carousel.json in Resources */ = {isa = PBXBuildFile; fileRef = AE68A1D32597230B00B86711 /* food-carousel.json */; };
+		AE68A1E225972C8E00B86711 /* jf-openhuninn-1.1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE68A1E125972C8E00B86711 /* jf-openhuninn-1.1.ttf */; };
 		AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7169432574995B00659F2C /* PurchaseSectionView.swift */; };
 		AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE716948257499C500659F2C /* PurchaseSectionView.xib */; };
 		AE71695225749CF400659F2C /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */; };
@@ -56,6 +57,8 @@
 		AEDA41FF25753E7C00AF4CC1 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */; };
 		AEDA4212257546F900AF4CC1 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */; };
 		AEE29B4125911914005A6350 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */; };
+		AEF24A62259743AA00FC94ED /* welcome-title-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = AEF24A61259743AA00FC94ED /* welcome-title-animation.json */; };
+		AEF24A6725974C9600FC94ED /* editor_nyguc8br.json in Resources */ = {isa = PBXBuildFile; fileRef = AEF24A6625974C9500FC94ED /* editor_nyguc8br.json */; };
 		AEF8A91D2577FF700090B8F4 /* AddPurchaseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */; };
 		E76DB4D0845F3C2387111F7A /* Pods_FridgeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0FC776BE4D4B203359631 /* Pods_FridgeManager.framework */; };
 		FDA81B5A9794ECFD31EF8D98 /* Pods_FridgeManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EF771E787B9C23ED60EC7 /* Pods_FridgeManagerTests.framework */; };
@@ -92,6 +95,7 @@
 		AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTableViewController.swift; sourceTree = "<group>"; };
 		AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = FridgeManager/QRCodeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AE68A1D32597230B00B86711 /* food-carousel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "food-carousel.json"; sourceTree = "<group>"; };
+		AE68A1E125972C8E00B86711 /* jf-openhuninn-1.1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "jf-openhuninn-1.1.ttf"; sourceTree = "<group>"; };
 		AE7169432574995B00659F2C /* PurchaseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSectionView.swift; path = FridgeManager/View/Purchase/PurchaseSectionView.swift; sourceTree = SOURCE_ROOT; };
 		AE716948257499C500659F2C /* PurchaseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionView.xib; sourceTree = "<group>"; };
 		AE71695025749CF400659F2C /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		AEDA41FE25753E7C00AF4CC1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeTableViewCell.swift; path = FridgeManager/View/Recipe/RecipeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = FridgeManager/Controller/Recipe/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeDetailViewController.swift; path = FridgeManager/Controller/Recipe/RecipeDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEF24A61259743AA00FC94ED /* welcome-title-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "welcome-title-animation.json"; sourceTree = "<group>"; };
+		AEF24A6625974C9500FC94ED /* editor_nyguc8br.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = editor_nyguc8br.json; sourceTree = "<group>"; };
 		AEF8A91C2577FF700090B8F4 /* AddPurchaseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		BAB8E40DE7216DAE2279813C /* Pods-FridgeManager-FridgeManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C538B2B0A245F282DC3AA56B /* Pods-FridgeManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.release.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,8 +248,8 @@
 		AE5F8841256FE45900A97CD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE9EEB48259316B400E26D83 /* Recipe */,
 				AE9EEB372593168C00E26D83 /* Food */,
+				AE9EEB48259316B400E26D83 /* Recipe */,
 				AE9EEB41259316A100E26D83 /* Purchase */,
 				AE9DCAF72572488F00CD44F3 /* SectionView.xib */,
 				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
@@ -257,6 +263,10 @@
 		AE5F8846256FE47D00A97CD0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AE68A1E125972C8E00B86711 /* jf-openhuninn-1.1.ttf */,
+				AEF24A61259743AA00FC94ED /* welcome-title-animation.json */,
+				AE68A1D32597230B00B86711 /* food-carousel.json */,
+				AEF24A6625974C9500FC94ED /* editor_nyguc8br.json */,
 				AE9DCB02257251C700CD44F3 /* CardView.swift */,
 				AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */,
 				AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */,
@@ -350,7 +360,6 @@
 				AE9EEB192592046300E26D83 /* NewFriend.storyboard */,
 				AE23D4782591F13500F2A36E /* Signin.storyboard */,
 				AED556E1256E48190068A855 /* Main.storyboard */,
-				AE68A1D32597230B00B86711 /* food-carousel.json */,
 				AE5F8846256FE47D00A97CD0 /* Extension */,
 				AE5F8840256FE44100A97CD0 /* Controller */,
 				AE5F8841256FE45900A97CD0 /* View */,
@@ -493,12 +502,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE71695325749CF400659F2C /* PurchaseTableViewCell.xib in Resources */,
+				AEF24A6725974C9600FC94ED /* editor_nyguc8br.json in Resources */,
+				AE68A1E225972C8E00B86711 /* jf-openhuninn-1.1.ttf in Resources */,
 				AE9DCAE92572401D00CD44F3 /* CellView.xib in Resources */,
 				AED556E8256E481B0068A855 /* LaunchScreen.storyboard in Resources */,
 				AE9EEB1B2592046300E26D83 /* NewFriend.storyboard in Resources */,
 				AED5573C256E55F10068A855 /* GoogleService-Info.plist in Resources */,
 				AE68A1D42597230B00B86711 /* food-carousel.json in Resources */,
 				AED556E5256E481B0068A855 /* Assets.xcassets in Resources */,
+				AEF24A62259743AA00FC94ED /* welcome-title-animation.json in Resources */,
 				AE716949257499C500659F2C /* PurchaseSectionView.xib in Resources */,
 				AE23D4792591F13500F2A36E /* Signin.storyboard in Resources */,
 				AE9DCAF82572488F00CD44F3 /* SectionView.xib in Resources */,

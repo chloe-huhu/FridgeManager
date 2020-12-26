@@ -33,6 +33,9 @@ class QRCodeViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
+        contentLabel.lineBreakMode = .byTruncatingTail
+        contentLabel.numberOfLines = 0
+        
         
             // 取得後置鏡頭來擷取影片
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
@@ -127,7 +130,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                 
                 if metadataObj.stringValue != nil {
                     
-                    contentLabel.text = " 搜索到朋友 "
+                    contentLabel.text = " 搜索到朋友\n請朋友至冰箱邀請列表確認 "
                     
                     guard let friendUID = metadataObj.stringValue else { return }
                     

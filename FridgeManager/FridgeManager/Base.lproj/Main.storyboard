@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="jf-openhuninn-1.1.ttf">
+            <string>jf-openhuninn-1.1</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--採購任務-->
         <scene sceneID="tne-QT-ifu">
@@ -33,6 +38,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="O2m-WE-zyt" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="20" y="170" width="374" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="rQu-3G-Nwj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="editor_nyguc8br.json"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購清單空空的，記錄點要買的東西吧" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZQ-Rk-lRF">
+                                <rect key="frame" x="16" y="495" width="382" height="17"/>
+                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osq-h1-dGz">
                                 <rect key="frame" x="324" y="635" width="70" height="70"/>
                                 <constraints>
@@ -57,9 +78,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="trailing" secondItem="osq-h1-dGz" secondAttribute="trailing" constant="20" id="18Z-ar-axT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nZQ-Rk-lRF" secondAttribute="trailing" constant="16" id="67N-Lm-xdb"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8oq-S8-rku"/>
+                            <constraint firstItem="O2m-WE-zyt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DAL-D4-PsQ"/>
+                            <constraint firstItem="nZQ-Rk-lRF" firstAttribute="top" secondItem="O2m-WE-zyt" secondAttribute="bottom" constant="25" id="DRX-vi-jMN"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K0b-ub-GFD"/>
+                            <constraint firstItem="O2m-WE-zyt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="170" id="PAI-MN-WaY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NEd-dZ-QOl" secondAttribute="trailing" id="PAb-kl-r5J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O2m-WE-zyt" secondAttribute="trailing" constant="20" id="SYU-Ye-ub3"/>
+                            <constraint firstItem="nZQ-Rk-lRF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZGu-MU-eLu"/>
                             <constraint firstItem="NEd-dZ-QOl" firstAttribute="bottom" secondItem="osq-h1-dGz" secondAttribute="bottom" constant="20" id="cOu-bg-G62"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NEd-dZ-QOl" secondAttribute="bottom" id="rWq-kj-gxx"/>
                         </constraints>
@@ -72,7 +99,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="animationView" destination="O2m-WE-zyt" id="LJ6-tR-YLP"/>
                         <outlet property="barBtnItem" destination="Ft0-ms-1QQ" id="OOn-h0-6Ly"/>
+                        <outlet property="emptyLabel" destination="nZQ-Rk-lRF" id="V5n-01-88P"/>
                         <outlet property="tableView" destination="NEd-dZ-QOl" id="kW6-20-PeH"/>
                         <segue destination="H6p-eG-vYX" kind="show" identifier="SeguePurchaseDetail" id="9rv-Va-fdB"/>
                     </connections>
@@ -97,7 +126,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-qr-Tf3">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                                 <state key="normal" title="全部食材" image="tray.full" catalog="system">
@@ -109,7 +138,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxl-8J-EAy">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="50"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                                 <state key="normal" title="三天後過期" image="clock.arrow.circlepath" catalog="system">
@@ -121,7 +150,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPy-6x-pG3">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="50"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                                 <state key="normal" title="已過期" image="exclamationmark.arrow.circlepath" catalog="system">
@@ -159,20 +188,17 @@
                                 <rect key="frame" x="0.0" y="52" width="414" height="673"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你的冰箱現在空空的買點食材加進冰箱吧" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0x-gK-h7N">
-                                <rect key="frame" x="16" y="122" width="382" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6mA-TE-tEi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="冰箱空空的，買點食材加進冰箱吧！" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0x-gK-h7N">
+                                <rect key="frame" x="16" y="497" width="382" height="17"/>
+                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="VaB-XY-QJ1" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="16" y="222" width="382" height="400"/>
+                                <rect key="frame" x="20" y="172" width="374" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="F9x-fL-RY8"/>
+                                    <constraint firstAttribute="height" constant="300" id="F9x-fL-RY8"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="food-carousel"/>
@@ -201,22 +227,22 @@
                         <viewLayoutGuide key="safeArea" id="dOT-2j-cYK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="I0x-gK-h7N" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" constant="16" id="1Oi-DM-nIy"/>
-                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="VaB-XY-QJ1" secondAttribute="trailing" constant="16" id="1ha-pj-3S1"/>
+                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="VaB-XY-QJ1" secondAttribute="trailing" constant="20" id="1ha-pj-3S1"/>
                             <constraint firstItem="o8F-l7-rEU" firstAttribute="top" secondItem="VKM-Nb-ULy" secondAttribute="bottom" id="5li-fW-lfg"/>
                             <constraint firstItem="VaB-XY-QJ1" firstAttribute="centerX" secondItem="RvM-vK-2Fh" secondAttribute="centerX" id="AYv-yD-Ppd"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="bottom" secondItem="o8F-l7-rEU" secondAttribute="bottom" id="DPJ-0F-GeR"/>
-                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="I0x-gK-h7N" secondAttribute="trailing" constant="16" id="F8S-xn-YUk"/>
+                            <constraint firstItem="I0x-gK-h7N" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" constant="16" id="G8L-wd-Bui"/>
                             <constraint firstItem="VKM-Nb-ULy" firstAttribute="top" secondItem="dOT-2j-cYK" secondAttribute="top" id="Met-xT-0Lw"/>
-                            <constraint firstItem="I0x-gK-h7N" firstAttribute="top" secondItem="VKM-Nb-ULy" secondAttribute="bottom" constant="70" id="MhQ-1S-44z"/>
                             <constraint firstAttribute="trailing" secondItem="6ns-EF-WIz" secondAttribute="trailing" constant="20" id="OND-Gc-ede"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="o8F-l7-rEU" secondAttribute="trailing" id="OZJ-Di-c8N"/>
+                            <constraint firstItem="I0x-gK-h7N" firstAttribute="top" secondItem="VaB-XY-QJ1" secondAttribute="bottom" constant="25" id="RMj-NW-fYh"/>
                             <constraint firstAttribute="trailing" secondItem="VKM-Nb-ULy" secondAttribute="trailing" id="U4p-rC-Lcb"/>
+                            <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="I0x-gK-h7N" secondAttribute="trailing" constant="16" id="ZEE-EL-p4e"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="bottom" secondItem="6ns-EF-WIz" secondAttribute="bottom" constant="20" id="e0g-qw-K6W"/>
                             <constraint firstItem="VKM-Nb-ULy" firstAttribute="leading" secondItem="RvM-vK-2Fh" secondAttribute="leading" id="fpz-4b-hun"/>
+                            <constraint firstItem="VaB-XY-QJ1" firstAttribute="top" secondItem="VKM-Nb-ULy" secondAttribute="bottom" constant="120" id="lqg-ee-c6j"/>
                             <constraint firstItem="o8F-l7-rEU" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="oaJ-Fr-w7c"/>
-                            <constraint firstItem="VaB-XY-QJ1" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" constant="16" id="qyJ-1M-OzI"/>
-                            <constraint firstItem="VaB-XY-QJ1" firstAttribute="top" secondItem="I0x-gK-h7N" secondAttribute="bottom" constant="50" id="tZn-1N-kIW"/>
+                            <constraint firstItem="VaB-XY-QJ1" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" constant="20" id="qyJ-1M-OzI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="冰箱食材" largeTitleDisplayMode="never" id="Elk-vc-w7N">
@@ -264,14 +290,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-7q-CPb">
-                                                    <rect key="frame" x="182" y="123.5" width="50" height="52.5"/>
-                                                    <color key="tintColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-7q-CPb">
+                                                    <rect key="frame" x="182" y="123" width="50" height="53"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="LKR-84-uBj"/>
                                                         <constraint firstAttribute="height" constant="50" id="PaQ-mZ-9Zl"/>
                                                     </constraints>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -294,7 +320,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="食材名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-ro-HeZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -304,7 +330,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="mmJ-ck-jJx"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -330,7 +356,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlb-wT-ptb">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="22"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -344,7 +370,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="Lr7-ER-ujV"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="根" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-kd-Bfc" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
@@ -355,7 +381,7 @@
                                                                         <constraint firstAttribute="height" constant="35" id="aCp-Ld-ksC"/>
                                                                         <constraint firstAttribute="width" constant="72" id="jzs-1O-rvs"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                     <connections>
                                                                         <action selector="unitDidSeleted:" destination="yTY-l9-zTe" eventType="editingDidBegin" id="aJP-TM-ee8"/>
@@ -394,7 +420,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="類別" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-sH-XM2">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="22"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -408,7 +434,7 @@
                                                                         <constraint firstAttribute="width" constant="260" id="KP8-5a-yu3"/>
                                                                         <constraint firstAttribute="height" constant="35" id="ev0-Pp-i95"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                     <connections>
                                                                         <action selector="categoryDidSeclected:" destination="yTY-l9-zTe" eventType="editingDidBegin" id="IMt-hh-De6"/>
@@ -450,7 +476,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="購買日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek5-on-EfG">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -460,7 +486,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="NZv-l9-7NY"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -496,7 +522,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="t9i-KH-uXi"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -572,14 +598,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-GU-o4F">
-                                                    <rect key="frame" x="182" y="123.5" width="50" height="52.5"/>
-                                                    <color key="tintColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-GU-o4F">
+                                                    <rect key="frame" x="182" y="123" width="50" height="53"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="3qb-ym-e0j"/>
                                                         <constraint firstAttribute="height" constant="50" id="5L7-BM-V1L"/>
                                                     </constraints>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -602,7 +628,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採買食材" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rA-EB-W5S">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -612,7 +638,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="ev5-kq-kWN"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -638,7 +664,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62I-hj-MYy">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="25"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -651,7 +677,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="HWq-PK-Rig"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="盒" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mP-Usb" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
@@ -662,7 +688,7 @@
                                                                         <constraint firstAttribute="height" constant="35" id="D1x-Be-vfI"/>
                                                                         <constraint firstAttribute="width" constant="72" id="pCp-Pt-b8Y"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                     <connections>
                                                                         <action selector="unitDidSeleted:" destination="c3r-si-TlM" eventType="editingDidBegin" id="Zce-ZT-9vV"/>
@@ -701,7 +727,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SK-3w-Lfg">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -711,7 +737,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="nC8-4r-a4c"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -737,7 +763,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推薦購買地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-rt-NKU">
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="19"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -747,7 +773,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="cuh-Yw-JAp"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -772,16 +798,16 @@
                                                     <rect key="frame" x="22" y="16" width="370" height="97"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="備註" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-vn-yPu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="22.5"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="雞蛋豆腐是黃色的" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-kX-gaU">
-                                                            <rect key="frame" x="0.0" y="30.5" width="370" height="66.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="370" height="73"/>
                                                             <color key="backgroundColor" name="B6"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
@@ -853,14 +879,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gi-aU-LL7">
-                                                    <rect key="frame" x="182" y="148.5" width="50" height="52.5"/>
-                                                    <color key="tintColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gi-aU-LL7">
+                                                    <rect key="frame" x="182" y="148" width="50" height="53"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="aWl-cB-d0e"/>
                                                         <constraint firstAttribute="height" constant="50" id="cEe-mw-2Rd"/>
                                                     </constraints>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="ultraLight"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWi-3T-3xm" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
                                                     <rect key="frame" x="298" y="283" width="80" height="40"/>
@@ -869,7 +895,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="P3C-YF-Xps"/>
                                                         <constraint firstAttribute="width" constant="80" id="tkV-be-gCM"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -901,13 +927,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採買食材" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OY6-XA-kYS">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小熊餅乾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-AV-eFR">
                                                             <rect key="frame" x="200" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -934,13 +960,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採購數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peB-CF-55d">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1盒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB1-D8-2Ct">
                                                             <rect key="frame" x="200" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -967,13 +993,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwT-W9-KFq">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="樂天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbI-TN-lab">
                                                             <rect key="frame" x="200" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1000,13 +1026,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推薦購買地點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-Fu-QD7">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寶雅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJt-Ig-geM">
                                                             <rect key="frame" x="200" y="0.0" width="170" height="44"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1033,13 +1059,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-w4-zta">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="54"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大盒裝 讚！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-Sq-l5l">
                                                             <rect key="frame" x="200" y="0.0" width="170" height="54"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1067,7 +1093,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="fln-ru-YbO"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                     <state key="normal" title="採買完成！加入冰箱列表">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -1147,113 +1173,91 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MrP-u2-7Aa">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="500" width="274" height="60"/>
-                                        <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-pF-23j">
+                                        <rect key="frame" x="16" y="493" width="382" height="203"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇你想要執行的操作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-H4-Bf0">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="3tj-kD-CRU"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Fyh-oz-Y7J"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="68" width="382" height="42.5"/>
+                                                <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                <state key="normal" title="加入冰箱" image="menu">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                                        <real key="value" value="100"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="joinFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="rA7-eB-pak"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="160.5" width="382" height="42.5"/>
+                                                <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                <state key="normal" title="創建冰箱" image="add (1)">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                                        <real key="value" value="100"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addNewFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="kas-Lz-FDg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="oxR-sU-Psi"/>
+                                            <constraint firstItem="KCC-22-lQW" firstAttribute="leading" secondItem="Ot9-pF-23j" secondAttribute="leading" id="ADS-zQ-k6c"/>
+                                            <constraint firstItem="AW8-3Z-NvN" firstAttribute="leading" secondItem="Ot9-pF-23j" secondAttribute="leading" id="Z6H-qv-CuY"/>
+                                            <constraint firstAttribute="trailing" secondItem="AW8-3Z-NvN" secondAttribute="trailing" id="maX-ms-zFD"/>
+                                            <constraint firstAttribute="trailing" secondItem="KCC-22-lQW" secondAttribute="trailing" id="rKh-c7-KZi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
-                                        <state key="normal" title="加入冰箱" image="menu">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                    </stackView>
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-q2-wMQ" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="16" y="143" width="382" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="SSe-Ai-65l"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
-                                                <real key="value" value="100"/>
-                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="welcome-title-animation"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="joinFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="rA7-eB-pak"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-CI-878">
-                                        <rect key="frame" x="57" y="180" width="300" height="64.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="bQV-EO-fQu"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">哈摟！新朋友
-</string>
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="23" name="PingFangTC-Medium"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingHead" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="歡迎來到 Open Fridge">
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="23" name="PingFangTC-Medium"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="610" width="274" height="60"/>
-                                        <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="kEH-GB-C0s"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
-                                        <state key="normal" title="創建冰箱" image="add (1)">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
-                                                <real key="value" value="100"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="addNewFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="kas-Lz-FDg"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-H4-Bf0">
-                                        <rect key="frame" x="70" y="424.5" width="300" height="25.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="3tj-kD-CRU"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Fyh-oz-Y7J"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="請選擇你想要執行的操作">
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="18" name="PingFangTC-Medium"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingHead" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="70" id="0eb-ME-lxY"/>
-                                    <constraint firstAttribute="trailing" secondItem="AW8-3Z-NvN" secondAttribute="trailing" constant="70" id="5QD-Kh-Gz3"/>
-                                    <constraint firstItem="fqq-CI-878" firstAttribute="top" secondItem="MrP-u2-7Aa" secondAttribute="top" constant="180" id="7cD-SW-hsg"/>
-                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="top" secondItem="MrP-u2-7Aa" secondAttribute="top" constant="500" id="Ebg-ew-EQy"/>
-                                    <constraint firstItem="KCC-22-lQW" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="70" id="Kpm-WS-tM3"/>
-                                    <constraint firstItem="htF-H4-Bf0" firstAttribute="leading" secondItem="AW8-3Z-NvN" secondAttribute="leading" id="V8z-xB-fIt"/>
-                                    <constraint firstItem="fqq-CI-878" firstAttribute="centerX" secondItem="MrP-u2-7Aa" secondAttribute="centerX" id="aq9-IW-NvS"/>
-                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="top" secondItem="htF-H4-Bf0" secondAttribute="bottom" constant="50" id="d4G-q7-r4g"/>
-                                    <constraint firstItem="KCC-22-lQW" firstAttribute="top" secondItem="AW8-3Z-NvN" secondAttribute="bottom" constant="50" id="unQ-l9-vgO"/>
-                                    <constraint firstAttribute="trailing" secondItem="KCC-22-lQW" secondAttribute="trailing" constant="70" id="vgS-fH-GSK"/>
+                                    <constraint firstItem="Ot9-pF-23j" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="16" id="G7W-dY-reC"/>
+                                    <constraint firstItem="QNu-q2-wMQ" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="16" id="KRU-S5-4DP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ot9-pF-23j" secondAttribute="trailing" constant="16" id="QtK-Rk-Inz"/>
+                                    <constraint firstAttribute="trailing" secondItem="QNu-q2-wMQ" secondAttribute="trailing" constant="16" id="Tdw-eW-Mjd"/>
+                                    <constraint firstItem="Ot9-pF-23j" firstAttribute="top" secondItem="QNu-q2-wMQ" secondAttribute="bottom" constant="50" id="jZv-az-0wV"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ot9-pF-23j" secondAttribute="bottom" constant="200" id="ock-t0-y1A"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1261,12 +1265,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MrP-u2-7Aa" firstAttribute="leading" secondItem="S4K-d1-MiJ" secondAttribute="leading" id="2yo-aU-VPn"/>
-                            <constraint firstAttribute="bottom" secondItem="MrP-u2-7Aa" secondAttribute="bottom" constant="34" id="G7y-Ni-1tL"/>
+                            <constraint firstAttribute="bottom" secondItem="MrP-u2-7Aa" secondAttribute="bottom" id="G7y-Ni-1tL"/>
                             <constraint firstItem="MrP-u2-7Aa" firstAttribute="top" secondItem="S4K-d1-MiJ" secondAttribute="top" id="i8Z-dF-daz"/>
                             <constraint firstAttribute="trailing" secondItem="MrP-u2-7Aa" secondAttribute="trailing" id="qe0-Qh-z2f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KHZ-dw-h2r"/>
+                    <connections>
+                        <outlet property="animationView" destination="QNu-q2-wMQ" id="LVa-a8-QRt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5j-LP-1O0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1298,7 +1305,7 @@
                         <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
@@ -1347,8 +1354,8 @@
                                                             <rect key="frame" x="10" y="0.0" width="376" height="100"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紅燒獅子頭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-sl-uU0">
-                                                                    <rect key="frame" x="101" y="37.5" width="90" height="25.5"/>
-                                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                                    <rect key="frame" x="101" y="41" width="90" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1490,11 +1497,11 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 酒釀丸子" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAj-yr-5cQ" customClass="THLabel">
-                                                    <rect key="frame" x="142" y="397" width="130" height="37"/>
+                                                    <rect key="frame" x="142" y="406" width="130" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="7er-AB-a1K"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="26"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1523,10 +1530,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientData" id="s8F-db-cZM" customClass="IngredientsTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="478" width="414" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="478" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8F-db-cZM" id="jB2-8v-6Mn">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="813-ef-P0f">
@@ -1534,7 +1541,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </stackView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-bt-XMV">
-                                                    <rect key="frame" x="35" y="20" width="10" height="10"/>
+                                                    <rect key="frame" x="35" y="16" width="10" height="10"/>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="73F-zE-1kY"/>
@@ -1550,8 +1557,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香菇素蠔油" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b90-P4-2q9">
-                                                    <rect key="frame" x="65" y="12" width="90" height="25.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                    <rect key="frame" x="65" y="12" width="90" height="18"/>
+                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1569,20 +1576,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentData" id="dnw-mJ-dtQ" customClass="ContentTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="527.5" width="414" height="72"/>
+                                        <rect key="frame" x="0.0" y="520" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dnw-mJ-dtQ" id="OS7-Dc-Oow">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起油鍋，先將豬肉片下鍋炒至半熟後起鍋備用。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuv-KP-elW">
-                                                    <rect key="frame" x="65" y="12" width="333" height="48"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                                    <rect key="frame" x="65" y="12" width="333" height="34"/>
+                                                    <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-l7-oTb">
-                                                    <rect key="frame" x="35" y="31" width="10" height="10"/>
+                                                    <rect key="frame" x="35" y="24" width="10" height="10"/>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="IBW-bf-ZOT"/>
@@ -1667,9 +1674,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9527" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-n4-25P">
-                                                            <rect key="frame" x="76" y="14.5" width="42.5" height="25.5"/>
+                                                            <rect key="frame" x="76" y="18" width="44.5" height="18"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1731,22 +1738,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-XY-DGk">
-                                        <rect key="frame" x="182.5" y="145" width="49.5" height="30"/>
+                                        <rect key="frame" x="180.5" y="145" width="53.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="hSK-U0-aCP"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按右上角創建新冰箱" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="121.5" y="190" width="171" height="40"/>
+                                        <rect key="frame" x="117" y="190" width="180" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5WS-Vk-cvo"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="AEM-qB-qBV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                                         <color key="textColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -1782,7 +1789,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rX-5p-c9Z">
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                                                 <state key="normal" title="冰箱列表">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -1792,7 +1799,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-sS-3xm">
                                                 <rect key="frame" x="207" y="0.0" width="207" height="60"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                                                 <state key="normal" title="冰箱邀請">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -1878,12 +1885,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIP-xy-KRX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請掃碼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-xt-hIN">
-                                        <rect key="frame" x="167" y="48" width="80" height="32.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請掃碼" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-xt-hIN">
+                                        <rect key="frame" x="167" y="54" width="80" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5El-bT-pwz"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="23"/>
+                                        <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1941,7 +1948,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
@@ -1994,7 +2001,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
@@ -2044,7 +2051,7 @@
                         <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="20"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -2117,6 +2124,9 @@
         <designable name="KCC-22-lQW">
             <size key="intrinsicContentSize" width="114.5" height="42.5"/>
         </designable>
+        <designable name="O2m-WE-zyt"/>
+        <designable name="QNu-q2-wMQ"/>
+        <designable name="VaB-XY-QJ1"/>
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Lds-aR-iOo"/>
@@ -2126,6 +2136,7 @@
         <image name="005-rice-2" width="512" height="512"/>
         <image name="014-crab" width="512" height="512"/>
         <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="chef (2)" width="32" height="32"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
@@ -2136,7 +2147,6 @@
         <image name="fridge" width="32" height="32"/>
         <image name="menu" width="42.666667938232422" height="42.666667938232422"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="settings" width="42.666667938232422" height="42.666667938232422"/>
         <image name="to-do-list" width="32" height="32"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>

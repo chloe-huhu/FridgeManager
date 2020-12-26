@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import Lottie
 
 class PurchaseListViewController: UIViewController {
     
@@ -55,6 +56,20 @@ class PurchaseListViewController: UIViewController {
         tabBarSetup()
         dblistenAwating()
         dblistenAccept()
+        
+        if awaitingList.isEmpty && acceptLists.isEmpty {
+            emptyLabel.isHidden = false
+            animationView.isHidden = false
+            animationView.contentMode = .scaleAspectFit
+            animationView.loopMode = .autoReverse
+            animationView.animationSpeed = 0.5
+            animationView.play()
+            
+        } else {
+            emptyLabel.isHidden = true
+            animationView.isHidden = true
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +79,10 @@ class PurchaseListViewController: UIViewController {
         dbGetAwaiting()
     }
     
+    
+    @IBOutlet weak var animationView: AnimationView!
+    
+    @IBOutlet weak var emptyLabel: UILabel!
     
     // 頁面設定
     func navigationTitleSetup() {

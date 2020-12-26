@@ -9,16 +9,21 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Lottie
 
 
 class NewFriendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .autoReverse
+        animationView.animationSpeed = 0.5
+        animationView.play()
 
-        // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var animationView: AnimationView!
     
     @IBAction func joinFridge(_ sender: FancyButton) {
         let alterController = UIAlertController(title: "請輸入代碼", message: nil, preferredStyle: .alert)

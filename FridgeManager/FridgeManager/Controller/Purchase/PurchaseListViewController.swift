@@ -56,20 +56,8 @@ class PurchaseListViewController: UIViewController {
         tabBarSetup()
         dblistenAwating()
         dblistenAccept()
-        
-        if awaitingList.isEmpty && acceptLists.isEmpty {
-            emptyLabel.isHidden = false
-            animationView.isHidden = false
-            animationView.contentMode = .scaleAspectFit
-            animationView.loopMode = .autoReverse
-            animationView.animationSpeed = 0.5
-            animationView.play()
-            
-        } else {
-            emptyLabel.isHidden = true
-            animationView.isHidden = true
-        }
-        
+        emptyLabel.isHidden = true
+        animationView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +67,19 @@ class PurchaseListViewController: UIViewController {
         dbGetAwaiting()
     }
     
+    func setupEmpty() {
+        if awaitingList.isEmpty {
+            emptyLabel.isHidden = false
+            animationView.isHidden = false
+            animationView.contentMode = .scaleAspectFit
+            animationView.loopMode = .autoReverse
+            animationView.animationSpeed = 0.5
+            animationView.play()
+        } else {
+            emptyLabel.isHidden = true
+            animationView.isHidden = true
+        }
+    }
     
     @IBOutlet weak var animationView: AnimationView!
     
@@ -221,7 +222,7 @@ class PurchaseListViewController: UIViewController {
     func dbGetAccept() {
 
         if !isLoading {
-            
+
             isLoading = true
             acceptRef.getDocuments { (querySnapshot, err) in
                 self.isLoading = false

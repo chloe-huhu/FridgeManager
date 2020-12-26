@@ -66,7 +66,6 @@ class FoodListViewController: UIViewController {
         tabBarSetup()
         dbListen()
         fetchData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

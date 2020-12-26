@@ -26,27 +26,46 @@ class NewFriendViewController: UIViewController {
     @IBOutlet weak var animationView: AnimationView!
     
     @IBAction func joinFridge(_ sender: FancyButton) {
-        let alterController = UIAlertController(title: "請輸入代碼", message: nil, preferredStyle: .alert)
         
-        alterController.addTextField { (textField) in
-            textField.placeholder = ""
-        }
+        let alterController = UIAlertController(title: "讓擁有冰箱的成員掃碼\n邀請將寄到你的冰箱列表中", message: nil, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "加入冰箱", style: .default) { (_) in
+        let qrImageView = UIImageView()
+        
+        qrImageView.backgroundColor = .red
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        qrImageView.image = self.generateQRCode(from: "\(uid)")
+        
+        alterController.view.addSubview(qrImageView)
+        
+        let height = NSLayoutConstraint(item: alterController.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+        
+        let width = NSLayoutConstraint(item: alterController.view!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+        
+        alterController.view.addConstraint(height)
+        
+        alterController.view.addConstraint(width)
+        
+        qrImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            qrImageView.widthAnchor.constraint(equalToConstant: 100),
+            qrImageView.heightAnchor.constraint(equalToConstant: 100),
+            qrImageView.centerXAnchor.constraint(equalTo: alterController.view.centerXAnchor),
+            qrImageView.centerYAnchor.constraint(equalTo: alterController.view.centerYAnchor)
+        ])
+        
+        let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
             
-            guard  let fridgeName = alterController.textFields?[0].text else { return }
-            
-            let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-            
-            userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([fridgeName])])
-            
-            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
+            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoVC")
             
             viewController.modalPresentationStyle = .fullScreen
             
             self.present(viewController, animated: true, completion: nil)
-            
+           
         }
+        
         alterController.addAction(okAction)
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -56,6 +75,20 @@ class NewFriendViewController: UIViewController {
         
     }
     
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+
+        return nil
+    }
     
     @IBAction func addNewFridge(_ sender: FancyButton) {
         

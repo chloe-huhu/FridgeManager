@@ -171,14 +171,40 @@ class InfoViewController: UIViewController {
     
     func addNewFridgeSetup (name: String) {
         
-        let doc = Firestore.firestore().collection("fridges").document()
+        let categoryRef = Firestore.firestore().collection("fridges").document()
+        let purchaseRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("awaiting").document()
+        let acceptRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("accept").document()
         
         // 直接設定分類、冰箱名稱、把創建人加進去冰箱 users
-        doc.setData([
+        categoryRef.setData([
             "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
-            "fridgeID": doc.documentID,
+            "fridgeID": categoryRef.documentID,
             "fridgeName": name,
             "users": [Auth.auth().currentUser?.email]
+        ])
+        
+        purchaseRef.setData([
+            "id": purchaseRef.documentID,
+            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
+            "name": "爸爸喜歡吃的橘子",
+            "amount": 1,
+            "unit": "袋",
+            "brand": "香吉士",
+            "place": "全聯福利中心",
+            "whoBuy": "",
+            "note": "選幾顆比較熟的，最近吃。幾顆比較生的，可以擺久一點"
+        ])
+        
+        acceptRef.setData([
+            "id": acceptRef.documentID,
+            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
+            "name": "媽媽喜歡的草莓",
+            "amount": 1,
+            "unit": "盒",
+            "brand": "苗栗",
+            "place": "苗栗果園",
+            "whoBuy": "小明",
+            "note": "我跟小美約了週末去採草莓"
         ])
         
         //        // 將新增的冰箱ID存起來
@@ -186,7 +212,7 @@ class InfoViewController: UIViewController {
         
         // 將新建的冰箱ID加到myFridges
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-        userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
+        userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([categoryRef.documentID])])
         
     }
 
@@ -235,7 +261,7 @@ class InfoViewController: UIViewController {
         
         let qrCodeAction = UIAlertAction(title: "我的 QR Code", style: .default, handler: { _ in
         
-            let controller = UIAlertController(title: "讓他人掃碼後\n到冰箱列表點選確認", message: nil, preferredStyle: .alert)
+            let controller = UIAlertController(title: "讓擁有冰箱的成員掃碼\n邀請匯寄到你的冰箱列表中", message: nil, preferredStyle: .alert)
             
             let qrImageView = UIImageView()
             

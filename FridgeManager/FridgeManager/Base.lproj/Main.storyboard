@@ -159,6 +159,17 @@
                                 <rect key="frame" x="0.0" y="52" width="414" height="673"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaB-XY-QJ1" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="7" y="204" width="400" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="02q-sj-y29"/>
+                                    <constraint firstAttribute="height" constant="400" id="9Sz-er-X2d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="24703-food-animation"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-EF-WIz">
                                 <rect key="frame" x="324" y="635" width="70" height="70"/>
                                 <constraints>
@@ -189,8 +200,10 @@
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="o8F-l7-rEU" secondAttribute="trailing" id="OZJ-Di-c8N"/>
                             <constraint firstAttribute="trailing" secondItem="VKM-Nb-ULy" secondAttribute="trailing" id="U4p-rC-Lcb"/>
                             <constraint firstItem="VKM-Nb-ULy" firstAttribute="leading" secondItem="RvM-vK-2Fh" secondAttribute="leading" id="fpz-4b-hun"/>
+                            <constraint firstItem="VaB-XY-QJ1" firstAttribute="centerX" secondItem="RvM-vK-2Fh" secondAttribute="centerX" id="jDq-Xz-Xv2"/>
                             <constraint firstItem="o8F-l7-rEU" firstAttribute="leading" secondItem="dOT-2j-cYK" secondAttribute="leading" id="oaJ-Fr-w7c"/>
                             <constraint firstItem="dOT-2j-cYK" firstAttribute="trailing" secondItem="6ns-EF-WIz" secondAttribute="trailing" constant="20" id="pPI-ET-8hS"/>
+                            <constraint firstItem="VaB-XY-QJ1" firstAttribute="centerY" secondItem="RvM-vK-2Fh" secondAttribute="centerY" id="rtN-qs-ho1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="冰箱食材" largeTitleDisplayMode="never" id="Elk-vc-w7N">
@@ -203,6 +216,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addNewFoodBtn" destination="6ns-EF-WIz" id="Yeg-bY-681"/>
+                        <outlet property="animationView" destination="VaB-XY-QJ1" id="mJr-KG-rNN"/>
                         <outlet property="editButton" destination="34s-y4-qLc" id="HeQ-xC-HD2"/>
                         <outlet property="sliderView" destination="CD5-Q0-iUD" id="0mh-PA-Iue"/>
                         <outlet property="tableView" destination="o8F-l7-rEU" id="E5l-nn-eB0"/>
@@ -2091,7 +2105,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Cac-fM-gvU"/>
+        <segue reference="Lds-aR-iOo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>

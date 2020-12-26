@@ -21,6 +21,7 @@ target 'FridgeManager' do
     pod 'Firebase/Storage'
     pod 'Kingfisher'
     pod 'THLabel', '~> 1.4.0'
+    pod 'lottie-ios'
 
 
   target 'FridgeManagerTests' do

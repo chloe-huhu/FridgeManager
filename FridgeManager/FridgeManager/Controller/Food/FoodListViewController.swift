@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Lottie
 
 
 
@@ -26,12 +27,24 @@ class FoodListViewController: UIViewController {
     
     var ref: CollectionReference {
         
-       return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
+        return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
     }
     
     var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
     
-    var oriFoods: [Food] = []
+    var oriFoods: [Food] = [] {
+        didSet {
+            if oriFoods.isEmpty {
+               animationView.isHidden = false
+               animationView.contentMode = .scaleAspectFit
+               animationView.loopMode = .autoReverse
+               animationView.animationSpeed = 0.5
+               animationView.play()
+            } else {
+                animationView.isHidden = true
+            }
+        }
+    }
     
     var foodsDic: [String: [Food]] = [:]
     
@@ -44,13 +57,24 @@ class FoodListViewController: UIViewController {
     var showCategory: ShowCategory = .all
     
     var showType: ShowType = .edit
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSetup()
         tabBarSetup()
         dbListen()
         fetchData()
+       
+//        let animationView = AnimationView(name: "24703-food-animation")
+//        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
+//        animationView.center = self.tableView.center
+//        animationView.contentMode = .scaleAspectFill
+//        animationView.loopMode = .autoReverse
+//        tableView.addSubview(animationView)
+//
+//        animationView.play()
+    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,45 +82,43 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         showCategory = .all
         btnPressedAnimation(type: .all)
-
         dbGet()
-      
     }
     
     func fetchData() {
         
-             guard let uid = Auth.auth().currentUser?.uid else { return }
-             
-             // 去Firebase找符合的uid
-             Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
-                 if let error = error {
-                     print("Error getting documnets : \(error)")
-                 } else {
-                     
-                     for document in querySnapShot!.documents {
-                         print("\(document.documentID) => \(document.data())")
-                         do {
-
-                             let data = try document.data(as: User.self)
-
-                             UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
-                             
-                             UserDefaults.standard.setValue(uid, forKey: "userUid")
-
-//                             var rootVC: UIViewController
-//                              rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodListViewController")
-
-                         } catch {
-                             print("error to decode", error)
-                         }
-                         return
-                     }
-                     
-
-                 }
-             }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        // 去Firebase找符合的uid
+        Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
+            if let error = error {
+                print("Error getting documnets : \(error)")
+            } else {
+                
+                for document in querySnapShot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    do {
+                        
+                        let data = try document.data(as: User.self)
+                        
+                        UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
+                        
+                        UserDefaults.standard.setValue(uid, forKey: "userUid")
+                        
+                        //                             var rootVC: UIViewController
+                        //                              rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodListViewController")
+                        
+                    } catch {
+                        print("error to decode", error)
+                    }
+                    return
+                }
+                
+                
+            }
+        }
     }
-
+    
     
     @IBOutlet weak var addNewFoodBtn: UIButton!
     
@@ -112,7 +134,7 @@ class FoodListViewController: UIViewController {
             isExpendDataList = isExpendDataList.map { _ in return true }
             tableView.reloadData()
             showType = .delete
-
+            
         case .delete:
             editButton.image = #imageLiteral(resourceName: "folder.png")
             showType = .edit
@@ -125,6 +147,8 @@ class FoodListViewController: UIViewController {
     
     
     @IBOutlet weak var sliderView: UIView!
+    
+    @IBOutlet weak var animationView: AnimationView!
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -139,6 +163,7 @@ class FoodListViewController: UIViewController {
             
             let cellViewNib: UINib = UINib(nibName: "CellView", bundle: nil)
             self.tableView.register(cellViewNib, forCellReuseIdentifier: "CellView")
+            
         }
     }
     
@@ -385,7 +410,7 @@ extension FoodListViewController: UITableViewDataSource {
         if isExpendDataList[section] {
             
             return foodsDic[foodsKeyArray[section]]?.count ?? 0
-       
+            
         } else {
             
             return 0
@@ -401,7 +426,7 @@ extension FoodListViewController: UITableViewDataSource {
         let food = foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row]
         
         cell.setup(data: food)
-    
+        
         return cell
         
     }

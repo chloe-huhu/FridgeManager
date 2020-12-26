@@ -320,6 +320,7 @@ PODS:
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
   - leveldb-library (1.22)
+  - lottie-ios (3.1.9)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -338,6 +339,7 @@ DEPENDENCIES:
   - FirebaseUI/OAuth
   - IQKeyboardManagerSwift
   - Kingfisher
+  - lottie-ios
   - RAMAnimatedTabBarController
   - SwiftLint
   - THLabel (~> 1.4.0)
@@ -363,6 +365,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - PromisesObjC
     - RAMAnimatedTabBarController
@@ -389,12 +392,13 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
   THLabel: 3fc93a0f01f74e4eec7574df2819e576d57150b3
 
-PODFILE CHECKSUM: e1967b2ec4bf05bc5a796be4f056c25fb7721446
+PODFILE CHECKSUM: 167dce84c1496a35aedf8613dc22485a3bc6823a
 
 COCOAPODS: 1.10.0

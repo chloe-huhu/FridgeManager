@@ -62,8 +62,8 @@
             filePath = "FridgeManager/Controller/Food/FoodListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "dbGet()"
             landmarkType = "7">
          </BreakpointContent>

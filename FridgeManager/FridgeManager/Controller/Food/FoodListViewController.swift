@@ -35,13 +35,15 @@ class FoodListViewController: UIViewController {
     var oriFoods: [Food] = [] {
         didSet {
             if oriFoods.isEmpty {
-               animationView.isHidden = false
-               animationView.contentMode = .scaleAspectFit
-               animationView.loopMode = .autoReverse
-               animationView.animationSpeed = 0.5
-               animationView.play()
+                emptyLabel.isHidden = false
+                animationView.isHidden = false
+                animationView.contentMode = .scaleAspectFit
+                animationView.loopMode = .autoReverse
+                animationView.animationSpeed = 0.5
+                animationView.play()
             } else {
                 animationView.isHidden = true
+                emptyLabel.isHidden = true
             }
         }
     }
@@ -64,16 +66,6 @@ class FoodListViewController: UIViewController {
         tabBarSetup()
         dbListen()
         fetchData()
-       
-//        let animationView = AnimationView(name: "24703-food-animation")
-//        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
-//        animationView.center = self.tableView.center
-//        animationView.contentMode = .scaleAspectFill
-//        animationView.loopMode = .autoReverse
-//        tableView.addSubview(animationView)
-//
-//        animationView.play()
-    
         
     }
     
@@ -149,6 +141,8 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var sliderView: UIView!
     
     @IBOutlet weak var animationView: AnimationView!
+    
+    @IBOutlet weak var emptyLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {

@@ -1638,18 +1638,8 @@
                                                             <imageReference key="image" image="fridge" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="冰箱名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-Fp-UHO">
-                                                            <rect key="frame" x="66" y="14.5" width="80" height="25.5"/>
-                                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="LZr-dJ-YT8"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9527" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-n4-25P">
-                                                            <rect key="frame" x="162" y="14.5" width="42.5" height="25.5"/>
+                                                            <rect key="frame" x="76" y="14.5" width="42.5" height="25.5"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1658,12 +1648,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="a7k-n4-25P" firstAttribute="centerY" secondItem="Grg-Fp-UHO" secondAttribute="centerY" id="ERO-vn-TZ0"/>
-                                                        <constraint firstItem="Grg-Fp-UHO" firstAttribute="centerY" secondItem="7F3-fT-pU4" secondAttribute="centerY" id="WTe-Jc-tgB"/>
+                                                        <constraint firstItem="a7k-n4-25P" firstAttribute="leading" secondItem="7F3-fT-pU4" secondAttribute="trailing" constant="30" id="FeU-eV-lcV"/>
                                                         <constraint firstItem="7F3-fT-pU4" firstAttribute="leading" secondItem="7Mc-SG-h0w" secondAttribute="leading" constant="16" id="c0E-fV-PJB"/>
-                                                        <constraint firstItem="Grg-Fp-UHO" firstAttribute="leading" secondItem="7F3-fT-pU4" secondAttribute="trailing" constant="20" id="m6L-pK-E2k"/>
                                                         <constraint firstItem="7F3-fT-pU4" firstAttribute="centerY" secondItem="7Mc-SG-h0w" secondAttribute="centerY" id="n08-wV-Dfm"/>
-                                                        <constraint firstItem="a7k-n4-25P" firstAttribute="leading" secondItem="Grg-Fp-UHO" secondAttribute="trailing" constant="16" id="s7f-bm-Aag"/>
+                                                        <constraint firstItem="a7k-n4-25P" firstAttribute="centerY" secondItem="7Mc-SG-h0w" secondAttribute="centerY" id="uBn-px-BEQ"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -1720,7 +1708,7 @@
                                             <constraint firstAttribute="height" constant="30" id="hSK-U0-aCP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按右上角創建新冰箱" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-b6-sCi" customClass="LabelPadding" customModule="FridgeManager" customModuleProvider="target">
@@ -1766,9 +1754,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rX-5p-c9Z">
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                 <state key="normal" title="冰箱列表">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="myFridgesBtnTapped:" destination="PbV-wG-u5g" eventType="touchUpInside" id="H3i-uU-06l"/>
@@ -1776,9 +1764,9 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-sS-3xm">
                                                 <rect key="frame" x="207" y="0.0" width="207" height="60"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                 <state key="normal" title="冰箱邀請">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="fridgeInviteBtnTapped:" destination="PbV-wG-u5g" eventType="touchUpInside" id="EoA-m1-G6K"/>

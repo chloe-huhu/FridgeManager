@@ -8,9 +8,9 @@
 import AVFoundation
 import UIKit
 
-protocol Eric: AnyObject {
+protocol qRCodeDelegate: AnyObject {
     
-    func passValue()
+    func sendInite(userUID: String)
 }
 
 class QRCodeViewController: UIViewController {
@@ -25,24 +25,14 @@ class QRCodeViewController: UIViewController {
     
     var invitedFriend: String?
 
-    weak var delegate: Eric?
+    weak var delegate: qRCodeDelegate?
     
-    private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
-                                      AVMetadataObject.ObjectType.code39,
-                                      AVMetadataObject.ObjectType.code39Mod43,
-                                      AVMetadataObject.ObjectType.code93,
-                                      AVMetadataObject.ObjectType.code128,
-                                      AVMetadataObject.ObjectType.ean8,
-                                      AVMetadataObject.ObjectType.ean13,
-                                      AVMetadataObject.ObjectType.aztec,
-                                      AVMetadataObject.ObjectType.pdf417,
-                                      AVMetadataObject.ObjectType.itf14,
-                                      AVMetadataObject.ObjectType.dataMatrix,
-                                      AVMetadataObject.ObjectType.interleaved2of5,
-                                      AVMetadataObject.ObjectType.qr]
+    private let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+        
         
             // 取得後置鏡頭來擷取影片
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
@@ -139,11 +129,11 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                     
                     contentLabel.text = " 搜索到朋友 "
                     
-                    invitedFriend  = metadataObj.stringValue
+                    guard let friendUID = metadataObj.stringValue else { return }
                     
-                    delegate?.passValue()
+                    delegate?.sendInite(userUID: friendUID)
                     
-                    print("=============", metadataObj.stringValue)
+                    print("=============", friendUID)
                 }
             }
       

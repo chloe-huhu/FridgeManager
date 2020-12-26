@@ -55,11 +55,12 @@ class FoodListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dbListen()
         self.tabBarController?.tabBar.isHidden = false
         showCategory = .all
         btnPressedAnimation(type: .all)
 
+        dbGet()
+      
     }
     
     func fetchData() {

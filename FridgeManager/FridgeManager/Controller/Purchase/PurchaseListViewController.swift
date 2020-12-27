@@ -63,8 +63,8 @@ class PurchaseListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
-        dbGetAccept()
-        dbGetAwaiting()
+        dblistenAwating()
+        dblistenAccept()
     }
     
     func setupEmpty() {

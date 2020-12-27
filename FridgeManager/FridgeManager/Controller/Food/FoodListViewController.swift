@@ -72,11 +72,11 @@ class FoodListViewController: UIViewController {
         navigationBarSetup()
         tabBarSetup()
         dbListen()
-        fetchData()
-        
+       
         switch goInfo {
         
         case .newUser: self.tabBarController?.selectedIndex = 3
+        case .user:  fetchData()
             
         default: break
             

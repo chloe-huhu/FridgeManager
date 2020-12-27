@@ -26,7 +26,7 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
 
    
     
-    let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
+    let unit = ["顆", "個", "公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
     var seletedUnitIndex = 0
     
@@ -80,7 +80,6 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             noteTextView.tag = 7
             noteTextView.layer.cornerRadius = 5.0
             noteTextView.layer.masksToBounds = true
-            noteTextView.text = "豆腐顏色是黃色的"
             noteTextView.textColor = UIColor.lightGray
         }
     }

@@ -172,8 +172,8 @@ class InfoViewController: UIViewController {
     func addNewFridgeSetup (name: String) {
         
         let categoryRef = Firestore.firestore().collection("fridges").document()
-        let purchaseRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("awaiting").document()
-        let acceptRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("accept").document()
+//        let purchaseRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("awaiting").document()
+//        let acceptRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("accept").document()
         
         // 直接設定分類、冰箱名稱、把創建人加進去冰箱 users
         categoryRef.setData([
@@ -183,29 +183,29 @@ class InfoViewController: UIViewController {
             "users": [Auth.auth().currentUser?.email]
         ])
         
-        purchaseRef.setData([
-            "id": purchaseRef.documentID,
-            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
-            "name": "爸爸喜歡吃的橘子",
-            "amount": 1,
-            "unit": "袋",
-            "brand": "香吉士",
-            "place": "全聯福利中心",
-            "whoBuy": "",
-            "note": "選幾顆比較熟的，最近吃。幾顆比較生的，可以擺久一點"
-        ])
-        
-        acceptRef.setData([
-            "id": acceptRef.documentID,
-            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
-            "name": "媽媽喜歡的草莓",
-            "amount": 1,
-            "unit": "盒",
-            "brand": "苗栗",
-            "place": "苗栗果園",
-            "whoBuy": "小明",
-            "note": "我跟小美約了週末去採草莓"
-        ])
+//        purchaseRef.setData([
+//            "id": purchaseRef.documentID,
+//            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
+//            "name": "爸爸喜歡吃的橘子",
+//            "amount": 1,
+//            "unit": "袋",
+//            "brand": "香吉士",
+//            "place": "全聯福利中心",
+//            "whoBuy": "",
+//            "note": "選幾顆比較熟的，最近吃。幾顆比較生的，可以擺久一點"
+//        ])
+//        
+//        acceptRef.setData([
+//            "id": acceptRef.documentID,
+//            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
+//            "name": "媽媽喜歡的草莓",
+//            "amount": 1,
+//            "unit": "盒",
+//            "brand": "苗栗",
+//            "place": "苗栗果園",
+//            "whoBuy": "小明",
+//            "note": "我跟小美約了週末去採草莓"
+//        ])
         
         //        // 將新增的冰箱ID存起來
         //        UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")

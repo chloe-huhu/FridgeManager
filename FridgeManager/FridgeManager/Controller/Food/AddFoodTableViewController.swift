@@ -43,7 +43,7 @@ class AddFoodTableViewController: UITableViewController {
         }
     }
     
-    let unit = ["公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
+    let unit = ["顆", "個", "公克", "公斤", "盒", "包", "袋", "隻", "串", "根", "杯", "打"]
     
     var seletedCategoryIndex = 0
     

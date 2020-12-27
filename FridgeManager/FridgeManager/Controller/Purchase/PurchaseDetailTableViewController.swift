@@ -53,15 +53,12 @@ class PurchaseDetailTableViewController: UITableViewController {
         didSet {
             whoBuyLabel.layer.cornerRadius = 8
             whoBuyLabel.clipsToBounds = true
-            
-            getUserDisplayName {
-                self.whoBuyLabel.text = self.userDisplayName
-            }
+            getUserDisplayName()
         }
     }
     
     // acceptList whoBuy Uid -> 尋找DisplayName
-    func getUserDisplayName(handler: @escaping () -> Void) {
+    func getUserDisplayName() {
        
         guard  let who = selectedList?.whoBuy  else { return }
         
@@ -71,8 +68,7 @@ class PurchaseDetailTableViewController: UITableViewController {
                 print("\(document.documentID) => \(document.data())")
                     do {
                         let data = try document.data(as: User.self)
-                        self.userDisplayName = data!.displayName
-                        handler()
+                        self.whoBuyLabel.text = data!.displayName
                     } catch {
                         print("error to decode", error)
                     }

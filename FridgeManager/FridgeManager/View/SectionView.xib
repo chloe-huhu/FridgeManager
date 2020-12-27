@@ -54,9 +54,9 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewY-4l-TLa">
-                                    <rect key="frame" x="301" y="42" width="20" height="22"/>
+                                    <rect key="frame" x="301" y="41.5" width="20" height="22.5"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" image="arrow.down.circle" catalog="system"/>
+                                    <state key="normal" image="doc.badge.ellipsis" catalog="system"/>
                                     <connections>
                                         <action selector="pressExpendBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="09T-m0-n6n"/>
                                     </connections>
@@ -139,7 +139,7 @@
     </objects>
     <resources>
         <image name="apple-1" width="512" height="512"/>
-        <image name="arrow.down.circle" catalog="system" width="128" height="121"/>
+        <image name="doc.badge.ellipsis" catalog="system" width="119" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

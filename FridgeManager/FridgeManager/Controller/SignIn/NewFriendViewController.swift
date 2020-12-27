@@ -57,12 +57,13 @@ class NewFriendViewController: UIViewController {
         ])
         
         let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
-            
-            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoVC")
-            
-            viewController.modalPresentationStyle = .fullScreen
-            
-            self.present(viewController, animated: true, completion: nil)
+//
+            self.performSegue(withIdentifier: "SegueHomeVC", sender: nil)
+//            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoVC")
+//            
+//            viewController.modalPresentationStyle = .fullScreen
+//            
+//            self.present(viewController, animated: true, completion: nil)
            
         }
         
@@ -75,12 +76,28 @@ class NewFriendViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SegueHomeVC" {
+            
+            let tabBarContorller = segue.destination as? UITabBarController
+            
+            let navigationController = tabBarContorller?.viewControllers?[0] as? UINavigationController
+            
+            let firstViewController = navigationController?.viewControllers[0] as? FoodListViewController
+            
+            firstViewController?.modalPresentationStyle = .fullScreen
+            
+            firstViewController?.goInfo = .newUser
+        }
+    }
+    
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
 
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
 
             if let output = filter.outputImage?.transformed(by: transform) {
                 return UIImage(ciImage: output)
@@ -104,11 +121,13 @@ class NewFriendViewController: UIViewController {
             
             self.addNewFridgeSetup(name: fridgeName)
             
-            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
+//            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
+//
+//            viewController.modalPresentationStyle = .fullScreen
+//
+//            self.present(viewController, animated: true, completion: nil)
             
-            viewController.modalPresentationStyle = .fullScreen
-            
-            self.present(viewController, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "SegueHomeVC", sender: nil)
             
         }
         alterController.addAction(okAction)

@@ -11,9 +11,16 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Lottie
 
-
+enum GoInfo {
+    
+    case newUser
+    
+    case user
+}
 
 class FoodListViewController: UIViewController {
+    
+    var goInfo: GoInfo = .user
     
     var fridgeID: String {
         
@@ -66,6 +73,14 @@ class FoodListViewController: UIViewController {
         tabBarSetup()
         dbListen()
         fetchData()
+        
+        switch goInfo {
+        
+        case .newUser: self.tabBarController?.selectedIndex = 3
+            
+        default: break
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

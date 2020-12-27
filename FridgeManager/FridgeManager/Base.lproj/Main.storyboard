@@ -1134,10 +1134,10 @@
             </objects>
             <point key="canvasLocation" x="647.82608695652175" y="2404.6875"/>
         </scene>
-        <!--Animated Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="wfL-h5-nDh">
             <objects>
-                <tabBarController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="H5k-kw-J00" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="H5k-kw-J00" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KkX-ib-qrY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oqn-En-sh7">
@@ -1273,11 +1273,12 @@
                     <navigationItem key="navigationItem" id="KHZ-dw-h2r"/>
                     <connections>
                         <outlet property="animationView" destination="QNu-q2-wMQ" id="LVa-a8-QRt"/>
+                        <segue destination="H5k-kw-J00" kind="presentation" identifier="SegueHomeVC" modalPresentationStyle="fullScreen" id="YGh-gO-R9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5j-LP-1O0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="11"/>
+            <point key="canvasLocation" x="993" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IP3-TI-O8R">
@@ -1337,7 +1338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-8C-S69">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="120" id="gfW-eN-U3V" customClass="RecipeTableViewCell" customModule="FridgeManager" customModuleProvider="target">
@@ -2097,7 +2098,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68X-lO-O6Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118.840579710145" y="10.714285714285714"/>
+            <point key="canvasLocation" x="1212" y="-719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tfp-J2-JhD">
@@ -2115,7 +2116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E96-7C-4V7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-917" y="11"/>
+            <point key="canvasLocation" x="209" y="-2"/>
         </scene>
     </scenes>
     <designables>

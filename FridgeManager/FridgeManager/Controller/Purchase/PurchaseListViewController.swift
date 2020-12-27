@@ -54,8 +54,8 @@ class PurchaseListViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-        dblistenAwating()
-        dblistenAccept()
+//        dblistenAwating()
+//        dblistenAccept()
         emptyLabel.isHidden = true
         animationView.isHidden = true
     }
@@ -68,7 +68,7 @@ class PurchaseListViewController: UIViewController {
     }
     
     func setupEmpty() {
-        if awaitingList.isEmpty {
+        if awaitingList.isEmpty && acceptLists.isEmpty {
             emptyLabel.isHidden = false
             animationView.isHidden = false
             animationView.contentMode = .scaleAspectFit
@@ -259,6 +259,8 @@ class PurchaseListViewController: UIViewController {
                             self.tableView.reloadData()
                         }
                     }
+                    
+                    self.tableView.reloadData()
                 }
                 
             }

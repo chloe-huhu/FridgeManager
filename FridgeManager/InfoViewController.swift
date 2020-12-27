@@ -265,8 +265,6 @@ class InfoViewController: UIViewController {
             
             let qrImageView = UIImageView()
             
-            qrImageView.backgroundColor = .red
-            
             guard let uid = Auth.auth().currentUser?.uid else { return }
             
             qrImageView.image = self.generateQRCode(from: "\(uid)")
@@ -284,8 +282,8 @@ class InfoViewController: UIViewController {
             qrImageView.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                qrImageView.widthAnchor.constraint(equalToConstant: 100),
-                qrImageView.heightAnchor.constraint(equalToConstant: 100),
+                qrImageView.widthAnchor.constraint(equalToConstant: 150),
+                qrImageView.heightAnchor.constraint(equalToConstant: 150),
                 qrImageView.centerXAnchor.constraint(equalTo: controller.view.centerXAnchor),
                 qrImageView.centerYAnchor.constraint(equalTo: controller.view.centerYAnchor)
             ])

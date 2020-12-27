@@ -288,7 +288,7 @@ class AddFoodTableViewController: UITableViewController {
         
         // 翻回去PurchaseListPage
         self.navigationController?.popToRootViewController(animated: true)
-        //        self.navigationController?.tabBarController?.selectedIndex = 0
+                self.navigationController?.tabBarController?.selectedIndex = 0
         //        self.navigationController?.tabBarController?.tabBarItem
         
     }

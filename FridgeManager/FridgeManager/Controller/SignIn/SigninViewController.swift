@@ -20,7 +20,6 @@ class SigninViewController: UIViewController {
     }
     
     func setupAppleButton() {
-        
         let appleButton = ASAuthorizationAppleIDButton(type: .continue, style: .black)
         view.addSubview(appleButton)
         appleButton.cornerRadius = 8
@@ -65,7 +64,7 @@ class SigninViewController: UIViewController {
     // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
-        let charset: Array<Character> =
+        let charset: Array <Character> =
             Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
         var result = ""
         var remainingLength = length
@@ -131,7 +130,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     UserDefaults.standard.setValue(user.uid, forKey: "userUid")
                     
                     let email = user.email ?? ""
-                    let displayName = user.displayName ?? "請設定暱稱"
+                    let displayName = user.displayName ?? "請點左上角齒輪設定暱稱"
                     
                     guard let uid =  Auth.auth().currentUser?.uid else { return }
                     
@@ -155,7 +154,6 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                             viewController.modalPresentationStyle = .fullScreen
                             
                             self.present(viewController, animated: true, completion: nil)
-                            
                             
                         }
                           

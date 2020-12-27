@@ -146,6 +146,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         // accept firebase 刪掉
         deleteAccept()
         
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -214,30 +215,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
         
     }
-    
-   
-//    func getUserDisplayName(handler: @escaping () -> Void) {
-//
-//        guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else { return }
-//
-//        Firestore.firestore().collection("users").whereField("uid", isEqualTo: userUid).getDocuments { (querySnapshot, _ ) in
-//            if let querySnapshot = querySnapshot {
-//                for document in querySnapshot.documents {
-//                print("\(document.documentID) => \(document.data())")
-//                    do {
-//                        let data = try document.data(as: User.self)
-//                        self.userDisplayName = data!.uid
-//                        handler()
-//                    } catch {
-//                        print("error to decode", error)
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
-    
-    
+
     // 放棄任務->退回去awaiting
     func setupAcceptBarBtnItem() {
         let img = UIImage(named: "close")

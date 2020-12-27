@@ -19,22 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        // 判斷使用者存不存在，存在直接進入HomeVC，不存在就去SignIn
         var rootVC: UIViewController
 
         if Auth.auth().currentUser != nil {
-
-            let firebaseAuth = Auth.auth()
-            do {
-              try firebaseAuth.signOut()
-            } catch let signOutError as NSError {
-              print("Error signing out: %@", signOutError)
-            }
+//
+//            let firebaseAuth = Auth.auth()
+//            do {
+//              try firebaseAuth.signOut()
+//            } catch let signOutError as NSError {
+//              print("Error signing out: %@", signOutError)
+//            }
         
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
         
         } else {
-            
-            
             
             rootVC = UIStoryboard(name: "Signin", bundle: nil).instantiateViewController(withIdentifier: "SigninViewController")
         }

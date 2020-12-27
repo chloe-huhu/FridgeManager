@@ -81,6 +81,7 @@ class FoodListViewController: UIViewController {
         default: break
             
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,9 +111,6 @@ class FoodListViewController: UIViewController {
                         UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
                         
                         UserDefaults.standard.setValue(uid, forKey: "userUid")
-                        
-                        //                             var rootVC: UIViewController
-                        //                              rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodListViewController")
                         
                     } catch {
                         print("error to decode", error)

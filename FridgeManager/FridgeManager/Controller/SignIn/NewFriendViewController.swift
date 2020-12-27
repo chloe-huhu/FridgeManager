@@ -13,31 +13,21 @@ import Lottie
 
 
 class NewFriendViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .autoReverse
-        animationView.animationSpeed = 0.5
-        animationView.play()
+        setupWelcome()
 
     }
-    
+
     @IBOutlet weak var animationView: AnimationView!
     
+    // 加入現有冰箱-> 提供QRcode->
     @IBAction func joinFridge(_ sender: FancyButton) {
-        
-        let alterController = UIAlertController(title: "讓擁有冰箱的成員掃碼\n邀請將寄到你的冰箱列表中", message: nil, preferredStyle: .alert)
-        
-        let qrImageView = UIImageView()
-        
-        qrImageView.backgroundColor = .red
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        qrImageView.image = self.generateQRCode(from: "\(uid)")
-        
-        alterController.view.addSubview(qrImageView)
+        let alterController = UIAlertController(title: "請冰箱現有成員掃碼後\n按下確認鍵到冰箱列表查看", message: nil, preferredStyle: .alert)
         
         let height = NSLayoutConstraint(item: alterController.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
         
@@ -47,17 +37,23 @@ class NewFriendViewController: UIViewController {
         
         alterController.view.addConstraint(width)
         
+        let qrImageView = UIImageView()
+        
+        qrImageView.image = self.generateQRCode(from: "\(uid)")
+        
+        alterController.view.addSubview(qrImageView)
+        
         qrImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            qrImageView.widthAnchor.constraint(equalToConstant: 100),
-            qrImageView.heightAnchor.constraint(equalToConstant: 100),
+            qrImageView.widthAnchor.constraint(equalToConstant: 150),
+            qrImageView.heightAnchor.constraint(equalToConstant: 150),
             qrImageView.centerXAnchor.constraint(equalTo: alterController.view.centerXAnchor),
             qrImageView.centerYAnchor.constraint(equalTo: alterController.view.centerYAnchor)
         ])
         
         let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
-//
+            
             self.performSegue(withIdentifier: "SegueHomeVC", sender: nil)
 //            let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoVC")
 //            
@@ -142,34 +138,56 @@ class NewFriendViewController: UIViewController {
     
     func addNewFridgeSetup (name: String) {
         
-        let doc = Firestore.firestore().collection("fridges").document()
+        let categoryRef = Firestore.firestore().collection("fridges").document()
         
-        doc.setData([
+        let purchaseRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("awaiting").document()
+        
+        let acceptRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("accept").document()
+        
+        categoryRef.setData([
             "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
-            "fridgeID": doc.documentID,
+            "fridgeID": categoryRef.documentID,
             "fridgeName": name,
             "users": [Auth.auth().currentUser?.email]
         ])
         
+        purchaseRef.setData([
+            "id": purchaseRef.documentID,
+            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
+            "name": "爸爸喜歡吃的橘子",
+            "amount": 1,
+            "unit": "袋",
+            "brand": "香吉士",
+            "place": "全聯福利中心",
+            "whoBuy": "",
+            "note": "選幾顆比較熟的，最近吃。幾顆比較生的，可以擺久一點"
+        ])
+        
+        acceptRef.setData([
+            "id": acceptRef.documentID,
+            "photo": "https://firebasestorage.googleapis.com/v0/b/fridgemanager-6fd4e.appspot.com/o/purchaseList%2F8F89A6F9-D070-4A29-BCFF-05EC7A4248F6.png?alt=media&token=fd844ac2-4bd7-4161-aa4b-e0ca45528f39",
+            "name": "媽媽喜歡的草莓",
+            "amount": 1,
+            "unit": "盒",
+            "brand": "苗栗",
+            "place": "苗栗果園",
+            "whoBuy": "小明",
+            "note": "我跟小美約了週末去採草莓"
+        ])
+        
         // 將新增的冰箱ID存起來
-        UserDefaults.standard.setValue(doc.documentID, forKey: "FridgeID")
+        UserDefaults.standard.setValue(categoryRef.documentID, forKey: "FridgeID")
         
         // 將新建的冰箱ID加到myFridges
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-        userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([doc.documentID])])
-        
+        userDoc.updateData(["myFridges": Firebase.FieldValue.arrayUnion([categoryRef.documentID])])
     }
     
-   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupWelcome() {
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .autoReverse
+        animationView.animationSpeed = 0.5
+        animationView.play()
     }
-    */
-
+    
 }

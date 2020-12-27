@@ -1176,10 +1176,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-pF-23j">
-                                        <rect key="frame" x="16" y="490" width="382" height="206"/>
+                                        <rect key="frame" x="16" y="493" width="382" height="203"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇你想要執行的操作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-H4-Bf0">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="3tj-kD-CRU"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Fyh-oz-Y7J"/>
@@ -1189,9 +1189,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="71" width="382" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="68" width="382" height="42.5"/>
                                                 <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                 <state key="normal" title="加入冰箱" image="menu">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -1214,9 +1214,9 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="163.5" width="382" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="160.5" width="382" height="42.5"/>
                                                 <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                 <state key="normal" title="創建冰箱" image="add (1)">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -1241,7 +1241,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-q2-wMQ" customClass="AnimationView" customModule="Lottie">
-                                        <rect key="frame" x="16" y="140" width="382" height="300"/>
+                                        <rect key="frame" x="16" y="148" width="382" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="SSe-Ai-65l"/>
                                         </constraints>
@@ -1256,7 +1256,7 @@
                                     <constraint firstItem="QNu-q2-wMQ" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="16" id="KRU-S5-4DP"/>
                                     <constraint firstAttribute="trailing" secondItem="Ot9-pF-23j" secondAttribute="trailing" constant="16" id="QtK-Rk-Inz"/>
                                     <constraint firstAttribute="trailing" secondItem="QNu-q2-wMQ" secondAttribute="trailing" constant="16" id="Tdw-eW-Mjd"/>
-                                    <constraint firstItem="Ot9-pF-23j" firstAttribute="top" secondItem="QNu-q2-wMQ" secondAttribute="bottom" constant="50" id="jZv-az-0wV"/>
+                                    <constraint firstItem="Ot9-pF-23j" firstAttribute="top" secondItem="QNu-q2-wMQ" secondAttribute="bottom" constant="45" id="jZv-az-0wV"/>
                                     <constraint firstAttribute="bottom" secondItem="Ot9-pF-23j" secondAttribute="bottom" constant="200" id="ock-t0-y1A"/>
                                 </constraints>
                             </view>
@@ -1278,7 +1278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5j-LP-1O0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="-2"/>
+            <point key="canvasLocation" x="1232" y="-19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IP3-TI-O8R">
@@ -2088,7 +2088,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8Y-qE-LNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="-719"/>
+            <point key="canvasLocation" x="448" y="-737"/>
         </scene>
         <!--SigninViewController-->
         <scene sceneID="UTh-KW-GFc">
@@ -2098,7 +2098,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68X-lO-O6Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="-719"/>
+            <point key="canvasLocation" x="1451" y="-737"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tfp-J2-JhD">
@@ -2116,7 +2116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E96-7C-4V7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="-2"/>
+            <point key="canvasLocation" x="448" y="-19"/>
         </scene>
     </scenes>
     <designables>

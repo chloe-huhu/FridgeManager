@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,6 +19,24 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launching page3" translatesAutoresizingMaskIntoConstraints="NO" id="Cmk-uG-Ol0">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxk-iZ-Y29">
+                                <rect key="frame" x="167.5" y="797" width="79" height="25"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="隱私權政策聲明">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" metaFont="smallSystem"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="4zk-zf-apY" kind="show" id="URL-n3-f89"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UMg-yD-6eg"/>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -25,6 +44,8 @@
                             <constraint firstItem="UMg-yD-6eg" firstAttribute="bottom" secondItem="Cmk-uG-Ol0" secondAttribute="bottom" id="2Au-O3-06k"/>
                             <constraint firstItem="Cmk-uG-Ol0" firstAttribute="leading" secondItem="UMg-yD-6eg" secondAttribute="leading" id="8Zc-QT-A3B"/>
                             <constraint firstItem="UMg-yD-6eg" firstAttribute="trailing" secondItem="Cmk-uG-Ol0" secondAttribute="trailing" id="HSL-oV-I5p"/>
+                            <constraint firstItem="dxk-iZ-Y29" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="MhC-3S-YGg"/>
+                            <constraint firstItem="UMg-yD-6eg" firstAttribute="bottom" secondItem="dxk-iZ-Y29" secondAttribute="bottom" constant="40" id="c5w-T6-f2S"/>
                             <constraint firstItem="Cmk-uG-Ol0" firstAttribute="top" secondItem="UMg-yD-6eg" secondAttribute="top" id="qIS-1f-Yg1"/>
                         </constraints>
                     </view>
@@ -45,9 +66,76 @@
             </objects>
             <point key="canvasLocation" x="954" y="11"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="YWp-qp-rqU">
+            <objects>
+                <viewController id="4zk-zf-apY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X7i-3v-woX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ELd-hG-HdW">
+                                <rect key="frame" x="16" y="16" width="382" height="776"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">App隱私權政策聲明
+非常歡迎您下載本App，為了讓您能夠安心使用本App的各項服務與資訊，特此向您說明本App的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
+
+一、隱私權保護政策的適用範圍
+隱私權保護政策內容，包括本App如何處理在您使用App服務時收集到的個人識別資料。隱私權保護政策不適用於本App以外的相關連結外部網頁，也不適用於非本App所委託或參與管理的人員。
+
+二、個人資料的蒐集、處理及利用方式
+本App將向使用者蒐集以下個人資料。若您拒絕提供，將無法提供您使用本 APP 相關服務：
+
+當您登入使用本App時，根據本App提供服務性質不同，我們會請您提供個人資訊，包括：帳號、電子郵件。於一般連線時，伺服器會自行記錄相關行徑，包括您使用的瀏覽及點選資料記錄等，做為我們增進App服務的參考依據，此記錄為內部應用，決不對外公佈。 
+三、資料之保護
+本App主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施，加以保護網站及您的個人資料採用嚴格的保護措施，只由經過授權的人員才能接觸您的個人資料，相關處理人員皆簽有保密合約，如有違反保密義務者，將會受到相關的法律處分。
+如因業務需要有必要委託其他單位提供服務時，本App亦會嚴格要求其遵守保密義務，並且採取必要檢查程序以確定其將確實遵守。 
+四、網站對外的相關連結
+本App的網頁提供其他網站的網路連結，您也可經由本App所提供的連結，點選進入其他網站。但該連結網站不適用本App的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。
+
+五、與第三人共用個人資料之政策
+本App絕不會提供、交換、出租或出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。 前項但書之情形包括不限於：
+
+經由您書面同意。
+法律明文規定。
+為免除您生命、身體、自由或財產上之危險。
+與公務機關或學術研究機構合作，基於公共利益為統計或學術研究而有必要，且資料經過提供者處理或蒐集著依其揭露方式無從識別特定之當事人。
+當您在App裡的行為，違反服務條款或可能損害或妨礙App與其他使用者權益或導致任何人遭受損害時，經App管理單位研析揭露您的個人資料是為了辨識、聯絡或採取法律行動所必要者。
+有利於您的權益。
+本App委託廠商協助蒐集、處理或利用您的個人資料時，將對委外廠商或個人善盡監督管理之責。 
+六、隱私權保護政策之修正
+本App隱私權保護政策將因應需求隨時進行修正。
+
+【開發者聯絡方式】 chloehuhu0924@gmail.com</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hxC-dZ-5bR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hxC-dZ-5bR" firstAttribute="trailing" secondItem="ELd-hG-HdW" secondAttribute="trailing" constant="16" id="bWq-SQ-odf"/>
+                            <constraint firstItem="ELd-hG-HdW" firstAttribute="top" secondItem="hxC-dZ-5bR" secondAttribute="top" constant="16" id="jJm-LL-FDr"/>
+                            <constraint firstItem="hxC-dZ-5bR" firstAttribute="bottom" secondItem="ELd-hG-HdW" secondAttribute="bottom" constant="16" id="jhF-j4-WEC"/>
+                            <constraint firstItem="ELd-hG-HdW" firstAttribute="leading" secondItem="hxC-dZ-5bR" secondAttribute="leading" constant="16" id="ms9-C4-cew"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3sM-NS-N18"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMA-bb-8dI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="209" y="689"/>
+        </scene>
     </scenes>
     <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
     <resources>
         <image name="launching page3" width="642" height="1389"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

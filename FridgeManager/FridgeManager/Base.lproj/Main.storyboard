@@ -324,7 +324,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="香蕉" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-7B-f81" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test1" placeholder="香蕉" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-7B-f81" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -373,7 +373,7 @@
                                                                     <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="根" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-kd-Bfc" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="盒" placeholder="根" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-kd-Bfc" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="298" y="0.0" width="72" height="35"/>
                                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                     <color key="tintColor" name="B6"/>
@@ -427,7 +427,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-iv-LCg">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="水果類" placeholder="水果類" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="五穀根筋類" placeholder="水果類" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-o7-2nu" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="35"/>
                                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                     <constraints>
@@ -516,7 +516,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2020-12-25" placeholder="請選擇日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS4-6E-Cpl" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2020-12-28" placeholder="請選擇日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS4-6E-Cpl" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -632,7 +632,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="中華雞蛋豆腐" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob2-vt-1MG" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="測試1" placeholder="中華雞蛋豆腐" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob2-vt-1MG" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -671,7 +671,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-OX-N5m">
                                                             <rect key="frame" x="0.0" y="30" width="370" height="36"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-gB-N5I" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-gB-N5I" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="290" height="35"/>
                                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                     <constraints>
@@ -680,7 +680,7 @@
                                                                     <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="盒" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mP-Usb" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="根" placeholder="盒" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mP-Usb" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                                     <rect key="frame" x="298" y="0.0" width="72" height="35"/>
                                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                     <color key="tintColor" name="B6"/>
@@ -731,7 +731,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="中華食" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPw-9u-5Re" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="測試" placeholder="中華食" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPw-9u-5Re" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -767,7 +767,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="全聯褔利社" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kie-Fo-IXS" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="測試" placeholder="全聯褔利社" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kie-Fo-IXS" customClass="RoundedTextField" customModule="FridgeManager" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="27" width="370" height="35"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
@@ -1164,6 +1164,37 @@
             </objects>
             <point key="canvasLocation" x="2100" y="-2.0089285714285712"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="i1U-iM-CxH">
+            <objects>
+                <viewController id="hK4-6m-6aT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xOP-Kh-cPP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bJ8-hL-Amo">
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZWK-ep-Rdk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZWK-ep-Rdk" firstAttribute="bottom" secondItem="bJ8-hL-Amo" secondAttribute="bottom" id="PyJ-61-Eno"/>
+                            <constraint firstItem="ZWK-ep-Rdk" firstAttribute="trailing" secondItem="bJ8-hL-Amo" secondAttribute="trailing" constant="16" id="VJo-9t-PaJ"/>
+                            <constraint firstItem="bJ8-hL-Amo" firstAttribute="top" secondItem="ZWK-ep-Rdk" secondAttribute="top" id="exX-Aw-seA"/>
+                            <constraint firstItem="bJ8-hL-Amo" firstAttribute="leading" secondItem="ZWK-ep-Rdk" secondAttribute="leading" constant="16" id="seI-UG-c6w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hpP-Mm-zak"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lN8-sD-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3859" y="-671"/>
+        </scene>
         <!--New Friend View Controller-->
         <scene sceneID="uNV-gB-HeB">
             <objects>
@@ -1176,10 +1207,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-pF-23j">
-                                        <rect key="frame" x="16" y="490" width="382" height="206"/>
+                                        <rect key="frame" x="16" y="493" width="382" height="203"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇你想要執行的操作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-H4-Bf0">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="3tj-kD-CRU"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Fyh-oz-Y7J"/>
@@ -1189,7 +1220,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="71" width="382" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="68" width="382" height="42.5"/>
                                                 <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                 <state key="normal" title="加入冰箱" image="menu">
@@ -1214,7 +1245,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="163.5" width="382" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="160.5" width="382" height="42.5"/>
                                                 <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                 <state key="normal" title="創建冰箱" image="add (1)">
@@ -1241,7 +1272,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-q2-wMQ" customClass="AnimationView" customModule="Lottie">
-                                        <rect key="frame" x="16" y="145" width="382" height="300"/>
+                                        <rect key="frame" x="16" y="148" width="382" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="SSe-Ai-65l"/>
                                         </constraints>
@@ -1498,7 +1529,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 酒釀丸子" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAj-yr-5cQ" customClass="THLabel">
-                                                    <rect key="frame" x="142" y="401.5" width="130" height="32.5"/>
+                                                    <rect key="frame" x="142" y="406" width="130" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="7er-AB-a1K"/>
                                                     </constraints>
@@ -1531,10 +1562,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientData" id="s8F-db-cZM" customClass="IngredientsTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="478" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="478" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8F-db-cZM" id="jB2-8v-6Mn">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="813-ef-P0f">
@@ -1542,7 +1573,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </stackView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-bt-XMV">
-                                                    <rect key="frame" x="35" y="17.5" width="10" height="10"/>
+                                                    <rect key="frame" x="35" y="16" width="10" height="10"/>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="73F-zE-1kY"/>
@@ -1558,7 +1589,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="香菇素蠔油" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b90-P4-2q9">
-                                                    <rect key="frame" x="65" y="12" width="90" height="21"/>
+                                                    <rect key="frame" x="65" y="12" width="90" height="18"/>
                                                     <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1577,20 +1608,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentData" id="dnw-mJ-dtQ" customClass="ContentTableViewCell" customModule="FridgeManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="523" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="520" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dnw-mJ-dtQ" id="OS7-Dc-Oow">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起油鍋，先將豬肉片下鍋炒至半熟後起鍋備用。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuv-KP-elW">
-                                                    <rect key="frame" x="65" y="12" width="333" height="40"/>
+                                                    <rect key="frame" x="65" y="12" width="333" height="34"/>
                                                     <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-l7-oTb">
-                                                    <rect key="frame" x="35" y="27" width="10" height="10"/>
+                                                    <rect key="frame" x="35" y="24" width="10" height="10"/>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="IBW-bf-ZOT"/>
@@ -1887,7 +1918,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請掃碼" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-xt-hIN">
-                                        <rect key="frame" x="167" y="52.5" width="80" height="23.5"/>
+                                        <rect key="frame" x="167" y="54" width="80" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5El-bT-pwz"/>
                                         </constraints>
@@ -2153,6 +2184,9 @@
         <namedColor name="B6">
             <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

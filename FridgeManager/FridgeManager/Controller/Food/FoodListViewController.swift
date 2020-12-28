@@ -71,7 +71,7 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         navigationBarSetup()
         tabBarSetup()
-        dbListen()
+        
        
         switch goInfo {
         
@@ -89,7 +89,8 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         showCategory = .all
         btnPressedAnimation(type: .all)
-        dbGet()
+        dbListen()
+
     }
     
     func fetchData() {
@@ -143,8 +144,8 @@ class FoodListViewController: UIViewController {
             editButton.image = #imageLiteral(resourceName: "folder.png")
             showType = .edit
             deleteRows()
+//            tableView.reloadData()
             tableView.isEditing = !tableView.isEditing
-            tableView.reloadData()
         }
         
     }
@@ -250,10 +251,9 @@ class FoodListViewController: UIViewController {
                     }
                     
                 }
-                
+            
                 self.reloadDataForFoods(foods: self.oriFoods)
             }
-            
         }
     }
     
@@ -301,8 +301,11 @@ class FoodListViewController: UIViewController {
                 selectedItems.append(foodsDic[foodsKeyArray[indexPath.section]]![indexPath.row])
             }
             for selecteditem in selectedItems {
+                
                 ref.document(selecteditem.id).delete()
             }
+            
+            tableView.reloadData()
         }
     }
     

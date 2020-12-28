@@ -61,10 +61,10 @@ class PurchaseListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
         dblistenAwating()
         dblistenAccept()
+        tableView.reloadData()
     }
     
     func setupEmpty() {
@@ -241,7 +241,7 @@ class PurchaseListViewController: UIViewController {
                             
                             self.acceptLists.append(data!)
                             
-                            self.tableView.reloadData()
+//                            self.tableView.reloadData()
                             
                         } catch {
                             
@@ -272,7 +272,7 @@ class PurchaseListViewController: UIViewController {
     // uid -> displayName
     func getUserDisplayName(who: String, handler: @escaping (String) -> Void) {
        
-        Firestore.firestore().collection("users").whereField("uid", isEqualTo: who).limit(to: 1).getDocuments { (querySnapshot, _ ) in
+        Firestore.firestore().collection("users").whereField("uid", isEqualTo: who).getDocuments { (querySnapshot, _ ) in
             if let querySnapshot = querySnapshot {
                 
                 for document in querySnapshot.documents {
@@ -378,8 +378,5 @@ extension PurchaseListViewController: UITableViewDataSource {
             
             return cell
         }
-        
     }
-    
-    
 }

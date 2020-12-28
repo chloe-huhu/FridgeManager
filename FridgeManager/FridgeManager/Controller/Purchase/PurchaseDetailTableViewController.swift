@@ -142,7 +142,6 @@ class PurchaseDetailTableViewController: UITableViewController {
         // accept firebase 刪掉
         deleteAccept()
         
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

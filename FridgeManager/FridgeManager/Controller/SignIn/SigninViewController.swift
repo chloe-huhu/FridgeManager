@@ -20,7 +20,7 @@ class SigninViewController: UIViewController {
     }
     
     func setupAppleButton() {
-        let appleButton = ASAuthorizationAppleIDButton(type: .continue, style: .black)
+        let appleButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
         view.addSubview(appleButton)
         appleButton.cornerRadius = 8
         appleButton.addTarget(self, action: #selector(startSignInWithAppleFlow), for: .touchUpInside)
@@ -28,7 +28,7 @@ class SigninViewController: UIViewController {
         appleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         appleButton.widthAnchor.constraint(equalToConstant: 350).isActive = true
         appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
     }
     
     // Unhashed nonce.

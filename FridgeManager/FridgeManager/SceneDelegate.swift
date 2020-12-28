@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var rootVC: UIViewController
 
         if Auth.auth().currentUser != nil {
-//
+
 //            let firebaseAuth = Auth.auth()
 //            do {
 //              try firebaseAuth.signOut()

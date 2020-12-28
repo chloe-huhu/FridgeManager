@@ -15,6 +15,7 @@ import Kingfisher
 class InfoViewController: UIViewController {
     
     
+    
     var refUID: DocumentReference? {
         
         guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else {

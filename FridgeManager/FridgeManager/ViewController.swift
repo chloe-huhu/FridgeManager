@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class ViewController: UIViewController {
     
+    
     var db:Firestore!
     
     override func viewDidLoad() {

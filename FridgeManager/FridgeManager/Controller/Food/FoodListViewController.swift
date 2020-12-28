@@ -72,14 +72,9 @@ class FoodListViewController: UIViewController {
         navigationBarSetup()
         tabBarSetup()
         
-       
         switch goInfo {
-        
         case .newUser: self.tabBarController?.selectedIndex = 3
         case .user:  fetchData()
-            
-        default: break
-            
         }
         
     }
@@ -90,7 +85,6 @@ class FoodListViewController: UIViewController {
         showCategory = .all
         btnPressedAnimation(type: .all)
         dbListen()
-
     }
     
     func fetchData() {

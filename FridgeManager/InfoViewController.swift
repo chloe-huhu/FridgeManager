@@ -482,6 +482,34 @@ class InfoViewController: UIViewController {
         
     }
     
+    func deleteFridge(fridgeName: String) {
+        
+        Firestore.firestore().collection("fridges").whereField("fridgeName", isEqualTo: fridgeName).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documnets : \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    do {
+                        let data = try document.data()
+                    } catch {
+                        
+                    }
+                }
+            }
+            
+        }
+        
+//        document(fridgeID).collection("awaiting")
+//        ref.document(id).delete() { err in
+//            if let err = err {
+//                print("Error removing document :\(err)")
+//            } else {
+//                print("Document successfully removed!")
+//            }
+//        }
+        
+    }
+    
     func btnPressedAnimation(type: ShowFridge) {
         switch showFridge {
         case .myFridges:
@@ -502,23 +530,56 @@ class InfoViewController: UIViewController {
         switch showFridge {
         
         case .myFridges:
-            let controller = UIAlertController(title: "切換冰箱至", message: "\(fridgeName)冰箱", preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+            let alterController = UIAlertController(title: "請選擇", message: nil, preferredStyle: .actionSheet)
+            
+            let switchFridge = UIAlertAction(title: "切換冰箱", style: .default, handler: {_ in
                 
-                self.currentFridge.text = fridgeName
+                let controller = UIAlertController(title: "切換冰箱至", message: "\(fridgeName)冰箱", preferredStyle: .alert)
                 
-                self.switchFridge(fridgeName: fridgeName)
+                let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+                    
+                    self.currentFridge.text = fridgeName
+                    
+                    self.switchFridge(fridgeName: fridgeName)
+                })
+                
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                
+                controller.addAction(okAction)
+                
+                controller.addAction(cancelAction)
+                
+                self.present(controller, animated: true, completion: nil)
+            
+            })
+              
+            let deleteFridge = UIAlertAction(title: "退出冰箱", style: .default, handler: {_ in
+                let controller = UIAlertController(title: "退出冰箱", message: "\(fridgeName)冰箱", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+                    
+                    self.deleteFridge(fridgeName: fridgeName)
+                    
+                })
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                
+                controller.addAction(okAction)
+                
+                controller.addAction(cancelAction)
+                
+                self.present(controller, animated: true, completion: nil)
+                
             })
             
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "取消", style:.cancel , handler:nil)
             
-            controller.addAction(okAction)
+            alterController.addAction(switchFridge)
+            alterController.addAction(deleteFridge)
+            alterController.addAction(cancelAction)
             
-            controller.addAction(cancelAction)
-            
-            present(controller, animated: true, completion: nil)
-            
+            present(alterController, animated: true, completion: nil)
+   
         case.myInvites:
             
             let controller = UIAlertController(title: "接受邀請", message: "加入\(fridgeName)冰箱", preferredStyle: .alert)

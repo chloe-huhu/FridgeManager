@@ -77,8 +77,8 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ELd-hG-HdW">
                                 <rect key="frame" x="16" y="16" width="382" height="776"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">App隱私權政策聲明
-非常歡迎您下載本App，為了讓您能夠安心使用本App的各項服務與資訊，特此向您說明本App的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
+                                <mutableString key="text">App隱私權政策聲明 
+非常歡迎您下載Open Fridge，為了讓您能夠安心使用本App的各項服務與資訊，特此向您說明本App的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
 
 一、隱私權保護政策的適用範圍
 隱私權保護政策內容，包括本App如何處理在您使用App服務時收集到的個人識別資料。隱私權保護政策不適用於本App以外的相關連結外部網頁，也不適用於非本App所委託或參與管理的人員。
@@ -106,7 +106,7 @@
 六、隱私權保護政策之修正
 本App隱私權保護政策將因應需求隨時進行修正。
 
-【開發者聯絡方式】 chloehuhu0924@gmail.com</string>
+【開發者聯絡方式】 chloehuhu0924@gmail.com</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

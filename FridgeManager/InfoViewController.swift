@@ -559,7 +559,7 @@ class InfoViewController: UIViewController {
             if fridgesArray.count == 1 {
                 let deleteFridge = UIAlertAction(title: "退出冰箱", style: .default, handler: {_ in
                     
-                    let controller = UIAlertController(title: "只剩一個冰箱，不能再退出摟！", message: nil, preferredStyle: .alert)
+                    let controller = UIAlertController(title: "只剩一個冰箱\n不能再退出摟！", message: nil, preferredStyle: .alert)
                     
                     let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
                     

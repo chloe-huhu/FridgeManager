@@ -482,7 +482,7 @@ class InfoViewController: UIViewController {
         
     }
     
-    func deleteFridge(fridgeName: String) {
+    func findFridgeID(fridgeName: String) {
         
         Firestore.firestore().collection("fridges").whereField("fridgeName", isEqualTo: fridgeName).getDocuments { (querySnapshot, error) in
             if let error = error {
@@ -490,23 +490,25 @@ class InfoViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     do {
-                        let data = try document.data()
-                    } catch {
+                        let data = try document.data(as: Fridge.self)
                         
+                        let fridgeID = data?.fridgeID
+                        
+                        deleteMyFridge(fridgeID: fridgeID!)
+                        
+                    } catch {
+                        print("error to decode", error)
                     }
                 }
             }
             
         }
         
-//        document(fridgeID).collection("awaiting")
-//        ref.document(id).delete() { err in
-//            if let err = err {
-//                print("Error removing document :\(err)")
-//            } else {
-//                print("Document successfully removed!")
-//            }
-//        }
+        func deleteMyFridge(fridgeID:String) {
+            let uid = Auth.auth().currentUser!.uid
+            Firestore.firestore().collection("users").document(uid).updateData(["myFridges": FieldValue.arrayRemove([fridgeID])])
+        }
+
         
     }
     
@@ -554,28 +556,47 @@ class InfoViewController: UIViewController {
             
             })
               
-            let deleteFridge = UIAlertAction(title: "退出冰箱", style: .default, handler: {_ in
-                let controller = UIAlertController(title: "退出冰箱", message: "\(fridgeName)冰箱", preferredStyle: .alert)
-                
-                let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+            if fridgesArray.count == 1 {
+                let deleteFridge = UIAlertAction(title: "退出冰箱", style: .default, handler: {_ in
                     
-                    self.deleteFridge(fridgeName: fridgeName)
+                    let controller = UIAlertController(title: "只剩一個冰箱，不能再退出摟！", message: nil, preferredStyle: .alert)
+                    
+                    let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                    
+                    controller.addAction(cancelAction)
+                    
+                    self.present(controller, animated: true, completion: nil)
                     
                 })
-                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                alterController.addAction(deleteFridge)
                 
-                controller.addAction(okAction)
+            } else {
+                let deleteFridge = UIAlertAction(title: "退出冰箱", style: .default, handler: {_ in
+                    
+                    let controller = UIAlertController(title: "退出冰箱", message: "\(fridgeName)冰箱", preferredStyle: .alert)
+                    
+                    let okAction = UIAlertAction(title: "確定", style: .default, handler: { _ in
+                        
+                        self.findFridgeID(fridgeName: fridgeName)
+                        
+                    })
+                    let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                    
+                    controller.addAction(okAction)
+                    
+                    controller.addAction(cancelAction)
+                    
+                    self.present(controller, animated: true, completion: nil)
+                    
+                })
+                alterController.addAction(deleteFridge)
                 
-                controller.addAction(cancelAction)
-                
-                self.present(controller, animated: true, completion: nil)
-                
-            })
+            }
             
-            let cancelAction = UIAlertAction(title: "取消", style:.cancel , handler:nil)
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler:nil)
             
             alterController.addAction(switchFridge)
-            alterController.addAction(deleteFridge)
+           
             alterController.addAction(cancelAction)
             
             present(alterController, animated: true, completion: nil)
@@ -654,8 +675,8 @@ extension InfoViewController: UITableViewDelegate {
         
         case .myFridges:
             let selectedFridge = fridgesArray[indexPath.row]
-            fridgePopUp(fridgeName: selectedFridge)
-            
+                fridgePopUp(fridgeName: selectedFridge)
+
         case.myInvites:
             let selectedInvite = invitesArray[indexPath.row]
             fridgePopUp(fridgeName: selectedInvite)

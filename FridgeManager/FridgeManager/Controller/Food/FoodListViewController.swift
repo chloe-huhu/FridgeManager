@@ -34,7 +34,7 @@ class FoodListViewController: UIViewController {
     
     var ref: CollectionReference {
         
-        return Firestore.firestore().collection("fridges").document("1fK0iw24FWWiGf8f3r0G").collection("foods")
+        return Firestore.firestore().collection("fridges").document(fridgeID).collection("foods")
     }
     
     var sectionImage: [String: String] = ["肉類": "turkey", "豆類": "beans", "雞蛋類": "eggs", "青菜類": "cabbage", "醃製類": "bacon", "水果類": "blueberries", "魚類": "fish", "海鮮類": "shrimp", "五穀根筋類": "grain", "飲料類": "coffee-3", "調味料類": "flour-1", "其他": "groceries"]
@@ -89,10 +89,10 @@ class FoodListViewController: UIViewController {
     
     func fetchData() {
         
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
         // 去Firebase找符合的uid
-        Firestore.firestore().collection("users").whereField("uid", isEqualTo: "UUNNN5YELPXtuppYQfluRMKm9Qd2").getDocuments { (querySnapShot, error) in
+        Firestore.firestore().collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapShot, error) in
             if let error = error {
                 print("Error getting documnets : \(error)")
             } else {
@@ -105,7 +105,7 @@ class FoodListViewController: UIViewController {
                         
                         UserDefaults.standard.set(data?.myFridges[0], forKey: .fridgeID)
                         
-                        UserDefaults.standard.setValue("UUNNN5YELPXtuppYQfluRMKm9Qd2", forKey: "userUid")
+                        UserDefaults.standard.setValue(uid, forKey: "userUid")
                         
                     } catch {
                         print("error to decode", error)

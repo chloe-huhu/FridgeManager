@@ -22,21 +22,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 判斷使用者存不存在，存在直接進入HomeVC，不存在就去SignIn
         var rootVC: UIViewController
 
-        if Auth.auth().currentUser != nil {
+//        if Auth.auth().currentUser != nil {
 
-            let firebaseAuth = Auth.auth()
-            do {
-              try firebaseAuth.signOut()
-            } catch let signOutError as NSError {
-              print("Error signing out: %@", signOutError)
-            }
+//            let firebaseAuth = Auth.auth()
+//            do {
+//              try firebaseAuth.signOut()
+//            } catch let signOutError as NSError {
+//              print("Error signing out: %@", signOutError)
+//            }
 
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
         
-        } else {
-            
-            rootVC = UIStoryboard(name: "Signin", bundle: nil).instantiateViewController(withIdentifier: "SigninViewController")
-        }
+//        } else {
+//
+//            rootVC = UIStoryboard(name: "Signin", bundle: nil).instantiateViewController(withIdentifier: "SigninViewController")
+//        }
         self.window?.rootViewController = rootVC
     }
 

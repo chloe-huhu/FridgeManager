@@ -403,6 +403,7 @@
 				AED556D6256E48190068A855 /* Resources */,
 				AED5571C256E496D0068A855 /* Swift Lint */,
 				470CEA48BD0A4E5F90EF9F6C /* [CP] Embed Pods Frameworks */,
+				AE05AD46259C2A1200E7AB6F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -588,6 +589,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AE05AD46259C2A1200E7AB6F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		AED5571C256E496D0068A855 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -880,6 +900,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FridgeManager/FridgeManagerDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QR3ZAKPG34;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

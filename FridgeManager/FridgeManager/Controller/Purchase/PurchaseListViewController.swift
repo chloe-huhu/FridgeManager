@@ -54,8 +54,6 @@ class PurchaseListViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-//        dblistenAwating()
-//        dblistenAccept()
         emptyLabel.isHidden = true
         animationView.isHidden = true
     }
@@ -119,7 +117,9 @@ class PurchaseListViewController: UIViewController {
     @IBOutlet weak var barBtnItem: UIBarButtonItem!
     
     @IBAction func editBtnTapped(_ sender: UIBarItem) {
+
         selectedData()
+        
     }
     
     func selectedData() {

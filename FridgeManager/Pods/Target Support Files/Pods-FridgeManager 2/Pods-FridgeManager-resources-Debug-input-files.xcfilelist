@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-FridgeManager/Pods-FridgeManager-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseOAuthUI.bundle

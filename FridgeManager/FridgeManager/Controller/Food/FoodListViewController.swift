@@ -84,7 +84,8 @@ class FoodListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         showCategory = .all
         btnPressedAnimation(type: .all)
-        dbListen()
+        
+        if fridgeID != "" { dbListen() }
     }
     
     func fetchData() {
@@ -106,6 +107,8 @@ class FoodListViewController: UIViewController {
                         UserDefaults.standard.set(data?.myFridges[0], forKey: .fridgeID)
                         
                         UserDefaults.standard.setValue(uid, forKey: "userUid")
+                        
+                        self.dbListen()
                         
                     } catch {
                         print("error to decode", error)

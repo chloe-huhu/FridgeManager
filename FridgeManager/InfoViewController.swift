@@ -469,7 +469,7 @@ class InfoViewController: UIViewController {
                         
                         self.currentFridgeID = data?.fridgeID
                         
-                        UserDefaults.standard.setValue(data?.fridgeID, forKey: "FridgeID")
+                        UserDefaults.standard.set(data?.fridgeID, forKey: .fridgeID)
                         
                     } catch {
                         

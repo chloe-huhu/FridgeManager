@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9CDCC779CADF62A1818499D9 /* Pods_FridgeManager_FridgeManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F313871C88389A371CCC6 /* Pods_FridgeManager_FridgeManagerUITests.framework */; };
+		AE05AD3C259C225900E7AB6F /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05AD3B259C225900E7AB6F /* UserDefaults.swift */; };
 		AE0CA766258667890030A971 /* UIImage+ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */; };
 		AE1F8A73258BBA7100DA0B4E /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */; };
 		AE23D4702591EF4400F2A36E /* UIStoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */; };
@@ -27,7 +28,6 @@
 		AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71695D2574D47C00659F2C /* UILabelExtension.swift */; };
 		AE79070C2591902F00779B9E /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79070B2591902F00779B9E /* NewFriendViewController.swift */; };
 		AE7D32412572395B00D97E23 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D32402572395B00D97E23 /* SectionView.swift */; };
-		AE7E1078259089DC00E6E224 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */; };
 		AE7F12C32577E08F003A2318 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */; };
 		AE8139CA2578D9CD00070681 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8139C92578D9CD00070681 /* FirebaseManager.swift */; };
 		AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */; };
@@ -84,6 +84,7 @@
 /* Begin PBXFileReference section */
 		97CD39AD8EAF13870C26ABDD /* Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A76F666C7A6E0046B73F9E17 /* Pods-FridgeManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-FridgeManagerTests/Pods-FridgeManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE05AD3B259C225900E7AB6F /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		AE0CA765258667890030A971 /* UIImage+ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleExtension.swift"; sourceTree = "<group>"; };
 		AE1F8A72258BBA7100DA0B4E /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIStoryBoardExtension.swift; path = FridgeManager/UIStoryBoardExtension.swift; sourceTree = SOURCE_ROOT; };
@@ -103,7 +104,6 @@
 		AE71695D2574D47C00659F2C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		AE79070B2591902F00779B9E /* NewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewFriendViewController.swift; path = FridgeManager/Controller/SignIn/NewFriendViewController.swift; sourceTree = SOURCE_ROOT; };
 		AE7D32402572395B00D97E23 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
-		AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultExtension.swift; path = Pods/UserDefaultExtension.swift; sourceTree = SOURCE_ROOT; };
 		AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		AE8139C92578D9CD00070681 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 				AE5F8818256FB13200A97CD0 /* AppTabBar.swift */,
 				AE829A8F256FFB5B00A04400 /* UIColorExtension.swift */,
 				AE41B04425716C59006C6EFD /* EnumExtension.swift */,
-				AE7E1077259089DC00E6E224 /* UserDefaultExtension.swift */,
+				AE05AD3B259C225900E7AB6F /* UserDefaults.swift */,
 				AE23D46F2591EF4400F2A36E /* UIStoryBoardExtension.swift */,
 			);
 			path = Extension;
@@ -403,7 +403,6 @@
 				AED556D6256E48190068A855 /* Resources */,
 				AED5571C256E496D0068A855 /* Swift Lint */,
 				470CEA48BD0A4E5F90EF9F6C /* [CP] Embed Pods Frameworks */,
-				6F0621D4EE7036F66ADDB9EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -442,7 +441,6 @@
 				AED556F6256E481B0068A855 /* Frameworks */,
 				AED556F7256E481B0068A855 /* Resources */,
 				6E24A4A88E6D56200AB4576B /* [CP] Embed Pods Frameworks */,
-				DAC9531DC6CE84CA57B33674 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -591,23 +589,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F0621D4EE7036F66ADDB9EB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FridgeManager/Pods-FridgeManager-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FridgeManager/Pods-FridgeManager-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FridgeManager/Pods-FridgeManager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AED5571C256E496D0068A855 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,23 +627,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DAC9531DC6CE84CA57B33674 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FridgeManager-FridgeManagerUITests/Pods-FridgeManager-FridgeManagerUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE1E77ABDDE749276766408A /* [CP] Check Pods Manifest.lock */ = {
@@ -715,6 +679,7 @@
 				AE682CCE2575F6450064D642 /* AddFoodTableViewController.swift in Sources */,
 				AE5F8819256FB13200A97CD0 /* AppTabBar.swift in Sources */,
 				AE829A90256FFB5B00A04400 /* UIColorExtension.swift in Sources */,
+				AE05AD3C259C225900E7AB6F /* UserDefaults.swift in Sources */,
 				AE7169442574995B00659F2C /* PurchaseSectionView.swift in Sources */,
 				AE6255FA257BE4CE0022CCB3 /* FancyButton.swift in Sources */,
 				AE71695E2574D47C00659F2C /* UILabelExtension.swift in Sources */,
@@ -729,7 +694,6 @@
 				AEE29B4125911914005A6350 /* RecipeDetailViewController.swift in Sources */,
 				AE79070C2591902F00779B9E /* NewFriendViewController.swift in Sources */,
 				AE9EEB5B2593174200E26D83 /* IngredientsTableViewCell.swift in Sources */,
-				AE7E1078259089DC00E6E224 /* UserDefaultExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

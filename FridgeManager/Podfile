@@ -16,13 +16,12 @@ target 'FridgeManager' do
     pod 'FirebaseFirestoreSwift'
     pod 'RAMAnimatedTabBarController'
     pod 'IQKeyboardManagerSwift'
-    pod 'FirebaseUI/OAuth'
-    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
     pod 'Firebase/Storage'
     pod 'Kingfisher'
     pod 'THLabel', '~> 1.4.0'
     pod 'lottie-ios'
-
+    pod 'Firebase/Crashlytics'
 
   target 'FridgeManagerTests' do
     inherit! :search_paths

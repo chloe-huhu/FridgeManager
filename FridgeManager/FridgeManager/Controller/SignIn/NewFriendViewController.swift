@@ -155,7 +155,7 @@ class NewFriendViewController: UIViewController {
         ])
         
         // 將新增的冰箱ID存起來
-        UserDefaults.standard.setValue(categoryRef.documentID, forKey: "FridgeID")
+        UserDefaults.standard.set(categoryRef.documentID, forKey: .fridgeID)
         
         // 將新建的冰箱ID加到myFridges
         let userDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)

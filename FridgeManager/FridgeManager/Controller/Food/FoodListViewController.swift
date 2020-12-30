@@ -24,7 +24,7 @@ class FoodListViewController: UIViewController {
     
     var fridgeID: String {
         
-        guard let fridgeID = UserDefaults.standard.string(forKey: "FridgeID") else {
+        guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else {
             
             return ""
         }
@@ -103,7 +103,7 @@ class FoodListViewController: UIViewController {
                         
                         let data = try document.data(as: User.self)
                         
-                        UserDefaults.standard.setValue(data?.myFridges[0], forKey: "FridgeID")
+                        UserDefaults.standard.set(data?.myFridges[0], forKey: .fridgeID)
                         
                         UserDefaults.standard.setValue(uid, forKey: "userUid")
                         

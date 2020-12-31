@@ -14,7 +14,7 @@ class PurchaseListViewController: UIViewController {
     
     var fridgeID: String {
        
-        guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else  {
+        guard let fridgeID = UserDefaults.standard.string(forKey: .fridgeID) else {
            
             return ""
         }
@@ -54,34 +54,16 @@ class PurchaseListViewController: UIViewController {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-        emptyLabel.isHidden = true
-        animationView.isHidden = true
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         dblistenAwating()
         dblistenAccept()
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
-    func setupEmpty() {
-        if awaitingList.isEmpty && acceptLists.isEmpty {
-            emptyLabel.isHidden = false
-            animationView.isHidden = false
-            animationView.contentMode = .scaleAspectFit
-            animationView.loopMode = .autoReverse
-            animationView.animationSpeed = 0.5
-            animationView.play()
-        } else {
-            emptyLabel.isHidden = true
-            animationView.isHidden = true
-        }
-    }
-    
-    @IBOutlet weak var animationView: AnimationView!
-    
-    @IBOutlet weak var emptyLabel: UILabel!
     
     // 頁面設定
     func navigationTitleSetup() {

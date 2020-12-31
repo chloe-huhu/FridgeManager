@@ -154,7 +154,7 @@ class PurchaseDetailTableViewController: UITableViewController {
         }
     }
     
-    //awaiting頁面->接收任務
+    // awaiting頁面->接收任務
     func setupAwaitingBarBtnItem () {
         let img = UIImage(named: "check-mark")
         let rightBtn = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(iWillBuyBtnTapped))

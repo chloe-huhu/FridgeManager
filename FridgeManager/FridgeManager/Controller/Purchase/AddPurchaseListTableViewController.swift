@@ -109,9 +109,6 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
         }
         
         addListToDB()
-        
-        // 翻回去前一頁
-        navigationController?.popViewController(animated: true)
        
         
     }
@@ -178,8 +175,17 @@ class AddPurchaseListTableViewController: UITableViewController, UITextViewDeleg
             "note": note
         ]
         
-        
-        document.setData(data)
+        document.setData(data) { error in
+            if let error = error {
+                
+                print("error: \(error)")
+            } else {
+                
+                // 翻回去前一頁
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+        }
         
     }
     // MARK: - Table view data source

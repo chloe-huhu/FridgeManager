@@ -49,18 +49,21 @@ class PurchaseListViewController: UIViewController {
     
     var showType: ShowType = .edit
     
+    var listenFinishedCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
         tabBarSetup()
-
+        
+        listenFinishedCount = 0
+        dblistenAwating()
+        dblistenAccept()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        dblistenAwating()
-        dblistenAccept()
+        print("viewWillAppear")
 //        tableView.reloadData()
     }
     
@@ -152,7 +155,7 @@ class PurchaseListViewController: UIViewController {
    
   // firebase 監聽
     func dblistenAwating() {
-        
+        print("dblistenAwating")
         FirebaseManager.shared.listen(ref: awaitingRef) {
             
             self.dbGetAwaiting()
@@ -160,7 +163,7 @@ class PurchaseListViewController: UIViewController {
     }
     
     func dblistenAccept() {
-        
+        print("dblistenAccept")
         FirebaseManager.shared.listen(ref: acceptRef) {
             
             self.dbGetAccept()
@@ -169,7 +172,7 @@ class PurchaseListViewController: UIViewController {
     
     // firebase 取得資料awaitingList＆acceptLists
     func dbGetAwaiting() {
-
+        print("dbGetAwaiting")
         awaitingRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -191,7 +194,11 @@ class PurchaseListViewController: UIViewController {
                     
                 }
                 
-                self.tableView.reloadData()
+                self.listenFinishedCount += 1
+                
+                if self.listenFinishedCount == 2 {
+                    self.onListenFinished()
+                }
             }
             
             
@@ -202,7 +209,7 @@ class PurchaseListViewController: UIViewController {
     var isLoading = false
     
     func dbGetAccept() {
-
+        print("dbGetAccept")
         if !isLoading {
 
             isLoading = true
@@ -232,23 +239,47 @@ class PurchaseListViewController: UIViewController {
                         
                     }
                     
-                    for acceptList in self.acceptLists {
-                        
-                        self.getUserDisplayName(who: acceptList.whoBuy) { whoBuy in
-
-                            self.whoBuyArray.append(whoBuy)
-
-                            self.tableView.reloadData()
-                        }
-                    }
+                    self.listenFinishedCount += 1
                     
-                    self.tableView.reloadData()
+                    if self.listenFinishedCount == 2 {
+                        self.onListenFinished()
+                    }
                 }
                 
             }
         }
         
         
+    }
+    
+    func onListenFinished() {
+        print("onListenFinished")
+        listenFinishedCount = 0
+        self.whoBuyArray.removeAll()
+        
+        if self.acceptLists.count == 0 {
+            self.tableView.reloadData()
+            return
+        }
+        
+        var count = 0
+        
+        for acceptList in self.acceptLists {
+            
+            self.getUserDisplayName(who: acceptList.whoBuy) { whoBuy in
+
+                self.whoBuyArray.append(whoBuy)
+
+                count += 1
+                print("count: \(count) of \(self.acceptLists.count)")
+                print("")
+                
+                if count == self.acceptLists.count {
+                    
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     // uid -> displayName

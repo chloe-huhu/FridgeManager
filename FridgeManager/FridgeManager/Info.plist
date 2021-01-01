@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>我要你的相機</string>
+	<string>使用你的相機</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.</string>
 	<key>UIAppFonts</key>

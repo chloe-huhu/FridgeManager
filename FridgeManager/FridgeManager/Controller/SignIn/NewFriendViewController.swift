@@ -146,12 +146,28 @@ class NewFriendViewController: UIViewController {
     func addNewFridgeSetup (name: String) {
         
         let categoryRef = Firestore.firestore().collection("fridges").document()
+        let purchaseRef = Firestore.firestore().collection("fridges").document(categoryRef.documentID).collection("awaiting").document()
+        
         
         categoryRef.setData([
             "category": ["肉類", "豆類", "雞蛋類", "青菜類", "醃製類", "水果類", "魚類", "海鮮類", "五穀根筋類", "飲料類", "調味料類", "其他"],
             "fridgeID": categoryRef.documentID,
             "fridgeName": name,
             "users": [Auth.auth().currentUser?.email]
+        ])
+        
+        
+        
+        purchaseRef.setData([
+            "id": purchaseRef.documentID,
+            "photo": "",
+            "name": "按＋採購任務",
+            "amount": 1,
+            "unit": "項",
+            "brand": "輸入推薦品牌",
+            "place": "輸入推薦地點",
+            "whoBuy": "",
+            "note": "右上角按鈕切換任務狀態"
         ])
         
         // 將新增的冰箱ID存起來

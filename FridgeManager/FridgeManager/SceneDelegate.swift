@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             } catch let signOutError as NSError {
               print("Error signing out: %@", signOutError)
             }
-            
+
             
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
         

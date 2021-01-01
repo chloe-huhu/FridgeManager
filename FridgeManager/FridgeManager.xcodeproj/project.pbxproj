@@ -92,6 +92,7 @@
 		AE41B04425716C59006C6EFD /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		AE5F8818256FB13200A97CD0 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		AE5F883B256FE43C00A97CD0 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		AE62396E259F57CD00BD9223 /* FridgeManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FridgeManager.entitlements; sourceTree = "<group>"; };
 		AE6255F9257BE4CE0022CCB3 /* FancyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FancyButton.swift; path = FridgeManager/FancyButton.swift; sourceTree = SOURCE_ROOT; };
 		AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTableViewController.swift; sourceTree = "<group>"; };
 		AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = FridgeManager/QRCodeViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -354,6 +355,7 @@
 		AED556DA256E48190068A855 /* FridgeManager */ = {
 			isa = PBXGroup;
 			children = (
+				AE62396E259F57CD00BD9223 /* FridgeManager.entitlements */,
 				AEA06B44257E85770094F7F7 /* FridgeManagerDebug.entitlements */,
 				AED556DB256E48190068A855 /* AppDelegate.swift */,
 				AED556DD256E48190068A855 /* SceneDelegate.swift */,
@@ -900,7 +902,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FridgeManager/FridgeManagerDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QR3ZAKPG34;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
@@ -923,8 +925,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FridgeManager/FridgeManager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = QR3ZAKPG34;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

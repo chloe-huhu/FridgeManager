@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="jf-openhuninn-1.1.ttf">
+            <string>jf-openhuninn-1.1</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Signin View Controller-->
         <scene sceneID="1kw-ap-6Te">
@@ -20,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxk-iZ-Y29">
-                                <rect key="frame" x="167.5" y="797" width="79" height="25"/>
+                                <rect key="frame" x="167.5" y="737" width="79" height="25"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="隱私權政策聲明">
@@ -37,6 +42,15 @@
                                     <segue destination="4zk-zf-apY" kind="show" id="URL-n3-f89"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打開冰箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqL-uU-6eZ">
+                                <rect key="frame" x="125" y="244" width="164" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Mo7-Rt-qDV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UMg-yD-6eg"/>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,8 +59,10 @@
                             <constraint firstItem="Cmk-uG-Ol0" firstAttribute="leading" secondItem="UMg-yD-6eg" secondAttribute="leading" id="8Zc-QT-A3B"/>
                             <constraint firstItem="UMg-yD-6eg" firstAttribute="trailing" secondItem="Cmk-uG-Ol0" secondAttribute="trailing" id="HSL-oV-I5p"/>
                             <constraint firstItem="dxk-iZ-Y29" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="MhC-3S-YGg"/>
-                            <constraint firstItem="UMg-yD-6eg" firstAttribute="bottom" secondItem="dxk-iZ-Y29" secondAttribute="bottom" constant="40" id="c5w-T6-f2S"/>
+                            <constraint firstItem="KqL-uU-6eZ" firstAttribute="centerX" secondItem="kEk-4A-Xbo" secondAttribute="centerX" id="Yf3-mi-cxj"/>
+                            <constraint firstItem="UMg-yD-6eg" firstAttribute="bottom" secondItem="dxk-iZ-Y29" secondAttribute="bottom" constant="100" id="c5w-T6-f2S"/>
                             <constraint firstItem="Cmk-uG-Ol0" firstAttribute="top" secondItem="UMg-yD-6eg" secondAttribute="top" id="qIS-1f-Yg1"/>
+                            <constraint firstItem="KqL-uU-6eZ" firstAttribute="top" secondItem="UMg-yD-6eg" secondAttribute="top" constant="200" id="z19-Gj-lkQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z2T-SL-7tg"/>

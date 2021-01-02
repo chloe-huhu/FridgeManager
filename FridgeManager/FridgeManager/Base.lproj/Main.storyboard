@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H5k-kw-J00">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H5k-kw-J00">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1152,10 +1152,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-pF-23j">
-                                        <rect key="frame" x="16" y="493" width="382" height="203"/>
+                                        <rect key="frame" x="16" y="490" width="382" height="206"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇你想要執行的操作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-H4-Bf0">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-H4-Bf0">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="3tj-kD-CRU"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Fyh-oz-Y7J"/>
@@ -1165,10 +1165,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="68" width="382" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="71" width="382" height="42.5"/>
                                                 <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
-                                                <state key="normal" title="加入冰箱" image="menu">
+                                                <state key="normal" title="加入現有冰箱" image="menu">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -1190,10 +1190,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="160.5" width="382" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="163.5" width="382" height="42.5"/>
                                                 <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="jf-openhuninn-1.1" family="jf-openhuninn-1.1" pointSize="18"/>
-                                                <state key="normal" title="創建冰箱" image="add (1)">
+                                                <state key="normal" title="創建新冰箱" image="add (1)">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -1217,7 +1217,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-q2-wMQ" customClass="AnimationView" customModule="Lottie">
-                                        <rect key="frame" x="16" y="148" width="382" height="300"/>
+                                        <rect key="frame" x="16" y="145" width="382" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="SSe-Ai-65l"/>
                                         </constraints>
@@ -2100,10 +2100,10 @@
     </scenes>
     <designables>
         <designable name="AW8-3Z-NvN">
-            <size key="intrinsicContentSize" width="114.5" height="42.5"/>
+            <size key="intrinsicContentSize" width="150.5" height="42.5"/>
         </designable>
         <designable name="KCC-22-lQW">
-            <size key="intrinsicContentSize" width="114.5" height="42.5"/>
+            <size key="intrinsicContentSize" width="132.5" height="42.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

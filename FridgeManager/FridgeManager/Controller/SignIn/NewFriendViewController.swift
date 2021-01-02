@@ -28,7 +28,7 @@ class NewFriendViewController: UIViewController {
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        let alterController = UIAlertController(title: "請冰箱現有成員掃碼後\n等待跳轉到「冰箱列表」查看", message: nil, preferredStyle: .alert)
+        let alterController = UIAlertController(title: "讓冰箱現有成員掃碼\n跳轉後請到「冰箱列表」確認", message: nil, preferredStyle: .alert)
         
         let height = NSLayoutConstraint(item: alterController.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
         
@@ -118,20 +118,32 @@ class NewFriendViewController: UIViewController {
     
     @IBAction func addNewFridge(_ sender: FancyButton) {
         
-        let alterController = UIAlertController(title: "輸入冰箱名稱", message: nil, preferredStyle: .alert)
+        let alterController = UIAlertController(title: "輸入新冰箱名稱", message: "創建後可以邀請家人一起管理食材", preferredStyle: .alert)
         
         alterController.addTextField { (textField) in
-            textField.placeholder = ""
+            textField.placeholder = "可愛的家"
         }
+        
+    
         
         let okAction = UIAlertAction(title: "新增", style: .default) { (_) in
             
-            guard  let fridgeName = alterController.textFields?[0].text else { return }
-            
-            self.addNewFridgeSetup(name: fridgeName)
-            
-            self.performSegue(withIdentifier: "SegueHomeVC", sender: nil)
-            
+            if alterController.textFields?[0].text != "" {
+                guard  let fridgeName = alterController.textFields?[0].text  else { return }
+                
+                self.addNewFridgeSetup(name: fridgeName)
+                
+                self.performSegue(withIdentifier: "SegueHomeVC", sender: nil)
+           
+            } else {
+               
+                let alterController = UIAlertController(title: "Oops!!", message: "你的冰箱名稱是空的！", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "好", style: .default, handler: nil)
+                alterController.addAction(alertAction)
+                self.present(alterController, animated: true, completion: nil)
+                return
+            }
+           
         }
         alterController.addAction(okAction)
         
@@ -161,9 +173,9 @@ class NewFriendViewController: UIViewController {
         purchaseRef.setData([
             "id": purchaseRef.documentID,
             "photo": "",
-            "name": "按＋採購任務",
+            "name": "按＋新增採購任務",
             "amount": 1,
-            "unit": "項",
+            "unit": "筆",
             "brand": "輸入推薦品牌",
             "place": "輸入推薦地點",
             "whoBuy": "",

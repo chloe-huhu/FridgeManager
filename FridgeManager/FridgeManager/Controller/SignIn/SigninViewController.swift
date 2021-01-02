@@ -20,13 +20,13 @@ class SigninViewController: UIViewController {
         super.viewDidLoad()
         setupAppleButton()
     }
-    func log(_ message: String) {
-        NSLog("Wayne, \(message)")
-    }
+//    func log(_ message: String) {
+//        NSLog("Wayne, \(message)")
+//    }
     
     
     func setupAppleButton() {
-        log("setupAppleButton()")
+//        log("setupAppleButton()")
         let appleButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
         view.addSubview(appleButton)
         appleButton.cornerRadius = 8
@@ -35,7 +35,7 @@ class SigninViewController: UIViewController {
         appleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         appleButton.widthAnchor.constraint(equalToConstant: 350).isActive = true
         appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        appleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -180).isActive = true
     }
     
     // Unhashed nonce.
@@ -43,11 +43,11 @@ class SigninViewController: UIViewController {
     
     @available(iOS 13, *)
     @objc func startSignInWithAppleFlow() {
-        log("startSignInWithAppleFlow()")
+//        log("startSignInWithAppleFlow()")
         let nonce = randomNonceString()
-        log("nonce=\(nonce)")
+//        log("nonce=\(nonce)")
         currentNonce = nonce
-        log("currentNonce=\(currentNonce)")
+//        log("currentNonce=\(currentNonce)")
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -60,14 +60,14 @@ class SigninViewController: UIViewController {
     
     @available(iOS 13, *)
     private func sha256(_ input: String) -> String {
-        log("sha256()")
+//        log("sha256()")
         let inputData = Data(input.utf8)
         let hashedData = SHA256.hash(data: inputData)
         let hashString = hashedData.compactMap {
             return String(format: "%02x", $0)
         }.joined()
         
-        log("hashString=\(hashString)")
+//        log("hashString=\(hashString)")
         
         return hashString
         
@@ -87,7 +87,7 @@ class SigninViewController: UIViewController {
                 var random: UInt8 = 0
                 let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
                 if errorCode != errSecSuccess {
-//                    self.signInTestLabel.text = "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
+
                     fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
                 }
                 return random
@@ -104,7 +104,6 @@ class SigninViewController: UIViewController {
                 }
             }
         }
-//        self.signInTestLabel.text = result
         return result
     }
     
@@ -113,20 +112,20 @@ class SigninViewController: UIViewController {
 extension SigninViewController: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        log("authorizationController()")
+//        log("authorizationController()")
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            log("if let")
+//            log("if let")
             guard let nonce = currentNonce else {
-                log("Invalid state: A login callback was received, but no login request was sent.")
+//                log("Invalid state: A login callback was received, but no login request was sent.")
                 fatalError("Invalid state: A login callback was received, but no login request was sent.")
             }
             guard let appleIDToken = appleIDCredential.identityToken else {
-                log("Unable to fetch identity token")
+//                log("Unable to fetch identity token")
                 NSLog("Unable to fetch identity token")
                 return
             }
             guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                log("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+//                log("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 NSLog("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 return
             }
@@ -136,16 +135,15 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
             NSLog("credential")
             // 登入
             Auth.auth().signIn(with: credential) { (authResult, error) in
-                self.log("Auth.auth().signIn")
+//                self.log("Auth.auth().signIn")
                 if error != nil {
-//                    self.signInTestLabel.text = error?.localizedDescription as Any as? String
-                    self.log("error=\(error?.localizedDescription as Any as? String)")
+//                    self.log("error=\(error?.localizedDescription as Any as? String)")
                     NSLog(error?.localizedDescription as Any as? String ?? "錯誤")
                     return
                 } else {
-                    self.log("success")
+//                    self.log("success")
                     guard let user = authResult?.user else { return }
-//                    self.signInTestLabel.text = "新建使用者"
+
                     NSLog("新建使用者")
                     
                     UserDefaults.standard.setValue(user.uid, forKey: "userUid")
@@ -184,8 +182,8 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                 
             }
             NSLog("the user has sign up or is logged in")
-        }else {
-            log("if let else")
+        } else {
+//            log("if let else")
         }
     }
 }

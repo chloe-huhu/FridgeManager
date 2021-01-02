@@ -117,8 +117,8 @@
 		AE9EEB522593170500E26D83 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = FridgeManager/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AE9EEB5A2593174200E26D83 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		AE9EEB5F259324B200E26D83 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentTableViewCell.swift; path = FridgeManager/Controller/Recipe/ContentTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = SOURCE_ROOT; };
-		AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = FridgeManager/Controller/InfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoTableViewCell.swift; path = FridgeManager/View/InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AEA06B44257E85770094F7F7 /* FridgeManagerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FridgeManagerDebug.entitlements; sourceTree = "<group>"; };
 		AEA06B48257E86620094F7F7 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SigninViewController.swift; path = FridgeManager/Controller/SignIn/SigninViewController.swift; sourceTree = SOURCE_ROOT; };
 		AEC5A4ED2576A4E600C17248 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedTextField.swift; path = FridgeManager/Controller/RoundedTextField.swift; sourceTree = SOURCE_ROOT; };
@@ -236,11 +236,11 @@
 		AE5F8840256FE44100A97CD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 				AE68A14E25938EEB00B86711 /* SignIn */,
 				AE40AA3525820E9D00C013E9 /* Food */,
 				AE40AA3625820EAC00C013E9 /* Purchase */,
 				AE23D47D2591FA9C00F2A36E /* Recipe */,
-				AEA01E3C257CA8F2009AC995 /* InfoViewController.swift */,
 				AE68A17E2595DEBB00B86711 /* QRCodeViewController.swift */,
 			);
 			path = Controller;
@@ -249,6 +249,7 @@
 		AE5F8841256FE45900A97CD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 				AE9EEB372593168C00E26D83 /* Food */,
 				AE9EEB48259316B400E26D83 /* Recipe */,
 				AE9EEB41259316A100E26D83 /* Purchase */,
@@ -256,7 +257,6 @@
 				AE9DCAE72572401D00CD44F3 /* CellView.xib */,
 				AE716948257499C500659F2C /* PurchaseSectionView.xib */,
 				AE71695125749CF400659F2C /* PurchaseTableViewCell.xib */,
-				AEA01E44257CAA74009AC995 /* InfoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -902,7 +902,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FridgeManager/FridgeManagerDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QR3ZAKPG34;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
@@ -927,7 +927,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FridgeManager/FridgeManager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = QR3ZAKPG34;
 				INFOPLIST_FILE = FridgeManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

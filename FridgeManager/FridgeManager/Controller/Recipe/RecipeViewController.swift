@@ -11,8 +11,6 @@ import FirebaseFirestoreSwift
 
 class RecipeViewController: UIViewController {
     
-    let rowDataImage = ["018-meat-ball", "009-curry-1", "boiled"]
-
     let ref = Firestore.firestore().collection("recipe")
     
     var recipeList: [Recipe] = []
@@ -86,7 +84,6 @@ class RecipeViewController: UIViewController {
                 self.recipeList = []
 
                 for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
                     
                     do {
                         let data = try document.data(as: Recipe.self)
@@ -168,10 +165,8 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         
         if self.searchController.isActive {
             cell.setup(data: filteredArray[indexPath.row])
-//            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
           } else {
             cell.setup(data: recipeList[indexPath.row])
-//            cell.menuImageView.image = UIImage(named: self.rowDataImage[indexPath.row])
           }
        
         return cell

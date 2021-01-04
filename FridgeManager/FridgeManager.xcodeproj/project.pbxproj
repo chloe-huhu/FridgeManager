@@ -209,6 +209,7 @@
 			children = (
 				AEDA4211257546F900AF4CC1 /* RecipeViewController.swift */,
 				AEE29B4025911914005A6350 /* RecipeDetailViewController.swift */,
+				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -218,7 +219,6 @@
 			children = (
 				AED556DF256E48190068A855 /* FoodListViewController.swift */,
 				AE682CCD2575F6450064D642 /* AddFoodTableViewController.swift */,
-				AE7F12C22577E08F003A2318 /* SearchRecipeViewController.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";

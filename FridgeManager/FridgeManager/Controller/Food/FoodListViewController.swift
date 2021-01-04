@@ -202,10 +202,11 @@ class FoodListViewController: UIViewController {
         
         btnPressedAnimation(type: .expired)
         
-        let midnight = getMidnightTime()
+//        let midnight = getMidnightTime()
         
         let expiredFoods = oriFoods.filter {
-            $0.expiredDate.timeIntervalSince1970 < midnight
+//            $0.expiredDate.timeIntervalSince1970 < midnight
+            getExpiredFood(date: $0.expiredDate)
         }
         
         reloadDataForFoods(foods: expiredFoods)
@@ -289,6 +290,15 @@ class FoodListViewController: UIViewController {
         let today = Date()
         let midnight = calendar.startOfDay(for: today)
         return midnight.timeIntervalSince1970
+    }
+    
+    func getExpiredFood(date: Date) -> Bool {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        let today = Date()
+        let midnight = calendar.startOfDay(for: today).timeIntervalSince1970
+        
+        return date.timeIntervalSince1970 < midnight
     }
     
     func deleteRows() {

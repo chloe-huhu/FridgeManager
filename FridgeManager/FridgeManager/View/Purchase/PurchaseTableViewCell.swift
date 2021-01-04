@@ -37,6 +37,7 @@ class PurchaseTableViewCell: UITableViewCell {
             whoLabel.text = "待認領"
         } else {
             
+            
             Firestore.firestore().collection("users").document(data.whoBuy).getDocument { (documentSnapshot, error) in
                 
                 let userData = try? documentSnapshot?.data(as: User.self)

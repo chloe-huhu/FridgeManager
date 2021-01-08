@@ -1,7 +1,13 @@
 excluded:
  - Pods
+ - AppDelegate.swift
+ - SceneDelegate.swift
+ 
 disabled_rules:
  - trailing_whitespace
+ - vertical_whitespace
+ - line_length
+ - unused_optional_binding
 identifier_name:
  excluded: # excluded via string array
   - id

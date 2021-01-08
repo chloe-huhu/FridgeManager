@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="uNV-gB-HeB">
+            <objects>
+                <viewController id="50d-X4-KvH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S4K-d1-MiJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MrP-u2-7Aa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-3Z-NvN" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="400" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="oxR-sU-Psi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                        <state key="normal" title="加入冰箱" image="menu">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="joinFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="rA7-eB-pak"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-CI-878">
+                                        <rect key="frame" x="57" y="200" width="300" height="64.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="bQV-EO-fQu"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">哈摟！新朋友
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="23" name="PingFangTC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingHead" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="歡迎來到Open Fridge">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="23" name="PingFangTC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-22-lQW" customClass="FancyButton" customModule="FridgeManager" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="550" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.94651907680000003" green="0.62343806030000004" blue="0.317563504" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="kEH-GB-C0s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
+                                        <state key="normal" title="創建冰箱" image="add (1)">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addNewFridge:" destination="50d-X4-KvH" eventType="touchUpInside" id="kas-Lz-FDg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="80" id="0eb-ME-lxY"/>
+                                    <constraint firstAttribute="trailing" secondItem="AW8-3Z-NvN" secondAttribute="trailing" constant="80" id="5QD-Kh-Gz3"/>
+                                    <constraint firstItem="fqq-CI-878" firstAttribute="top" secondItem="MrP-u2-7Aa" secondAttribute="top" constant="200" id="7cD-SW-hsg"/>
+                                    <constraint firstItem="AW8-3Z-NvN" firstAttribute="top" secondItem="MrP-u2-7Aa" secondAttribute="top" constant="400" id="Ebg-ew-EQy"/>
+                                    <constraint firstItem="KCC-22-lQW" firstAttribute="leading" secondItem="MrP-u2-7Aa" secondAttribute="leading" constant="80" id="Kpm-WS-tM3"/>
+                                    <constraint firstItem="fqq-CI-878" firstAttribute="centerX" secondItem="MrP-u2-7Aa" secondAttribute="centerX" id="aq9-IW-NvS"/>
+                                    <constraint firstItem="KCC-22-lQW" firstAttribute="top" secondItem="AW8-3Z-NvN" secondAttribute="bottom" constant="100" id="unQ-l9-vgO"/>
+                                    <constraint firstAttribute="trailing" secondItem="KCC-22-lQW" secondAttribute="trailing" constant="80" id="vgS-fH-GSK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XHd-eF-AxT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MrP-u2-7Aa" firstAttribute="leading" secondItem="S4K-d1-MiJ" secondAttribute="leading" id="2yo-aU-VPn"/>
+                            <constraint firstItem="XHd-eF-AxT" firstAttribute="bottom" secondItem="MrP-u2-7Aa" secondAttribute="bottom" id="G7y-Ni-1tL"/>
+                            <constraint firstItem="MrP-u2-7Aa" firstAttribute="top" secondItem="S4K-d1-MiJ" secondAttribute="top" id="i8Z-dF-daz"/>
+                            <constraint firstAttribute="trailing" secondItem="MrP-u2-7Aa" secondAttribute="trailing" id="qe0-Qh-z2f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KHZ-dw-h2r"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T5j-LP-1O0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133" y="11"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="AW8-3Z-NvN">
+            <size key="intrinsicContentSize" width="114.5" height="42.5"/>
+        </designable>
+        <designable name="KCC-22-lQW">
+            <size key="intrinsicContentSize" width="114.5" height="42.5"/>
+        </designable>
+    </designables>
+    <color key="tintColor" red="0.2470588235" green="0.23921568630000001" blue="0.33725490200000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="add (1)" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="menu" width="42.666667938232422" height="42.666667938232422"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

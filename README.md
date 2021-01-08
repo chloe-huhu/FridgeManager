@@ -1,5 +1,6 @@
 
 # 打開冰箱		<a href="https://apps.apple.com/tw/app/打開冰箱/id1546808246"><img src="https://github.com/Volorf/Badges/blob/master/App%20Store/App%20Store%20Badge.png" alt="drawing" width="150" align="center" />
+</a>
 
 
 **時常工作忙碌，輕鬆管理冰箱食材，使用分類查看食物有效期限<BR>建立採購任務與家人共同為家裡採買物品<BR>輸入食材名稱推薦食譜，物盡其用，減少食材過期浪費，讓生活更便利**
@@ -51,4 +52,4 @@
 * Xcode 12.3
 
 ## Contacts
-* Chloe Hu You [chloehuhu0924@gmail.com]
+* Chloe Hu chloehuhu0924@gmail.com

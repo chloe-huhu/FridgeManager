@@ -13,29 +13,36 @@
 
 ### 冰箱食材管理
 * 食材保存期限狀態
-* 食材按照分類排序
- 
+* 食材按照分類排序<BR><BR>
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/SoonWiilExpiredPage.png" width="200">
 
 ### 冰箱食材查看、新增、修改、新增自訂義分類
 * 自動帶入`購買當天日期` 、`設定過期日期` 
 * 拍照與選取食材照片，方便找尋冰箱食材<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/AddFood.png" width="200">
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/AddFood.png" width="200">
 
 
 ### 採購任務管理
 * 多人採購任務
 * 區分 `未採購` 與 `採購中` 狀態 
-* 顯示 `採購品名` 與 `數量` ，方便採購人採購時查看
-
+* 顯示 `採購品名` 與 `數量` ，方便採購人採購時查看<BR><BR>
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/PurchaseListPage.png" width="200">
 
 ### 採購任務查看、新增、修改狀態
 * 拍照與選取食材照片，方便採購人採購時查看
 * 採買完成，一鍵加入 `食材管理列表`
-* 根據採購人意願接收任務
+* 根據採購人意願接收任務<BR><BR>
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/AddPurchaseList.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/PurchaseDetail.png" width="200">
 
 ### 食譜推薦
 * 食譜庫
 * 輸入`食材`推薦食譜
+* 根據採購人意願接收任務<BR><BR>
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/Recipe.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/RecipeDetail.png" width="200">
+
+
+### 掃碼功能，快速新增家人、朋友至冰箱管理
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/SwitchFridge.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/QRCode" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/Seeting" width="200">
 
 ## Libraries
 * Firebase/Firestore

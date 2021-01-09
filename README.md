@@ -1,5 +1,7 @@
 
-# 打開冰箱		<a href="https://apps.apple.com/tw/app/打開冰箱/id1546808246"><img src="https://github.com/Volorf/Badges/blob/master/App%20Store/App%20Store%20Badge.png" alt="drawing" width="150" align="center" />
+# 打開冰箱		<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/OpenFridgePNG/OPEN-FRIDGE1229.png" height="50">
+
+<a href="https://apps.apple.com/tw/app/打開冰箱/id1546808246"><img src="https://github.com/Volorf/Badges/blob/master/App%20Store/App%20Store%20Badge.png" alt="drawing" width="150" align="center" />
 </a>
 
 

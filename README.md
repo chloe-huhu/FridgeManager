@@ -14,7 +14,7 @@
 ### 冰箱食材管理
 * 食材保存期限狀態
 * 食材按照分類排序<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/SoonWiilExpiredPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/switchDate.gif" width="200">
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/SoonWiilExpiredPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/test.gif" width="200">
 
 
 ### 冰箱食材查看、新增、修改、新增自定義分類

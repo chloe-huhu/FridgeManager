@@ -28,13 +28,13 @@
 * 多人採購任務
 * 區分 `未採購` 與 `採購中` 狀態 
 * 顯示 `採購品名` 與 `數量` ，方便採購人採購時查看<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/PurchaseListPage.png" width="200">
+<br><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/PurchaseListPage.png" width="200">
 
 ### 採購任務查看、新增、修改狀態
 * 拍照與選取食材照片，方便採購人採購時查看
 * 採買完成，一鍵加入 `食材管理列表`
 * 根據採購人意願接收任務<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/AddPurchaseList.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/PurchaseDetail.png" width="200">
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/PurchasetoFood.gif" width="400">
 
 ### 食譜推薦
 * 食譜庫

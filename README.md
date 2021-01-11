@@ -5,7 +5,7 @@
 </a>
 
 
-**打開冰箱是款協助你紀錄、管理、不浪費食材的app<BR>
+**打開冰箱是款協助你記錄、管理、不浪費食材的app<BR>
 輕鬆管理冰箱食材，使用分類查看食物有效期限<BR>建立採購任務與家人共同為家裡採買物品<BR>輸入食材名稱推薦食譜，物盡其用，減少食材過期浪費，讓生活更便利**
 
 ## Features & ScreenShots
@@ -14,9 +14,10 @@
 ### 冰箱食材管理
 * 食材保存期限狀態
 * 食材按照分類排序<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/SoonWiilExpiredPage.png" width="200">
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/SoonWiilExpiredPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/switchDate.gif" width="200">
 
-### 冰箱食材查看、新增、修改、新增自訂義分類
+
+### 冰箱食材查看、新增、修改、新增自定義分類
 * 自動帶入`購買當天日期` 、`設定過期日期` 
 * 拍照與選取食材照片，方便找尋冰箱食材<BR><BR>
 <img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/AddFood.png" width="200">
@@ -47,7 +48,7 @@
 ## Libraries
 * Firebase/Firestore
 * Firebase/Storage
-* FirebaseFirestoreSwift
+* Firebase/FirestoreSwift
 * Firebase/Auth
 * Firebase/Crashlytics
 * THLabel

@@ -54,7 +54,7 @@
 * Firebase/Crashlytics
 * THLabel
 * IQKeyboardManagerSwift
-* lottie-ios
+* Lottie-iOS
 * SwiftLint
 * Kingfisher
 

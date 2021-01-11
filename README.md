@@ -14,13 +14,14 @@
 ### 冰箱食材管理
 * 食材保存期限狀態
 * 食材按照分類排序<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/FoodListPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/SoonWiilExpiredPage.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/test.gif" width="200">
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/SwitchData.gif" width="400">
+<br>
 
 
 ### 冰箱食材查看、新增、修改、新增自定義分類
 * 自動帶入`購買當天日期` 、`設定過期日期` 
 * 拍照與選取食材照片，方便找尋冰箱食材<BR><BR>
-<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/AddFood.png" width="200"><img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/AddNewFood.gif" width="200">
+<img src="https://github.com/chloe-huhu/FridgeManager/blob/master/FridgeManager/FridgeManagerPNG/AddNewFood.gif" width="400">
 
 
 ### 採購任務管理

@@ -43,7 +43,7 @@ class RecipeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         navigationController?.isNavigationBarHidden = false
-        navigationItem.hidesBackButton = false
+//        navigationItem.hidesBackButton = false
     }
     
     func setupSearch() {

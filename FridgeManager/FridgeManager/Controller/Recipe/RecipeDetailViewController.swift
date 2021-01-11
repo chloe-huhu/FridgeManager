@@ -16,7 +16,8 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        naviTabBarSetup()
+        self.tabBarController?.tabBar.isHidden = true
+
     }
 
     override func viewWillLayoutSubviews() {
@@ -31,14 +32,6 @@ class RecipeDetailViewController: UIViewController {
             tableView.delegate = self
             tableView.contentInsetAdjustmentBehavior = .never
         }
-    }
-    
-    func naviTabBarSetup() {
-        self.tabBarController?.tabBar.isHidden = true
-        guard let recipe = selectedRecipe?.id else { return }
-        self.navigationItem.title = "\(recipe)"
-        navigationController?.isNavigationBarHidden = true
-        navigationItem.hidesBackButton = true
     }
     
     @IBAction func backButton(_ sender: UIButton) {

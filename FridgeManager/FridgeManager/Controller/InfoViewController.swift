@@ -14,8 +14,6 @@ import Kingfisher
 
 class InfoViewController: UIViewController {
     
-    
-    
     var refUID: DocumentReference? {
         
         guard let userUid = UserDefaults.standard.value(forKey: "userUid") as? String else {
@@ -52,7 +50,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
-        dbInfoListen()
+//        dbInfoListen()
         
     }
     
@@ -306,20 +304,34 @@ class InfoViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     }
     
-    func dbInfoListen() {
-        
-        refUID!.addSnapshotListener { documentSnapshot, error in
-            guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
+    func infoListen() {
+        FirebaseManager.shared.listen(ref: .document(refUID!)) {
+            FirebaseManager.shared.read(ref: .document(self.refUID!), dataType: User.self) { (result) in
+                
+                switch result {
+                
+                case .success(let users):
+                    
+                    if users.count == 1 {
+                        
+                        let user = users[0]
+                        self.setupPhoto(user.photo)
+                        self.nameLabel.text = user.displayName
+                        self.fridgesArray = []
+                        for fridge in user.myFridges {
+                            self.getFridgeName(fridgeID: fridge)
+                        }
+                        self.invitesArray = []
+                        for invite in user.myInvites {
+                            self.getInviteName(fridgeID: invite)
+                        }
+                    }
+                    self.tableView.reloadData()
+                    
+                case .failure(let error):
+                    print("error \(error)")
+                }
             }
-            
-            guard document.data() != nil else {
-                print("Document data was empty.")
-                return
-            }
-            
-            self.dbInfoGet()
         }
     }
     
@@ -337,58 +349,6 @@ class InfoViewController: UIViewController {
         } else {
             
             self.personImageView.image = UIImage(systemName: "person.circle")
-        }
-    }
-    
-    
-    // 監聽個人頁面(photo\displayName\冰箱列表\冰箱邀請)
-    func dbInfoGet() {
-        
-        refUID!.getDocument { (document, err) in
-            if let err = err {
-                print("Error getting documents:\(err)")
-            } else {
-                
-                if let document = document, document.exists {
-                    do {
-                        
-                        let data = try document.data(as: User.self)
-                        
-                        guard let name = data?.displayName,
-                              let fridges = data?.myFridges,
-                              let invites = data?.myInvites,
-                              let photo = data?.photo
-                        
-                        else { return }
-                        
-                        self.setupPhoto(photo)
-                        
-                        self.nameLabel.text = name
-                        
-                        self.fridgesArray = []
-                        
-                        for fridge in fridges {
-                            self.getFridgeName(fridgeID: fridge)
-                        }
-                        
-                        self.invitesArray = []
-                        
-                        for invite in invites {
-                            self.getInviteName(fridgeID: invite)
-                        }
-                        
-                        self.tableView.reloadData()
-                        
-                    } catch {
-                        
-                        print("error to decode", error)
-                    }
-                    
-                } else {
-                    
-                    print("Document does not exist")
-                }
-            }
         }
     }
     
@@ -414,9 +374,8 @@ class InfoViewController: UIViewController {
                         
                         print("error to decode", error)
                     }
-                    
                 }
-                
+
                 self.tableView.reloadData()
             }
         }
@@ -464,7 +423,6 @@ class InfoViewController: UIViewController {
                 for document in querySnapshot!.documents {
 
                     do {
-                        
                         let data = try document.data(as: Fridge.self)
                         
                         self.currentFridgeID = data?.fridgeID
@@ -509,7 +467,6 @@ class InfoViewController: UIViewController {
             Firestore.firestore().collection("users").document(uid).updateData(["myFridges": FieldValue.arrayRemove([fridgeID])])
         }
 
-        
     }
     
     func btnPressedAnimation(type: ShowFridge) {
@@ -717,7 +674,6 @@ extension InfoViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension InfoViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -778,7 +734,6 @@ extension InfoViewController: UIImagePickerControllerDelegate & UINavigationCont
         guard let photo = downloadURL else { return }
         
         refUID!.updateData(["photo": photo])
-        
     }
 }
 
@@ -795,5 +750,4 @@ extension InfoViewController: qRCodeDelegate {
         print("邀請\(userUID)入群")
         
     }
-    
 }

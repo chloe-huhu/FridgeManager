@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 class RecipeViewController: UIViewController {
     
-    let ref = Firestore.firestore().collection("recipe")
+    let ref = FirebaseManager.shared.getCollection(ref: .recipes)
     
     var recipeList: [Recipe] = []
     
@@ -36,8 +36,8 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationTitleSetup()
-        listenRecipe()
         setupSearch()
+        getRecipe()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,38 +66,27 @@ class RecipeViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
       
     }
-    
-    
-    func listenRecipe() {
-        FirebaseManager.shared.listen(ref: ref) {
-            self.getRecipe()
-        }
-    }
-    
+
     
     func getRecipe() {
-        ref.getDocuments { (querySnapshot, err) in
+        
+        FirebaseManager.shared.read(ref: .collection(ref) , dataType: Recipe.self) { (result) in
             
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                self.recipeList = []
-
-                for document in querySnapshot!.documents {
-                    
-                    do {
-                        let data = try document.data(as: Recipe.self)
-                        self.recipeList.append(data!)
-                    } catch {
-                        print("error to decode", error)
-                    }
-                    
-                }
+            switch result {
+            
+            case .success(let recipes):
+                
+                self.recipeList = recipes
+                
                 self.tableView.reloadData()
-            }
+                
+            case .failure(let error):
             
+                print("error \(error)")
+            }
         }
     }
+    
     
     func navigationTitleSetup() {
         
@@ -107,8 +96,6 @@ class RecipeViewController: UIViewController {
         
         navigationController?.navigationBar.backgroundColor = .chloeYellow
         navigationController?.navigationBar.barTintColor = .chloeYellow
-        
-        
         
         if #available(iOS 13.0, *) {
                 let app = UIApplication.shared

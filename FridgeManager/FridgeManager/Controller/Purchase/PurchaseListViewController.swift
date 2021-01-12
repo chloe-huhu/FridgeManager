@@ -155,7 +155,7 @@ class PurchaseListViewController: UIViewController {
   // firebase 監聽
     func dblistenAwating() {
         print("dblistenAwating")
-        FirebaseManager.shared.listen(ref: awaitingRef) {
+        FirebaseManager.shared.listen(ref:.collection(awaitingRef) ) {
             
             self.dbGetAwaiting()
         }
@@ -163,7 +163,7 @@ class PurchaseListViewController: UIViewController {
     
     func dblistenAccept() {
         print("dblistenAccept")
-        FirebaseManager.shared.listen(ref: acceptRef) {
+        FirebaseManager.shared.listen(ref: .collection(acceptRef) ) {
             
             self.dbGetAccept()
         }

@@ -12,7 +12,7 @@ import FirebaseFirestore
 class ViewController: UIViewController {
     
     
-    var db:Firestore!
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +21,3 @@ class ViewController: UIViewController {
 
 
 }
-
-

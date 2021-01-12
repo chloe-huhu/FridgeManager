@@ -215,7 +215,7 @@ class FoodListViewController: UIViewController {
     
     func dbListen() {
         
-        FirebaseManager.shared.listen(ref: ref) {
+        FirebaseManager.shared.listen(ref: .collection(ref) ) {
             
             self.dbGet()
         }

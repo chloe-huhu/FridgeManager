@@ -462,7 +462,7 @@ class InfoViewController: UIViewController {
             
         }
         
-        func deleteMyFridge(fridgeID:String) {
+        func deleteMyFridge(fridgeID: String) {
             let uid = Auth.auth().currentUser!.uid
             Firestore.firestore().collection("users").document(uid).updateData(["myFridges": FieldValue.arrayRemove([fridgeID])])
         }

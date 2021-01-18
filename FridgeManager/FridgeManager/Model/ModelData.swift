@@ -19,23 +19,6 @@ struct Food: Codable {
     let expiredDate: Date
 }
 
-extension Food {
-    
-    var dictionary: [String: Any] {
-        return [
-            "id": id,
-            "photo": photo as? Any,
-            "name": name,
-            "amount": amount ,
-            "unit": unit,
-//            "amountAlert": amountAlert,
-            "category": category,
-            "purchaseDate": purchaseDate,
-            "expiredDate": expiredDate
-        ]
-    }
-}
-
 struct List: Codable {
     let id: String
     let photo: String?

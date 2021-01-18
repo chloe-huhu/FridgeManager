@@ -133,33 +133,9 @@ class AddFoodTableViewController: UITableViewController {
             self.present(controller, animated: true, completion: nil)
             
         })
-        
-//        let deletCateAction = UIAlertAction(title: "刪除分類", style: .default, handler: { _ in
-//
-//            let controller = UIAlertController(title: "輸入欲刪除分類", message: nil, preferredStyle: .alert)
-//
-//            controller.addTextField { (textField) in textField.placeholder = "輸入分類" }
-//
-//            let okAction = UIAlertAction(title: "刪除", style: .default) { (_) in
-//
-//                guard let deleteCategory = controller.textFields?[0].text else { return }
-//
-//
-//                // 從firebase delet
-//                self.ref.document(self.fridgeID).updateData(["category": FieldValue.arrayRemove(["\(deleteCategory)"])])
-//
-//            }
-//            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-//
-//            controller.addAction(okAction)
-//            controller.addAction(cancelAction)
-//
-//            self.present(controller, animated: true, completion: nil)
-//        })
-//
+
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alterController.addAction(addCateAction)
-//        alterController.addAction(deletCateAction)
         alterController.addAction(cancelAction)
         
         present(alterController, animated: true, completion: nil)
@@ -289,7 +265,6 @@ class AddFoodTableViewController: UITableViewController {
         // 翻回去PurchaseListPage
         self.navigationController?.popToRootViewController(animated: true)
                 self.navigationController?.tabBarController?.selectedIndex = 0
-        //        self.navigationController?.tabBarController?.tabBarItem
         
     }
     

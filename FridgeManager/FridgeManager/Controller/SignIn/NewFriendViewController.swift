@@ -53,11 +53,6 @@ class NewFriendViewController: UIViewController {
             qrImageView.centerYAnchor.constraint(equalTo: alterController.view.centerYAnchor)
         ])
         
-//
-//        let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
-//            self.performSegue(withIdentifier: "SegueHomeVC", sender: nil)
-//        }
-//        alterController.addAction(okAction)
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alterController.addAction(cancelAction)

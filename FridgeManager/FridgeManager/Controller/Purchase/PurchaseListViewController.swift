@@ -367,7 +367,6 @@ extension PurchaseListViewController: UITableViewDataSource {
         if section == 0 {
             return awaitingList.count
         } else {
-//            return acceptLists.count
             return whoBuyArray.count
         }
         

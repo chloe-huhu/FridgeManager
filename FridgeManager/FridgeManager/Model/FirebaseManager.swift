@@ -65,27 +65,6 @@ class FirebaseManager {
             }
         }
         
-//        ref.addSnapshotListener { documentSnapshot, error in
-//            guard let documents = documentSnapshot else {
-//                print("Error fetching document: \(error!)")
-//                return
-//            }
-//
-//            // 監聽新增項目
-//            documents.documentChanges.forEach { diff in
-//                if diff.type == .added {
-//                    print("新增: \(diff.document.data())")
-//                }
-//                if diff.type == .modified {
-//                    print("修改: \(diff.document.data())")
-//                }
-//                if diff.type == .removed {
-//                    print("刪除: \(diff.document.data())")
-//                }
-//            }
-//                handler()
-//        }
-        
     }
     
 
